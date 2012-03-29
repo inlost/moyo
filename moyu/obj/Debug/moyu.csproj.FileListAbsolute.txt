@@ -1,0 +1,5 @@
+G:\WebProject\moyu\moyu\bin\moyu.dll
+G:\WebProject\moyu\moyu\bin\moyu.pdb
+G:\WebProject\moyu\moyu\obj\Debug\ResolveAssemblyReference.cache
+G:\WebProject\moyu\moyu\obj\Debug\moyu.dll
+G:\WebProject\moyu\moyu\obj\Debug\moyu.pdb
