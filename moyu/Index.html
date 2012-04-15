@@ -35,12 +35,85 @@
         <div id="content">
             <div id="channels" class="center">
                 <ul id="channelList" class="clearfix">
-                    <li class="channelItem waitChannel" id="waitChannel-blue"></li>
-                    <li class="channelItem" id="cpChannel">电脑城</li>
-                    <li class="channelItem" id="clChannel">服装城</li>
-                    <li class="channelItem waitChannel" id="waitChannel-red">Channel</li>
-                    <li class="channelItem" id="ecChannel">E卡平台</li>
+                    <li class="channelItem" id="cpChannel">
+                        <div class="channelName channelNameR">
+                            电脑城
+                        </div>
+                    </li>
+                    <li class="channelItem" id="ecChannel">
+                        <div class="channelName channelNameL">
+                            易卡
+                        </div>
+                    </li>
+                    <li class="channelItem" id="clChannel">
+                        <div class="channelName channelNameL">
+                            服装城
+                        </div>
+                        <div id="cl_subChannel" class="clearfix">
+                            <div id="cl_sub_female"></div>
+                            <div id="cl_sub_male"></div>
+                        </div>
+                    </li>
+                    <li class="channelItem" id="hpChannel">
+                        <div class="channelName channelNameL">
+                            公益
+                        </div>
+                    </li>
+                    <li class="channelItem" id="waitChannel-gray">
+                        <div class="channelName channelNameL">
+                            敬请期待
+                        </div>
+                    </li>
                 </ul>
+            </div>
+        </div>
+        <div id="market" class="hide">
+            <div id="market-status-bar" class="loading-big"></div>
+            <div id="marketBox" class="hide">
+                <div id="marketContent" class="center"></div>
+                <div id="subForm" class="center hide">
+                    <h2 class="channelTitle">填写您的联系信息,以便我们联系您</h2>
+                    <form action="" method="Post">
+                        <input type="hidden" name="formType" value="" id="formType"/>
+                        <ul id="formElm">
+                            <li>
+                                <div class="methodLine clearfix">
+                                    <div class="ml-l">您的名字：</div>
+                                    <div class="ml-c"><input type="text" name="name" autocomplete="off"/></div>
+                                    <div class="ml-r"><span>*</span>个人请填姓名，公司填写公司名或联系人名</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="methodLine clearfix">
+                                    <div class="ml-l">您的电话：</div>
+                                    <div class="ml-c"><input type="text" name="name" autocomplete="off"/></div>
+                                    <div class="ml-r"><span>*</span>最好填写手机号码，请尽量确保电话有人接听</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="methodLine clearfix">
+                                    <div class="ml-l">您的联系地址：</div>
+                                    <div class="ml-c"><input type="text" name="name" autocomplete="off"/></div>
+                                    <div class="ml-r"><span>*</span>请填写详细的联系地址</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="methodLine clearfix">
+                                    <div class="ml-l">您的会员号码(可不填)：</div>
+                                    <div class="ml-c"><input type="text" name="name" autocomplete="off"/></div>
+                                    <div class="ml-r">如果是平台会员，请填写此项，以便积分和取得优惠</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="methodLine clearfix">
+                                    <div class="ml-l">&nbsp;</div>
+                                    <div class="ml-c"><button id="submitButton" type="submit">提交</button></div>
+                                    <div class="ml-r">请确认填写项准确无误后再提交表单</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
             </div>
         </div>
         <div id="footer">

@@ -54,6 +54,12 @@ a
 /*--------------------------------
             layout
 ---------------------------------*/
+body,h1,h2,h3,h4{
+    font-family:Microsoft Yahei,Verdana, Tahoma, Segoe, sans-serif;
+}
+.hide{
+    display:none;
+}
 .clearfix:after{content:"\0020"; display:block; height:0; clear:both;}
 .clearfix{zoom:1;}
 .page{
@@ -64,6 +70,10 @@ a
     width:1004px;
     margin:0 auto;
     text-align:left;
+}
+.loading-big{
+    height:100px;
+    background:url(../images/loading-big.gif) no-repeat center;
 }
 #layout{
     text-align:center;
@@ -149,29 +159,186 @@ a
     height:150px;
     line-height:150px;
     float:left;
+    position:relative;
     margin:10px 16px 10px 0;
     -moz-opacity:.6; opacity:.6; -ms-filter:"alpha(opacity=.6*100)"; filter:alpha(opacity=.6*100); zoom:1;
     cursor:pointer;
-    text-indent:-3000px;
 }
-
-#waitChannel-blue{
-    background-color:#00B8E1;
-    width:150px;
+#channels .activeChannel{
+    -moz-opacity:1.0; opacity:1.0; -ms-filter:"alpha(opacity=1.0*100)"; filter:alpha(opacity=1.0*100); zoom:1;
+}
+.channelName{
+    position:absolute;
+    z-index:800;
+    width:25px;
+    display:none;
+    padding:10px;
+    color:white;
+    line-height:24px;
+    font-weight:bold;
+    word-wrap:break-word;word-break:break-all;
 }
 #cpChannel{
+    background:#00B8E1 url(../images/ch-computer.png) no-repeat center;
     width:150px;
-    background-color:#609725;
+}
+#ecChannel{
+    background:#609725 url(../images/ch-card.png) no-repeat center;
+    width:150px;
 }
 #clChannel{
     width:310px;
     background-color:#E29718;
+    text-align:center;
 }
-#waitChannel-red{
-    background-color:#F180A4;
+#cl_subChannel{
+    margin:0 auto;
+    width:310px;
+}
+#cl_sub_female,#cl_sub_male{
+    width:150px;
+    height:150px;
+    float:left;
+}
+#cl_sub_female{
+    margin-right:5px;
+    background:url(../images/ch-cl-fm.png) no-repeat center;
+}
+#cl_sub_male{
+    margin-left:5px;
+    background:url(../images/ch-cl-m.png) no-repeat center;
+}
+#hpChannel{
+    background:#F180A4 url(../images/ch-help.png) no-repeat center;
     width:150px;
 }
-#ecChannel{
-    background-color:#59686B;
+#waitChannel-gray{
+    background:#59686B url(../images/ch-wait.png) no-repeat center;
     width:150px;
+}
+.channelNameR{
+    right:-45px;
+}
+.channelNameL{
+    left:-45px;
+}
+/*form*/
+#formElm{
+    margin:20px 0 20px 20px;
+}
+#formElm li{
+    padding-left:30px;
+    -moz-border-radius:8px; -khtml-border-radius:8px; -webkit-border-radius:8px; border-radius:8px;
+    border-right:6px solid #00B8E1;
+    border-left:6px solid #00B8E1;
+    margin-bottom:12px;
+}
+#formElm li:hover,#formElm li.hover{
+    background-color:#DDD;
+    font-weight:bold;
+}
+#formElm li:hover .ml-r,#formElm li.hover .ml-r{
+    display:block;
+}
+#formElm .ml-l,#formElm .ml-c, #formElm .ml-r{
+    float:left;
+    line-height:60px;
+}
+#formElm .ml-l{
+    width:180px;
+}
+#formElm .ml-c{
+    padding-right:25px;
+}
+#formElm .ml-c input{
+    height:25px;
+    line-height:25px;
+    width:300px;
+}
+#formElm .ml-r{
+    width:400px;
+    display:none;
+    font-weight:normal;
+    color:#888;
+}
+#formElm .ml-r span{
+    color:red;
+}
+#formElm #submitButton{
+    border:none;
+    width:88px;
+    height:26px;
+    line-height:26px;
+    background:url(../images/submit.gif) no-repeat center;
+    cursor:pointer;
+}
+/*market*/
+#market{
+    margin-bottom:20px;
+    background-color:#CCC;
+}
+#marketBox{
+    position:relative;
+}
+#marketContent,#subForm{
+    padding:20px 10px;
+}
+.marketContentOnSubmit{
+    position:absolute;
+}
+.channelTitle{
+    line-height:40px;
+    font-size:24px;
+    font-weight:bold;
+    color:#232323;
+    text-indent:12px;
+    border-left:8px solid #D85334;
+    border-bottom:3px solid #D85334;
+}
+.channelTitle span{
+    text-indent:30px;
+    color:#EEE;
+}
+.channelServiceList{
+    margin:20px 0;
+}
+.channelServiceList li h3{
+    font-size:18px;
+    color:#595959;
+    line-height:32px;
+    text-indent:8px;
+    letter-spacing:2px;
+    border-bottom:6px solid #4C90C1;
+}
+.channelServiceList li{
+    float:left;
+}
+.channelServiceList li a{
+    display:block;
+    padding:20px 20px 20px 96px;
+    height:76px;
+    width:218px;
+    color:#232323;
+    -moz-border-radius:8px; -khtml-border-radius:8px; -webkit-border-radius:8px; border-radius:8px;
+}
+.channelServiceList li a:hover{
+    background-color:#DDD !important;
+}
+#cpMk-serviceList #cpMk-s-system a{
+    background:url("../images/computer/system-64.png") no-repeat 18px 16px;
+}
+#cpMk-serviceList #cpMk-s-network a{
+    background:url("../images/computer/network-64.png") no-repeat 18px 16px;
+}
+#cpMk-serviceList #cpMk-s-web a{
+    background:url("../images/computer/web-64.png") no-repeat 18px 16px;
+}
+#cpMk-serviceList #cpMk-s-software a{
+    background:url("../images/computer/software-64.png") no-repeat 18px 16px;
+}
+#cpMk-serviceList #cpMk-s-office a{
+    background:url("../images/computer/office-64.png") no-repeat 18px 16px;
+}
+#cpMk-serviceList #cpMk-s-other a{
+    background:url("../images/computer/other-64.png") no-repeat 18px 16px;
 }

@@ -51,6 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Index.html" />
+    <Content Include="Markets\computer\index.html" />
+    <Content Include="Script\jquery-1.7.js" />
+    <Content Include="Script\main.js" />
     <Content Include="Style\main.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -71,7 +74,6 @@
     <Folder Include="Admin\" />
     <Folder Include="Images\" />
     <Folder Include="Markets\Apparel\" />
-    <Folder Include="Script\" />
     <Folder Include="Services\" />
     <Folder Include="Templete\" />
   </ItemGroup>
