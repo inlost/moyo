@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Data;
 using System.Collections;
@@ -12,7 +11,6 @@ namespace moyu.Data
     public partial class Db
     {
         private SqlConnection myConn;
-        private SqlCommand myCmd;
         private DataSet ds;
         private SqlDataAdapter adapt;
     }
@@ -26,12 +24,12 @@ namespace moyu.Data
         /// <returns>添加过参数的sqlCommand对象</returns>
         private SqlCommand setQueryPar(SqlCommand cmd, Hashtable inQuery)
         {
-            SqlParameter sqlPar = new SqlParameter();
             foreach (DictionaryEntry par in inQuery)
             {
+                SqlParameter sqlPar = new SqlParameter();
                 sqlPar.ParameterName = par.Key.ToString();
                 sqlPar.Value = par.Value.ToString();
-                myCmd.Parameters.Add(sqlPar);
+                cmd.Parameters.Add(sqlPar);
             }
             return cmd;
         }
@@ -44,6 +42,7 @@ namespace moyu.Data
         /// <returns>数据库连接对象</returns>
         private SqlConnection GetConnection()
         {
+            
             string strCon = ConfigurationManager.ConnectionStrings["conStr"].ToString();
             myConn = new SqlConnection(strCon);
             return myConn;
@@ -54,10 +53,10 @@ namespace moyu.Data
         /// <param name="strSql">sql语句</param>
         public void ExecNonQuery(string strSql)
         {
+            SqlCommand myCmd = new SqlCommand();
             try
             {
                 myConn = GetConnection();
-                myCmd = new SqlCommand();
                 myCmd.Connection = myConn;
                 myCmd.CommandType = CommandType.Text;
                 myCmd.CommandText = strSql;
@@ -88,13 +87,15 @@ namespace moyu.Data
         /// <param name="inQuery">存储过程参数列表</param>
         public void ExecNoneQuery(string stroName, Hashtable inQuery)
         {
+            SqlCommand myCmd = new SqlCommand();
             try
             {
                 myConn = GetConnection();
-                myCmd = new SqlCommand();
+                myCmd.Connection = myConn;
                 myCmd.CommandType = CommandType.StoredProcedure;
                 myCmd.CommandText = stroName;
                 myCmd = setQueryPar(myCmd, inQuery);
+                myConn.Open();
                 myCmd.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -148,17 +149,20 @@ namespace moyu.Data
         /// <returns>查询结果集</returns>
         public DataTable GetQueryStro(string stroName, Hashtable inQuery, string tableName)
         {
+            SqlCommand myCmd = new SqlCommand();
             ds = new DataSet();
             try
             {
                 myConn = GetConnection();
-                myCmd = new SqlCommand();
+                myCmd.Connection = myConn;
                 myCmd.CommandType = CommandType.StoredProcedure;
                 myCmd.CommandText = stroName;
                 myCmd = setQueryPar(myCmd , inQuery);
                 adapt = new SqlDataAdapter();
+                myConn.Open();
                 adapt.SelectCommand = myCmd;
                 adapt.Fill(ds, tableName);
+                myCmd.Parameters.Clear();
                 return ds.Tables[tableName];
             }
             catch (Exception e)

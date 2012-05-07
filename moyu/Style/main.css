@@ -62,6 +62,8 @@ body,h1,h2,h3,h4{
 }
 .clearfix:after{content:"\0020"; display:block; height:0; clear:both;}
 .clearfix{zoom:1;}
+.left{float:left;}
+.right{float:right;}
 .page{
     position:relative;
     background:#FFF url(../images/bg.jpg) repeat;
@@ -222,6 +224,13 @@ body,h1,h2,h3,h4{
 .channelNameL{
     left:-45px;
 }
+#market-status-bar{
+    text-align:left;
+    font-weight:bold;
+    line-height:100px;
+    font-size:24px;
+    color:#666;
+}
 /*form*/
 #formElm{
     margin:20px 0 20px 20px;
@@ -321,9 +330,10 @@ body,h1,h2,h3,h4{
     color:#232323;
     -moz-border-radius:8px; -khtml-border-radius:8px; -webkit-border-radius:8px; border-radius:8px;
 }
-.channelServiceList li a:hover{
+.channelServiceList li a:hover,.channelServiceList li a.selected{
     background-color:#DDD !important;
 }
+/*computer market*/
 #cpMk-serviceList #cpMk-s-system a{
     background:url("../images/computer/system-64.png") no-repeat 18px 16px;
 }
@@ -341,4 +351,267 @@ body,h1,h2,h3,h4{
 }
 #cpMk-serviceList #cpMk-s-other a{
     background:url("../images/computer/other-64.png") no-repeat 18px 16px;
+}
+/*ecard markdet*/
+#ecSchoolMk-serviceList #ecMk-s-houseHolder a{
+    background:url(../images/ecard/houseHolder.png) no-repeat 18px 16px;
+}
+#ecSchoolMk-serviceList #ecMk-s-students a{
+    background:url(../images/ecard/student.png) no-repeat 18px 16px;
+}
+#ecSchoolMk-serviceList #ecMk-s-teacher a{
+    background:url(../images/ecard/teacher.png) no-repeat 18px 16px;
+}
+#ecSchoolMk-serviceList li{
+    position:relative;
+}
+#eCard-login-form{
+    position:absolute;
+    padding:20px;
+    width:294px;
+    top:80px;
+    background-color:#DDD;
+    -moz-border-radius:8px; -khtml-border-radius:8px; -webkit-border-radius:8px; border-radius:8px;
+}
+#eCard-login-form li{
+    padding-right:6px;
+    padding-right:6px\9;
+    float:left;
+}
+#eCard-login-form li .ec-l-f-l{
+    line-height:28px;
+}
+#eCard-login-form li .ec-l-f-r input{
+    line-height:26px;
+    width:132px;
+    height:26px;
+    height:26px\9;
+}
+#eCard-login-form button{
+    width:132px;
+    line-height:26px;
+}
+/*-----clothes market------*/
+#clMk-s-fashion a{
+    background:url(../images/clothes/t-shirt.png) no-repeat 18px 16px;
+}
+#clMk-s-kids a{
+    background:url(../images/clothes/kids.png) no-repeat 18px 16px;
+}
+#clMk-s-business a{
+    background:url(../images/clothes/Shirt-Blue-Tie.png) no-repeat 18px 16px;
+}
+/*-----------------------
+ * --------ecardSchool---
+ * ---------------------*/
+#schoolEcard{
+    margin:20px 0;
+    position:relative;
+}
+#schoolEcard-functionBar{
+    width:120px;
+    position:absolute;
+    left:10px;
+    top:18px;
+    z-index:10;
+}
+#schoolEcard-f-functionList a{
+    margin-bottom:8px;
+    display:block;
+    width:80px;
+    height:30px;
+    line-height:30px;
+    text-align:left;
+    padding:4px 20px;
+    background-color:#5FBDCE;
+    color:#FCFCFC;
+    font-weight:bold;
+    -moz-border-radius:6px; -khtml-border-radius:6px; -webkit-border-radius:6px; border-radius:6px;
+}
+#schoolEcard-f-functionList a.selected,#schoolEcard-f-functionList a:hover{
+    background-color:#EDEBBC;
+    color:#888;
+    text-align:center;
+}
+#schoolEcard-content{
+    background-color:#EDEBBC;
+    position:relative;
+    width:850px;
+    padding:20px;
+    min-height:400px;
+    left:110px;
+    z-index:20;
+    -moz-border-radius:8px; -khtml-border-radius:8px; -webkit-border-radius:8px; border-radius:8px;
+}
+#schoolEcard-c-functionBox{
+    margin:15px 0;
+}
+.schoolEcard-c-fb{
+    float:left;
+    width:47%;
+    margin:10px;
+    min-height:100px;
+}
+.ui-widget-header{
+    padding:6px;
+    text-indent:6px;
+}
+.ui-state-default{
+    padding:3px 8px;
+}
+.ui-widget-header span{
+    float:left;
+}
+#schoolEcard-c-todo{
+    min-height:400px;
+}
+.schoolEcard-c-fb .ui-widget-header{
+    cursor:move;
+}
+#schoolEcard-c-documentsList{
+    min-height:360px;
+    width:220px;
+    margin-right:20px;
+}
+#schoolEcard-c-myDocumentsList,#schoolEcard-c-draftDocumentsList{
+    width:295px;
+    min-height:60px;
+}
+#schoolEcard-c-myDocumentsList{
+    margin-right:10px;
+}
+#schoolEcard-c-draftDocumentsList,#schoolEcard-c-newDocuments,#schoolEcard-c-myDocumentsList{
+    margin-bottom:20px;
+}
+#schoolEcard-c-newDocuments{
+    width:600px;
+}
+#schoolEcard-c-n-sendToBox{
+    margin-left:8px;
+    padding-top:8px;
+}
+#schoolEcard-c-n-sendToBox li,#schoolEcard-c-f-t-n-m-receivers li{
+    float:left;
+    line-height:32px;
+    margin-right:8px;
+}
+#schoolEcard-c-n-body,#schoolEcard-c-n-submit{
+    padding:0 8px 8px;
+}
+#schoolEcard-c-n-b-title{
+    padding:8px 0;
+}
+#schoolEcard-c-n-b-title input{
+    width:500px;
+}
+/*----mail------*/
+#schoolEcard-c-f-t-n-main{
+    width:640px;
+}
+#schoolEcard-c-f-t-n-sendTo{
+    width:140px;
+    margin:0 0 0 10px;
+}
+#schoolEcard-c-f-t-n-sendTo ul{
+    height:475px;
+    overflow-y:scroll;
+}
+#schoolEcard-c-f-t-n-m-r-addBox input{
+    width:80px;
+}
+#schoolEcard-c-f-t-n-b-title{
+    margin:8px 0;
+}
+#schoolEcard-c-f-t-n-b-title input{
+    width:500px;
+}
+#schoolEcard-c-f-t-n-sendTo li{
+    padding:4px 6px;
+    margin:4px 6px;
+    text-indent:12px;
+    cursor:pointer;
+}
+/*---contact----*/
+.schoolEcard-c-f-c-l-item{
+    padding:10px;
+    margin:6px;
+    width:29%;
+}
+.schoolEcard-c-f-c-u-name{
+    border-bottom:1px dashed #888;
+    padding-bottom:6px;
+}
+.schoolEcard-c-f-c-u-other li{
+    float:left;
+    padding:6px 4px 3px;
+    font-size:14px;
+}
+.schoolEcard-c-f-c-u-address{
+    padding:3px 0 6px;
+    font-size:14px;
+}
+/*---班级----*/
+#schoolEcard-c-f{
+    padding:10px;
+}
+#schoolEcard-c-f-s-list li{
+    float:left;
+    margin:3px;
+    padding:6px;
+}
+.schoolEcard-c-f-s-architecture{
+    background-color:#CDE0ED;
+    color:#888;
+    border:1px dashed #666;
+    cursor:pointer;
+}
+#schoolEcard-c-f-s-list .selected,#schoolEcard-c-f-s-list .hover{
+    background-color:#EDEDED;
+    font-weight:bold;
+    color:#111;
+    border:1px solid #666;
+}
+#student-List,#student-late-list,#student-leave-list,#student-leaveEarly-list{
+    margin:6px;
+    -moz-border-radius:8px; -khtml-border-radius:8px; -webkit-border-radius:8px; border-radius:8px;
+    border:1px solid #DDD;
+    background-color:#FFF;
+}
+#schoolEcard-c-f .functionListTitle{
+    padding:6px 0;
+    background-color:#EDEDED;
+    text-indent:10px;
+    border-bottom:1px solid #DDD
+    font-size:14px;
+    font-weight:bold;
+}
+#student-List{
+    width:440px;
+    height:400px;
+}
+.student-List-student{
+    float:left;
+    margin:6px;
+    padding:6px 2px;
+    background-color:#D9ECEF;
+    color:#52878F;
+    cursor:move;
+}
+#student-late-list,#student-leave-list,#student-leaveEarly-list{
+    width:350px;
+    height:124px;
+}
+.ui-state-error .functionListTitle{
+    color:#000;
+}
+/*---课件----*/
+#schoolEcard-c-f-t-n-f-coursePars li{
+    float:left;
+    margin:6px;
+}
+/*----------------------
+ * -------clothes-------
+ * --------------------*/
+body .wait{
+    -moz-opacity:.3; opacity:.3; -ms-filter:"alpha(opacity=.3*100)"; filter:alpha(opacity=.3*100); zoom:1;
 }
