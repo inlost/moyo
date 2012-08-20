@@ -13,7 +13,14 @@ namespace moyu
         {
             Hashtable rst = new Hashtable();
             rst = UpLoad(uploadFile, uploadpath);
-            MakeThumbnail(rst["uploadpath"].ToString() + rst["filename"], rst["uploadpath"] + "a" + rst["filename"], 319, 463);
+            MakeThumbnail(rst["uploadpath"].ToString() + rst["filename"], rst["uploadpath"] + "a" + rst["filename"], 225, 463);
+            return rst["url"].ToString();
+        }
+        public string upLoadForExchange(HttpPostedFile uploadFile, string uploadpath)
+        {
+            Hashtable rst = new Hashtable();
+            rst = UpLoad(uploadFile, uploadpath);
+            MakeThumbnail(rst["uploadpath"].ToString() + rst["filename"], rst["uploadpath"] + "a" + rst["filename"], 162, 162);
             return rst["url"].ToString();
         }
         /// <summary>
@@ -105,7 +112,7 @@ namespace moyu
             //    case "HW"://指定高宽缩放（可能变形）                
             //        break;
             //    case "W"://指定宽，高按比例                    
-            //        toheight = originalImage.Height * width / originalImage.Width;
+            toheight = originalImage.Height * width / originalImage.Width;
             //        break;
             //    case "H"://指定高，宽按比例
             //        towidth = originalImage.Width * height / originalImage.Height;
@@ -129,16 +136,16 @@ namespace moyu
             //    default:
             //        break;
             //}
-            toheight = originalImage.Height * width / originalImage.Width;
-            towidth = originalImage.Width * height / originalImage.Height;
-            if (toheight > height)
-            {
-                toheight = height;
-            }
-            if (towidth > width)
-            {
-                towidth = width;
-            }
+            //toheight = originalImage.Height * width / originalImage.Width;
+            //towidth = originalImage.Width * height / originalImage.Height;
+            //if (toheight > height)
+            //{
+            //    toheight = height;
+            //}
+            //if (towidth > width)
+            //{
+            //    towidth = width;
+            //}
             //新建一个bmp图片
             Image bitmap = new System.Drawing.Bitmap(towidth, toheight);
             //新建一个画板

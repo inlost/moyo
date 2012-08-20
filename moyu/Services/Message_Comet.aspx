@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Message_Comet.aspx.cs" Inherits="moyu.Services.Message_Comet" Async="true" AsyncTimeout="30" EnableSessionState="ReadOnly"%>

@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 namespace moyu.Services
 {
     /// <summary>
-    /// School_Mail 的摘要说明
+    /// 学校邮件服务
     /// </summary>
     public class School_Mail : IHttpHandler, IRequiresSessionState
     {

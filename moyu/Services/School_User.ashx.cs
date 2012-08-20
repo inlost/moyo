@@ -21,7 +21,7 @@ namespace moyu.Services
     }
     public class School_User : IHttpHandler, IRequiresSessionState 
     {
-        private User.School myUser = new User.School();
+        private moyu.User.School myUser = new moyu.User.School();
         private HttpContext theContext;
         public void ProcessRequest(HttpContext context)
         {

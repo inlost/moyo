@@ -16,7 +16,7 @@
                 DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="id">
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-                ConnectionString="Data Source=INLOST-PC;Initial Catalog=moyu;Persist Security Info=True;User ID=sa;Password=thisislaobai" 
+                ConnectionString="Data Source=LocalHost;Integrated Security=SSPI;Initial Catalog=moyu" 
                 ProviderName="System.Data.SqlClient" 
                 SelectCommand="SELECT [id], [name] FROM [sale_cat] WHERE (([deep] = @deep) AND ([father] = @father))">
                 <SelectParameters>
@@ -28,7 +28,7 @@
                 DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="id">
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
-                ConnectionString="Data Source=INLOST-PC;Initial Catalog=moyu;Persist Security Info=True;User ID=sa;Password=thisislaobai" 
+                ConnectionString="Data Source=LocalHost;Integrated Security=SSPI;Initial Catalog=moyu" 
                 ProviderName="System.Data.SqlClient" 
                 SelectCommand="SELECT [id], [name] FROM [sale_cat] WHERE (([deep] = @deep) AND ([father] = @father))">
                 <SelectParameters>

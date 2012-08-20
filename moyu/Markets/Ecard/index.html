@@ -1,4 +1,22 @@
-﻿<h2 class="channelTitle">学校易卡  <span>SchoolEcard</span></h2>
+﻿<h2 class="channelTitle">易卡生活  <span>LivingEcard</span></h2>
+<ul id="ecLiveMk-serviceList" class="channelServiceList clearfix">
+    <li id="e-s-apply">
+        <a class="submitForm" data-for="易卡申请" href="javascript:void(0);">
+            <h3>申请易卡</h3>
+        </a>
+    </li>
+    <li id="e-s-exchange">
+        <a class="needLogin" data-dst="Markets/Ecard/live/exchange.aspx" href="javascript:void(0);">
+            <h3>积分兑换</h3>
+        </a>
+    </li>  
+    <li id="e-s-union">
+        <a class="jump" data-dst="" href="javascript:void(0);">
+            <h3>联盟商家</h3>
+        </a>
+    </li>
+</ul>
+<h2 class="channelTitle">易卡学校  <span>SchoolEcard</span></h2>
 <ul id="ecSchoolMk-serviceList" class="channelServiceList clearfix">
     <li id="ecMk-s-houseHolder">
         <a class="e-s-login" href="#" data-permission="4">
@@ -63,4 +81,6 @@
 <script>
     var moyo=new Moyo();
     moyo.ecard.bindSchoolLogin();
+    moyo.computer.bindSubmit();
+    moyo.addLoginListen();
 </script>

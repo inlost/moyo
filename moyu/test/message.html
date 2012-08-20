@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../Script/jquery-1.7.js" type="text/javascript"></script>
+    <script src="../Script/main.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="messageReceived">
+    </div>
+    <form id="talkMessageForm" action="../Services/Message.ashx">
+        <input type="text" name="messageSend" />
+        <button type="submit">发送</button>
+    </form>
+    <script type="text/javascript">
+        var moyo = new Moyo();
+        moyo.Message.newComet();
+        moyo.Message.messageSend();
+    </script>
+</body>
+</html>

@@ -1,21 +1,44 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="zh-CN"><!--<![endif]-->
 <head>
-    <title></title>
-    <link rel="Stylesheet" href="Style/main.css" />
+    <meta charset="UTF-8" />
+    <title>沁辰左邻-定西人的网上家园</title>
+    <meta name="description" content="定西人自己的网上家园，定西的信息平台，提供定西网络购物、团购，定西社交社区，定西电脑上门服务，定西一卡通等信息化互联网服务。" />
+    <meta name="keywords" content="定西,信息平台,定西网购,定西电脑上面维修,定西信息港,定西一卡通,定西商家联盟,定西社区,定西贴吧" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="Stylesheet" href="Style/main.css?spm=8-6-2" />
     <link rel="Stylesheet" href="Script/jquery-ui/css/sunny/jquery-ui-1.8.19.custom.css" />
-    <script type="text/javascript" charset="utf-8" src="Script/jquery-1.7.js"></script>
-    <script type="text/javascript" src="Script/jquery-ui/js/jquery-ui-1.8.19.custom.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="Script/jquery-1.7.js?r=1"></script>
 </head>
 <body class="page">
+ <!--[if lt IE 8]>
+  <div style='border: 1px solid #F7941D; background: #FEEFDA; text-align: center; clear: both; height: 75px; position: relative;'>
+    <div style='position: absolute; right: 3px; top: 3px; font-family: courier new; font-weight: bold;'><a href='#' onclick='javascript:this.parentNode.parentNode.style.display="none"; return false;'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-cornerx.jpg' style='border: none;' alt='你管我用什么'/></a></div>
+    <div style='width: 840px; margin: 0 auto; text-align: left; padding: 0; overflow: hidden; color: black;'>
+      <div style='width: 75px; float: left;'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-warning.jpg' alt='Warning!'/></div>
+      <div style='width: 395px; float: left; font-family: Arial, sans-serif;'>
+        <div style='font-size: 14px;font-weight: bold; margin-top: 12px;'>亲，危险！我们发现你还在用IE6 IE7啊！经常中毒吧？</div>
+        <div style='font-size: 12px;margin-top: 6px; line-height: 16px;'>点<a style="font-weight:bold;color:red;" target='_blank' href="http://www.baidu.com/s?wd=%BE%DC%BE%F8ie6&rsv_bp=0&rsv_spt=3&inputT=3519">这儿</a>了解IE6,IE7存在的安全隐患，你可以选择右边这些全世界最好的浏览器，获得更佳的上网体验。别说360，流氓的360不需要解释。</div>
+      </div>
+      <div style='width: 75px; float: left;'><a href='http://www.google.com/chrome' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-chrome.jpg' style='border: none;' alt='全世界最快的Google Chrome'/></a></div>
+      <div style='width: 75px; float: left;'><a href='http://windows.microsoft.com/zh-CN/internet-explorer/downloads/ie' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-ie8.jpg' style='border: none;' alt='升级到 IE8'/></a></div>
+      <div style='width: 75px; float: left;'><a href='http://www.firefox.com' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-firefox.jpg' style='border: none;' alt='Get Firefox 3.5'/></a></div>
+      <div style='width: 73px; float: left;'><a href='http://www.apple.com/safari/download/' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-safari.jpg' style='border: none;' alt='Get Safari 4'/></a></div>
+    </div>
+  </div>
+  <![endif]-->
     <div id="layout">
         <div id="header" class="center">
             <div id="adImgBox">
                 <ul>
-                    <li><img src="images/had-1.jpg"/></li>
-                    <li><img src="images/had-2.jpg"/></li>
-                    <li><img src="images/had-3.jpg"/></li>
-                    <li><img src="images/had-4.jpg"/></li>
+                    <li><img alt="时尚，品质" src="images/had-1.jpg"/></li>
+                    <li><img alt="省事，省钱" src="images/had-2.jpg"/></li>
+                    <li><img alt="用心，贴心" src="images/had-3.jpg"/></li>
+                    <li><img alt="信任，成长" src="images/had-4.jpg"/></li>
                 </ul>
             </div>
             <div id="adIntroduce" class="clearfix">
@@ -25,6 +48,13 @@
                     <li><a data-index="3" href="#">用心，贴心</a></li>
                     <li><a data-index="4" href="#">信任，成长</a></li>
                 </ul>
+            </div>
+            <div id="rightHeaderInfo" class="clearfix">
+                <div id="rightHeaderInfo_data">日期</div>
+                <div id="rightHeaderInfo_temp">温度</div>
+                <div id="rightHeaderInfo_weather">天气</div>
+                <div id="rightHeaderInfo_index">穿衣指数</div>
+                <div id="rightHeaderInfo_indexCo">舒适指数</div>
             </div>
         </div>
         <div id="splitBar">
@@ -37,35 +67,46 @@
         <div id="content">
             <div id="channels" class="center">
                 <ul id="channelList" class="clearfix">
-                    <li class="channelItem" id="cpChannel">
+                    <li class="channelItem png_bg_fix" id="cpChannel">
                         <div class="channelName channelNameR">
                             电脑城
                         </div>
                     </li>
-                    <li class="channelItem" id="ecChannel">
+                    <li class="channelItem png_bg_fix" id="ecChannel">
                         <div class="channelName channelNameL">
                             易卡
                         </div>
                     </li>
-                    <li class="channelItem" id="clChannel">
+                    <li class="channelItem png_bg_fix" id="clChannel">
                         <div class="channelName channelNameL">
-                            服装城
+                            商城
                         </div>
-                        <div id="cl_subChannel" class="clearfix">
+                        <div id="cl_subChannel" class="png_bg_fix clearfix">
                             <div id="cl_sub_female"></div>
                             <div id="cl_sub_male"></div>
                         </div>
                     </li>
                     <li class="channelItem" id="hpChannel">
                         <div class="channelName channelNameL">
-                            公益
+                            定西贴吧
                         </div>
                     </li>
-                    <li class="channelItem" id="waitChannel-gray">
+                    <li class="channelItem" id="livingChannel">
                         <div class="channelName channelNameL">
-                            敬请期待
+                            定西生活
                         </div>
                     </li>
+                </ul>
+            </div>
+            <div id="siteBar">
+                <ul id="siteBar-itemList">
+                    <li><a id="s-i-home" href="javascript:void(0);">主页</a></li>
+                    <li><a id="s-i-login" class="needLogin" href="javascript:void(0);">登录</a></li>
+                    <li><a id="s-i-back" href="javascript:void(0);">返回</a></li>
+                    <li><a id="s-i-message" href="javascript:void(0);">聊天</a></li>
+                    <li><a id="s-i-settings" href="javascript:void(0);">设置</a></li>
+                    <li><a id="s-i-ssl" href="javascript:void(0);" title="点击进入SSL安全加密模式">SSL</a></li>
+                    <li><a id="s-i-groupJoin" href="javascript:void(0);">群：95396686<img border="0" src="Images/gp.gif" alt="点击这里加入此群" title="点击这里加入此群"></a></li>
                 </ul>
             </div>
         </div>
@@ -74,36 +115,37 @@
             <div id="marketBox" class="hide">
                 <div id="marketContent" class="center"></div>
                 <div id="subForm" class="center hide">
-                    <h2 class="channelTitle">请填写您的联系信息，工作人员会马上上门为您服务</h2>
-                    <form action="" method="Post">
+                    <h2 class="channelTitle">请填写您的联系信息</h2>
+                    <form action="#" id="order-form" method="Post" onSubmit="return false;">
                         <input type="hidden" name="formType" value="" id="formType"/>
+                        <input type="hidden" name="gid" value="" id="order-gid" />
                         <ul id="formElm">
                             <li>
                                 <div class="methodLine clearfix">
                                     <div class="ml-l">您的名字：</div>
-                                    <div class="ml-c"><input type="text" name="name" autocomplete="off"/></div>
+                                    <div class="ml-c"><input type="text" name="order-name" autocomplete="off"/></div>
                                     <div class="ml-r"><span>*</span>个人请填姓名，公司填写公司名或联系人名</div>
                                 </div>
                             </li>
                             <li>
                                 <div class="methodLine clearfix">
                                     <div class="ml-l">您的电话：</div>
-                                    <div class="ml-c"><input type="text" name="name" autocomplete="off"/></div>
+                                    <div class="ml-c"><input type="text" name="order-phone" autocomplete="off"/></div>
                                     <div class="ml-r"><span>*</span>最好填写手机号码，请尽量确保电话有人接听</div>
                                 </div>
                             </li>
                             <li>
                                 <div class="methodLine clearfix">
                                     <div class="ml-l">您的联系地址：</div>
-                                    <div class="ml-c"><input type="text" name="name" autocomplete="off"/></div>
+                                    <div class="ml-c"><input type="text" name="order-address" autocomplete="off"/></div>
                                     <div class="ml-r"><span>*</span>请填写详细的联系地址</div>
                                 </div>
                             </li>
                             <li>
                                 <div class="methodLine clearfix">
                                     <div class="ml-l">您的会员号码(可不填)：</div>
-                                    <div class="ml-c"><input type="text" name="name" autocomplete="off"/></div>
-                                    <div class="ml-r">如果是平台会员，请填写此项，以便积分和取得优惠</div>
+                                    <div class="ml-c"><input type="text" value="000000000000" name="order-eid" autocomplete="off"/></div>
+                                    <div class="ml-r">如果是平台会员，请重填此项，以便积分和取得优惠</div>
                                 </div>
                             </li>
                             <li>
@@ -119,14 +161,63 @@
             </div>
         </div>
         <div id="footer">
-            
+                <a href="#" id="gotop" target="_self" title="回到顶部"></a>
+                <div id="footerContent">
+                    <p class="parm2">Copyright © 2009-2012 Ai0932.cOm All Rights Reserved 定西沁辰科技开发有限公司 <a href="https://www.miibeian.gov.cn" target="_blank">京ICP证090216号</a> 0932-8366225</p>
+                    <p class="parm2 clearfix">
+                        <a href="javascript:void(0);" target="_blank" title="QQ彩贝联盟"><img src="Images/footer/okbuy1.png" alt="QQ彩贝联盟"></a>
+                        <a href="javascript:void(0);" target="_blank" title="可信网站示范单位"><img src="Images/footer/okbuy1-02.png" alt="可信网站示范单位"></a>
+                        <a href="javascript:void(0);" target="_blank" title="支付宝特约商家"><img src="Images/footer/okbuy1-03.png" alt="支付宝特约商家"></a>
+                        <a target="_blank" href="javascript:void(0);" title="诚信品牌"><img src="Images/footer/okbuy1-04.png" alt="诚信品牌"></a>
+                    </p>
+                </div>
+        </div>
+        <div id="talkBar-holder" class="clearfix">
+            <div id="th-guider" class="needTip left" data-tip="客官久等啦，我是如花，嘿嘿……"></div>
+            <div id="th-talkBox" class="left">
+                <input id="th-t-message" type="text" class="needTip" data-tip="都看见你了，来和大家打个招呼说说话吧"/>
+                <span id="th-t-onlineNumber"></span>
+            </div>
+            <div id="th-messageHolder" class="left clearfix"></div>
+            <div id="th-messageTpHolder" class="hide">
+                <div class="th-message left [class] clearfix">
+                    <div class="th-m-message">[message]<b></b></div>
+                    <div class="th-m-by left">[by]</div>
+                    <div class="th-m-time left">[time]</div>
+                </div>
+            </div>
         </div>
     </div>
     <div id="functions" class="hide">
-        <div id="moyo-message" title="">
-            <p></p>
+        <div id="moyo-message" title=""><p></p></div>
+        <div id="moyo-popHolder">
+            <div id="moyo-popHolder-functions" class="hide">
+                <ul>
+                    <li><a id="moyo-popH-f-buy" href="javascript:void(0);">购买</a></li>
+                </ul>
+            </div>
+            <div id="moyo-popHolder-content"></div>
+        </div>
+        <div id="moyo-sideBar-holder">
+            <div id="moyo-sideBar">
+                <div class="m-s-content">
+                    <div class="m-s-c-inner"></div>
+                    <div class="m-s-close"><a href="javascript:void(0);">关闭</a></div>
+                </div>
+            </div>
         </div>
     </div>
-    <script type="text/javascript" charset="utf-8" src="Script/main.js"></script>
+    <script type="text/javascript" src="Script/jquery-ui/js/jquery-ui-1.8.19.custom.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="Script/main.js?spm=8-6-3"></script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-33269870-1']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
 </body>
 </html>

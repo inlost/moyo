@@ -239,11 +239,11 @@
                         break;
                     default:
                 }
-                opt[ci.id] = ci.value;
+                opt[ci.id] = ci.value || (ci.id == 'border' ? 0 : '')
             }
 
             for(var i=0,ci;ci=selects[i++];){
-                opt[ci.id] = ci.value.toUpperCase();
+                opt[ci.id] = ci.value.toUpperCase()
             }
             editor.execCommand(state == -1 ? 'inserttable' : 'edittable',opt );
         };
