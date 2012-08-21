@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -14,6 +15,15 @@
     <AssemblyName>moyu</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,6 +77,7 @@
     <Content Include="Images\bar-setting.gif" />
     <Content Include="Images\bar-talk.gif" />
     <Content Include="Images\bg.jpg" />
+    <Content Include="Images\bg.png" />
     <Content Include="Images\ch-card.png" />
     <Content Include="Images\ch-cl-fm.png" />
     <Content Include="Images\ch-cl-m.png" />
@@ -113,6 +124,7 @@
     <Content Include="Images\logo.gif" />
     <Content Include="Images\sale-bt-bg.png" />
     <Content Include="Images\submit.gif" />
+    <Content Include="Images\talk-guide.gif" />
     <Content Include="Images\union\open.png" />
     <Content Include="Index.html" />
     <Content Include="login.html" />
@@ -134,7 +146,8 @@
     <Content Include="Markets\Informations\TopicShow.aspx" />
     <Content Include="Markets\Living\index.aspx" />
     <Content Include="reg.html" />
-    <Content Include="Script\jquery-1.7.js" />
+    <Content Include="Script\jquery-1.8.0.js" />
+    <Content Include="Script\jquery-1.8.0.min.js" />
     <Content Include="Script\jquery-ui\css\sunny\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
     <Content Include="Script\jquery-ui\css\sunny\images\ui-bg_flat_15_cd0a0a_40x100.png" />
     <Content Include="Script\jquery-ui\css\sunny\images\ui-bg_glass_100_e4f1fb_1x400.png" />
@@ -580,6 +593,7 @@
     <Content Include="Script\lightbox\js\jquery-ui-1.8.18.custom.min.js" />
     <Content Include="Script\lightbox\js\jquery.smooth-scroll.min.js" />
     <Content Include="Script\lightbox\js\lightbox.js" />
+    <Content Include="Script\main-min.js" />
     <Content Include="Script\main.js" />
     <Content Include="Script\raty\doc\css\stylesheet.css" />
     <Content Include="Script\raty\doc\img\background.gif" />
@@ -1171,86 +1185,7 @@
     <Content Include="Script\ueitor\_src\ui\uiutils.js" />
     <Content Include="Services\Message_Comet.aspx" />
     <Content Include="Style\main.css" />
-    <Content Include="test\fileupload.aspx" />
-    <Content Include="test\message.html" />
     <Content Include="tipPage\images\ssl.jpg" />
-    <Content Include="upload\images\2012\5\00309bc2-95d3-4d6c-b4c0-abf60abfd569.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-11-037096bcdc-6e63-4087-b5a7-5d8a0e3e2a93.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-11-0539ff86ed-0c30-466e-96a7-8199abe57dda.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-11-06e5a6dea7-63ab-478c-a9ab-9425969a1f8d.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-11-15751ea8cc-f8da-46e0-83b8-85f0f323708f.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-11-17e5bb4399-4bb2-4ef8-b886-6c88c95aa863.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-11-204852a6cb-a213-46e5-8fa2-60f94155794c.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-11-2054d471a5-c755-4ea7-b1b4-ccbb250381c2.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-11-3206f9cae9-5aee-4885-8889-037aa3c60094.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-11-36f9432ea2-c7f4-485f-ab56-c67b001da316.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-11-38bd0149a3-56b4-437a-a64a-17e7f879eef2.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-11-397b38ea9a-b498-469e-988c-e0f174cde8f1.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-11-41a9da8682-b97d-4944-a3b7-1f6fdf980ea7.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-11-493e636da9-d2b1-4712-aecf-559e2def3dc9.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-11-55e5b62bda-95ff-4583-96fd-268208585829.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-11-560ed716a0-9d7e-4e22-8b94-9f011d113ad3.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-12-019aa16962-9143-4ff5-ab84-4c86821755e8.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-12-04b208601d-8f30-4f5c-8a2a-6702ace05a95.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-12-09e878fbd8-1d16-40df-830a-cbd70631f983.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-12-14c047ee7e-f248-4d29-80b3-d9f9b19b0c9c.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-12-23ae42bb94-8280-4c3c-b87f-1f3a4bd65194.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-12-267b292ca8-00f3-427b-83e2-22c678c1ac51.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-12-26b71eccae-3571-49b4-858f-90e6ae836620.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-12-287de20596-43d9-4fe6-a2a7-40c06019dec5.jpg" />
-    <Content Include="upload\images\2012\5\2012-05-12-57278fd47a-c7ab-407d-b2c5-438a29bf3ce9.jpg" />
-    <Content Include="upload\images\2012\5\2e8c1bdd-06d0-438b-8378-d1ace401d2b8.jpg" />
-    <Content Include="upload\images\2012\5\312e1656-551e-4f47-b065-4ba103ccd87d.jpg" />
-    <Content Include="upload\images\2012\5\3350e1d5-4e3d-403e-bd6d-fb6a7421efa0.jpg" />
-    <Content Include="upload\images\2012\5\348459e5-1d11-43cf-94ec-5c4dde541bbc.jpg" />
-    <Content Include="upload\images\2012\5\574de811-94c0-47b5-9822-2757cf8da649.jpg" />
-    <Content Include="upload\images\2012\5\62124bad-6526-4a28-a5ba-78d249745874.jpg" />
-    <Content Include="upload\images\2012\5\64106f61-691c-485d-90e6-a915419a348f.jpg" />
-    <Content Include="upload\images\2012\5\6d60a2d2-c50c-4fdd-8a47-4e10df44c049.jpg" />
-    <Content Include="upload\images\2012\5\80836b64-4183-4788-b8c5-c47b20a66d59.jpg" />
-    <Content Include="upload\images\2012\5\9a077dcd-1781-44ff-a69c-6e021d51679f.jpg" />
-    <Content Include="upload\images\2012\5\9cc1ec4c-6cfb-4b22-a0b1-e5ccfae6fa5b.jpg" />
-    <Content Include="upload\images\2012\5\a00309bc2-95d3-4d6c-b4c0-abf60abfd569.jpg" />
-    <Content Include="upload\images\2012\5\a2e8c1bdd-06d0-438b-8378-d1ace401d2b8.jpg" />
-    <Content Include="upload\images\2012\5\a312e1656-551e-4f47-b065-4ba103ccd87d.jpg" />
-    <Content Include="upload\images\2012\5\a3350e1d5-4e3d-403e-bd6d-fb6a7421efa0.jpg" />
-    <Content Include="upload\images\2012\5\a348459e5-1d11-43cf-94ec-5c4dde541bbc.jpg" />
-    <Content Include="upload\images\2012\5\a574de811-94c0-47b5-9822-2757cf8da649.jpg" />
-    <Content Include="upload\images\2012\5\a62124bad-6526-4a28-a5ba-78d249745874.jpg" />
-    <Content Include="upload\images\2012\5\a64106f61-691c-485d-90e6-a915419a348f.jpg" />
-    <Content Include="upload\images\2012\5\a6d60a2d2-c50c-4fdd-8a47-4e10df44c049.jpg" />
-    <Content Include="upload\images\2012\5\a80836b64-4183-4788-b8c5-c47b20a66d59.jpg" />
-    <Content Include="upload\images\2012\5\a9a077dcd-1781-44ff-a69c-6e021d51679f.jpg" />
-    <Content Include="upload\images\2012\5\a9cc1ec4c-6cfb-4b22-a0b1-e5ccfae6fa5b.jpg" />
-    <Content Include="upload\images\2012\5\aa3988d8-b1fe-471a-9bd0-0be30f016e0f.jpg" />
-    <Content Include="upload\images\2012\5\aaa3988d8-b1fe-471a-9bd0-0be30f016e0f.jpg" />
-    <Content Include="upload\images\2012\5\ab25f42fc-3a31-47aa-993a-f4bda663b70b.jpg" />
-    <Content Include="upload\images\2012\5\ac2379428-6369-40d8-9dda-90f799a1f223.jpg" />
-    <Content Include="upload\images\2012\5\ac3812e97-12ea-48ba-b6a2-9710c934a49e.jpg" />
-    <Content Include="upload\images\2012\5\ad43c36ed-0025-4ca8-93ba-1a6f32a9b81a.jpg" />
-    <Content Include="upload\images\2012\5\ae5db6f51-3f66-449e-a143-4c5fb84d4c17.jpg" />
-    <Content Include="upload\images\2012\5\aeea75c7f-d6f8-4d03-b5ba-edd471351179.jpg" />
-    <Content Include="upload\images\2012\5\af2a14f3c-7527-47b7-8092-01b945db77b5.jpg" />
-    <Content Include="upload\images\2012\5\af2b32e84-f2ad-439a-81f3-ed97ec9b9fa0.jpg" />
-    <Content Include="upload\images\2012\5\afd0192ca-3abd-487f-a01a-3cd339f3129a.jpg" />
-    <Content Include="upload\images\2012\5\aff59803a-b7fb-4ede-a54b-951d7489591f.jpg" />
-    <Content Include="upload\images\2012\5\b25f42fc-3a31-47aa-993a-f4bda663b70b.jpg" />
-    <Content Include="upload\images\2012\5\c2379428-6369-40d8-9dda-90f799a1f223.jpg" />
-    <Content Include="upload\images\2012\5\c3812e97-12ea-48ba-b6a2-9710c934a49e.jpg" />
-    <Content Include="upload\images\2012\5\d43c36ed-0025-4ca8-93ba-1a6f32a9b81a.jpg" />
-    <Content Include="upload\images\2012\5\e5db6f51-3f66-449e-a143-4c5fb84d4c17.jpg" />
-    <Content Include="upload\images\2012\5\eea75c7f-d6f8-4d03-b5ba-edd471351179.jpg" />
-    <Content Include="upload\images\2012\5\f2a14f3c-7527-47b7-8092-01b945db77b5.jpg" />
-    <Content Include="upload\images\2012\5\f2b32e84-f2ad-439a-81f3-ed97ec9b9fa0.jpg" />
-    <Content Include="upload\images\2012\5\fd0192ca-3abd-487f-a01a-3cd339f3129a.jpg" />
-    <Content Include="upload\images\2012\5\ff59803a-b7fb-4ede-a54b-951d7489591f.jpg" />
-    <Content Include="upload\images\2012\6\2012-06-02-2996b702b2-4dee-49ed-b9b1-38ae81eb2ab7.jpg" />
-    <Content Include="upload\images\2012\6\2012-06-06-333a84ca63-fb51-4e5e-a9b6-14bf79b2bea4.jpg" />
-    <Content Include="upload\images\2012\6\2012-06-06-347c96c5ac-7d03-4b31-88b6-ca832ba042c8.jpg" />
-    <Content Include="upload\images\2012\6\2012-06-06-349daff463-71b3-44ea-9347-f229aafbf0d5.jpg" />
-    <Content Include="upload\images\2012\6\2012-06-06-34b52849f8-ec35-4077-a8aa-028dd8716ae4.jpg" />
-    <Content Include="upload\images\2012\6\51b5c662-efb6-4d6f-872b-8030d3e85e84.jpg" />
-    <Content Include="upload\images\2012\6\a51b5c662-efb6-4d6f-872b-8030d3e85e84.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1472,17 +1407,8 @@
     <Compile Include="Templete\ecard_school.Master.designer.cs">
       <DependentUpon>ecard_school.Master</DependentUpon>
     </Compile>
-    <Compile Include="test\fileupload.aspx.cs">
-      <DependentUpon>fileupload.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test\fileupload.aspx.designer.cs">
-      <DependentUpon>fileupload.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="upload\files\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Services\School_User.ashx" />
   </ItemGroup>
@@ -1521,8 +1447,13 @@
     <Content Include="Services\living_shop_comment.ashx" />
     <Content Include="Services\living_shop_info.ashx" />
   </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">

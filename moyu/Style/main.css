@@ -1421,6 +1421,7 @@ body .wait{
     padding-right:16px;
     font-size:80px;
     line-height:60px;
+    color:#888;
 }
 .t-c-r-shops-index2,.t-c-r-shops-index1{
     border-bottom:1px solid #DDD;
@@ -1452,12 +1453,22 @@ body .wait{
     width:60px;
     height:60px;
 }
+.t-c-r-s-i-address,.t-c-n-i-shop{
+    color:#666;
+}
+.t-c-n-i-title{
+    color:#369;
+}
+.t-c-n-i-title:hover{
+    text-decoration:underline;
+}
 .t-c-r-s-inContent{
     width:210px;
     padding-left:8px;
 }
 .t-c-r-s-inContent h3{
     line-height:24px;
+    color:#888;
     font-weight:bold;
     font-size:14px;
 }
@@ -1501,6 +1512,16 @@ body .wait{
 }
 .t-c-i-detal h5{
     font-weight:bold;
+    color:#888;
+}
+.t-c-i-d-infos div{
+    color:#666;
+}
+.t-c-s-i-hilight a{
+    color:#AA000A;
+}
+.t-c-s-i-hilight a:hover{
+    text-decoration:underline;
 }
 .t-c-newShop h4{
     line-height:20px;

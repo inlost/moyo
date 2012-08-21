@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moyu", "moyu\moyu.csproj", "{D7BB6F22-C514-45ED-9AC9-B8C1B6E29AF4}"
 EndProject
 Global

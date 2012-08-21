@@ -1,0 +1,86 @@
+﻿<h2 class="channelTitle">易卡生活  <span>LivingEcard</span></h2>
+<ul id="ecLiveMk-serviceList" class="channelServiceList clearfix">
+    <li id="e-s-apply">
+        <a class="submitForm" data-for="易卡申请" href="javascript:void(0);">
+            <h3>申请易卡</h3>
+        </a>
+    </li>
+    <li id="e-s-exchange">
+        <a class="needLogin" data-dst="Markets/Ecard/live/exchange.aspx" href="javascript:void(0);">
+            <h3>积分兑换</h3>
+        </a>
+    </li>  
+    <li id="e-s-union">
+        <a class="jump" data-dst="" href="javascript:void(0);">
+            <h3>联盟商家</h3>
+        </a>
+    </li>
+</ul>
+<h2 class="channelTitle">易卡学校  <span>SchoolEcard</span></h2>
+<ul id="ecSchoolMk-serviceList" class="channelServiceList clearfix">
+    <li id="ecMk-s-houseHolder">
+        <a class="e-s-login" href="#" data-permission="4">
+            <h3>家长登录入口</h3>
+        </a>
+    </li>
+    <li id="ecMk-s-students">
+        <a class="e-s-login" href="#" data-permission="2">
+            <h3>学生登录入口</h3>
+        </a>
+    </li>
+    <li id="ecMk-s-teacher">
+        <a class="e-s-login" href="#" data-permission="1">
+            <h3>教师登录入口</h3>
+        </a>
+    </li>
+</ul>
+<div id="eCard-login-form" class="hide">
+    <form acriont="" method="POST">
+        <input type="hidden" name="permission"value=""/>
+        <ul>
+            <li>
+                <div class="ec-l-f-l">
+                    易卡/手机/ID：
+                </div>
+                <div class="ec-l-f-r">
+                    <input type="text" name="uid" autocomplete="off"/>
+                </div>
+            </li>
+            <li>
+                <div class="ec-l-f-l">
+                    登录密码：
+                </div>
+                <div class="ec-l-f-r">
+                    <input type="password" name="password" autocomplete="off"/>
+                </div>
+            </li>
+            <li id="safeKey">
+                <div class="ec-l-f-l">
+                    密钥<span></span>：
+                </div>
+                <div class="ec-l-f-r">
+                    <input type="text" name="safeKey" autocomplete="off"/>
+                </div>
+            </li>
+            <li>
+                <div class="ec-l-f-l">
+                    &nbsp;
+                </div>
+                <div class="ec-l-f-r">
+                    <button type="submit">登录</button>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+<div id="functions" class="hide">
+    <div id="ecard-loginFail" title="登录失败">
+        <p>登录失败,请检查登录信息是否正确，然后重新登录！</p>
+    </div>
+</div>
+<script>
+    var moyo=new Moyo();
+    moyo.ecard.bindSchoolLogin();
+    moyo.computer.bindSubmit();
+    moyo.addLoginListen();
+</script>
