@@ -1,0 +1,48 @@
+﻿<div class="PopPage_Content">
+   <h1>申请创建圈子</h1> 
+    <div id="pop_group_new">
+        <form method="post" action="Services/Information_group.ashx" enctype="multipart/form-data" target="submitFrame">
+            <input type="hidden" name="action" value="group_new" />
+            <ul>
+                 <li class="clearfix">
+                    <div class="p_g_n_title left">
+                        圈子名称：
+                    </div>
+                    <div class="p_g_n_input left">
+                        <input type="text" name="newGroup_name" />
+                    </div>
+                </li>
+               <li class="clearfix">
+                    <div class="p_g_n_title left">
+                        加入权限：
+                    </div>
+                    <div class="p_g_n_input left">
+                        <select name="newGroup_joinType">
+                            <option value="1">任何人可以加入</option>
+                            <option value="2">需要申请才能加入</option>
+                            <option value="0">私人地盘，不许任何人加入</option>
+                        </select>
+                    </div>
+                </li>
+               <li class="clearfix">
+                    <div class="p_g_n_title left">
+                        圈子图标：
+                    </div>
+                    <div class="p_g_n_input left">
+                        <input type="file" name="newGroup_pic" />
+                    </div>
+                </li>
+               <li class="clearfix">
+                    <div class="p_g_n_title left">
+                        圈子介绍：
+                    </div>
+                    <div class="p_g_n_input left">
+                        <textarea name="newGroup_introduce" rows="15" cols="50"></textarea>
+                    </div>
+                </li>
+            </ul>
+            <button>提交申请</button>
+        </form>
+    </div>
+    <iframe id="submitFrame" name="submitFrame" style="display:none;"></iframe>
+</div>
