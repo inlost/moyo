@@ -1,11 +1,11 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html lang="zh-CN"><!--<![endif]-->
 <head>
-    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>沁辰左邻-定西人的网上家园</title>
     <meta name="description" content="定西人自己的网上家园，定西的信息平台，提供定西网络购物、团购，定西社交社区，定西电脑上门服务，定西一卡通等信息化互联网服务。" />
     <meta name="keywords" content="定西,信息平台,定西网购,定西电脑上面维修,定西信息港,定西一卡通,定西商家联盟,定西社区,定西贴吧" />
@@ -15,86 +15,35 @@
     <script type="text/javascript" src="Script/jquery-1.8.0.min.js"></script>
 </head>
 <body class="page">
- <!--[if lt IE 8]>
-  <div style='border: 1px solid #F7941D; background: #FEEFDA; text-align: center; clear: both; height: 75px; position: relative;'>
-    <div style='position: absolute; right: 3px; top: 3px; font-family: courier new; font-weight: bold;'><a href='#' onclick='javascript:this.parentNode.parentNode.style.display="none"; return false;'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-cornerx.jpg' style='border: none;' alt='你管我用什么'/></a></div>
-    <div style='width: 840px; margin: 0 auto; text-align: left; padding: 0; overflow: hidden; color: black;'>
-      <div style='width: 75px; float: left;'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-warning.jpg' alt='Warning!'/></div>
-      <div style='width: 395px; float: left; font-family: Arial, sans-serif;'>
-        <div style='font-size: 14px;font-weight: bold; margin-top: 12px;'>亲，危险！我们发现你还在用IE6 IE7啊！经常中毒吧？</div>
-        <div style='font-size: 12px;margin-top: 6px; line-height: 16px;'>点<a style="font-weight:bold;color:red;" target='_blank' href="http://www.baidu.com/s?wd=%BE%DC%BE%F8ie6&rsv_bp=0&rsv_spt=3&inputT=3519">这儿</a>了解IE6,IE7存在的安全隐患，你可以选择右边这些全世界最好的浏览器，获得更佳的上网体验。别说360，流氓的360不需要解释。</div>
-      </div>
-      <div style='width: 75px; float: left;'><a href='http://www.google.com/chrome' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-chrome.jpg' style='border: none;' alt='全世界最快的Google Chrome'/></a></div>
-      <div style='width: 75px; float: left;'><a href='http://windows.microsoft.com/zh-CN/internet-explorer/downloads/ie' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-ie8.jpg' style='border: none;' alt='升级到 IE8'/></a></div>
-      <div style='width: 75px; float: left;'><a href='http://www.firefox.com' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-firefox.jpg' style='border: none;' alt='Get Firefox 3.5'/></a></div>
-      <div style='width: 73px; float: left;'><a href='http://www.apple.com/safari/download/' target='_blank'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-safari.jpg' style='border: none;' alt='Get Safari 4'/></a></div>
-    </div>
-  </div>
-  <![endif]-->
     <div id="layout">
-        <div id="header" class="center">
-            <div id="adImgBox">
-                <ul>
-                    <li><img alt="时尚，品质" src="images/had-1.jpg"/></li>
-                    <li><img alt="省事，省钱" src="images/had-2.jpg"/></li>
-                    <li><img alt="用心，贴心" src="images/had-3.jpg"/></li>
-                    <li><img alt="信任，成长" src="images/had-4.jpg"/></li>
-                </ul>
-            </div>
-            <div id="adIntroduce" class="clearfix">
-                <ul>
-                    <li class="ad-now"><a data-index="1" href="#">时尚，品质</a></li>
-                    <li><a data-index="2" href="#">省事，省钱</a></li>
-                    <li><a data-index="3" href="#">用心，贴心</a></li>
-                    <li><a data-index="4" href="#">信任，成长</a></li>
-                </ul>
-            </div>
-            <div id="rightHeaderInfo" class="clearfix">
-                <div id="rightHeaderInfo_data">日期</div>
-                <div id="rightHeaderInfo_temp">温度</div>
-                <div id="rightHeaderInfo_weather">天气</div>
-                <div id="rightHeaderInfo_index">穿衣指数</div>
-                <div id="rightHeaderInfo_indexCo">舒适指数</div>
-            </div>
-        </div>
-        <div id="splitBar">
-            <div id="focusOnWhat">
-                <div id="fc_o_w_top"></div>
-                从下面选择您要进入的频道
-                <div id="fc_o_w_bottom"></div>
-            </div>
-        </div>
-        <div id="content">
+        <div id="header-navigation">
             <div id="channels" class="center">
                 <ul id="channelList" class="clearfix">
-                    <li class="channelItem png_bg_fix" id="cpChannel">
-                        <div class="channelName channelNameR">
-                            电脑城
-                        </div>
+					<li class="channelItem" id="logo">
+					</li>
+                    <li class="channelItem activeChannel clearfix" id="homeChannel">
+						<span class="left"></span>
+                        <h1 class="left">定西上网导航</h1>
                     </li>
-                    <li class="channelItem png_bg_fix" id="ecChannel">
-                        <div class="channelName channelNameL">
-                            易卡
-                        </div>
+                    <li class="channelItem clearfix" id="doorChannel">
+						<span class="left"></span>
+                        <h1 class="left">定西上门服务</h1>
                     </li>
-                    <li class="channelItem png_bg_fix" id="clChannel">
-                        <div class="channelName channelNameL">
-                            商城
-                        </div>
-                        <div id="cl_subChannel" class="png_bg_fix clearfix">
-                            <div id="cl_sub_female"></div>
-                            <div id="cl_sub_male"></div>
-                        </div>
+                    <li class="channelItem clearfix" id="infosChannel">
+						<span class="left"></span>
+                        <h1 class="left">定西信息港</h1>
                     </li>
-                    <li class="channelItem" id="hpChannel">
-                        <div class="channelName channelNameL">
-                            定西贴吧
-                        </div>
+                    <li class="channelItem clearfix" id="saleChannel">
+						<span class="left"></span>
+						<h1 class="left">定西网上商城</h1>					
                     </li>
-                    <li class="channelItem" id="livingChannel">
-                        <div class="channelName channelNameL">
-                            定西生活
-                        </div>
+                    <li class="channelItem clearfix" id="forumChannel">
+						<span class="left"></span>
+						<h1 class="left">定西贴吧</h1>						
+                    </li>
+                    <li class="channelItem clearfix" id="livingChannel">
+						<span class="left"></span>
+						<h1 class="left">定西生活</h1>						
                     </li>
                 </ul>
             </div>
@@ -103,11 +52,41 @@
                     <li><a id="s-i-home" href="javascript:void(0);">主页</a></li>
                     <li><a id="s-i-login" class="needLogin" href="javascript:void(0);">登录</a></li>
                     <li><a id="s-i-back" href="javascript:void(0);">返回</a></li>
-                    <li><a id="s-i-message" href="javascript:void(0);">聊天</a></li>
+                    <li><a id="s-i-message" href="javascript:void(0);">站内信</a></li>
                     <li><a id="s-i-settings" href="javascript:void(0);">设置</a></li>
                     <li><a id="s-i-ssl" href="javascript:void(0);" title="点击进入SSL安全加密模式">SSL</a></li>
                     <li><a id="s-i-groupJoin" href="javascript:void(0);">群：95396686<img border="0" src="Images/gp.gif" alt="点击这里加入此群" title="点击这里加入此群"></a></li>
                 </ul>
+            </div>
+        </div>
+        <div id="home" class="center">
+            <ul id="home-boxes" class="clearfix">
+                <li class="halfSizeBox needTip" data-tip="看新闻，星座"><a  id="h-b-item-qq" href="http://www.qq.com/" target="_blank">腾讯网</a></li>
+				<li class="halfSizeBox needTip" data-tip="看新闻，网易新闻的评论很亮"><a  id="h-b-item-163" href="http://www.163.com/" target="_blank">网易新闻</a></li>
+				<li class="halfSizeBox needTip" data-tip="中国最大的微博之一，不解释"><a id="h-b-item-weibo" href="http://www.weibo.com/" target="_blank">新浪微博</a></li>
+				<li class="halfSizeBox needTip" data-tip="中国最大的微博之一，不解释"><a id="h-b-item-QQweibo" href="http://t.qq.com/" target="_blank">腾讯微博</a></li>
+				<li class="halfSizeBox needTip" data-tip="市长信箱，书记信箱"><a id="h-b-item-dingxi" href="http://www.dx.gansu.gov.cn/portal/zmhdl/index.htm" target="_blank">定西党政</a></li>
+                <li class="halfSizeBox needTip" data-tip="扣扣空间，你懂的"><a id="h-b-item-qzone" href="http://www.Qzone.com/" target="_blank">QQ空间</a></li>
+				<li class="halfSizeBox needTip" data-tip="最懂你的音乐电台"><a id="h-b-item-doubanFm" href="http://www.douban.fm/" target="_blank">豆瓣电台</a></li>
+				<li class="halfSizeBox needTip" data-tip="网页版的QQ"><a id="h-b-item-webQQ" href="http://web.qq.com/" target="_blank">WebQQ</a></li>
+				<li class="halfSizeBox needTip" data-tip="土豆的老板"><a id="h-b-item-youku" href="http://www.youku.com/" target="_blank">优酷</a></li>
+				<li class="halfSizeBox needTip" data-tip="电视动漫，娱乐节目"><a id="h-b-item-tudou" href="http://www.tudou.com/" target="_blank">土豆</a></li>
+				<li class="halfSizeBox needTip" data-tip="电视，电影，动漫"><a id="h-b-item-qy" href="http://www.iqiyi.com/" target="_blank">爱奇艺</a></li>
+				<li class="halfSizeBox needTip" data-tip="低保，小额贷款，下岗证"><a id="h-b-item-dingxiRen" href="http://www.dxsrsj.gov.cn/" target="_blank">定西人力资源和社会保障局</a></li>
+				<li class="halfSizeBox needTip" data-tip="各种小游戏"><a id="h-b-item-game" href="http://www.4399.com/" target="_blank">小游戏</a></li>
+				<li class="halfSizeBox needTip" data-tip="高清MTV"><a id="h-b-item-mtv" href="http://www.yinyuetai.com/" target="_blank">音乐台</a></li>
+				<li class="halfSizeBox needTip" data-tip="汽车违章信息查询"><a id="h-b-item-dingxiJJ" href="http://www.gsgajt.gov.cn:9999/InfoSerchs/Vehvioinfo.aspx" target="_blank">违章查询</a></li>
+				<li class="halfSizeBox needTip" data-tip="不解释"><a id="h-b-item-train" href="http://www.12306.cn/mormhweb/" target="_blank">火车票</a></li>
+				<li class="halfSizeBox needTip" data-tip="不解释"><a id="h-b-item-calender" href="http://app.baidu.com/app/enter?appid=114629" target="_blank">万年历</a></li>
+				<li class="halfSizeBox needTip" data-tip="在线照片美化，修改"><a id="h-b-item-photo" href="http://xiuxiu.web.meitu.com/" target="_blank">照片美化</a></li> 
+				<li class="halfSizeBox needTip" data-tip="护照、报警、身份证办理"><a id="h-b-item-dingxiGA" href="http://www.dxsgaj.gov.cn/" target="_blank">定西市公安局</a></li>
+            </ul>
+            <div id="rightHeaderInfo" class="hide clearfix">
+                <div id="rightHeaderInfo_data">日期</div>
+                <div id="rightHeaderInfo_temp">温度</div>
+                <div id="rightHeaderInfo_weather">天气</div>
+                <div id="rightHeaderInfo_index">穿衣指数</div>
+                <div id="rightHeaderInfo_indexCo">舒适指数</div>
             </div>
         </div>
         <div id="market" class="hide">
@@ -163,6 +142,7 @@
         <div id="footer">
                 <a href="#" id="gotop" target="_self" title="回到顶部"></a>
                 <div id="footerContent">
+					<div id="footerMark">爱 @ <span>沁辰左邻</span></div>
                     <p class="parm2">Copyright © 2009-2012 Ai0932.cOm All Rights Reserved 定西沁辰科技开发有限公司 <a href="https://www.miibeian.gov.cn" target="_blank">京ICP证090216号</a> 0932-8366225</p>
                     <p class="parm2 clearfix">
                         <a href="javascript:void(0);" target="_blank" title="QQ彩贝联盟"><img src="Images/footer/okbuy1.png" alt="QQ彩贝联盟"></a>
@@ -190,14 +170,6 @@
     </div>
     <div id="functions" class="hide">
         <div id="moyo-message" title=""><p></p></div>
-        <div id="moyo-popHolder">
-            <div id="moyo-popHolder-functions" class="hide">
-                <ul>
-                    <li><a id="moyo-popH-f-buy" href="javascript:void(0);">购买</a></li>
-                </ul>
-            </div>
-            <div id="moyo-popHolder-content"></div>
-        </div>
         <div id="moyo-sideBar-holder">
             <div id="moyo-sideBar">
                 <div class="m-s-content">

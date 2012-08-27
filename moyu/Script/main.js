@@ -45,6 +45,7 @@ Moyo=function(){
                     HideStatus(true);
                 }
             });
+            return false;
         });
     };
     //直接跳转
@@ -108,6 +109,7 @@ Moyo=function(){
         var sideBarHolder=$("#moyo-sideBar-holder");
         var sideShow=$(".side");
         sideShow.on("click",function(){
+            if($(this).hasClass("needLogin")){return false;}
             var url="../"+$(this).attr("href");
             if(document.getElementById("moyo-sideBar-clone")){
                 $("#moyo-sideBar-clone").remove();
@@ -126,7 +128,7 @@ Moyo=function(){
             });
             $(".m-s-content").css({
                 height:$(window).height(),
-                "margin-top":$(document).scrollTop()
+                "margin-top":$(document).scrollTop()-($(document).scrollTop()>70?100:0)
             });
             var scrollFunc=function(e){
                 var e = e || window.event,
@@ -172,46 +174,6 @@ Moyo=function(){
             });
             return false;
         });
-    }
-    //弹出详细内容
-    this.addPopDetail=function(){
-        var popLinks=$(".popDetail");
-        popLinks.on("click",function(){
-            var popLink=$(this);
-            $.ajax({
-                url:"../Services/"+popLink.attr("data-service"),
-                type:"POST",
-                data:{action:popLink.attr("data-action")},
-                success:function(msg){
-                    popDiv(msg,popLink.attr("data-canBuy"),popLink);
-                    return false;
-                }
-            });
-            return false;
-        });
-        function popDiv(content,canBuy,popLink){
-            var popHlolder=$("#moyo-popHolder");
-            $("#moyo-popHolder-content").html(content);
-            popHlolder.dialog({
-                width:800,
-                modal: true,
-                position:"top"
-            });
-            if(Boolean(canBuy)){
-                $("#moyo-popHolder-functions").removeClass("hide");
-                $("#moyo-popH-f-buy").on("click",function(){
-                    popHlolder.dialog("close");
-                    var left=popLink.attr("data-left");
-                    if(left=="卖完啦！"){
-                        moyo.popMessage("Sorry","亲，抱歉这件衣服已经卖完了~");
-                        return;
-                    }
-                    var pid=popLink.attr("data-pid");
-                    var title=popLink.children(".fallImages").children(".fallTitle").html();
-                    moyo.home.switchToSubForm(title,pid);
-                });
-            }
-        }
     };
     this.addGotoTopListen=function(){
         $(window).scroll(function () { //回到顶部
@@ -245,19 +207,22 @@ Moyo=function(){
                     isLogined=true;
                     niceName=msg;
                     if(!loginActior.attr("data-dst")){
-                        loginActior.html(niceName).removeClass("needLogin").off("click");
+                        loginActior.html(niceName).removeClass("needLogin");
+                        return false;
+                    }
+                    if(loginActior.attr("data-dst")=="notChange"){
+                        loginActior.removeClass("needLogin");
                         return false;
                     }
                     loginActior.removeClass("needLogin").addClass("jump");
-                    loginActior.off();
                     moyo.addPageJump();
                 }
             }
         });
-        loginActior.off("click");
         if(loginActior.length==0){return false;}
         loginActior.on("click",function(){
             var loginBt=$(this);
+            if(!loginBt.hasClass("needLogin")){return;}
             $.ajax({
                 url:"login.html",
                 type:"get",
@@ -287,13 +252,16 @@ Moyo=function(){
                                 dlg.dialog("close");
                                 loginActior.each(function(){
                                     if(!$(this).attr("data-dst")){
-                                        $(this).html(uid).removeClass("needLogin").off("click");
+                                        $(this).html(uid).removeClass("needLogin");
                                     }else{
-                                        $(this).removeClass("needLogin").addClass("jump");
+                                        $(this).removeClass("needLogin");
+                                        if($(this).attr("data-dst")!="notChange"){
+                                            $(this).addClass("jump");
+                                        }
                                     }
                                 });
-                                loginActior.off();
                                 moyo.addPageJump();
+                                loginBt.click();
                             }else{
                                 $("#loginForm .statusBar").removeClass("loading-big");
                                 alert("登录失败,请检查用户名或密码是否正确");
@@ -318,7 +286,7 @@ Moyo=function(){
                 var il = $(this).offset().left;
                 $(".ucinformation .ifBoxTxt").html(iFarg);
                 var ih = $(".ucinformation").height();
-                $(".ucinformation").css({ "left": il, "top": it - ih - 1 });
+                $(".ucinformation").css({ "left": il, "top": it - ih - ($.browser.msie?1:100)});
                 $(".ucinformation").addClass("informationBlock");
 
                 $(this).bind("mouseout", function () {
@@ -431,31 +399,6 @@ Moyo=function(){
     };
 };
 Moyo.prototype.home={
-    headImgFloat:function(){
-        var floatBox=$("#adImgBox ul"),
-            iIndex=2,
-            introduces=$("#adIntroduce li"),
-            intervalId=setInterval(go,5500);
-        function startFloat(){
-            intervalId=setInterval(go,5500);
-        }
-        $("#adIntroduce a").on("click",function(){
-            iIndex=$(this).attr("data-index");
-            clearInterval(intervalId);
-            go();
-            startFloat();
-            return false;
-        });
-        function go(){
-            $(".ad-now").removeClass();
-            introduces.eq(iIndex-1).addClass("ad-now");
-            //console.log("go to "+iIndex);
-            floatBox.animate({"margin-top":-(iIndex-1)*432},800,function(){
-                //console.log("go to "+iIndex+" success");
-                iIndex=iIndex==4?1:Number(iIndex)+1;
-            });
-        }
-    },
     wheaterGet:function(){
         var date=new Date();
         $.ajax({
@@ -472,35 +415,11 @@ Moyo.prototype.home={
             }
         });
     },
-    channelHover:function(){
-        var channels=$(".channelItem");
-        channels.hover(function(){
-            var channelName=$(this).children(".channelName");
-            channelName.css({"display":"block","background-color":$(this).css("background-color")});
-            //$(this).animate({"opacity":"1"},500);
-        },function(){
-            var channelName=$(this).children(".channelName");
-            channelName.css("display","none");
-            if(!$(this).hasClass("activeChannel")){
-                //$(this).animate({"opacity":"0.6"},100);
-            }
-        });
-    },
-    focusOnWhat:function(){
-        var pointer=$("#focusOnWhat");
-        $("#content").on("mousemove",function(e){
-            if($("html").hasClass("ie")){
-                pointer.css("left",e.pageX-588);
-            }else{
-                pointer.css("left",e.pageX-28);
-            }
-        });
-    },
     hideFirstHome:function(){
         var splitBar=$("#splitBar");
-        var header=$("#header");
+        var home=$("#home");
         var market=$("#market");
-        header.slideUp("normal").remove();
+        home.slideUp("normal").remove();
         splitBar.css("display","none").remove();
         market.removeClass("hide");
     },
@@ -509,8 +428,12 @@ Moyo.prototype.home={
         var channelContent=$("#marketContent");
         channels.on("click",function(){
             var nowChannel=$(this);
-            channels.removeClass("activeChannel").animate({"opacity":"0.6"},100);
-            nowChannel.addClass("activeChannel").animate({"opacity":"1.0"},100);;
+            if(nowChannel.attr("id")=="logo"||nowChannel.attr("id")=="homeChannel"){
+                location.reload();
+                return;
+            }
+            channels.removeClass("activeChannel");
+            nowChannel.addClass("activeChannel");
             var moyo=new Moyo();
             moyo.home.hideFirstHome();
             moyo.showStatus("载入中……");
@@ -535,17 +458,17 @@ Moyo.prototype.home={
             var url="";
             switch(channelElm.attr("id"))
             {
-                case "cpChannel":
+                case "doorChannel":
                     url= "../Markets/Computer/index.html";
                     break;
-                case "ecChannel":
+                case "infosChannel":
                     url= "../Markets/Ecard/index.html";
                     break;
-                case "clChannel":
-                    url= "../Markets/Clothes/index.html";
+                case "saleChannel":
+                    url= "../Markets/sale/index.aspx";
                     break;
-                case "hpChannel":
-                    url= "../Markets/Informations/index.html";
+                case "forumChannel":
+                    url= "../Markets/forum/index.aspx";
                     break;
                 case "livingChannel":
                     url= "../Markets/Living/index.aspx";
@@ -939,75 +862,11 @@ Moyo.prototype.school={
         });
     }
 };
-Moyo.prototype.clothes={
-    fallInit:function(){
-        if(!document.getElementById("clothes-content")){return;}
-        var loadIds=[];//在瀑布中的消息编号
-        var holders=[];//瀑布单元
-        $(".fall-items").each(function(){//数据初始化
-            loadIds.push($(this).attr("data-pid"));
-        });
-        $(".clothes-c-row").each(function(){holders.push($(this));});
-        function findLast(){//获取已经呈现的消息中最旧的id
-            var last=loadIds[0];
-            for(var i in loadIds){
-                if(Number(loadIds[i])<Number(last)){last=loadIds[i];}
-                }
-            return last;
-        }
-        function isInserted(itemId){//检查消息是否已经存在
-            for(var i in loadIds){if(loadIds[i]==itemId){return true;}}
-            return false;
-        }
-        function findSmallHolder(){//寻找目标单元
-            var holder=holders[0];
-            for(var i in holders){if(holders[i].height()<holder.height()){holder=holders[i];}}
-            return holder;
-        }
-        function addNewItem(itemObj)//准备向瀑布插入的新元素
-        {
-            if ((!itemObj[0])) { return; }
-            if(itemObj.length==0){$(window).off("scroll");return false;}
-            var item="";
-            if(!isInserted(itemObj[0].id)){
-                loadIds.push(itemObj[0].id);
-
-                item=$("#fallItem-tp").html().replace(/hide/,"fall-items fallItemsNew")
-                    .replace(/class=\"hidden\"/, "class=\"fallItems fallItemsNew\"")
-                    .replace(/\[id\]/,itemObj[0].id)
-                    .replace(/\[img\]/,itemObj[0].img)
-                    .replace(/\[title\]/g,itemObj[0].title)
-                    .replace(/\[like\]/,itemObj[0].like)
-                    .replace(/\[price\]/,itemObj[0].price)
-                    .replace(/\[inventory\]/g,itemObj[0].inventory);
-                itemObj.splice(0,1);
-                addNewItemWorker(item,itemObj);
-                moyo.addPopDetail();
-            }
-        }
-        function addNewItemWorker(item,itemObj){//插入新元素
-            var inserted=findSmallHolder().append(item);
-            $(".fallItemsNew").animate({"margin-top":1,"opacity":1},"slow",function(){
-                var item=$(this);
-                item.removeClass("fallitemsnew");
-                addNewItem(itemObj);
-            });
-        }
-        $(window).scroll(function(){//创建触发器
-            if($(document).height()-$(document).scrollTop()-$(window).height()<250)
-            {
-
-                $.ajax({url:"../Services/Sale_Clothes.ashx", type:'POST',data:'action=clothesGet&cat=6&last='+findLast()})
-                    .success(function(msg){msg=eval("("+msg+")");addNewItem(msg);});
-            }
-        });
-    }
-};
 Moyo.prototype.Information={
     newTopic:function(){
-        var title=$("#t_t_l_title input");
-        var cid=$("#t_topic_list input[name=cid]").val();
-        $("#t_topic_list button[type=submit]").on("click",function(){
+        var title=$("#topic_content input");
+        var cid=$("#topic_content input[name=cid]").val();
+        $("#topic_content button[type=submit]").on("click",function(){
             var subButton=$(this);
             subButton.hide();
             editor.sync();
@@ -1173,6 +1032,52 @@ Moyo.prototype.siteBar={
         });
     }
 };
+Moyo.prototype.Group={
+    applyBack:function(id){
+        if(id==0){
+            moyo.popMessage("提示","提交申请失败。<br/>请先登录并请确保所有项目已经填写,小组图标已选择。");
+            return;
+        }
+        moyo.popMessage("恭喜","圈子创建成功!");
+        $(".m-s-close").click();
+        moyo.jumpTo("Markets/forum/GroupTopicList.aspx?id="+id);
+    },
+    addJoinGroupListen:function(){
+        var joinBt=$(".groupJoin");
+        joinBt.on("click",function(){
+            if(joinBt.hasClass("needLogin")){
+                return false;
+            }else{
+                var clickedBt=$(this);
+                var joinType=clickedBt.attr("data-isAllow");
+                if(joinType==0){
+                    moyo.popMessage("提示","该小组管理员设置不允许任何人加入");
+                    return;
+                }
+                var data={
+                    action:"join_group_noNeed",
+                    gid:$(this).attr("data-gid")
+                };
+                if(joinType==1){
+                    $.ajax({
+                        url:"../Services/Information_group.ashx",
+                        type:"POST",
+                        data:data,
+                        success:function(){
+                            moyo.popMessage("恭喜","加入小组成功");
+                            moyo.jumpTo(moyoHistory[moyoHistory.length-1]);
+                        },error:function(e){
+                            moyo.popMessage("啊哦","加入小组失败");
+                            moyo.jumpTo(moyoHistory[moyoHistory.length-1]);
+                        }
+                    });
+                }else{
+                    
+                }
+            }
+        });
+    }
+};
 Moyo.prototype.Message={
     uid:"",
     init:function(){
@@ -1322,9 +1227,6 @@ Moyo.prototype.Living={
 };
 $(document).ready(function(){
     moyo=new Moyo();
-    moyo.home.headImgFloat();
-    moyo.home.channelHover();
-    moyo.home.focusOnWhat();
     moyo.home.channelClick();
     moyo.home.wheaterGet();
     moyo.addLoginListen();

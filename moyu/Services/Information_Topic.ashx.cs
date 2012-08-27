@@ -38,7 +38,7 @@ namespace moyu.Services
                 case "moreTopic":
                     getMoreTopic();
                     break;
-                case "commentsGet":
+                case "commentsGet":         
                     commentsGet();
                     break;
             }
