@@ -20,7 +20,7 @@ namespace moyu.Services
         public void ProcessRequest(HttpContext context)
         {
             theContext = context;
-            theContext.Response.ContentType = "text/plain";
+            theContext.Response.ContentType = "text/html";
             if (theContext.Request.Form["action"] == null)
             {
                 context.Response.StatusCode = 400;
@@ -39,6 +39,9 @@ namespace moyu.Services
                 case "isLogined":
                     isLogined();
                     break;
+                case "avatarUp":
+                    avatarUp();
+                break;
             }
 
             context.Response.End();
@@ -101,13 +104,36 @@ namespace moyu.Services
         }
         private void isLogined()
         {
-            if (theContext.Session["isLogin"].ToString() == "true")
+            if (theContext.Session["isLogin"]!=null && theContext.Session["isLogin"].ToString() == "true")
             {
                 theContext.Response.Write(theContext.Session["niceName"]);
             }
             else
             {
                 theContext.Response.Write("false");
+            }
+        }
+        public void avatarUp()
+        {
+            Upload.image myImage = new Upload.image();
+            myImage.IsSuoImg = false;
+            myImage.UploadFileSize = 2;
+            myImage.IsAddWaterMark = false;
+            myImage.Minwidth = 50;
+            myImage.Minheight = 50;
+            myImage.IsUseRandFileName = true;
+            myImage.IsRarPic = true;
+            myImage.Rarwidth = 320;
+            DateTime dt = DateTime.Now;
+            string uploadPath = "\\upload\\images\\" + dt.Year.ToString() + "\\" + dt.Month + "\\" + dt.Day + "\\";
+            myImage.Upload(uploadPath, theContext.Request.Files[0]);
+            if (myImage.IsSuccess)
+            {
+                theContext.Response.Write("<script>window.parent.moyo.setting.avatarUploadBack('" +uploadPath.Replace("\\","/")+ myImage.OFullName + "');</script>");
+            }
+            else
+            {
+                theContext.Response.Write("<script>window.parent.moyo.setting.avatarUploadBack(0);</script>");
             }
         }
     }

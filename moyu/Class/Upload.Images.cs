@@ -54,66 +54,66 @@ namespace moyu.Upload
             //
         }
         //允许上传图片类型，"|"隔开
-        private string uploadFileExt = "gif|jpg|jpeg|png";
+        protected string uploadFileExt = "gif|jpg|jpeg|png";
         //允许上传图片大小，字节 为单位,默认5M
-        private int uploadFileSize = 5;
+        protected int uploadFileSize = 5;
         //是否使用随机上传图片名
-        private bool isUseRandFileName = true;
+        protected bool isUseRandFileName = true;
         //是否添加水印
-        private bool isAddWaterMark = true;
+        protected bool isAddWaterMark = true;
         //添加水印类型(0为图片水印--默认,1为文字水印)
-        private int waterMarkMode = 0;
+        protected int waterMarkMode = 1;
         //图片水印地址
-        private string imageWaterMark = System.Web.HttpContext.Current.Server.MapPath("logo.png");
+        protected string imageWaterMark = System.Web.HttpContext.Current.Server.MapPath("logo.png");
         //图片/文字水印的水印位置(0为左上,1为右上,2为左下,3为右下--默认)
-        private int waterMarkPos = 3;
+        protected int waterMarkPos = 3;
         //默认图片水印透明度
-        private const float imageAlpha = 0.7f;
+        protected const float imageAlpha = 0.7f;
         //图片水印的透明度
-        private float imageWaterMarkAlpha = imageAlpha;
+        protected float imageWaterMarkAlpha = imageAlpha;
         //文字水印的添加文字
-        private string watermarkText = "www.ai0932.com";
+        protected string watermarkText = "www.ai0932.com";
         //是否压缩原图
-        private bool isRarPic = false;
+        protected bool isRarPic = false;
         public bool IsRarPic  ////是否压缩原图
         {
             get { return isRarPic; }
             set { isRarPic = value; }
         }
         //压缩为的宽度，高度不限
-        private int rarwidth = 700;
+        protected int rarwidth = 700;
         public int Rarwidth   //压缩为的宽度，高度不限
         {
             get { return rarwidth; }
             set { rarwidth = value; }
         }
         //返回值 是否成功
-        private bool issuccess = false;
+        protected bool issuccess = false;
         //返回值
-        private string msg = "";
-        private int twidth, theight;
+        protected string msg = "";
+        protected int twidth, theight;
         //重命名添加值
-        private int reName = 1234;
+        protected int reName = 1234;
         //图片最小 宽度
-        private int minwidth = 150;
+        protected int minwidth = 150;
         //图片最大 宽度
-        private int maxwidth = 700;
+        protected int maxwidth = 700;
         //图片最小 高度
-        private int minheight = 100;
+        protected int minheight = 100;
         //图片最大 高度
-        private int maxheight = 1000;
+        protected int maxheight = 1000;
         //是否生成缩略图
-        private bool isSuoImg = true;
+        protected bool isSuoImg = true;
         //生成缩略图 是否等比例
-        private bool isRate = false;
+        protected bool isRate = false;
         //缩略图 宽度
-        private int suowidth = 150;
+        protected int suowidth = 150;
         //缩略图 宽度锁定
-        private bool isSuowidth = false;
+        protected bool isSuowidth = false;
         //缩略图 高度
-        private int suoheight = 100;
-        private string _ofullname = "0";  //原始图
-        private string _tfullname = "0";  //缩略图
+        protected int suoheight = 100;
+        protected string _ofullname = "0";  //原始图
+        protected string _tfullname = "0";  //缩略图
         public int Suowidth   //缩略图 宽度
         {
             get { return suowidth; }
@@ -285,7 +285,7 @@ namespace moyu.Upload
         /// </summary>
         /// <param name="uploadControl">控件id</param>
         /// <returns>true/false</returns>
-        private bool ISFileSizeOK(HttpPostedFile uploadControl)
+        protected bool ISFileSizeOK(HttpPostedFile uploadControl)
         {
             long strLen = uploadControl.ContentLength;
             //判断上传图片大小
@@ -303,7 +303,7 @@ namespace moyu.Upload
         /// </summary>
         /// <param name="uploadControl">控件id</param>
         /// <returns>true/false</returns>
-        private bool ISimgOK(HttpPostedFile uploadControl)
+        protected bool ISimgOK(HttpPostedFile uploadControl)
         {
             Stream oStream = uploadControl.InputStream;
             System.Drawing.Image oImage = System.Drawing.Image.FromStream(oStream);
@@ -335,8 +335,7 @@ namespace moyu.Upload
             string tempExt = Path.GetExtension(fileName);
             while (File.Exists(PathAndName))
             {
-                PathAndName = PathAndName.Replace("S20", "P20").Replace("T20", "P20");
-               
+                PathAndName = PathAndName.Replace("S-", "P-").Replace("T-", "P-");
             }
             return PathAndName;
         }
@@ -356,8 +355,8 @@ namespace moyu.Upload
             {
                 Random rd = new Random();
                 int tempR = rd.Next(1, 1000);
-                tempName = DateTime.Now.ToString("yyyyMMddHHmmss") + tempR + reName + "." +upOriFileExt;
-                tempName = "T" + tempName;
+                tempName = Guid.NewGuid().ToString("N")+ tempR + reName + "." +upOriFileExt;
+                tempName = "T-" + tempName;
             }
             else
             {
@@ -459,7 +458,7 @@ namespace moyu.Upload
                         {
                             //重命名图片
                             OFullName = RenameFile(fileName, fileExtends);
-                            TFullName = OFullName.Replace("T","S");
+                            TFullName = OFullName.Replace("T-","S-");
                             if (fpath.LastIndexOf(@"/") < 0 || fpath.LastIndexOf(@"") < 0)
                             {
                                 fpath = fpath + "\\";
@@ -482,15 +481,7 @@ namespace moyu.Upload
                                     int aheight;
                                     int awidth = rarwidth;
                                     //按比例计算出大图的宽度和高度  awidth  suoheight twidth theight
-                                    if (twidth >= awidth)
-                                    {
-                                        aheight = (int)Math.Floor(Convert.ToDouble(theight) *(Convert.ToDouble(awidth) / Convert.ToDouble(twidth)));//等比设定高度
-                                    }
-                                    else
-                                    {
-                                        awidth = twidth;
-                                        aheight = theight;
-                                    }
+                                    aheight = (int)Math.Floor(Convert.ToDouble(theight) *(Convert.ToDouble(awidth) / Convert.ToDouble(twidth)));//等比设定高度
                                     //生成缩略原图
                                     Bitmap tImage = new Bitmap(awidth, aheight);
                                     Graphics g = Graphics.FromImage(tImage);
@@ -572,7 +563,7 @@ namespace moyu.Upload
         /// <param name="newpath">新图片放置的绝对地址(不含图片名)</param>
         /// <param name="oldFileName">待加水印图片名</param>
         /// <param name="markMode">水印方式(图片/文字)</param>
-        private void addWaterMark(string oldpath, string newpath, string oldFileName, int markMode)
+        protected void addWaterMark(string oldpath, string newpath, string oldFileName, int markMode)
         {
             try
             {
@@ -636,7 +627,7 @@ namespace moyu.Upload
         /// <param name="_watermarkPosition">水印位置</param>
         /// <param name="_width">被加水印图片的宽</param>
         /// <param name="_height">被加水印图片的高</param>
-        private void addWatermarkImage(Graphics picture, string WaterMarkPicPath, int _watermarkPosition, int _width, int _height)
+        protected void addWatermarkImage(Graphics picture, string WaterMarkPicPath, int _watermarkPosition, int _width, int _height)
         {
             System.Drawing.Image watermark = new Bitmap(WaterMarkPicPath);
             ImageAttributes imageAttributes = new ImageAttributes();
@@ -738,7 +729,7 @@ namespace moyu.Upload
         /// <param name="_watermarkPosition">水印位置</param>
         /// <param name="_width">被加水印图片的宽</param>
         /// <param name="_height">被加水印图片的高</param>
-        private void addWatermarkText(Graphics picture, string _watermarkText, int _watermarkPosition, int _width, int _height)
+        protected void addWatermarkText(Graphics picture, string _watermarkText, int _watermarkPosition, int _width, int _height)
         {
             int[] sizes = new int[] { 16, 14, 12, 10, 8, 6, 4 };
             Font crFont = null;

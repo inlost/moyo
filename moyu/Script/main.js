@@ -543,6 +543,38 @@ Moyo.prototype.home={
         });
     }
 };
+Moyo.prototype.setting={
+    avatarUpload:function(){
+        var inputFile=$("#setting-c-h-avatar input[type=file]");
+        var imgElm=$("#setting-c-h-a-bigShow img");
+        var saveButton=$("#setting-c-h-avatar button");
+        inputFile.on("change",function(){
+            imgElm.attr("src","images/loading-big.gif");
+            saveButton.attr("disabled","disabled");
+            $("#setting-c-h-avatar form").submit();
+        });
+    },
+    avatarUploadBack:function(url){
+        if(url==0){
+            moyo.popMessage("啊哦","上传失败了");
+        }else{
+            var imgElm=$("#setting-c-h-a-bigShow img");
+            var saveButton=$("#setting-c-h-avatar button");
+            imgElm.attr("src",url);
+            imgElm.imgAreaSelect({
+                aspectRatio:'4:4',
+                handles: true,
+                show:true,
+                x1: 60, y1: 60, x2: 280, y2: 280,
+                parent:$("#setting-c-h-a-bigShow"),
+                onSelectEnd:function(img,selection){
+                    console.log(img);
+                }
+            });
+            saveButton.removeAttr("disabled");
+        }
+    }
+};
 Moyo.prototype.computer={
     bindSubmit:function(){
         var submitButton=$(".submitForm");
@@ -1230,6 +1262,7 @@ $(document).ready(function(){
     moyo.home.channelClick();
     moyo.home.wheaterGet();
     moyo.addLoginListen();
+    moyo.popSideBar();
     moyo.inputTip($(".needTip"));
     moyo.siteBar.init();
     //moyo.Message.init();

@@ -588,6 +588,21 @@ li.halfSizeBox a:hover,li.fullSizeBox a:hover{
     background:url(../images/submit.gif) no-repeat center;
     cursor:pointer;
 }
+/*setting*/
+#setting-header{
+    line-height:32px;
+}
+#setting-header img{
+    height:32px;
+    width:32px;
+    margin-right:18px;
+}
+#setting-c-h-a-bigShow img{
+    width:320px;
+}
+#setting-c-h-a-bigShow{
+    position:relative;
+}
 /*market*/
 #marketBox{
     position:relative;
@@ -911,6 +926,75 @@ li.halfSizeBox a:hover,li.fullSizeBox a:hover{
 #schoolEcard-c-f-t-n-f-coursePars li{
     float:left;
     margin:6px;
+}
+/*---------------
+ * -----sale-----
+ * -------------*/
+#saleHolder{
+    margin:20px 0;
+}
+.saleH-cat{
+    padding:20px 26px;
+    margin-bottom:20px;
+    background:whiteSmoke;
+    border:1px solid #E2E2E2;
+}
+.saleH-cat h3{
+    line-height:33px;
+    font-size:18px;
+    position:relative;
+    top:-8px;
+    left:-8px;
+}
+.saleH-c-price{
+    font-size:18px;
+}
+.saleH-c-price span{
+    color:#ED1B24;
+}
+.saleH-c-bigGood{
+    width:180px;
+    text-align:center;
+    padding:12px;
+    height:232px;
+}
+.saleH-c-bigGood img{
+    width:150px;
+    height:150px;
+}
+.saleH-c-bigGood h4{
+    height:54px;
+}
+.saleH-c-good{
+    border:1px solid #EEE;
+    cursor:pointer;
+    background-color:#EEE;
+}
+.saleH-cat .hover{
+    background-color:#FDF6E3;
+}
+.saleH-c-smallGood{
+    height:107px;
+    width:85px;
+    padding:10px;
+    overflow:hidden;
+    position:relative;
+}
+.saleH-c-smallGood img{
+    width:80px;
+    height:80px;
+}
+.saleH-c-smallGood .saleH-c-price{
+    display:none;
+    position:absolute;
+}
+.saleH-c-smallGood.hover .saleH-c-price{
+    display:block;
+    width:105px;
+    top:0;
+    left:0;
+    padding:0 0 0 4px;
+    background-color:#EEE;
 }
 /*---------------
  * information---

@@ -38,6 +38,8 @@ namespace moyu.Admin.living
                 myImage.WaterMarkMode = 1;
                 myImage.Minwidth = 50;
                 myImage.Minheight = 50;
+                myImage.IsSuoImg = true;
+                myImage.Suoheight = 150;
                 myImage.Suowidth = 150;
                 myImage.IsRate = true;
                 DateTime dt=DateTime.Now;

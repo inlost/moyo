@@ -68,6 +68,7 @@
     <Content Include="Admin\living\cat.aspx" />
     <Content Include="Admin\living\info.aspx" />
     <Content Include="Admin\living\shop.aspx" />
+    <Content Include="Admin\sale\good.aspx" />
     <Content Include="Images\avatar.png" />
     <Content Include="Images\bar-back.gif" />
     <Content Include="Images\bar-home.gif" />
@@ -131,6 +132,7 @@
     <Content Include="Markets\Living\index.aspx" />
     <Content Include="Markets\sale\index.aspx" />
     <Content Include="PopupPage\Group_new.html" />
+    <Content Include="PopupPage\setting.aspx" />
     <Content Include="reg.html" />
     <Content Include="Script\jquery-1.8.0.js" />
     <Content Include="Script\jquery-1.8.0.min.js" />
@@ -180,6 +182,7 @@
     <Content Include="Script\jquery-ui\development-bundle\demos\autocomplete\remote-jsonp.html" />
     <Content Include="Script\jquery-ui\development-bundle\demos\autocomplete\remote-with-cache.html" />
     <Content Include="Script\jquery-ui\development-bundle\demos\autocomplete\remote.html" />
+    <Content Include="Script\jquery-ui\development-bundle\demos\autocomplete\search.php" />
     <Content Include="Script\jquery-ui\development-bundle\demos\autocomplete\xml.html" />
     <Content Include="Script\jquery-ui\development-bundle\demos\button\checkbox.html" />
     <Content Include="Script\jquery-ui\development-bundle\demos\button\default.html" />
@@ -312,6 +315,8 @@
     <Content Include="Script\jquery-ui\development-bundle\demos\tabs\ajax.html" />
     <Content Include="Script\jquery-ui\development-bundle\demos\tabs\ajax\content1.html" />
     <Content Include="Script\jquery-ui\development-bundle\demos\tabs\ajax\content2.html" />
+    <Content Include="Script\jquery-ui\development-bundle\demos\tabs\ajax\content3-slow.php" />
+    <Content Include="Script\jquery-ui\development-bundle\demos\tabs\ajax\content4-broken.php" />
     <Content Include="Script\jquery-ui\development-bundle\demos\tabs\bottom.html" />
     <Content Include="Script\jquery-ui\development-bundle\demos\tabs\collapsible.html" />
     <Content Include="Script\jquery-ui\development-bundle\demos\tabs\cookie.html" />
@@ -354,9 +359,9 @@
     <Content Include="Script\jquery-ui\development-bundle\external\qunit.css" />
     <Content Include="Script\jquery-ui\development-bundle\external\qunit.js" />
     <Content Include="Script\jquery-ui\development-bundle\GPL-LICENSE.txt" />
-    <Content Include="Script\jquery-ui\development-bundle\jquery-1.7.2.js" />
     <Content Include="Script\jquery-ui\development-bundle\jquery-1.8.0.js" />
     <Content Include="Script\jquery-ui\development-bundle\MIT-LICENSE.txt" />
+    <Content Include="Script\jquery-ui\development-bundle\package.json" />
     <Content Include="Script\jquery-ui\development-bundle\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Script\jquery-ui\development-bundle\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Script\jquery-ui\development-bundle\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -414,37 +419,6 @@
     <Content Include="Script\jquery-ui\development-bundle\themes\redmond\jquery.ui.slider.css" />
     <Content Include="Script\jquery-ui\development-bundle\themes\redmond\jquery.ui.tabs.css" />
     <Content Include="Script\jquery-ui\development-bundle\themes\redmond\jquery.ui.theme.css" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-bg_diagonals-medium_20_d34d17_40x40.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-bg_flat_30_cccccc_40x100.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-bg_flat_50_5c5c5c_40x100.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-bg_gloss-wave_45_817865_500x100.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-bg_gloss-wave_60_fece2f_500x100.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-bg_gloss-wave_70_ffdd57_500x100.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-bg_gloss-wave_90_fff9e5_500x100.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-bg_highlight-soft_100_feeebd_1x100.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-bg_inset-soft_30_ffffff_1x100.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-icons_3d3d3d_256x240.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-icons_bd7b00_256x240.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-icons_d19405_256x240.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-icons_eb990f_256x240.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-icons_ed9f26_256x240.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-icons_fadc7a_256x240.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\images\ui-icons_ffe180_256x240.png" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\jquery-ui-1.8.19.custom.css" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\jquery.ui.accordion.css" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\jquery.ui.all.css" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\jquery.ui.autocomplete.css" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\jquery.ui.base.css" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\jquery.ui.button.css" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\jquery.ui.core.css" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\jquery.ui.datepicker.css" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\jquery.ui.dialog.css" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\jquery.ui.progressbar.css" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\jquery.ui.resizable.css" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\jquery.ui.selectable.css" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\jquery.ui.slider.css" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\jquery.ui.tabs.css" />
-    <Content Include="Script\jquery-ui\development-bundle\themes\sunny\jquery.ui.theme.css" />
     <Content Include="Script\jquery-ui\development-bundle\ui\i18n\jquery-ui-i18n.js" />
     <Content Include="Script\jquery-ui\development-bundle\ui\i18n\jquery.ui.datepicker-af.js" />
     <Content Include="Script\jquery-ui\development-bundle\ui\i18n\jquery.ui.datepicker-ar-DZ.js" />
@@ -470,7 +444,6 @@
     <Content Include="Script\jquery-ui\development-bundle\ui\i18n\jquery.ui.datepicker-fo.js" />
     <Content Include="Script\jquery-ui\development-bundle\ui\i18n\jquery.ui.datepicker-fr-CH.js" />
     <Content Include="Script\jquery-ui\development-bundle\ui\i18n\jquery.ui.datepicker-fr.js" />
-    <Content Include="Script\jquery-ui\development-bundle\ui\i18n\jquery.ui.datepicker-ge.js" />
     <Content Include="Script\jquery-ui\development-bundle\ui\i18n\jquery.ui.datepicker-gl.js" />
     <Content Include="Script\jquery-ui\development-bundle\ui\i18n\jquery.ui.datepicker-he.js" />
     <Content Include="Script\jquery-ui\development-bundle\ui\i18n\jquery.ui.datepicker-hi.js" />
@@ -515,7 +488,6 @@
     <Content Include="Script\jquery-ui\development-bundle\ui\i18n\jquery.ui.datepicker-zh-CN.js" />
     <Content Include="Script\jquery-ui\development-bundle\ui\i18n\jquery.ui.datepicker-zh-HK.js" />
     <Content Include="Script\jquery-ui\development-bundle\ui\i18n\jquery.ui.datepicker-zh-TW.js" />
-    <Content Include="Script\jquery-ui\development-bundle\ui\jquery-ui-1.8.19.custom.js" />
     <Content Include="Script\jquery-ui\development-bundle\ui\jquery-ui-1.8.23.custom.js" />
     <Content Include="Script\jquery-ui\development-bundle\ui\jquery.effects.blind.js" />
     <Content Include="Script\jquery-ui\development-bundle\ui\jquery.effects.bounce.js" />
@@ -581,41 +553,28 @@
     <Content Include="Script\jquery-ui\development-bundle\ui\minified\jquery.ui.widget.min.js" />
     <Content Include="Script\jquery-ui\index.html" />
     <Content Include="Script\jquery-ui\js\jquery-ui-1.8.23.custom.min.js" />
-    <Content Include="Script\lightbox\css\lightbox.css" />
-    <Content Include="Script\lightbox\css\screen.css" />
-    <Content Include="Script\lightbox\images\bg-checker.png" />
-    <Content Include="Script\lightbox\images\box.png" />
-    <Content Include="Script\lightbox\images\bullet.gif" />
-    <Content Include="Script\lightbox\images\close.png" />
-    <Content Include="Script\lightbox\images\donate.png" />
-    <Content Include="Script\lightbox\images\examples\image-1.jpg" />
-    <Content Include="Script\lightbox\images\examples\image-2.jpg" />
-    <Content Include="Script\lightbox\images\examples\image-3.jpg" />
-    <Content Include="Script\lightbox\images\examples\image-4.jpg" />
-    <Content Include="Script\lightbox\images\examples\image-5.jpg" />
-    <Content Include="Script\lightbox\images\examples\image-6.jpg" />
-    <Content Include="Script\lightbox\images\examples\thumb-1.jpg" />
-    <Content Include="Script\lightbox\images\examples\thumb-2.jpg" />
-    <Content Include="Script\lightbox\images\examples\thumb-3.jpg" />
-    <Content Include="Script\lightbox\images\examples\thumb-4.jpg" />
-    <Content Include="Script\lightbox\images\examples\thumb-5.jpg" />
-    <Content Include="Script\lightbox\images\examples\thumb-6.jpg" />
-    <Content Include="Script\lightbox\images\favicon.gif" />
-    <Content Include="Script\lightbox\images\loading.gif" />
-    <Content Include="Script\lightbox\images\next.png" />
-    <Content Include="Script\lightbox\images\prev.png" />
-    <Content Include="Script\lightbox\images\speech-bubbles.png" />
-    <Content Include="Script\lightbox\index.html" />
-    <Content Include="Script\lightbox\js\jquery-1.7.2.min.js" />
-    <Content Include="Script\lightbox\js\jquery-ui-1.8.18.custom.min.js" />
-    <Content Include="Script\lightbox\js\jquery.smooth-scroll.min.js" />
-    <Content Include="Script\lightbox\js\lightbox.js" />
-    <Content Include="Script\main-min.js" />
+    <Content Include="Script\jquery.imgareaselect-0.9.8\css\border-anim-h.gif" />
+    <Content Include="Script\jquery.imgareaselect-0.9.8\css\border-anim-v.gif" />
+    <Content Include="Script\jquery.imgareaselect-0.9.8\css\border-h.gif" />
+    <Content Include="Script\jquery.imgareaselect-0.9.8\css\border-v.gif" />
+    <Content Include="Script\jquery.imgareaselect-0.9.8\css\imgareaselect-animated.css" />
+    <Content Include="Script\jquery.imgareaselect-0.9.8\css\imgareaselect-default.css" />
+    <Content Include="Script\jquery.imgareaselect-0.9.8\css\imgareaselect-deprecated.css" />
+    <Content Include="Script\jquery.imgareaselect-0.9.8\GPL-LICENSE.txt" />
+    <Content Include="Script\jquery.imgareaselect-0.9.8\MIT-LICENSE.txt" />
+    <Content Include="Script\jquery.imgareaselect-0.9.8\scripts\jquery.imgareaselect.js" />
+    <Content Include="Script\jquery.imgareaselect-0.9.8\scripts\jquery.imgareaselect.min.js" />
+    <Content Include="Script\jquery.imgareaselect-0.9.8\scripts\jquery.imgareaselect.pack.js" />
+    <Content Include="Script\jquery.lazyload.js" />
+    <Content Include="Script\jquery.lazyload.min.js" />
     <Content Include="Script\main.js" />
+    <Content Include="Script\main.min.js" />
     <Content Include="Script\raty\doc\css\stylesheet.css" />
     <Content Include="Script\raty\doc\img\background.gif" />
     <Content Include="Script\raty\doc\img\cancel-off-big.png" />
+    <Content Include="Script\raty\doc\img\cancel-off.png" />
     <Content Include="Script\raty\doc\img\cancel-on-big.png" />
+    <Content Include="Script\raty\doc\img\cancel-on.png" />
     <Content Include="Script\raty\doc\img\coffee.png" />
     <Content Include="Script\raty\doc\img\face-a-off.png" />
     <Content Include="Script\raty\doc\img\face-a.png" />
@@ -629,12 +588,33 @@
     <Content Include="Script\raty\doc\img\medal-off.png" />
     <Content Include="Script\raty\doc\img\medal-on.png" />
     <Content Include="Script\raty\doc\img\star-half-big.png" />
+    <Content Include="Script\raty\doc\img\star-half.png" />
     <Content Include="Script\raty\doc\img\star-off-big.png" />
+    <Content Include="Script\raty\doc\img\star-off.png" />
     <Content Include="Script\raty\doc\img\star-on-big.png" />
+    <Content Include="Script\raty\doc\img\star-on.png" />
+    <Content Include="Script\raty\img\background.gif" />
+    <Content Include="Script\raty\img\cancel-off-big.png" />
     <Content Include="Script\raty\img\cancel-off.png" />
+    <Content Include="Script\raty\img\cancel-on-big.png" />
     <Content Include="Script\raty\img\cancel-on.png" />
+    <Content Include="Script\raty\img\coffee.png" />
+    <Content Include="Script\raty\img\face-a-off.png" />
+    <Content Include="Script\raty\img\face-a.png" />
+    <Content Include="Script\raty\img\face-b-off.png" />
+    <Content Include="Script\raty\img\face-b.png" />
+    <Content Include="Script\raty\img\face-c-off.png" />
+    <Content Include="Script\raty\img\face-c.png" />
+    <Content Include="Script\raty\img\face-d-off.png" />
+    <Content Include="Script\raty\img\face-d.png" />
+    <Content Include="Script\raty\img\face-off.png" />
+    <Content Include="Script\raty\img\medal-off.png" />
+    <Content Include="Script\raty\img\medal-on.png" />
+    <Content Include="Script\raty\img\star-half-big.png" />
     <Content Include="Script\raty\img\star-half.png" />
+    <Content Include="Script\raty\img\star-off-big.png" />
     <Content Include="Script\raty\img\star-off.png" />
+    <Content Include="Script\raty\img\star-on-big.png" />
     <Content Include="Script\raty\img\star-on.png" />
     <Content Include="Script\raty\index.html" />
     <Content Include="Script\raty\js\jquery.raty.js" />
@@ -1050,6 +1030,13 @@
     <Content Include="Script\ueitor\editor_all.js" />
     <Content Include="Script\ueitor\editor_all_min.js" />
     <Content Include="Script\ueitor\editor_config.js" />
+    <Content Include="Script\ueitor\net\fileUp.ashx" />
+    <Content Include="Script\ueitor\net\getContent.ashx" />
+    <Content Include="Script\ueitor\net\getMovie.ashx" />
+    <Content Include="Script\ueitor\net\getRemoteImage.ashx" />
+    <Content Include="Script\ueitor\net\imageManager.ashx" />
+    <Content Include="Script\ueitor\net\imageUp.ashx" />
+    <Content Include="Script\ueitor\net\Web.config" />
     <Content Include="Script\ueitor\themes\default\iframe.css" />
     <Content Include="Script\ueitor\themes\default\images\anchor.gif" />
     <Content Include="Script\ueitor\themes\default\images\arrow.png" />
@@ -1092,6 +1079,7 @@
     <Content Include="Script\ueitor\third-party\snapscreen\test.html" />
     <Content Include="Script\ueitor\third-party\snapscreen\UEditorSnapscreen.exe" />
     <Content Include="Script\ueitor\third-party\snapscreen\user_manual.txt" />
+    <Content Include="Script\ueitor\third-party\source code for imgupload with flash.zip" />
     <Content Include="Script\ueitor\third-party\swfupload\fileprogress.js" />
     <Content Include="Script\ueitor\third-party\swfupload\swfupload.cookies.js" />
     <Content Include="Script\ueitor\third-party\swfupload\swfupload.js" />
@@ -1249,6 +1237,13 @@
     <Compile Include="Admin\living\shop.aspx.designer.cs">
       <DependentUpon>shop.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\sale\good.aspx.cs">
+      <DependentUpon>good.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\sale\good.aspx.designer.cs">
+      <DependentUpon>good.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Class\Cat.cs" />
     <Compile Include="Class\Chat.Message.cs" />
     <Compile Include="Class\Chat_Message.cs" />
@@ -1266,6 +1261,7 @@
     <Compile Include="Class\Living.Shop.cs" />
     <Compile Include="Class\Mail.School.cs" />
     <Compile Include="Class\Sale_Order.cs" />
+    <Compile Include="Class\Upload.Images.Avatar.cs" />
     <Compile Include="Class\Upload.Images.cs" />
     <Compile Include="Class\User.School.cs" />
     <Compile Include="Class\User.Web.cs" />
@@ -1374,6 +1370,13 @@
     <Compile Include="Markets\sale\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PopupPage\setting.aspx.cs">
+      <DependentUpon>setting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopupPage\setting.aspx.designer.cs">
+      <DependentUpon>setting.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Information_group.ashx.cs">
       <DependentUpon>Information_group.ashx</DependentUpon>
@@ -1432,7 +1435,10 @@
       <DependentUpon>ecard_school.Master</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Script\raty\README.md" />
+    <Content Include="Script\ueitor\build\buildjs\mergejs.bat" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Services\School_User.ashx" />
   </ItemGroup>
@@ -1444,32 +1450,19 @@
     <Content Include="Services\School_Mail.ashx" />
     <Content Include="Services\School_Courseware.ashx" />
     <Content Include="Services\Information_Topic.ashx" />
-    <Content Include="Script\jquery-ui\development-bundle\demos\autocomplete\search.php" />
-    <Content Include="Script\jquery-ui\development-bundle\demos\tabs\ajax\content3-slow.php" />
-    <Content Include="Script\jquery-ui\development-bundle\demos\tabs\ajax\content4-broken.php" />
-    <Content Include="Script\jquery-ui\development-bundle\package.json" />
-    <None Include="Script\lightbox\images\.DS_Store" />
-    <None Include="Script\lightbox\js\.DS_Store" />
-    <None Include="Script\lightbox\README.markdown" />
+    <Compile Include="Class\Sale.Goods.cs" />
     <Content Include="Services\Sale_Orders.ashx" />
     <Content Include="Services\Union.ashx" />
     <Content Include="Services\User.ashx" />
     <Content Include="Services\other.ashx" />
     <Content Include="Services\Message.ashx" />
-    <None Include="Script\raty\README.md" />
-    <None Include="Script\ueitor\build\buildjs\mergejs.bat" />
-    <Content Include="Script\ueitor\net\fileUp.ashx" />
-    <Content Include="Script\ueitor\net\getContent.ashx" />
-    <Content Include="Script\ueitor\net\getMovie.ashx" />
-    <Content Include="Script\ueitor\net\getRemoteImage.ashx" />
-    <Content Include="Script\ueitor\net\imageManager.ashx" />
-    <Content Include="Script\ueitor\net\imageUp.ashx" />
-    <Content Include="Script\ueitor\net\Web.config" />
-    <Content Include="Script\ueitor\third-party\source code for imgupload with flash.zip" />
     <Content Include="Services\living_shop.ashx" />
     <Content Include="Services\living_shop_comment.ashx" />
     <Content Include="Services\living_shop_info.ashx" />
     <Content Include="Services\Information_group.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Script\jquery-ui\development-bundle\themes\sunny\images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
