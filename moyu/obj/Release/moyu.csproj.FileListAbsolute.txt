@@ -1,0 +1,5 @@
+G:\WebProject\moyu\moyu\bin\moyu.dll
+G:\WebProject\moyu\moyu\bin\moyu.pdb
+G:\WebProject\moyu\moyu\obj\Release\moyu.csprojResolveAssemblyReference.cache
+G:\WebProject\moyu\moyu\obj\Release\moyu.dll
+G:\WebProject\moyu\moyu\obj\Release\moyu.pdb
