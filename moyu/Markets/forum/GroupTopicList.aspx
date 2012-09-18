@@ -2,22 +2,11 @@
 <h2 class="channelTitle"><%getName(); %> <span>Group</span></h2>
 <div id="topic_content" class="clearfix">
     <div id="t_topic_list" class="left">
-        <table data-gid="<%getGid(); %>">
-            <thead>
-                <tr>
-                    <th id="t_t_l_table_title">标题</th>
-                    <th id="t_t_l_table_postBy">作者</th>
-                    <th id="t_t_l_table_view">浏览</th>
-                    <th id="t_t_l_table_reply">回应</th>
-                    <th id="t_t_l_table_lastUpdate">最后回应</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% //getTopicList(); %>
-            </tbody>
-        </table>
-        <div id="getMoreTopic">
-            <% //getMoreLink(); %>
+        <div id="t_t_l_groupContent">
+            <h2>这个圈子里的人正在说……</h2>
+            <ul>
+                <%listTopic(); %>
+            </ul>
         </div>
     </div>
     <div id="t_function_bar" class="left">
@@ -30,4 +19,5 @@
     moyo.Information.getMoreTopic();
     moyo.addLoginListen();
     moyo.Group.addJoinGroupListen();
+    moyo.addHoverClass($(".t_topicList_topic"));
 </script>

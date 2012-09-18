@@ -1,6 +1,6 @@
 var moyoHistory=[];
 Moyo=function(){
-    this.spm="?spm=08-17";
+    this.spm="?spm=08-29";
     var statusBar=$("#market-status-bar"),
         marketBox=$("#marketBox"),
         channelContent=$("#marketContent").parent();
@@ -206,15 +206,18 @@ Moyo=function(){
                 if(msg!="false"){
                     isLogined=true;
                     niceName=msg;
-                    if(!loginActior.attr("data-dst")){
-                        loginActior.html(niceName).removeClass("needLogin");
-                        return false;
-                    }
-                    if(loginActior.attr("data-dst")=="notChange"){
-                        loginActior.removeClass("needLogin");
-                        return false;
-                    }
-                    loginActior.removeClass("needLogin").addClass("jump");
+                    loginActior.each(function(){
+                        var theLink=$(this);
+                        theLink.removeClass("needLogin");
+                        if(!theLink.attr("data-dst")){
+                            theLink.html(niceName);
+                            return false;
+                        }
+                        if(theLink.attr("data-dst")=="notChange"){
+                            return false;
+                        }
+                        theLink.addClass("jump");
+                    });
                     moyo.addPageJump();
                 }
             }
@@ -459,10 +462,10 @@ Moyo.prototype.home={
             switch(channelElm.attr("id"))
             {
                 case "doorChannel":
-                    url= "../Markets/Computer/index.html";
+                    url= "../Markets/door/index.html";
                     break;
                 case "infosChannel":
-                    url= "../Markets/Ecard/index.html";
+                    url= "../Markets/infos/index.aspx";
                     break;
                 case "saleChannel":
                     url= "../Markets/sale/index.aspx";
@@ -541,6 +544,44 @@ Moyo.prototype.home={
             });
             return false;
         });
+    },
+    mallGoodFloat:function(){
+        var holder=$("#h-b-item-sale ul");
+        var iId=0;
+        var start=function(){
+            iId=setInterval(function(){
+                if(!document.getElementById("h-b-item-sale")){return false;};
+                var nowShow=$("#h-b-item-sale li:first");
+                nowShow.fadeOut("slow",function(){
+                    holder.append(nowShow);
+                    $("#h-b-item-sale li:first").fadeIn();
+                });
+            },3000);
+        }
+        start();
+        holder.hover(function(){
+            clearInterval(iId);
+        },start);
+    },
+    infoNumberAdd:function(){
+        var numbers=$("#h-b-item-infos span");
+        numbers.each(function(){
+            var nowHolder=$(this);
+            var nowNumber=0;
+            var realNumber=Number(nowHolder.attr("data-number"));
+            setInterval(function(){
+                if(!document.getElementById("h-b-item-infos")){return false;};
+                nowHolder.html(0);
+                var iId=setInterval(function(){
+                    nowNumber=Number(nowHolder.html());
+                    if(nowNumber>=realNumber){
+                        clearInterval(iId);
+                    }else{
+                        nowHolder.html(nowNumber+1);
+                    }
+                },1300/realNumber);
+            },3800);
+        });
     }
 };
 Moyo.prototype.setting={
@@ -555,6 +596,7 @@ Moyo.prototype.setting={
         });
     },
     avatarUploadBack:function(url){
+        var areaPoint={x1:60,y1:60,x2:280,y2:280};
         if(url==0){
             moyo.popMessage("啊哦","上传失败了");
         }else{
@@ -568,10 +610,22 @@ Moyo.prototype.setting={
                 x1: 60, y1: 60, x2: 280, y2: 280,
                 parent:$("#setting-c-h-a-bigShow"),
                 onSelectEnd:function(img,selection){
-                    console.log(img);
+                    areaPoint=selection;
+                    areaPoint.img=url;
+                    areaPoint.action="avatarUpBack";
+                    saveButton.removeAttr("disabled");
                 }
             });
-            saveButton.removeAttr("disabled");
+            saveButton.on("click",function(){
+                $.ajax({
+                    url:"../Services/User.ashx",
+                    type:"POST",
+                    data:areaPoint,
+                    success:function(msg){
+                        alert(msg);
+                    }
+                });
+            });
         }
     }
 };
@@ -579,6 +633,7 @@ Moyo.prototype.computer={
     bindSubmit:function(){
         var submitButton=$(".submitForm");
         submitButton.on("click",function(){
+            $(".m-s-close").click();
             var nowClick=$(this);
             moyo.home.switchToSubForm(nowClick.attr("data-for"));
             return false;
@@ -896,7 +951,7 @@ Moyo.prototype.school={
 };
 Moyo.prototype.Information={
     newTopic:function(){
-        var title=$("#topic_content input");
+        var title=$("#t_t_l_title input");
         var cid=$("#topic_content input[name=cid]").val();
         $("#topic_content button[type=submit]").on("click",function(){
             var subButton=$(this);
@@ -922,7 +977,7 @@ Moyo.prototype.Information={
                     if(!msg.rst){
                         moyo.popMessage("错误","发表新帖子失败！");
                     }else{
-                        moyo.jumpTo("Markets/Informations/TopicShow.aspx?id="+msg.message);
+                        moyo.jumpTo("Markets/forum/TopicShow.aspx?id="+msg.message);
                     }
                     subButton.show();
                 }
@@ -1108,6 +1163,138 @@ Moyo.prototype.Group={
                 }
             }
         });
+    },
+    newTopicTagListen:function(){
+        var addTag=$("#group_n_c_p_tag a");
+        addTag.on("click",function(){
+            $(this).addClass("hide");
+            $("#group_n_c_p_tag div").removeClass("hide");
+            return false;
+        });
+    },
+    newTopicListen:function(){
+        $("#group_n_c_p_submit button").on("click",function(){
+            $(this).hide();
+            var postData={
+                tag:$("input[name=tag]").val(),
+                title:$("input[name=title]").val(),
+                body:$("textarea[name=body]").val(),
+                gid:$("input[name=gid]").val(),
+                action:"topic_new"
+            };
+            var checkFailed=function(){
+            }
+            if(postData.title.length<5){
+                moyo.popMessage("提示","标题不能少于5个字");
+                $(this).show();
+                return false;
+            }
+            if(postData.body.length<20){
+                moyo.popMessage("提示","正文不能少于20个字");
+                $(this).show();
+                return false;
+            }
+            if(postData.tag.length!=0 && postData.tag.length!=2){
+                $(this).show();
+                return false;
+            }
+            $.ajax({
+                type:'POST',
+                url:'../Services/Information_group.ashx',
+                data:postData,
+                success:function(msg){
+                        moyo.jumpTo("Markets/forum/GroupTopicShow.aspx?id="+msg);
+                }
+            });
+        });
+    },
+    newCommentListen:function(){
+        $("#group_comment_new button").on("click",function(){
+            var submitBt=$(this);
+            submitBt.hide();
+            var commentBox=$("textarea");
+            var postData={
+                action:"commentNew",
+                comment:commentBox.val(),
+                tid:commentBox.attr("data-tid")
+            };
+            if(postData.comment.length<5){
+                moyo.popMessage("提示","评论必须大于5个字");
+                submitBt.show();
+                return;
+            }
+            var commentRef=function(){
+                postData.action="commentGet";
+                $.ajax({
+                    type:'POST',
+                    url:'../Services/Information_group.ashx',
+                    data:postData,
+                    success:function(msg){
+                        $("#group_comments_list ul").html(msg);
+                    }
+                });
+            }
+            $.ajax({
+                type:'POST',
+                url:'../Services/Information_group.ashx',
+                data:postData,
+                success:function(msg){
+                    submitBt.show();
+                    moyo.popMessage("提示","回应成功！");
+                    commentBox.val("");
+                    commentRef();
+                }
+            });
+        });
+    }
+};
+Moyo.prototype.Info={
+    newInfoListen:function(){
+        var newButton=$("#infoM-catList button");
+        newButton.on("click",function(){
+            moyo.jumpTo("Markets/infos/new.aspx");
+        });
+    },
+    newInfoAddListen:function(){
+        var subBt=$("#infoM-new-form button");
+        subBt.on("click",function(){
+            var postData={
+                action:'new',
+                cid:$("#infoM-new-main input[name=catId]").val(),
+                title:$("#infoM-new-form input[name=title]").val(),
+                name:$("#infoM-new-form input[name=name]").val(),
+                price:$("#infoM-new-form input[name=price]").val(),
+                body:$("#infoM-new-form textarea").val(),
+                phone:$("#infoM-new-form input[name=phone]").val(),
+                pass:$("#infoM-new-form input[name=pass]").val()
+            };
+            if(postData.title.length<2){
+                moyo.popMessage("提示","标题不能少于2个字");
+                return false;
+            }
+            if(postData.body.length<20){
+                moyo.popMessage("提示","内容不能小于20个字");
+                return false;
+            }
+            if(postData.phone.length!=7&&postData.phone.length!=11){
+                moyo.popMessage("提示","请填写正确的固定电话或手机号码");
+                return false;
+            }
+            if(postData.pass.length<5){
+                moyo.popMessage("提示","管理密码不能小于五位");
+                return false;
+            }
+            if(postData.price.length==0){postData.price=0;}
+            $.ajax({
+                url:"Services/Info.ashx",
+                type:"POST",
+                data:postData,
+                success:function(msg){
+                    moyo.popMessage("恭喜","信息发布成功");
+                    moyo.jumpTo("Markets/Infos/index.aspx");
+                }
+            });
+        });
     }
 };
 Moyo.prototype.Message={
@@ -1261,6 +1448,9 @@ $(document).ready(function(){
     moyo=new Moyo();
     moyo.home.channelClick();
     moyo.home.wheaterGet();
+    moyo.home.mallGoodFloat();
+    moyo.home.infoNumberAdd();
+    moyo.addPageJump();
     moyo.addLoginListen();
     moyo.popSideBar();
     moyo.inputTip($(".needTip"));

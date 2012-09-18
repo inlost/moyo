@@ -5,4 +5,5 @@
 </div>
 <script>
     moyo.addHoverClass($(".saleH-c-good"));
+    moyo.popSideBar();
 </script>

@@ -3,16 +3,15 @@
 <!--[if IE 7 ]>    <html class="ie ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html lang="zh-CN"><!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>沁辰左邻-定西人的网上家园</title>
     <meta name="description" content="定西人自己的网上家园，定西的信息平台，提供定西网络购物、团购，定西社交社区，定西电脑上门服务，定西一卡通等信息化互联网服务。" />
     <meta name="keywords" content="定西,信息平台,定西网购,定西电脑上面维修,定西信息港,定西一卡通,定西商家联盟,定西社区,定西贴吧" />
     <link rel="shortcut icon" href="images/favicon.ico" />
-    <link rel="Stylesheet" href="Style/main.css?spm=8-6-2" />
+    <link rel="Stylesheet" href="Style/main.min.css?spm=9-15-1" />
     <link rel="Stylesheet" href="Script/jquery-ui/css/flick/jquery-ui-1.8.23.custom.css"/>
-    <script type="text/javascript" src="Script/jquery-1.8.0.min.js"></script>
 </head>
 <body class="page">
     <div id="layout">
@@ -25,25 +24,25 @@
 						<span class="left"></span>
                         <h1 class="left">定西上网导航</h1>
                     </li>
-                    <li class="channelItem clearfix" id="doorChannel">
+                    <li class="channelItem clearfix" id="forumChannel">
 						<span class="left"></span>
-                        <h1 class="left">定西上门服务</h1>
-                    </li>
-                    <li class="channelItem clearfix" id="infosChannel">
-						<span class="left"></span>
-                        <h1 class="left">定西信息港</h1>
+						<h1 class="left">定西贴吧</h1>						
                     </li>
                     <li class="channelItem clearfix" id="saleChannel">
 						<span class="left"></span>
 						<h1 class="left">定西网上商城</h1>					
                     </li>
-                    <li class="channelItem clearfix" id="forumChannel">
-						<span class="left"></span>
-						<h1 class="left">定西贴吧</h1>						
-                    </li>
                     <li class="channelItem clearfix" id="livingChannel">
 						<span class="left"></span>
 						<h1 class="left">定西生活</h1>						
+                    </li>
+                    <li class="channelItem clearfix" id="infosChannel">
+						<span class="left"></span>
+                        <h1 class="left">定西信息港</h1>
+                    </li>
+                    <li class="channelItem clearfix" id="doorChannel">
+						<span class="left"></span>
+                        <h1 class="left">定西上门服务</h1>
                     </li>
                 </ul>
             </div>
@@ -61,6 +60,15 @@
         </div>
         <div id="home" class="center">
             <ul id="home-boxes" class="clearfix">
+                <li class="fullSizeBox needTip" data-tip="从今天起，关心天气粮食和蔬菜">
+                    <div id="rightHeaderInfo" class="clearfix">
+                        <div id="rightHeaderInfo_data">日期</div>
+                        <div id="rightHeaderInfo_temp">温度</div>
+                        <div id="rightHeaderInfo_weather">天气</div>
+                        <div id="rightHeaderInfo_index">穿衣指数</div>
+                        <div id="rightHeaderInfo_indexCo">舒适指数</div>
+                    </div>
+                </li>
                 <li class="halfSizeBox needTip" data-tip="看新闻，星座"><a  id="h-b-item-qq" href="http://www.qq.com/" target="_blank">腾讯网</a></li>
 				<li class="halfSizeBox needTip" data-tip="看新闻，网易新闻的评论很亮"><a  id="h-b-item-163" href="http://www.163.com/" target="_blank">网易新闻</a></li>
 				<li class="halfSizeBox needTip" data-tip="中国最大的微博之一，不解释"><a id="h-b-item-weibo" href="http://www.weibo.com/" target="_blank">新浪微博</a></li>
@@ -81,13 +89,6 @@
 				<li class="halfSizeBox needTip" data-tip="在线照片美化，修改"><a id="h-b-item-photo" href="http://xiuxiu.web.meitu.com/" target="_blank">照片美化</a></li> 
 				<li class="halfSizeBox needTip" data-tip="护照、报警、身份证办理"><a id="h-b-item-dingxiGA" href="http://www.dxsgaj.gov.cn/" target="_blank">定西市公安局</a></li>
             </ul>
-            <div id="rightHeaderInfo" class="hide clearfix">
-                <div id="rightHeaderInfo_data">日期</div>
-                <div id="rightHeaderInfo_temp">温度</div>
-                <div id="rightHeaderInfo_weather">天气</div>
-                <div id="rightHeaderInfo_index">穿衣指数</div>
-                <div id="rightHeaderInfo_indexCo">舒适指数</div>
-            </div>
         </div>
         <div id="market" class="hide">
             <div id="market-status-bar" class="loading-big"></div>
@@ -141,15 +142,28 @@
         </div>
         <div id="footer">
                 <a href="#" id="gotop" target="_self" title="回到顶部"></a>
-                <div id="footerContent">
+                <div id="footerContent" class="clearfix">
 					<div id="footerMark">爱 @ <span>沁辰左邻</span></div>
-                    <p class="parm2">Copyright © 2009-2012 Ai0932.cOm All Rights Reserved 定西沁辰科技开发有限公司 <a href="https://www.miibeian.gov.cn" target="_blank">京ICP证090216号</a> 0932-8366225</p>
-                    <p class="parm2 clearfix">
-                        <a href="javascript:void(0);" target="_blank" title="QQ彩贝联盟"><img src="Images/footer/okbuy1.png" alt="QQ彩贝联盟"></a>
-                        <a href="javascript:void(0);" target="_blank" title="可信网站示范单位"><img src="Images/footer/okbuy1-02.png" alt="可信网站示范单位"></a>
-                        <a href="javascript:void(0);" target="_blank" title="支付宝特约商家"><img src="Images/footer/okbuy1-03.png" alt="支付宝特约商家"></a>
-                        <a target="_blank" href="javascript:void(0);" title="诚信品牌"><img src="Images/footer/okbuy1-04.png" alt="诚信品牌"></a>
-                    </p>
+                    <ul id="footerC-QRIntroduce" class="left">
+                        <li>在微信关注左邻</li>
+                        <li>在掌中知晓身边 de 一切</li>
+                        <li>在添加朋友里扫描二维码</li>
+                        <li>或查找号码：ZuoLinSpeaker</li>
+                        <li>左邻，一直都在你身边</li>
+                    </ul>
+                    <div id="footerC-QRHolder" class="left"></div>
+                    <div id="footerC-about" class="left">
+                        <p id="footerC-introduce">我们在努力做一些实实在在的事儿，希望通过左邻，能为大家的生活提供些实实在在的帮助和便利。TA应该就像原来我们住在平房时候你的邻居一样，甭管大事儿小情，喜怒哀乐，都在你身边。如果看到这儿你忍不住想和我们一起，做这样一件有意义的事情，你又足够靠谱，那就来吧~猛戳<a href="#">加入我们</a>。我们稀罕你！</p>
+                        <ul class="clearfix">
+                            <li><a href="#">关于我们</a></li>
+                            <li><a href="#">左邻每天在进步</a></li>
+                            <li><a href="#">意见建议</a></li>
+                            <li><a href="#">提供帮助</a></li>
+                            <li><a href="#">广告投放</a></li>
+                            <li><a href="#">联系我们</a></li>
+                        </ul>
+                        <p>Copyright © 2009-2012 Ai0932.cOm. All Rights Reserved</p>
+                    </div>
                 </div>
         </div>
         <div id="talkBar-holder" class="clearfix">
@@ -179,8 +193,9 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="Script/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="Script/main.min.js?spm=9-15-1"></script>
     <script type="text/javascript" src="Script/jquery-ui/js/jquery-ui-1.8.23.custom.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="Script/main.js?spm=8-6-3"></script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-33269870-1']);
@@ -191,5 +206,13 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
     </script>
+<!--    
+    <script type="text/javascript">
+        var cjsscript = document.createElement('script');
+        cjsscript.src = "Script/control.js";
+        var cjssib = document.getElementsByTagName('script')[0];
+        cjssib.parentNode.insertBefore(cjsscript, cjssib);
+    </script>
+-->
 </body>
 </html>

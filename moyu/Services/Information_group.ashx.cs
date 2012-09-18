@@ -35,6 +35,15 @@ namespace moyu.Services
                 case "join_group_noNeed":
                     joinGroupNoNeed();
                     break;
+                case "topic_new":
+                    topicNew();
+                    break;
+                case "commentNew":
+                    commentNew();
+                    break;
+                case "commentGet":
+                    commentGet();
+                    break;
             }
             context.Response.End();
         }
@@ -92,6 +101,47 @@ namespace moyu.Services
             int uid = Convert.ToInt32(theContext.Session["id"]);
             int gid = Convert.ToInt32(theContext.Request.Form["gid"]);
             myGroup.joinGroupNoNeed(uid, gid);
+        }
+        private void topicNew()
+        {
+            string tag = theContext.Request.Form["tag"].ToString().Trim();
+            string title = theContext.Request.Form["title"];
+            string body = theContext.Request.Form["body"].ToString().Replace("\n", "<br/>");
+            int gid = Convert.ToInt32(theContext.Request.Form["gid"]);
+            int uid = Convert.ToInt32(theContext.Session["id"]);
+            theContext.Response.Write(myGroup.topicNew(tag, title, gid, uid, body));
+        }
+        private void commentNew()
+        {
+            int uid = Convert.ToInt32(theContext.Session["id"]);
+            int tid = Convert.ToInt32(theContext.Request.Form["tid"]);
+            string comment = theContext.Request.Form["comment"];
+            myGroup.commentNew(uid, tid, comment);
+        }
+        private void commentGet()
+        {
+            Hashtable[] comments;
+            comments = myGroup.commentGet( Convert .ToInt32( theContext.Request.Form["tid"]));
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            string icon = "";
+            int iFloor = 0;
+            foreach (Hashtable comment in comments)
+            {
+                iFloor++;
+                icon = comment["uid"].ToString() == "0" ? "/Images/avatar/avatar-64_64.jpg" : comment["avatar"].ToString().Replace("320_320", "64_64");
+                sb.Append("<li class=\"clearfix\">");
+                sb.Append("<img src=\"" + icon + "\" class=\"left\"/>");
+                sb.Append("<div class=\"left commentMain\">");
+                sb.Append("<div class=\"commentM_info clearfix\">");
+                sb.Append("<span class=\"commentM_i_name left\">" + (comment["uid"].ToString() == "0" ? "匿名网友" : comment["niceName"].ToString()) + "</span>");
+                sb.Append("<span class=\"commentM_i_time left\">" + Convert.ToDateTime(comment["postDate"]).GetDateTimeFormats('f')[0] + "</span>");
+                sb.Append("<span class=\"commentM_i_floor right\">#" + iFloor + "</span>");
+                sb.Append("</div>");
+                sb.Append("<div class=\"comment_body_holder\">" + comment["comment"] + "</div>");
+                sb.Append("</div>");
+                sb.Append("</li>");
+            }
+            theContext.Response.Write(sb);
         }
     }
 }

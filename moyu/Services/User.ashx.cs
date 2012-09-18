@@ -42,6 +42,9 @@ namespace moyu.Services
                 case "avatarUp":
                     avatarUp();
                 break;
+                case "avatarUpBack":
+                    avatarUpBack();
+                break;
             }
 
             context.Response.End();
@@ -135,6 +138,18 @@ namespace moyu.Services
             {
                 theContext.Response.Write("<script>window.parent.moyo.setting.avatarUploadBack(0);</script>");
             }
+        }
+        private void avatarUpBack()
+        {
+            string img = theContext.Request.Form["img"];
+            int x1 =Convert .ToInt32(  theContext.Request.Form["x1"]);
+            int y1 = Convert.ToInt32( theContext.Request.Form["y1"]);
+            int x2 = Convert.ToInt32( theContext.Request.Form["x2"]);
+            int y2 = Convert.ToInt32(theContext.Request.Form["y2"]);
+            int height = Convert.ToInt32(theContext.Request.Form["height"]);
+            int width = Convert.ToInt32(theContext.Request.Form["width"]);
+            Upload.Avatar myAvatar = new Upload.Avatar();
+            theContext.Response.Write ( myAvatar.newUpload(Convert.ToInt32(theContext.Session["id"]), x1, y1, height, width,img));
         }
     }
 }

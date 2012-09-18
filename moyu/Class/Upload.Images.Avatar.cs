@@ -19,15 +19,6 @@ namespace moyu.Upload
     /// </summary>
     public class Avatar:Upload.image
     {
-        private new bool IsRarPic;
-        private new int Rarwidth;
-        private new int Suowidth;
-        private new bool IsSuowidth;
-        private new bool IsSuoImg;
-        private new bool IsRate;
-        private new string UploadFileExt;
-        private new bool IsAddWaterMark;
-
         public Avatar()
         {
             isRarPic = true;
@@ -39,173 +30,81 @@ namespace moyu.Upload
             suoheight = 100;
             IsRate = false;
         }
+        /// <summary>
+        /// 头像上传
+        /// </summary>
+        /// <param name="uid">用户编号</param>
+        /// <param name="x1">选择区域左上点X坐标</param>
+        /// <param name="y1">选择区域左上点Y坐标</param>
+        /// <param name="height">选择区域的高度</param>
+        /// <param name="width">选择区域的宽度</param>
+        /// <param name="src">上传文件的路径</param>
+        public bool newUpload(int uid, int x1,int y1,int height,int width,string src)
+        {
+            string path = System.Web.HttpContext.Current.Server.MapPath("~") + src.Replace("/","\\");
+            FileStream fs = new FileStream(path, FileMode.Open);
+            BinaryReader br = new BinaryReader(fs);
+            byte[] bytes = br.ReadBytes((int)fs.Length);
+            br.Close();
+            fs.Close();
+            MemoryStream ms = new MemoryStream(bytes);
+            System.Drawing.Image image = System.Drawing.Image.FromStream(ms);
 
-        public void newUpload(int uid, HttpPostedFile postAvatar)
-        { 
+            //文件夹路径
+            string tempPath="\\upload\\Avatar\\" + DateTime.Now.Year + "\\" + DateTime.Now.Month + "\\" + DateTime.Now.Day + "\\";
+            path = System.Web.HttpContext.Current.Server.MapPath("~") + tempPath;
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            string fileExtends = this.GetFileExtends(src.Replace("/", "\\"));//获取后缀
             
-        }
-        public new string RenameFile(string upOriFileName, string upOriFileExt)
-        {
-            string tempName = null;
-            if (this.isUseRandFileName)
+            //保存头像们
+            string guid=Guid.NewGuid().ToString("N");
+            path += guid;
+            try
             {
-                Random rd = new Random();
-                int tempR = rd.Next(1, 1000);
-                tempName = Guid.NewGuid().ToString() + tempR + reName;
-                tempName = tempName + "-600_600." +  upOriFileExt; ;
+                saveAvatar(image, x1, y1, width, height, 320, 320, path + "-320_320." + fileExtends);
+                saveAvatar(image, x1, y1, width, height, 160, 160, path + "-160_160." + fileExtends);
+                saveAvatar(image, x1, y1, width, height, 64, 64, path + "-64_64." + fileExtends);
+                saveAvatar(image, x1, y1, width, height, 32, 32, path + "-32_32." + fileExtends);
+                Data.Db myDb = new Data.Db();
+                System.Collections.Hashtable inQuery=new System.Collections.Hashtable();
+                inQuery["@uid"] = uid;
+                inQuery["@avatar"] = tempPath + guid + "-320_320." + fileExtends;
+                myDb.ExecNoneQuery("user_avatar_update", inQuery);
+                return true;
             }
-            else
+            catch
             {
-                tempName = upOriFileName;
-            }
-            return tempName;
-        }
-        private new bool Upload(string fpath, HttpPostedFile myFileUpload)
-        {
-            string fileExtends = "";
-            string fileName = myFileUpload.FileName.Trim();
-            //判断是否选取上传图片或图片名为空
-            if (!string.IsNullOrEmpty(fileName))
-            {
-                FileExtension[] fe = { FileExtension.GIF, FileExtension.JPG, FileExtension.PNG };
-                if (FileValidation.IsAllowedExtension(myFileUpload, fe))
-                {
-                }
-                else
-                {
-                    msg = "请上传" + this.uploadFileExt + "格式图片!";
-                    return false;
-                }
-                //取得图片后缀
-                fileExtends = this.GetFileExtends(fileName);
-                //判断图片类型是否合法
-                if (!this.IsFileExtendsOk(fileExtends))
-                {
-                    msg = "上传图片类型不合法!";
-                    return false;
-                }
-                else
-                {
-                    //判断待传图片大小是否超出范围
-                    if (!this.ISFileSizeOK(myFileUpload))
-                    {
-                        msg = "图片最大为 " + this.uploadFileSize + "M!";
-                        return false;
-                    }
-                    else
-                    {
-                        if (!this.ISimgOK(myFileUpload))
-                        {
-                            msg = "图片宽度应在（" + this.minwidth + " - " + this.maxwidth + "）之间，高度在（" + this.minheight + " - " + this.maxheight + "）之间!";
-                            return false;
-                        }
-                        else
-                        {
-                            //重命名图片
-                            OFullName = RenameFile(fileName, fileExtends);
-                            TFullName = OFullName.Replace("T", "S");
-                            if (fpath.LastIndexOf(@"/") < 0 || fpath.LastIndexOf(@"") < 0)
-                            {
-                                fpath = fpath + "\\";
-                            }
-                            fpath = System.Web.HttpContext.Current.Server.MapPath("~") + fpath;
-                            //如上传目录为不存在，则创建目录
-                            if (!Directory.Exists(fpath))
-                            {
-                                Directory.CreateDirectory(fpath);
-                            }
-                            //最终经处理的图片处理路径及图片名
-                            //string file = fpath + s;
-                            //确保图片唯一性，以免错误覆盖
-                            string file = BeSureOneFile(fpath, OFullName);
-                            string file2 = BeSureOneFile(fpath, TFullName);
-                            try
-                            {
-                                if (this.isRarPic)
-                                {
-                                    int aheight;
-                                    int awidth = rarwidth;
-                                    //按比例计算出大图的宽度和高度  awidth  suoheight twidth theight
-                                    if (twidth >= awidth)
-                                    {
-                                        aheight = (int)Math.Floor(Convert.ToDouble(theight) * (Convert.ToDouble(awidth) / Convert.ToDouble(twidth)));//等比设定高度
-                                    }
-                                    else
-                                    {
-                                        awidth = twidth;
-                                        aheight = theight;
-                                    }
-                                    //生成缩略原图
-                                    Bitmap tImage = new Bitmap(awidth, aheight);
-                                    Graphics g = Graphics.FromImage(tImage);
-                                    g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic; //设置高质量插值法
-                                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;//设置高质量,低速度呈现平滑程度
-                                    g.Clear(Color.Transparent); //清空画布并以透明背景色填充
-                                    Stream oStream = myFileUpload.InputStream;
-                                    System.Drawing.Image oImage = System.Drawing.Image.FromStream(oStream);
-                                    g.DrawImage(oImage, new Rectangle(0, 0, awidth, aheight), new Rectangle(0, 0, twidth, theight), GraphicsUnit.Pixel);
-                                    tImage.Save(file);
-                                }
-                                else
-                                {
-                                    myFileUpload.SaveAs(file);
-                                }
-
-                                //添加水印
-                                if (this.isAddWaterMark)
-                                {
-                                    this.addWaterMark(file, fpath, fileName, this.waterMarkMode);
-                                }
-                                //生成缩略图
-                                if (this.isSuoImg)
-                                {
-                                    if (this.isSuowidth)
-                                    {
-                                        suoheight = (int)Math.Floor(Convert.ToDouble(theight) * (Convert.ToDouble(suowidth) / Convert.ToDouble(twidth)));//等比设定高度
-                                    }
-                                    else
-                                    {
-                                        if (this.isRate)
-                                        {
-                                            //按比例计算出缩略图的宽度和高度  suowidth suoheight twidth  theight
-                                            if (twidth >= theight)
-                                            {
-                                                suoheight = (int)Math.Floor(Convert.ToDouble(theight) * (Convert.ToDouble(suowidth) / Convert.ToDouble(twidth)));//等比设定高度
-                                            }
-                                            else
-                                            {
-                                                suowidth = (int)Math.Floor(Convert.ToDouble(twidth) * (Convert.ToDouble(suoheight) / Convert.ToDouble(theight)));//等比设定宽度
-                                            }
-                                        }
-                                    }
-                                    //生成缩略原图
-                                    Bitmap tImage = new Bitmap(suowidth, suoheight);
-                                    Graphics g = Graphics.FromImage(tImage);
-                                    g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic; //设置高质量插值法
-                                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;//设置高质量,低速度呈现平滑程度
-                                    g.Clear(Color.Transparent); //清空画布并以透明背景色填充
-                                    Stream oStream = myFileUpload.InputStream;
-                                    System.Drawing.Image oImage = System.Drawing.Image.FromStream(oStream);
-                                    g.DrawImage(oImage, new Rectangle(0, 0, suowidth, suoheight), new Rectangle(0, 0, twidth, theight), GraphicsUnit.Pixel);
-                                    tImage.Save(file2);
-                                }
-                                msg = string.Format("图片{0}上传成功!", fileName);
-                                issuccess = true;
-                                return false;
-                            }
-                            catch (Exception ee)
-                            {
-                                throw new Exception(ee.ToString());
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                msg = "您没有选择待上传图片!";
                 return false;
             }
+            finally
+            {
+                image.Dispose();
+            }
+        }
+        /// <summary>
+        /// 头像保存
+        /// </summary>
+        /// <param name="img">原图</param>
+        /// <param name="x1">选择区域左上点X坐标</param>
+        /// <param name="y1">选择区域左上点Y坐标</param>
+        /// <param name="areaHeight">选择区域高</param>
+        /// <param name="areaWidth">选择区域宽</param>
+        /// <param name="height">生成头像的高</param>
+        /// <param name="width">生成头像的宽</param>
+        /// <param name="path">保存路径</param>
+        private void saveAvatar(System.Drawing.Image img,int x1,int y1,int areaHeight,int areaWidth,int height, int width, string path)
+        {
+            Bitmap b = new Bitmap(width,height, PixelFormat.Format24bppRgb);
+            Graphics g = Graphics.FromImage(b);
+            g.Clear(Color.White);
+            g.SmoothingMode = SmoothingMode.HighQuality;
+            g.InterpolationMode = InterpolationMode.High;
+            g.DrawImage(img, new Rectangle(0, 0, height, width), new Rectangle(x1, y1, areaWidth, areaHeight), GraphicsUnit.Pixel);
+            b.Save(path);
+            b.Dispose();
         }
     }
 }

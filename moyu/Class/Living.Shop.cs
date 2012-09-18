@@ -211,5 +211,14 @@ namespace moyu.Living
             inQuery["@sid"] = sid;
             return Data.Type.dtToHash(myDb.GetQueryStro("living_shop_comment_get",inQuery,"rt"));
         }
+        /// <summary>
+        /// 商城店铺数量获取
+        /// </summary>
+        /// <returns>数量</returns>
+        public int shopCountGet()
+        {
+            string strSql = "select count(id) as count from living_shops";
+            return Convert.ToInt32( Data.Type.dtToHash( myDb.GetQuerySql(strSql,"rt"))[0]["count"]);
+        }
     }
 }

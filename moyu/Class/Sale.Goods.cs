@@ -47,5 +47,27 @@ namespace moyu.Sale
             cats = Data.Type.dtToHash( myDb.GetQuerySql(strSql, "rt"));
             return cats;
         }
+        /// <summary>
+        /// 商品获取
+        /// </summary>
+        /// <param name="gid">商品编号</param>
+        /// <returns>商品</returns>
+        public Hashtable goodGet(int gid)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@gid"] = gid;
+            return Data.Type.dtToHash(myDb.GetQueryStro("sale_good_get", inQuery, "rt"))[0];
+        }
+        /// <summary>
+        /// 商城商品获取
+        /// </summary>
+        /// <param name="count">条数</param>
+        /// <param name="type">类型1大图2小图</param>
+        /// <returns>商品们</returns>
+        public Hashtable[] goodsGet(int count,int type)
+        {
+            string strSql = "select top(" + count + ") * from sale_goods where cid in(select id from sale_cat where father=" + MallCatId + ") and saleType=" + type + " order by id desc";
+            return Data.Type.dtToHash(myDb.GetQuerySql(strSql,"rt"));
+        }
 	}
 }

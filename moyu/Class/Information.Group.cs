@@ -79,5 +79,79 @@ namespace moyu.Information
             inQuery["@gid"] = gid;
             myDb.ExecNoneQuery("information_group_join_noNeed", inQuery);
         }
+        /// <summary>
+        /// 发表新话题
+        /// </summary>
+        /// <param name="tag">标签</param>
+        /// <param name="title">标题</param>
+        /// <param name="gid">小组编号</param>
+        /// <param name="uid">用户编号</param>
+        /// <param name="body">正文</param>
+        /// <returns>话题编号</returns>
+        public int topicNew(string tag,string title,int gid,int uid,string body)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@tag"] = tag;
+            inQuery["@title"] = title;
+            inQuery["@gid"] = gid;
+            inQuery["@uid"] = uid;
+            inQuery["@body"] = body;
+            if (!isInGroup(uid, gid))
+            {
+                return 0;
+            }
+            return Convert.ToInt32(Data.Type.dtToHash(myDb.GetQueryStro("information_group_topic_new", inQuery, "rt"))[0]["tid"]);
+        }
+        /// <summary>
+        /// 小组话题获取
+        /// </summary>
+        /// <param name="gid">小组编号</param>
+        /// <param name="last">上页最后一条</param>
+        /// <param name="count">要获取的条数</param>
+        /// <returns>话题们</returns>
+        public Hashtable[] topicGet(int gid, int last, int count)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@gid"] = gid;
+            inQuery["@last"] = last;
+            inQuery["@count"] = count;
+            return Data.Type.dtToHash(myDb.GetQueryStro("information_group_topic_get", inQuery, "rt"));
+        }
+        /// <summary>
+        /// 小组指定话题获取
+        /// </summary>
+        /// <param name="tid">话题编号</param>
+        /// <returns>话题</returns>
+        public Hashtable topicGetById(int tid)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@tid"] = tid;
+            return Data.Type.dtToHash(myDb.GetQueryStro("information_group_topic_get_byId", inQuery, "rt"))[0];
+        }
+        /// <summary>
+        /// 新评论
+        /// </summary>
+        /// <param name="uid">用户编号</param>
+        /// <param name="tid">帖子编号</param>
+        /// <param name="comment">评论</param>
+        public void commentNew(int uid, int tid, string comment)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@uid"] = uid;
+            inQuery["@tid"] = tid;
+            inQuery["@comment"] = comment;
+            myDb.ExecNoneQuery("information_group_comment_new", inQuery);   
+        }
+        /// <summary>
+        /// 话题评论获取
+        /// </summary>
+        /// <param name="tid">小组编号</param>
+        /// <returns>评论们</returns>
+        public Hashtable[] commentGet(int tid)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@tid"] = tid;
+            return Data.Type.dtToHash(myDb.GetQueryStro("information_group_comment_get", inQuery, "rt"));
+        }
     }
 }

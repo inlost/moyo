@@ -30,7 +30,7 @@ namespace moyu.Markets.sale
                 goods = Data.Type.dtToHash( myDb.GetQuerySql(strSql, "rt"));
                 foreach (Hashtable good in goods)
                 {
-                    sb.Append("<div class=\"saleH-c-bigGood saleH-c-good left\">");
+                    sb.Append("<div class=\"saleH-c-bigGood saleH-c-good left side\" href=\"Services\\Sale_Goods.ashx?action=get&gid=" + good["id"] + "\">");
                     sb.Append("<img src=\"" + good["pic"] + "\" alt=\"" + good["name"] + "\"/>");
                     sb.Append("<div class=\"saleH-c-price\">￥：<span>"+good["price"]+"</span> RMB</div>");
                     sb.Append("<h4>"+good["name"]+"</h4>");
@@ -40,7 +40,7 @@ namespace moyu.Markets.sale
                 goods = Data.Type.dtToHash(myDb.GetQuerySql(strSql, "rt"));
                 foreach (Hashtable good in goods)
                 {
-                    sb.Append("<div class=\"saleH-c-smallGood saleH-c-good left\">");
+                    sb.Append("<div class=\"saleH-c-smallGood saleH-c-good left side\" href=\"Services\\Sale_Goods.ashx?action=get&gid="+good["id"]+"\">");
                     sb.Append("<img src=\"" + good["pic"] + "\" alt=\"" + good["name"] + "\"/>");
                     sb.Append("<div class=\"saleH-c-price\"><span>" + good["price"] + "</span> RMB</div>");
                     sb.Append("<h4>" + good["name"] + "</h4>");

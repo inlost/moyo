@@ -594,7 +594,7 @@ namespace moyu.Upload
                         break;
                 }
                 //重命名图片
-                //string waterMarkName = RenameFile(oldFileName, GetFileExtends(oldFileName));
+                string waterMarkName = RenameFile(oldFileName, GetFileExtends(oldFileName));
                 //确保图片唯一性，以免错误覆盖
                 string waterMarkFile = BeSureOneFile(newpath, OFullName);
                 b.Save(waterMarkFile);

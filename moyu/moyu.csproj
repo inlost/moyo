@@ -63,13 +63,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\infos\cat.aspx" />
     <Content Include="Admin\sale\cat.aspx" />
     <Content Include="Admin\ecard\exchange.aspx" />
     <Content Include="Admin\living\cat.aspx" />
     <Content Include="Admin\living\info.aspx" />
     <Content Include="Admin\living\shop.aspx" />
     <Content Include="Admin\sale\good.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="Images\avatar.png" />
+    <Content Include="Images\avatar\avatar-160_160.jpg" />
+    <Content Include="Images\avatar\avatar-320_320.jpg" />
+    <Content Include="Images\avatar\avatar-32_32.jpg" />
+    <Content Include="Images\avatar\avatar-64_64.jpg" />
     <Content Include="Images\bar-back.gif" />
     <Content Include="Images\bar-home.gif" />
     <Content Include="Images\bar-login.gif" />
@@ -91,10 +97,6 @@
     <Content Include="Images\ecard\teacher.png" />
     <Content Include="Images\ecard\union.gif" />
     <Content Include="Images\favicon.ico" />
-    <Content Include="Images\footer\okbuy1-02.png" />
-    <Content Include="Images\footer\okbuy1-03.png" />
-    <Content Include="Images\footer\okbuy1-04.png" />
-    <Content Include="Images\footer\okbuy1.png" />
     <Content Include="Images\gotop.png" />
     <Content Include="Images\gp.gif" />
     <Content Include="Images\informations\add.png" />
@@ -109,12 +111,14 @@
     <Content Include="Images\logo.gif" />
     <Content Include="Images\nav&amp;logo.png" />
     <Content Include="Images\navigation_bg.png" />
+    <Content Include="Images\qrcode.jpg" />
+    <Content Include="Images\QrCode.png" />
     <Content Include="Images\sale-bt-bg.png" />
     <Content Include="Images\submit.gif" />
     <Content Include="Images\talk-guide.gif" />
     <Content Include="Index.html" />
     <Content Include="login.html" />
-    <Content Include="Markets\computer\index.html" />
+    <Content Include="Markets\door\index.html" />
     <Content Include="Markets\Ecard\index.html" />
     <Content Include="Markets\Ecard\live\exchange.aspx" />
     <Content Include="Markets\Ecard\school\teacher_cabinet.aspx" />
@@ -125,15 +129,22 @@
     <Content Include="Markets\Ecard\school\teacher_home.aspx" />
     <Content Include="Markets\Ecard\school\teacher_mail.aspx" />
     <Content Include="Markets\forum\GroupTopicList.aspx" />
+    <Content Include="Markets\forum\GroupTopicShow.aspx" />
+    <Content Include="Markets\forum\group_new.aspx" />
     <Content Include="Markets\forum\index.aspx" />
     <Content Include="Markets\forum\NewTopic.aspx" />
     <Content Include="Markets\forum\TopicList.aspx" />
     <Content Include="Markets\forum\TopicShow.aspx" />
+    <Content Include="Markets\forum\weiXin.aspx" />
+    <Content Include="Markets\Infos\index.aspx" />
+    <Content Include="Markets\Infos\new.aspx" />
     <Content Include="Markets\Living\index.aspx" />
     <Content Include="Markets\sale\index.aspx" />
     <Content Include="PopupPage\Group_new.html" />
     <Content Include="PopupPage\setting.aspx" />
     <Content Include="reg.html" />
+    <Content Include="Script\control.js" />
+    <Content Include="Script\control.min.js" />
     <Content Include="Script\jquery-1.8.0.js" />
     <Content Include="Script\jquery-1.8.0.min.js" />
     <Content Include="Script\jquery-ui\css\flick\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -565,8 +576,6 @@
     <Content Include="Script\jquery.imgareaselect-0.9.8\scripts\jquery.imgareaselect.js" />
     <Content Include="Script\jquery.imgareaselect-0.9.8\scripts\jquery.imgareaselect.min.js" />
     <Content Include="Script\jquery.imgareaselect-0.9.8\scripts\jquery.imgareaselect.pack.js" />
-    <Content Include="Script\jquery.lazyload.js" />
-    <Content Include="Script\jquery.lazyload.min.js" />
     <Content Include="Script\main.js" />
     <Content Include="Script\main.min.js" />
     <Content Include="Script\raty\doc\css\stylesheet.css" />
@@ -1190,6 +1199,7 @@
     <Content Include="Script\ueitor\_src\ui\uiutils.js" />
     <Content Include="Services\Message_Comet.aspx" />
     <Content Include="Style\main.css" />
+    <Content Include="Style\main.min.css" />
     <Content Include="tipPage\images\ssl.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1202,6 +1212,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\infos\cat.aspx.cs">
+      <DependentUpon>cat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\infos\cat.aspx.designer.cs">
+      <DependentUpon>cat.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\sale\cat.aspx.cs">
       <DependentUpon>cat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1256,8 +1273,11 @@
     <Compile Include="Class\Ecard_Union.cs" />
     <Compile Include="Class\Http.cs" />
     <Compile Include="Class\Images.cs" />
+    <Compile Include="Class\Information.Forum.cs" />
     <Compile Include="Class\Information.Group.cs" />
     <Compile Include="Class\Information.Topic.cs" />
+    <Compile Include="Class\Infos.Cat.cs" />
+    <Compile Include="Class\Infos.Post.cs" />
     <Compile Include="Class\Living.Shop.cs" />
     <Compile Include="Class\Mail.School.cs" />
     <Compile Include="Class\Sale_Order.cs" />
@@ -1265,6 +1285,13 @@
     <Compile Include="Class\Upload.Images.cs" />
     <Compile Include="Class\User.School.cs" />
     <Compile Include="Class\User.Web.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Markets\Ecard\live\exchange.aspx.cs">
       <DependentUpon>exchange.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1328,6 +1355,20 @@
     <Compile Include="Markets\forum\GroupTopicList.aspx.designer.cs">
       <DependentUpon>GroupTopicList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Markets\forum\GroupTopicShow.aspx.cs">
+      <DependentUpon>GroupTopicShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Markets\forum\GroupTopicShow.aspx.designer.cs">
+      <DependentUpon>GroupTopicShow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Markets\forum\group_new.aspx.cs">
+      <DependentUpon>group_new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Markets\forum\group_new.aspx.designer.cs">
+      <DependentUpon>group_new.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Markets\forum\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1356,6 +1397,27 @@
     <Compile Include="Markets\forum\TopicShow.aspx.designer.cs">
       <DependentUpon>TopicShow.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Markets\forum\weiXin.aspx.cs">
+      <DependentUpon>weiXin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Markets\forum\weiXin.aspx.designer.cs">
+      <DependentUpon>weiXin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Markets\Infos\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Markets\Infos\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Markets\Infos\new.aspx.cs">
+      <DependentUpon>new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Markets\Infos\new.aspx.designer.cs">
+      <DependentUpon>new.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Markets\Living\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1378,6 +1440,9 @@
       <DependentUpon>setting.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Info.ashx.cs">
+      <DependentUpon>Info.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Services\Information_group.ashx.cs">
       <DependentUpon>Information_group.ashx</DependentUpon>
     </Compile>
@@ -1405,6 +1470,9 @@
     </Compile>
     <Compile Include="Services\other.ashx.cs">
       <DependentUpon>other.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Sale_Goods.ashx.cs">
+      <DependentUpon>Sale_Goods.ashx</DependentUpon>
     </Compile>
     <Compile Include="Services\Sale_Orders.ashx.cs">
       <DependentUpon>Sale_Orders.ashx</DependentUpon>
@@ -1462,7 +1530,15 @@
     <Content Include="Services\Information_group.ashx" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\footer\" />
     <Folder Include="Script\jquery-ui\development-bundle\themes\sunny\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Services\Sale_Goods.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\左邻.pubxml" />
+    <Content Include="Services\Info.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

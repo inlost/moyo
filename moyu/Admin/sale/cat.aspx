@@ -36,12 +36,12 @@
         </asp:SqlDataSource>
         <br />
         <asp:TextBox ID="TextBox1" runat="server" Width="86px"></asp:TextBox>
-        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="添加" />
-        <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="删除" />
+        <asp:Button ID="Button1" runat="server" Text="添加" OnClick="Button1_Click" />
+        <asp:Button ID="Button2" runat="server" Text="删除" OnClick="Button2_Click" />
 &nbsp;&nbsp;
         <asp:TextBox ID="TextBox2" runat="server" Width="90px"></asp:TextBox>
-        <asp:Button ID="Button3" runat="server" onclick="Button3_Click" Text="添加" />
-        <asp:Button ID="Button4" runat="server" onclick="Button4_Click" Text="删除" />
+        <asp:Button ID="Button3" runat="server" Text="添加" OnClick="Button3_Click" />
+        <asp:Button ID="Button4" runat="server" Text="删除" OnClick="Button4_Click" />
     </div>
     </form>
 </body>

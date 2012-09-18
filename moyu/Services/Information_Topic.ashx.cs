@@ -142,7 +142,7 @@ namespace moyu.Services
                 sb.Append("<li>发表于：<span class=\"topic_date\">" + comment["date"] + "</span></li>");
                 sb.Append("</ul>");
                 sb.Append("<div class=\"comment_body\">" + comment["body"] + "</div>");
-                sb.Append("<img class=\"usersAvatar\" src=\"/Images/avatar.png\"/>");
+                sb.Append("<img class=\"usersAvatar\" src=\"" + (uName == "匿名网友" ? "/Images/avatar.png" : theUser["avatar"].ToString().Replace("320_320", "64_64")) + "\"/>");
                 sb.Append("</div>");
                 i++;
             }

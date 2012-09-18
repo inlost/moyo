@@ -40,7 +40,19 @@ namespace moyu.Markets.Informations
         }
         public void getInfo()
         {
-            Response.Write("<li>匿名网友</li>");
+            string uName="";
+            moyu.User.Web myUser = new User.Web();
+            Hashtable theUser = new Hashtable();
+            if (Convert.ToInt32(thePost["uid"]) == 0)
+            {
+                uName="匿名网友";
+            }
+            else
+            {
+                theUser = myUser.get(Convert.ToInt32(thePost["uid"]));
+                uName=theUser["niceName"].ToString();
+            }
+            Response.Write("<li>" + uName + "</li>");
             Response.Write("<li>发表于：<span  class=\"topic_date\">" + thePost["topic_date"] + "</span></li>");
             Response.Write("<li>帖子热度：" + thePost["showTime"] + "</li>");
             Response.Write("<li>最后回应时间：<span class=\"topic_date\">" + thePost["lastUpdate"] + "</span></li>");
@@ -72,7 +84,7 @@ namespace moyu.Markets.Informations
                 sb.Append("<li>发表于：<span class=\"topic_date\">" + comment["date"] + "</span></li>");
                 sb.Append("</ul>");
                 sb.Append("<div class=\"comment_body\">" + comment["body"] + "</div>");
-                sb.Append("<img class=\"usersAvatar\" src=\"/Images/avatar.png\"/>");
+                sb.Append("<img class=\"usersAvatar\" src=\"" + (uName == "匿名网友" ? "/Images/avatar.png" : theUser["avatar"].ToString().Replace("320_320", "64_64")) + "\"/>");
                 sb.Append("</div>");
                 i++;
             }
