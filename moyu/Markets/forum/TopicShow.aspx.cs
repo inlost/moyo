@@ -11,7 +11,11 @@ namespace moyu.Markets.Informations
     public partial class TopicShow : System.Web.UI.Page
     {
         Hashtable thePost = new Hashtable();
-        Information.topic myTopic = new Information.topic();
+        Hashtable theForum = new Hashtable();
+        string thePower ="";
+        private Information.topic myTopic = new Information.topic();
+        private Information.Forum myForum = new Information.Forum();
+        Information.Power myPower = new Information.Power();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Params["id"] != null)
@@ -19,7 +23,24 @@ namespace moyu.Markets.Informations
                 int tid=Convert.ToInt32(Request .Params ["id"]);
                 thePost = myTopic.get(tid);
                 myTopic.addShowTime(tid);
+                theForum = myTopic.getPlate(Convert.ToInt32(thePost["cid"]));
+                if (Session["isLogin"] != null)
+                {
+                    thePower = myPower.getUserPower((Session["isLogin"].ToString() == "false" ? 0 : Convert.ToInt32(Session["id"].ToString())), Convert.ToInt32(thePost["cid"]));
+                }
+                else
+                {
+                    thePower = "normal";
+                }
             }
+        }
+        public void getForumName()
+        {
+            Response.Write(theForum["name"]);
+        }
+        public void getForumId()
+        {
+            Response.Write(theForum["id"]);
         }
         public void getTopicCount(int cid)
         {
@@ -90,8 +111,56 @@ namespace moyu.Markets.Informations
             }
             Response.Write(sb);
         }
+        public void getForumTopicGet()
+        {
+            Hashtable[] topics;
+            StringBuilder sb = new StringBuilder();
+            if (Cache["forumNewTopic"] == null)
+            {
+                topics = myForum.forumTopicGet(10);
+                Hashtable theForm = new Hashtable();
+                foreach (Hashtable topic in topics)
+                {
+                    theForm = myTopic.getPlate(Convert.ToInt32(topic["cid"]));
+                    sb.Append("<li>");
+                    sb.Append("<a class=\"jump\" href=\"/" + topic["topic_title"] + "_定西吧_沁辰左邻/Markets---forum---TopicShow@aspx/id=" + topic["id"] + "&last=0\" data-dst=\"Markets/forum/TopicShow.aspx?id=" + topic["id"] + "&last=0\"><span>[" + theForm["name"] + "]</span> " + topic["topic_title"] + "</a>");
+                    sb.Append("</li>");
+                }
+                Cache.Insert("forumNewTopic", sb, null, DateTime.Now.AddMinutes(10), TimeSpan.Zero);
+            }
+            else
+            {
+                sb.Append(Cache["forumNewTopic"]);
+            }
+            Response.Write(sb);
+        }
+        public void getForumHotTopic()
+        {
+            Hashtable[] topics;
+            StringBuilder sb = new StringBuilder();
+            if (Cache["forumHotTopic"] == null)
+            {
+                topics = myForum.forumTopicHotGet(10);
+                foreach (Hashtable topic in topics)
+                {
+                    sb.Append("<li>");
+                    sb.Append("<a class=\"jump\" href=\"/" + topic["topic_title"] + "_定西吧_沁辰左邻/Markets---forum---TopicShow@aspx/id=" + topic["id"] + "&last=0\" data-dst=\"Markets/forum/TopicShow.aspx?id=" + topic["id"] + "&last=0\">" + topic["topic_title"] + "<span> " + topic["showTime"] + "℃</span></a>");
+                    sb.Append("</li>");
+                }
+                Cache.Insert("forumHotTopic", sb, null, DateTime.Now.AddMinutes(10), TimeSpan.Zero);
+            }
+            else
+            {
+                sb.Append(Cache["forumHotTopic"]);
+            }
+            Response.Write(sb);
+        }
         public void isNeedLogin()
         {
+            if (Session["isLogin"] == null)
+            {
+                Session["isLogin"] = "false";
+            }
             if (Session["isLogin"].ToString() == "false")
             {
                 Response.Write("   <a href=\"javascript:void(0);\" class=\"needLogin\">[我不是匿名网友]</a>");
@@ -99,6 +168,17 @@ namespace moyu.Markets.Informations
             else
             {
                 Response.Write("   <a href=\"javascript:void(0);\">[" + Session["niceName"] + "]</a>");
+            }
+        }
+        public void getFunctions()
+        {
+            if (thePower != "normal")
+            {
+
+            }
+            else
+            { 
+                
             }
         }
     }

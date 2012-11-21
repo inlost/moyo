@@ -21,6 +21,7 @@
         </div>
     </div>
     <div id="t_function_bar" class="left">
+        <h2>返回[<a class="jump" data-dst="Markets/forum/index.aspx" href="/定西吧_沁辰左邻/Markets---forum---index@aspx" >定西吧</a>]</h2>
         <h3 id="t_f_b_new" class="clearfix"><span class="left">想说点儿什么？</span> <a class="right <% isNeedLogin();%>" id="t_f_b_newTopic" data-dst="Markets/forum/NewTopic.aspx?<%getPar(); %>" href="javascript:void(0);">发表新帖子</a></h3>
     </div>
 </div>

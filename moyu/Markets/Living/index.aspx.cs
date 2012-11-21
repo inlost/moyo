@@ -12,6 +12,7 @@ namespace moyu.Markets.Living
     {
         private Hashtable[] cats;
         private moyu.Living.shops myShop = new moyu.Living.shops();
+        private moyu.Living.Question myQuestion = new moyu.Living.Question();
         protected void Page_Load(object sender, EventArgs e)
         {
             cats = myShop.cat_get();
@@ -38,7 +39,7 @@ namespace moyu.Markets.Living
                     ad = null;
                 }
                 sb.Append("<div class=\"l-catHolder\">");
-                sb.Append("<h2 class=\"l-catTitle clearfix\">");
+                sb.Append("<h2 class=\"l-catTitle clearfix\">定西");
                 sb.Append(cat["name"]);
                 sb.Append("</h2>");
                 sb.Append("<div class=\"l-catContent clearfix\">");
@@ -119,6 +120,31 @@ namespace moyu.Markets.Living
                 sb.Append("</ul></div>");
                 sb.Append("</div>");
                 sb.Append("</div>");
+            }
+            Response.Write(sb);
+        }
+        public void getLoginClass()
+        {
+            if (Session["isLogin"] != null && Session["isLogin"].ToString() != "false")
+            {
+                Response.Write("jump");
+            }
+            else
+            {
+                Response.Write("needLogin");
+            }
+        }
+        public void getKnows()
+        {
+            StringBuilder sb = new StringBuilder();
+            Hashtable[] questions;
+            questions = myQuestion.getNew(24,0);
+            foreach (Hashtable question in questions)
+            {
+                sb.Append("<li class=\"clearfix\">");
+                sb.Append("<a class=\"jump left\" data-dst=\"Markets/Living/knowsShow.aspx?id=" + question["id"] + "\" href=\"/" + question["title"] + "_定西生活_沁辰左邻/Markets---Living---knowsShow@aspx/id="+question["id"]+"\" >" + question["title"] + "</a>");
+                sb.Append("<span class=\"right\">更新于:" + Convert.ToDateTime(question["updateDate"]).ToShortDateString().Replace("2012/", "") + " " + Convert.ToDateTime(question["updateDate"]).ToShortTimeString() + "</span>");
+                sb.Append("</li>");
             }
             Response.Write(sb);
         }

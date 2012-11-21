@@ -21,6 +21,15 @@ namespace moyu.Services
         {
             theContext = context;
             theContext.Response.ContentType = "text/html";
+            if (theContext.Request.Params["action"] != null)
+            {
+                if (theContext.Request.Params["action"] == "quit")
+                {
+                    theContext.Response.Cookies.Clear();
+                    theContext.Session.Clear();
+                    theContext.Response.Redirect(theContext.Request.Params["type"].ToString() == "mobile" ? "~/Mobile/index.aspx" : "~/default.aspx");
+                }
+            }
             if (theContext.Request.Form["action"] == null)
             {
                 context.Response.StatusCode = 400;
@@ -33,8 +42,14 @@ namespace moyu.Services
                 case "login":
                     login();
                     break;
+                case "mobileLogin":
+                    mobileLogin();
+                    break;
                 case "reg":
                     reg();
+                    break;
+                case "mobileReg":
+                    mobileReg();
                     break;
                 case "isLogined":
                     isLogined();
@@ -57,7 +72,7 @@ namespace moyu.Services
                 return false;
             }
         }
-        private void login()
+        private int login()
         {
             string uid = theContext.Request.Form["uid"];
             string password = theContext.Request.Form["password"];
@@ -65,7 +80,9 @@ namespace moyu.Services
             theUser = myUser.login(uid, password);
             if (theUser == null)
             {
+                theContext.Session["isLogin"] = "false";
                 theContext.Response.Write(false);
+                return 0;
             }
             else
             {
@@ -77,15 +94,27 @@ namespace moyu.Services
                 }
                 theContext.Session["password"] = null;
                 theContext.Response.Write(true);
+                return Convert.ToInt32(theUser["id"]);
             }
         }
-        private void reg()
+        private void mobileLogin()
+        {
+            string url = theContext.Request.Form["rdUrl"].ToString();
+            int uid=login();
+            if (uid != 0)
+            {
+                myUser.bindWeixin(uid, theContext.Request.Form["wu"]);
+            }
+            theContext.Response.Redirect("~/Mobile/login.aspx" + (url.Length == 0 ? "" : ("?rdUrl=" + url)));
+        }
+        private int reg()
         {
             string niceName = theContext.Request.Form["niceName"];
             string realName = theContext.Request.Form["realName"];
             bool sex =( theContext.Request.Form["sex"].ToString() == "boy" ? true : false);
             DateTime birthday = Convert.ToDateTime(theContext.Request.Form["Birth"]);
             string email = theContext.Request.Form["email"];
+            if (email.IndexOf("@") < 0) { email += "@qq.com"; }
             Int64 phone = Convert.ToInt64(theContext.Request.Form["phone"]);
             string password = theContext.Request.Form["password"];
             Hashtable theUser = new Hashtable();
@@ -93,6 +122,7 @@ namespace moyu.Services
             if (theUser == null)
             {
                 theContext.Response.Write(false);
+                return 0;
             }
             else
             {
@@ -103,7 +133,18 @@ namespace moyu.Services
                 }
                 theContext.Session["password"] = null;
                 theContext.Response.Write(true);
+                return Convert .ToInt32(  theUser["id"]);
             }
+        }
+        private void mobileReg()
+        {
+            string url = theContext.Request.Form["rdUrl"].ToString();
+            int uid= reg();
+            if (uid != 0)
+            {
+                myUser.bindWeixin(uid, theContext.Request.Form["wu"]);
+            }
+            theContext.Response.Redirect("~/Mobile/login.aspx" + (url.Length == 0 ? "" : ("?rdUrl=" + url)));
         }
         private void isLogined()
         {

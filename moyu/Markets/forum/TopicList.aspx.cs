@@ -12,7 +12,7 @@ namespace moyu.Markets.Informations
     public partial class TopicList : System.Web.UI.Page
     {
         Information.topic myTopic = new Information.topic();
-        int last,cid;
+        int last,cid,thisPageLast;
         private Hashtable thePlate = new Hashtable();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,7 +31,7 @@ namespace moyu.Markets.Informations
         }
         public void getName()
         {
-            Response.Write(Request.Params["name"] + (Convert .ToInt32( thePlate["needLogin"])==0?" 【可匿名板块】":" 【不可匿名板块】"));
+            Response.Write(thePlate["name"] + (Convert.ToInt32(thePlate["needLogin"]) == 0 ? " 【可匿名板块】" : " 【不可匿名板块】"));
         }
         public void getTopicCount(int cid)
         {
@@ -39,7 +39,7 @@ namespace moyu.Markets.Informations
         }
         public void getPar()
         {
-            Response.Write("cid="+Request .Params["cid"]+"&name="+Request .Params ["name"]);
+            Response.Write("cid=" + Request.Params["cid"] + "&name=" + thePlate["name"]);
         }
         public void getTopicList()
         {
@@ -51,11 +51,13 @@ namespace moyu.Markets.Informations
             moyu.User.Web myUser = new User.Web();
             Hashtable theUser = new Hashtable();
             string uName="";
+            
+            thisPageLast =topics.Count()>0?  Convert.ToInt32(topics[topics.Count() - 1]["id"]):0;
             foreach (Hashtable topic in topics)
             {
-                topicTitle = topic["topic_title"].ToString().Length > 12 ? getStr(topic["topic_title"].ToString(), 26,"…")  : topic["topic_title"].ToString();
+                topicTitle = topic["topic_title"].ToString().Length > 12 ? getStr(topic["topic_title"].ToString(), 32,"…")  : topic["topic_title"].ToString();
                 sb.Append("<tr  data-tid=\"" + topic["id"] + "\">");
-                sb.Append("<th><a href=\"javascript:void(0);\" data-dst=\"Markets/forum/TopicShow.aspx?id=" + topic["id"] + "&last=" + last + "\" class=\"jump\" title=\"" + topic["topic_title"].ToString() + "\">" + topicTitle + "</a></th>");
+                sb.Append("<th><a href=\"/" + topic["topic_title"] + "_定西吧_沁辰左邻/Markets---forum---TopicShow@aspx/name=" + thePlate["name"] + "&id=" + topic["id"] + "&last=" + last + "\" data-dst=\"Markets/forum/TopicShow.aspx?id=" + topic["id"] + "&last=" + last + "\" class=\"jump\" title=\"" + topic["topic_title"].ToString() + "\">" + topicTitle + "</a></th>");
                 if(Convert .ToInt32( topic["uid"])==0)
                 {
                     uName="匿名网友";
@@ -77,7 +79,7 @@ namespace moyu.Markets.Informations
         public void getMoreLink()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("<a id=\"loadMoreTopic\" href=\"#\">点击查看更多帖子</a>");
+            sb.Append("<a id=\"loadMoreTopic\" href=\"/" + thePlate["name"] + "_定西吧_沁辰左邻/Markets---forum---TopicList@aspx/cid=" + thePlate["id"] + "&name=" + thePlate ["name"]+ "&last="+thisPageLast+"\">点击查看更多帖子</a>");
             Response.Write(sb);
         }
         private int findIndex(Hashtable[] ids, int page)

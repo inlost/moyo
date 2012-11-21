@@ -12,11 +12,11 @@
 </div>
 <script>
     var moyo = new Moyo();
-    moyo.loadCss("../Script/ueitor/themes/default/ueditor.css");
+    moyo.loadCss("../Script/ueditor/themes/default/ueditor.css");
     moyo.Information.newTopic();
 </script>
-<script type="text/javascript" src="../Script/ueitor/editor_config.js"></script>
-<script type="text/javascript" src="../Script/ueitor/editor_all_min.js"></script>
+<script type="text/javascript" src="../Script/ueditor/editor_config.js"></script>
+<script type="text/javascript" src="../Script/ueditor/editor_all_min.js"></script>
 <script type="text/javascript">
     var editor = new baidu.editor.ui.Editor({ initialContent: "" });
     editor.render("topicBody");

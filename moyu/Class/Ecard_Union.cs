@@ -23,6 +23,133 @@ namespace moyu.Ecard
                 return false;
             }
         }
+        /// <summary>
+        /// 正在发行的电子优惠券获取
+        /// </summary>
+        /// <returns>优惠券们</returns>
+        public Hashtable[] couponsGet()
+        {
+            string strSql = "select * from eCard_union_coupons where endTime > '" + DateTime.Now +"'";
+            return moyu.Data.Type.dtToHash(myDb.GetQuerySql(strSql,"rt"));
+        }
+        public Hashtable couponsGet(int id)
+        {
+            string strSql = "select * from eCard_union_coupons where id = " + id;
+            return moyu.Data.Type.dtToHash(myDb.GetQuerySql(strSql, "rt"))[0];
+        }
+        /// <summary>
+        /// 判断用户是否拥有优惠券
+        /// </summary>
+        /// <param name="uid">用户编号</param>
+        /// <param name="cid">优惠券编号</param>
+        /// <returns>真假</returns>
+        public bool isHaveCoupon(int uid, int cid)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@uid"] = uid;
+            inQuery["@cid"] = cid;
+            int number = Convert.ToInt32(moyu.Data.Type.dtToHash(myDb.GetQueryStro("ecard_union_coupons_isHave", inQuery, "rt"))[0]["number"]);
+            return number == 0 ? false : true;
+        }
+        public void changePassword(string passWord,int sid)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@sid"] = sid;
+            inQuery["@password"] = passWord;
+            myDb.ExecNoneQuery("ecard_union_shop_changePass", inQuery);
+        }
+        /// <summary>
+        /// 用户获取优惠券
+        /// </summary>
+        /// <param name="uid">用户编号</param>
+        /// <param name="cid">优惠券编号</param>
+        /// <returns>状态码</returns>
+        public int getCoupons(int uid, int cid)
+        {
+            User.Functions myFunctions = new User.Functions();
+            Hashtable theCoupons = new Hashtable();
+            Hashtable thePoint = new Hashtable();
+            theCoupons = couponsGet(cid);
+            thePoint = myFunctions.getPoint(uid);
+            int needPoint=Convert .ToInt32(theCoupons["needPoint"]);
+            if (isHaveCoupon(uid, cid))
+            {
+                return 0; //已经拥有优惠券
+            }
+            if (Convert.ToDateTime(theCoupons["endTime"]) < DateTime.Now)
+            {
+                return -1; //已经过期
+            }
+            if (needPoint > Convert.ToInt32(thePoint["point"]))
+            {
+                return -2; //积分不足
+            }
+            else
+            {
+                myFunctions.userPointChange(uid, (needPoint * -1), "兑换优惠券消耗积分", 1);
+                Hashtable inQuery = new Hashtable();
+                Random rd = new Random();
+                string no = rd.Next(0, 9).ToString();
+                no += rd.Next(0, 9).ToString();
+                no += rd.Next(0, 9).ToString();
+                no += rd.Next(0, 9).ToString();
+                no += rd.Next(0, 9).ToString();
+                no += rd.Next(0, 9).ToString();
+                no += rd.Next(0, 9).ToString();
+                no += rd.Next(0, 9).ToString();
+                no += rd.Next(0, 9).ToString();
+                inQuery["@uid"] = uid;
+                inQuery["@cid"] = cid;
+                inQuery["@no"] = no;
+                myDb.ExecNoneQuery("ecard_union_coupons_setHave", inQuery);
+            }
+            return 1; //成功
+        }
+        /// <summary>
+        /// 获取用户特定优惠券
+        /// </summary>
+        /// <param name="uid">用户编号</param>
+        /// <param name="cid">优惠券编号</param>
+        /// <returns>优惠券</returns>
+        public Hashtable getUserCoupons(int uid, int cid)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@uid"] = uid;
+            inQuery["@cid"] = cid;
+            return moyu.Data.Type.dtToHash(myDb.GetQueryStro("ecard_union_coupons_getUsers", inQuery, "rt"))[0];
+        }
+        public Hashtable[] getUserCoupons(int uid)
+        {
+            string strSql = "select * from eCard_union_coupons_have where uid=" + uid;
+            return moyu.Data.Type.dtToHash(myDb.GetQuerySql(strSql,"rt"));
+        }
+        public Hashtable getCouponsByNo(int no)
+        {
+            string strSql = "select * from eCard_union_coupons_have where no=" + no;
+            return moyu.Data.Type.dtToHash(myDb.GetQuerySql(strSql, "rt"))[0];
+        }
+        /// <summary>
+        /// 获取店铺优惠券
+        /// </summary>
+        /// <param name="sid">店铺编号</param>
+        /// <returns>优惠券们</returns>
+        public Hashtable[] getShopCoupons(int sid)
+        {
+            string strSql = "select * from v_eCard_union_coupons_have where useShop=" + sid;
+            return moyu.Data.Type.dtToHash(myDb.GetQuerySql(strSql, "rt"));
+        }
+        /// <summary>
+        /// 使用优惠券
+        /// </summary>
+        /// <param name="no">优惠券密码</param>
+        /// <param name="sid">店铺编号</param>
+        public void useCoupons(int no,int sid)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@no"] = no;
+            inQuery["@useShop"] = sid;
+            myDb.ExecNoneQuery("ecard_union_coupons_useIt", inQuery);
+        }
         public bool newUser(int sid, Int64 cid, string password, string realName, bool sex, DateTime birthday, string phone, string address)
         { 
             Hashtable inQuery=new Hashtable();

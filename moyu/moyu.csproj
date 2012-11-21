@@ -70,7 +70,9 @@
     <Content Include="Admin\living\info.aspx" />
     <Content Include="Admin\living\shop.aspx" />
     <Content Include="Admin\sale\good.aspx" />
+    <Content Include="Browser.html" />
     <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Images\avatar.png" />
     <Content Include="Images\avatar\avatar-160_160.jpg" />
     <Content Include="Images\avatar\avatar-320_320.jpg" />
@@ -84,6 +86,10 @@
     <Content Include="Images\bar-talk.gif" />
     <Content Include="Images\bg.jpg" />
     <Content Include="Images\bg.png" />
+    <Content Include="Images\brand_photo_middleframe%402x.png" />
+    <Content Include="Images\brand_profileinweb_bg%402x.png" />
+    <Content Include="Images\brand_profileinweb_bg_HL%402x.png" />
+    <Content Include="Images\brand_profileinweb_logo_HL%402x.png" />
     <Content Include="Images\computer\Network-64.png" />
     <Content Include="Images\computer\office-64.png" />
     <Content Include="Images\computer\other-64.png" />
@@ -99,13 +105,18 @@
     <Content Include="Images\favicon.ico" />
     <Content Include="Images\gotop.png" />
     <Content Include="Images\gp.gif" />
+    <Content Include="Images\home-list-bg.png" />
     <Content Include="Images\informations\add.png" />
+    <Content Include="Images\informations\fadeBack.png" />
+    <Content Include="Images\informations\news.png" />
+    <Content Include="Images\informations\phone.png" />
     <Content Include="Images\informations\tb-1.png" />
     <Content Include="Images\informations\tb-2.png" />
     <Content Include="Images\informations\tb-3.png" />
     <Content Include="Images\informations\tb-game.png" />
     <Content Include="Images\informations\tb-kitchen.png" />
     <Content Include="Images\informations\tb-software.png" />
+    <Content Include="Images\intro-darkIE-bg.jpg" />
     <Content Include="Images\loading-big.gif" />
     <Content Include="Images\login_reg_icon.png" />
     <Content Include="Images\logo.gif" />
@@ -116,7 +127,44 @@
     <Content Include="Images\sale-bt-bg.png" />
     <Content Include="Images\submit.gif" />
     <Content Include="Images\talk-guide.gif" />
-    <Content Include="Index.html" />
+    <Content Include="Images\weixin\big\1.jpg" />
+    <Content Include="Images\weixin\big\10.jpg" />
+    <Content Include="Images\weixin\big\11.jpg" />
+    <Content Include="Images\weixin\big\12.jpg" />
+    <Content Include="Images\weixin\big\13.jpg" />
+    <Content Include="Images\weixin\big\14.jpg" />
+    <Content Include="Images\weixin\big\15.jpg" />
+    <Content Include="Images\weixin\big\16.jpg" />
+    <Content Include="Images\weixin\big\17.jpg" />
+    <Content Include="Images\weixin\big\18.jpg" />
+    <Content Include="Images\weixin\big\19.jpg" />
+    <Content Include="Images\weixin\big\2.jpg" />
+    <Content Include="Images\weixin\big\20.jpg" />
+    <Content Include="Images\weixin\big\3.jpg" />
+    <Content Include="Images\weixin\big\4.jpg" />
+    <Content Include="Images\weixin\big\5.jpg" />
+    <Content Include="Images\weixin\big\6.jpg" />
+    <Content Include="Images\weixin\big\7.jpg" />
+    <Content Include="Images\weixin\big\8.jpg" />
+    <Content Include="Images\weixin\big\9.jpg" />
+    <Content Include="Images\weixin\bind.jpg" />
+    <Content Include="Images\weixin\newUser.jpg" />
+    <Content Include="Images\weixin\small\1.png" />
+    <Content Include="Images\weixin\small\10.png" />
+    <Content Include="Images\weixin\small\11.png" />
+    <Content Include="Images\weixin\small\12.png" />
+    <Content Include="Images\weixin\small\13.png" />
+    <Content Include="Images\weixin\small\14.png" />
+    <Content Include="Images\weixin\small\2.png" />
+    <Content Include="Images\weixin\small\3.png" />
+    <Content Include="Images\weixin\small\4.png" />
+    <Content Include="Images\weixin\small\5.png" />
+    <Content Include="Images\weixin\small\6.png" />
+    <Content Include="Images\weixin\small\7.png" />
+    <Content Include="Images\weixin\small\8.png" />
+    <Content Include="Images\weixin\small\9.png" />
+    <Content Include="Images\weixin\zmkm.jpg" />
+    <Content Include="Images\wx-share.png" />
     <Content Include="login.html" />
     <Content Include="Markets\door\index.html" />
     <Content Include="Markets\Ecard\index.html" />
@@ -128,6 +176,8 @@
     <Content Include="Markets\Ecard\school\teacher_documents.aspx" />
     <Content Include="Markets\Ecard\school\teacher_home.aspx" />
     <Content Include="Markets\Ecard\school\teacher_mail.aspx" />
+    <Content Include="Markets\forum\GamePlay.aspx" />
+    <Content Include="Markets\forum\GameShow.aspx" />
     <Content Include="Markets\forum\GroupTopicList.aspx" />
     <Content Include="Markets\forum\GroupTopicShow.aspx" />
     <Content Include="Markets\forum\group_new.aspx" />
@@ -138,15 +188,38 @@
     <Content Include="Markets\forum\weiXin.aspx" />
     <Content Include="Markets\Infos\index.aspx" />
     <Content Include="Markets\Infos\new.aspx" />
+    <Content Include="Markets\Living\knowsShow.aspx" />
     <Content Include="Markets\Living\index.aspx" />
+    <Content Include="Markets\Living\newQuestion.aspx" />
     <Content Include="Markets\sale\index.aspx" />
+    <Content Include="Mobile\coupons-show.aspx" />
+    <Content Include="Mobile\coupons.aspx" />
+    <Content Include="Mobile\exchange.aspx" />
+    <Content Include="Mobile\footer.aspx" />
+    <Content Include="Mobile\robot-group-kewWordsShow.aspx" />
+    <Content Include="Mobile\robot-show.aspx" />
+    <Content Include="Mobile\robot-teach.aspx" />
+    <Content Include="Mobile\topic-list.aspx" />
+    <Content Include="Mobile\header.aspx" />
+    <Content Include="Mobile\login.aspx" />
+    <Content Include="Mobile\index.aspx" />
+    <Content Include="Mobile\lucky-gift.aspx" />
+    <Content Include="Mobile\lucky.aspx" />
+    <Content Include="Mobile\newUser.aspx" />
+    <Content Include="Mobile\post-show.aspx" />
+    <Content Include="Mobile\signIn.aspx" />
+    <Content Include="Mobile\topic-new.aspx" />
     <Content Include="PopupPage\Group_new.html" />
     <Content Include="PopupPage\setting.aspx" />
     <Content Include="reg.html" />
+    <Content Include="routes.aspx" />
+    <Content Include="Sa\changePass.aspx" />
+    <Content Include="Sa\Default.aspx" />
+    <Content Include="Sa\Login.aspx" />
     <Content Include="Script\control.js" />
     <Content Include="Script\control.min.js" />
-    <Content Include="Script\jquery-1.8.0.js" />
-    <Content Include="Script\jquery-1.8.0.min.js" />
+    <Content Include="Script\jquery-1.8.2.js" />
+    <Content Include="Script\jquery-1.8.2.min.js" />
     <Content Include="Script\jquery-ui\css\flick\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Script\jquery-ui\css\flick\images\ui-bg_flat_0_eeeeee_40x100.png" />
     <Content Include="Script\jquery-ui\css\flick\images\ui-bg_flat_55_ffffff_40x100.png" />
@@ -576,6 +649,20 @@
     <Content Include="Script\jquery.imgareaselect-0.9.8\scripts\jquery.imgareaselect.js" />
     <Content Include="Script\jquery.imgareaselect-0.9.8\scripts\jquery.imgareaselect.min.js" />
     <Content Include="Script\jquery.imgareaselect-0.9.8\scripts\jquery.imgareaselect.pack.js" />
+    <Content Include="Script\jquery.mobile-1.1.1\images\ajax-loader.gif" />
+    <Content Include="Script\jquery.mobile-1.1.1\images\ajax-loader.png" />
+    <Content Include="Script\jquery.mobile-1.1.1\images\icons-18-black.png" />
+    <Content Include="Script\jquery.mobile-1.1.1\images\icons-18-white.png" />
+    <Content Include="Script\jquery.mobile-1.1.1\images\icons-36-black.png" />
+    <Content Include="Script\jquery.mobile-1.1.1\images\icons-36-white.png" />
+    <Content Include="Script\jquery.mobile-1.1.1\jquery.mobile-1.1.1.css" />
+    <Content Include="Script\jquery.mobile-1.1.1\jquery.mobile-1.1.1.js" />
+    <Content Include="Script\jquery.mobile-1.1.1\jquery.mobile-1.1.1.min.css" />
+    <Content Include="Script\jquery.mobile-1.1.1\jquery.mobile-1.1.1.min.js" />
+    <Content Include="Script\jquery.mobile-1.1.1\jquery.mobile.structure-1.1.1.css" />
+    <Content Include="Script\jquery.mobile-1.1.1\jquery.mobile.structure-1.1.1.min.css" />
+    <Content Include="Script\jquery.mobile-1.1.1\jquery.mobile.theme-1.1.1.css" />
+    <Content Include="Script\jquery.mobile-1.1.1\jquery.mobile.theme-1.1.1.min.css" />
     <Content Include="Script\main.js" />
     <Content Include="Script\main.min.js" />
     <Content Include="Script\raty\doc\css\stylesheet.css" />
@@ -628,578 +715,506 @@
     <Content Include="Script\raty\index.html" />
     <Content Include="Script\raty\js\jquery.raty.js" />
     <Content Include="Script\raty\js\jquery.raty.min.js" />
-    <Content Include="Script\ueitor\build\buildjs\build_editor_all.js" />
-    <Content Include="Script\ueitor\build\buildjs\js.jar" />
-    <Content Include="Script\ueitor\build\buildjs\yuicompressor-2.4.6.jar" />
-    <Content Include="Script\ueitor\CHANGELOG.TXT" />
-    <Content Include="Script\ueitor\dialogs\anchor\anchor.html" />
-    <Content Include="Script\ueitor\dialogs\attachment\attachment.css" />
-    <Content Include="Script\ueitor\dialogs\attachment\attachment.html" />
-    <Content Include="Script\ueitor\dialogs\attachment\callbacks.js" />
-    <Content Include="Script\ueitor\dialogs\attachment\fileTypeImages\icon_chm.gif" />
-    <Content Include="Script\ueitor\dialogs\attachment\fileTypeImages\icon_default.png" />
-    <Content Include="Script\ueitor\dialogs\attachment\fileTypeImages\icon_doc.gif" />
-    <Content Include="Script\ueitor\dialogs\attachment\fileTypeImages\icon_exe.gif" />
-    <Content Include="Script\ueitor\dialogs\attachment\fileTypeImages\icon_mp3.gif" />
-    <Content Include="Script\ueitor\dialogs\attachment\fileTypeImages\icon_mv.gif" />
-    <Content Include="Script\ueitor\dialogs\attachment\fileTypeImages\icon_pdf.gif" />
-    <Content Include="Script\ueitor\dialogs\attachment\fileTypeImages\icon_ppt.gif" />
-    <Content Include="Script\ueitor\dialogs\attachment\fileTypeImages\icon_psd.gif" />
-    <Content Include="Script\ueitor\dialogs\attachment\fileTypeImages\icon_rar.gif" />
-    <Content Include="Script\ueitor\dialogs\attachment\fileTypeImages\icon_txt.gif" />
-    <Content Include="Script\ueitor\dialogs\attachment\fileTypeImages\icon_xls.gif" />
-    <Content Include="Script\ueitor\dialogs\attachment\fileTypeMaps.js" />
-    <Content Include="Script\ueitor\dialogs\code\code.html" />
-    <Content Include="Script\ueitor\dialogs\emotion\emotion.css" />
-    <Content Include="Script\ueitor\dialogs\emotion\emotion.html" />
-    <Content Include="Script\ueitor\dialogs\emotion\emotion.js" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\0.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0001.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0002.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0003.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0004.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0005.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0006.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0007.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0008.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0009.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0010.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0011.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0012.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0013.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0014.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0015.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0016.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0017.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0018.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0019.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\babycat\C_0020.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bface.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0001.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0002.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0003.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0004.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0005.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0006.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0007.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0008.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0009.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0010.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0011.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0012.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0013.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0014.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0015.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0016.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0017.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0018.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0019.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0020.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0021.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0022.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0023.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0024.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0025.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0026.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0027.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0028.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0029.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0030.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0031.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0032.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0033.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0034.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0035.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0036.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0037.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0038.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0039.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0040.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0041.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0042.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0043.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0044.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0045.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0046.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0047.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0048.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0049.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0050.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0051.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0052.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0053.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0054.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0055.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0056.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0057.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0058.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0059.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0060.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0061.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0062.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\bobo\b_0063.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\cface.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_01.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_02.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_03.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_04.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_05.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_06.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_07.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_08.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_09.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_10.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_11.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_12.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_13.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_14.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_15.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_16.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_17.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_18.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_19.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_20.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_21.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_22.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_23.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_24.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_25.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_26.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_27.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_28.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_29.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_30.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_31.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_32.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_33.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_34.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_35.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_36.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_37.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_38.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_39.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_40.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_41.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_42.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_43.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_44.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_45.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_46.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_47.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_48.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_49.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\face\i_f_50.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\fface.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0001.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0002.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0003.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0004.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0005.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0006.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0007.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0008.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0009.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0010.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0011.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0012.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0013.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0014.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0015.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0016.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0017.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0018.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0019.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0020.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0021.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0022.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0023.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0024.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0025.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0026.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0027.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0028.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0029.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0030.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0031.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0032.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0033.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0034.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0035.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0036.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0037.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0038.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0039.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0040.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0041.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0042.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0043.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0044.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0045.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0046.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0047.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0048.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0049.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0050.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0051.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0052.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0053.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0054.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0055.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0056.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0057.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0058.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0059.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0060.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0061.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0062.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0063.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0064.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0065.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0066.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0067.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0068.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0069.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0070.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0071.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0072.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0073.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0074.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0075.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0076.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0077.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0078.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0079.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0080.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0081.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0082.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0083.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jx2\j_0084.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\jxface2.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0001.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0002.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0003.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0004.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0005.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0006.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0007.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0008.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0009.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0010.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0011.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0012.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0013.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0014.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0015.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0016.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0017.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0018.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0019.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0020.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0021.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0022.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0023.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0024.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0025.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0026.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0027.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0028.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0029.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0030.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0031.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0032.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0033.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0034.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0035.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0036.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0037.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0038.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0039.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0040.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0041.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0042.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0043.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0044.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0045.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0046.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0047.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0048.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0049.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0050.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0051.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\ldw\w_0052.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\neweditor-tab-bg.png" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tface.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0001.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0002.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0003.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0004.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0005.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0006.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0007.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0008.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0009.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0010.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0011.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0012.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0013.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0014.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0015.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0016.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0017.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0018.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0019.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0020.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0021.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0022.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0023.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0024.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0025.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0026.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0027.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0028.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0029.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0030.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0031.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0032.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0033.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0034.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0035.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0036.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0037.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0038.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0039.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\tsj\t_0040.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\wface.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\yface.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0001.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0002.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0003.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0004.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0005.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0006.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0007.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0008.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0009.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0010.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0011.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0012.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0013.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0014.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0015.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0016.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0017.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0018.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0019.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0020.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0021.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0022.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0023.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0024.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0025.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0026.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0027.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0028.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0029.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0030.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0031.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0032.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0033.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0034.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0035.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0036.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0037.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0038.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0039.gif" />
-    <Content Include="Script\ueitor\dialogs\emotion\images\youa\y_0040.gif" />
-    <Content Include="Script\ueitor\dialogs\gmap\gmap.html" />
-    <Content Include="Script\ueitor\dialogs\help\help.html" />
-    <Content Include="Script\ueitor\dialogs\image\image.css" />
-    <Content Include="Script\ueitor\dialogs\image\image.html" />
-    <Content Include="Script\ueitor\dialogs\image\image.js" />
-    <Content Include="Script\ueitor\dialogs\image\imageUploader.swf" />
-    <Content Include="Script\ueitor\dialogs\insertframe\insertframe.html" />
-    <Content Include="Script\ueitor\dialogs\internal.js" />
-    <Content Include="Script\ueitor\dialogs\link\link.html" />
-    <Content Include="Script\ueitor\dialogs\map\map.html" />
-    <Content Include="Script\ueitor\dialogs\searchreplace\searchreplace.html" />
-    <Content Include="Script\ueitor\dialogs\snapscreen\snapscreen.html" />
-    <Content Include="Script\ueitor\dialogs\spechars\spechars.html" />
-    <Content Include="Script\ueitor\dialogs\table\edittd.html" />
-    <Content Include="Script\ueitor\dialogs\table\table.html" />
-    <Content Include="Script\ueitor\dialogs\table\table.js" />
-    <Content Include="Script\ueitor\dialogs\tangram.js" />
-    <Content Include="Script\ueitor\dialogs\video\video.css" />
-    <Content Include="Script\ueitor\dialogs\video\video.html" />
-    <Content Include="Script\ueitor\dialogs\video\video.js" />
-    <Content Include="Script\ueitor\dialogs\webapp\webapp.html" />
-    <Content Include="Script\ueitor\dialogs\wordimage\fClipboard_ueditor.swf" />
-    <Content Include="Script\ueitor\dialogs\wordimage\imageUploader.swf" />
-    <Content Include="Script\ueitor\dialogs\wordimage\wordimage.html" />
-    <Content Include="Script\ueitor\dialogs\wordimage\wordimage.js" />
-    <Content Include="Script\ueitor\editor_all.js" />
-    <Content Include="Script\ueitor\editor_all_min.js" />
-    <Content Include="Script\ueitor\editor_config.js" />
-    <Content Include="Script\ueitor\net\fileUp.ashx" />
-    <Content Include="Script\ueitor\net\getContent.ashx" />
-    <Content Include="Script\ueitor\net\getMovie.ashx" />
-    <Content Include="Script\ueitor\net\getRemoteImage.ashx" />
-    <Content Include="Script\ueitor\net\imageManager.ashx" />
-    <Content Include="Script\ueitor\net\imageUp.ashx" />
-    <Content Include="Script\ueitor\net\Web.config" />
-    <Content Include="Script\ueitor\themes\default\iframe.css" />
-    <Content Include="Script\ueitor\themes\default\images\anchor.gif" />
-    <Content Include="Script\ueitor\themes\default\images\arrow.png" />
-    <Content Include="Script\ueitor\themes\default\images\button-bg.gif" />
-    <Content Include="Script\ueitor\themes\default\images\cancelbutton.gif" />
-    <Content Include="Script\ueitor\themes\default\images\center_focus.jpg" />
-    <Content Include="Script\ueitor\themes\default\images\copy.png" />
-    <Content Include="Script\ueitor\themes\default\images\dialog-title-bg.png" />
-    <Content Include="Script\ueitor\themes\default\images\fileScan.png" />
-    <Content Include="Script\ueitor\themes\default\images\icons-all.gif" />
-    <Content Include="Script\ueitor\themes\default\images\icons.gif" />
-    <Content Include="Script\ueitor\themes\default\images\icons.png" />
-    <Content Include="Script\ueitor\themes\default\images\imgLable.png" />
-    <Content Include="Script\ueitor\themes\default\images\left.jpg" />
-    <Content Include="Script\ueitor\themes\default\images\left_focus.jpg" />
-    <Content Include="Script\ueitor\themes\default\images\localimage.png" />
-    <Content Include="Script\ueitor\themes\default\images\lock.gif" />
-    <Content Include="Script\ueitor\themes\default\images\logo.png" />
-    <Content Include="Script\ueitor\themes\default\images\menu\sparator_v.png" />
-    <Content Include="Script\ueitor\themes\default\images\neweditor-tab-bg.png" />
-    <Content Include="Script\ueitor\themes\default\images\none.jpg" />
-    <Content Include="Script\ueitor\themes\default\images\none_focus.jpg" />
-    <Content Include="Script\ueitor\themes\default\images\pagebreak.gif" />
-    <Content Include="Script\ueitor\themes\default\images\right.jpg" />
-    <Content Include="Script\ueitor\themes\default\images\right_focus.jpg" />
-    <Content Include="Script\ueitor\themes\default\images\spacer.gif" />
-    <Content Include="Script\ueitor\themes\default\images\tablepicker\highlighted.gif" />
-    <Content Include="Script\ueitor\themes\default\images\tablepicker\unhighlighted.gif" />
-    <Content Include="Script\ueitor\themes\default\images\toolbar_bg.png" />
-    <Content Include="Script\ueitor\themes\default\images\topbottom.jpg" />
-    <Content Include="Script\ueitor\themes\default\images\topbottom_focus.jpg" />
-    <Content Include="Script\ueitor\themes\default\images\upload.png" />
-    <Content Include="Script\ueitor\themes\default\images\videologo.gif" />
-    <Content Include="Script\ueitor\themes\default\images\word.gif" />
-    <Content Include="Script\ueitor\themes\default\ueditor.css" />
-    <Content Include="Script\ueitor\third-party\codemirror2.15\codemirror.css" />
-    <Content Include="Script\ueitor\third-party\codemirror2.15\codemirror.js" />
-    <Content Include="Script\ueitor\third-party\snapscreen\setup.exe" />
-    <Content Include="Script\ueitor\third-party\snapscreen\Snapsie.dll" />
-    <Content Include="Script\ueitor\third-party\snapscreen\test.html" />
-    <Content Include="Script\ueitor\third-party\snapscreen\UEditorSnapscreen.exe" />
-    <Content Include="Script\ueitor\third-party\snapscreen\user_manual.txt" />
-    <Content Include="Script\ueitor\third-party\source code for imgupload with flash.zip" />
-    <Content Include="Script\ueitor\third-party\swfupload\fileprogress.js" />
-    <Content Include="Script\ueitor\third-party\swfupload\swfupload.cookies.js" />
-    <Content Include="Script\ueitor\third-party\swfupload\swfupload.js" />
-    <Content Include="Script\ueitor\third-party\swfupload\swfupload.proxy.js" />
-    <Content Include="Script\ueitor\third-party\swfupload\swfupload.queue.js" />
-    <Content Include="Script\ueitor\third-party\swfupload\swfupload.speed.js" />
-    <Content Include="Script\ueitor\third-party\swfupload\swfupload.swf" />
-    <Content Include="Script\ueitor\third-party\swfupload\swfupload_fp9.swf" />
-    <Content Include="Script\ueitor\third-party\SyntaxHighlighter\shCore.js" />
-    <Content Include="Script\ueitor\third-party\SyntaxHighlighter\shCoreDefault.css" />
-    <Content Include="Script\ueitor\_examples\completeDemo.html" />
-    <Content Include="Script\ueitor\_examples\customPluginDemo.html" />
-    <Content Include="Script\ueitor\_examples\customToolbarDemo.html" />
-    <Content Include="Script\ueitor\_examples\editor_api.js" />
-    <Content Include="Script\ueitor\_examples\highlightDemo.html" />
-    <Content Include="Script\ueitor\_examples\index.html" />
-    <Content Include="Script\ueitor\_examples\multiDemo.html" />
-    <Content Include="Script\ueitor\_examples\resetDemo.html" />
-    <Content Include="Script\ueitor\_examples\simpleDemo.html" />
-    <Content Include="Script\ueitor\_examples\submitFormDemo.html" />
-    <Content Include="Script\ueitor\_examples\textareaDemo.html" />
-    <Content Include="Script\ueitor\_src\core\ajax.js" />
-    <Content Include="Script\ueitor\_src\core\browser.js" />
-    <Content Include="Script\ueitor\_src\core\dom\domUtils.js" />
-    <Content Include="Script\ueitor\_src\core\dom\dtd.js" />
-    <Content Include="Script\ueitor\_src\core\dom\Range.js" />
-    <Content Include="Script\ueitor\_src\core\dom\Selection.js" />
-    <Content Include="Script\ueitor\_src\core\Editor.js" />
-    <Content Include="Script\ueitor\_src\core\EventBase.js" />
-    <Content Include="Script\ueitor\_src\core\utils.js" />
-    <Content Include="Script\ueitor\_src\editor.js" />
-    <Content Include="Script\ueitor\_src\plugins\anchor.js" />
-    <Content Include="Script\ueitor\_src\plugins\attachment.js" />
-    <Content Include="Script\ueitor\_src\plugins\autofloat.js" />
-    <Content Include="Script\ueitor\_src\plugins\autoheight.js" />
-    <Content Include="Script\ueitor\_src\plugins\autolink.js" />
-    <Content Include="Script\ueitor\_src\plugins\autosubmit.js" />
-    <Content Include="Script\ueitor\_src\plugins\autotypeset.js" />
-    <Content Include="Script\ueitor\_src\plugins\basestyle.js" />
-    <Content Include="Script\ueitor\_src\plugins\blockquote.js" />
-    <Content Include="Script\ueitor\_src\plugins\catchremoteimage.js" />
-    <Content Include="Script\ueitor\_src\plugins\cleardoc.js" />
-    <Content Include="Script\ueitor\_src\plugins\contextmenu.js" />
-    <Content Include="Script\ueitor\_src\plugins\customstyle.js" />
-    <Content Include="Script\ueitor\_src\plugins\delete.js" />
-    <Content Include="Script\ueitor\_src\plugins\directionality.js" />
-    <Content Include="Script\ueitor\_src\plugins\elementpath.js" />
-    <Content Include="Script\ueitor\_src\plugins\emotion.js" />
-    <Content Include="Script\ueitor\_src\plugins\enterkey.js" />
-    <Content Include="Script\ueitor\_src\plugins\fiximgclick.js" />
-    <Content Include="Script\ueitor\_src\plugins\font.js" />
-    <Content Include="Script\ueitor\_src\plugins\formatmatch.js" />
-    <Content Include="Script\ueitor\_src\plugins\highlight.js" />
-    <Content Include="Script\ueitor\_src\plugins\horizontal.js" />
-    <Content Include="Script\ueitor\_src\plugins\iframe.js" />
-    <Content Include="Script\ueitor\_src\plugins\image.js" />
-    <Content Include="Script\ueitor\_src\plugins\indent.js" />
-    <Content Include="Script\ueitor\_src\plugins\inserthtml.js" />
-    <Content Include="Script\ueitor\_src\plugins\justify.js" />
-    <Content Include="Script\ueitor\_src\plugins\keystrokes.js" />
-    <Content Include="Script\ueitor\_src\plugins\lineheight.js" />
-    <Content Include="Script\ueitor\_src\plugins\link.js" />
-    <Content Include="Script\ueitor\_src\plugins\list.js" />
-    <Content Include="Script\ueitor\_src\plugins\map.js" />
-    <Content Include="Script\ueitor\_src\plugins\pagebreak.js" />
-    <Content Include="Script\ueitor\_src\plugins\paragraph.js" />
-    <Content Include="Script\ueitor\_src\plugins\paste.js" />
-    <Content Include="Script\ueitor\_src\plugins\preview.js" />
-    <Content Include="Script\ueitor\_src\plugins\print.js" />
-    <Content Include="Script\ueitor\_src\plugins\removeformat.js" />
-    <Content Include="Script\ueitor\_src\plugins\rowspacing.js" />
-    <Content Include="Script\ueitor\_src\plugins\searchreplace.js" />
-    <Content Include="Script\ueitor\_src\plugins\selectall.js" />
-    <Content Include="Script\ueitor\_src\plugins\serialize.js" />
-    <Content Include="Script\ueitor\_src\plugins\shortcutkeys.js" />
-    <Content Include="Script\ueitor\_src\plugins\snapscreen.js" />
-    <Content Include="Script\ueitor\_src\plugins\source.js" />
-    <Content Include="Script\ueitor\_src\plugins\spechars.js" />
-    <Content Include="Script\ueitor\_src\plugins\table.js" />
-    <Content Include="Script\ueitor\_src\plugins\time.js" />
-    <Content Include="Script\ueitor\_src\plugins\undo.js" />
-    <Content Include="Script\ueitor\_src\plugins\video.js" />
-    <Content Include="Script\ueitor\_src\plugins\webapp.js" />
-    <Content Include="Script\ueitor\_src\plugins\wordcount.js" />
-    <Content Include="Script\ueitor\_src\plugins\wordimage.js" />
-    <Content Include="Script\ueitor\_src\ui\autotypesetbutton.js" />
-    <Content Include="Script\ueitor\_src\ui\autotypesetpicker.js" />
-    <Content Include="Script\ueitor\_src\ui\button.js" />
-    <Content Include="Script\ueitor\_src\ui\colorbutton.js" />
-    <Content Include="Script\ueitor\_src\ui\colorpicker.js" />
-    <Content Include="Script\ueitor\_src\ui\combox.js" />
-    <Content Include="Script\ueitor\_src\ui\dialog.js" />
-    <Content Include="Script\ueitor\_src\ui\editor.js" />
-    <Content Include="Script\ueitor\_src\ui\editorui.js" />
-    <Content Include="Script\ueitor\_src\ui\mask.js" />
-    <Content Include="Script\ueitor\_src\ui\menu.js" />
-    <Content Include="Script\ueitor\_src\ui\menubutton.js" />
-    <Content Include="Script\ueitor\_src\ui\multiMenu.js" />
-    <Content Include="Script\ueitor\_src\ui\popup.js" />
-    <Content Include="Script\ueitor\_src\ui\separator.js" />
-    <Content Include="Script\ueitor\_src\ui\splitbutton.js" />
-    <Content Include="Script\ueitor\_src\ui\stateful.js" />
-    <Content Include="Script\ueitor\_src\ui\tablebutton.js" />
-    <Content Include="Script\ueitor\_src\ui\tablepicker.js" />
-    <Content Include="Script\ueitor\_src\ui\toolbar.js" />
-    <Content Include="Script\ueitor\_src\ui\ui.js" />
-    <Content Include="Script\ueitor\_src\ui\uibase.js" />
-    <Content Include="Script\ueitor\_src\ui\uiutils.js" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\.gitignore" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\.gitmodules" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\filters\yepnope.pathfilter.js" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\plugins\yepnope.css.js" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\prefixes\yepnope.css-prefix.js" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\prefixes\yepnope.ie-prefix.js" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\prefixes\yepnope.preload.js" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\file1.js" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\file2.js" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\index.html" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\jquery-1.6.4.min.js" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\preload.html" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\qunit.css" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\qunit.js" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\run.js" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\tests.js" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\yepnope.1.5.4-min.js" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\yepnope.js" />
+    <Content Include="Script\ueditor\dialogs\anchor\anchor.html" />
+    <Content Include="Script\ueditor\dialogs\emotion\emotion.css" />
+    <Content Include="Script\ueditor\dialogs\emotion\emotion.html" />
+    <Content Include="Script\ueditor\dialogs\emotion\emotion.js" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\0.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0001.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0002.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0003.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0004.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0005.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0006.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0007.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0008.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0009.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0010.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0011.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0012.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0013.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0014.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0015.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0016.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0017.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0018.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0019.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\babycat\C_0020.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bface.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0001.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0002.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0003.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0004.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0005.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0006.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0007.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0008.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0009.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0010.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0011.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0012.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0013.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0014.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0015.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0016.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0017.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0018.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0019.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0020.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0021.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0022.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0023.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0024.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0025.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0026.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0027.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0028.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0029.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0030.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0031.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0032.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0033.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0034.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0035.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0036.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0037.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0038.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0039.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0040.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0041.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0042.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0043.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0044.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0045.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0046.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0047.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0048.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0049.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0050.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0051.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0052.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0053.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0054.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0055.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0056.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0057.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0058.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0059.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0060.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0061.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0062.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\bobo\b_0063.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\cface.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_01.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_02.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_03.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_04.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_05.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_06.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_07.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_08.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_09.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_10.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_11.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_12.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_13.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_14.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_15.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_16.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_17.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_18.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_19.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_20.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_21.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_22.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_23.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_24.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_25.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_26.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_27.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_28.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_29.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_30.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_31.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_32.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_33.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_34.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_35.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_36.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_37.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_38.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_39.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_40.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_41.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_42.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_43.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_44.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_45.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_46.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_47.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_48.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_49.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\face\i_f_50.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\fface.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0001.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0002.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0003.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0004.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0005.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0006.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0007.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0008.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0009.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0010.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0011.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0012.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0013.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0014.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0015.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0016.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0017.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0018.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0019.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0020.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0021.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0022.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0023.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0024.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0025.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0026.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0027.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0028.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0029.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0030.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0031.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0032.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0033.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0034.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0035.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0036.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0037.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0038.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0039.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0040.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0041.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0042.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0043.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0044.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0045.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0046.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0047.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0048.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0049.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0050.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0051.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0052.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0053.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0054.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0055.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0056.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0057.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0058.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0059.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0060.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0061.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0062.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0063.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0064.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0065.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0066.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0067.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0068.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0069.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0070.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0071.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0072.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0073.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0074.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0075.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0076.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0077.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0078.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0079.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0080.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0081.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0082.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0083.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jx2\j_0084.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0001.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0002.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0003.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0004.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0005.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0006.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0007.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0008.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0009.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0010.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0011.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0012.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0013.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0014.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0015.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0016.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0017.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0018.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0019.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0020.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0021.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0022.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0023.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0024.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0025.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0026.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0027.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0028.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0029.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0030.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0031.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0032.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0033.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0034.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0035.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0036.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0037.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0038.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0039.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0040.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0041.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0042.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0043.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0044.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0045.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0046.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0047.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0048.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0049.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0050.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0051.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\ldw\w_0052.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tface.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0001.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0002.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0003.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0004.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0005.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0006.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0007.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0008.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0009.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0010.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0011.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0012.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0013.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0014.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0015.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0016.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0017.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0018.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0019.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0020.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0021.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0022.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0023.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0024.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0025.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0026.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0027.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0028.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0029.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0030.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0031.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0032.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0033.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0034.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0035.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0036.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0037.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0038.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0039.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\tsj\t_0040.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\wface.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\yface.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0001.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0002.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0003.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0004.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0005.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0006.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0007.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0008.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0009.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0010.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0011.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0012.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0013.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0014.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0015.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0016.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0017.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0018.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0019.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0020.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0021.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0022.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0023.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0024.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0025.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0026.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0027.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0028.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0029.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0030.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0031.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0032.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0033.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0034.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0035.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0036.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0037.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0038.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0039.gif" />
+    <Content Include="Script\ueditor\dialogs\emotion\images\youa\y_0040.gif" />
+    <Content Include="Script\ueditor\dialogs\gmap\gmap.html" />
+    <Content Include="Script\ueditor\dialogs\highlightcode\highlightcode.html" />
+    <Content Include="Script\ueditor\dialogs\image\image.css" />
+    <Content Include="Script\ueditor\dialogs\image\image.html" />
+    <Content Include="Script\ueditor\dialogs\image\image.js" />
+    <Content Include="Script\ueditor\dialogs\image\imageUploader.swf" />
+    <Content Include="Script\ueditor\dialogs\internal.js" />
+    <Content Include="Script\ueditor\dialogs\link\link.html" />
+    <Content Include="Script\ueditor\dialogs\map\map.html" />
+    <Content Include="Script\ueditor\dialogs\scrawl\images\addimg.png" />
+    <Content Include="Script\ueditor\dialogs\scrawl\images\brush.png" />
+    <Content Include="Script\ueditor\dialogs\scrawl\images\delimg.png" />
+    <Content Include="Script\ueditor\dialogs\scrawl\images\delimgH.png" />
+    <Content Include="Script\ueditor\dialogs\scrawl\images\empty.png" />
+    <Content Include="Script\ueditor\dialogs\scrawl\images\emptyH.png" />
+    <Content Include="Script\ueditor\dialogs\scrawl\images\eraser.png" />
+    <Content Include="Script\ueditor\dialogs\scrawl\images\redo.png" />
+    <Content Include="Script\ueditor\dialogs\scrawl\images\redoH.png" />
+    <Content Include="Script\ueditor\dialogs\scrawl\images\scale.png" />
+    <Content Include="Script\ueditor\dialogs\scrawl\images\scaleH.png" />
+    <Content Include="Script\ueditor\dialogs\scrawl\images\size.png" />
+    <Content Include="Script\ueditor\dialogs\scrawl\images\undo.png" />
+    <Content Include="Script\ueditor\dialogs\scrawl\images\undoH.png" />
+    <Content Include="Script\ueditor\dialogs\scrawl\scrawl.css" />
+    <Content Include="Script\ueditor\dialogs\scrawl\scrawl.html" />
+    <Content Include="Script\ueditor\dialogs\scrawl\scrawl.js" />
+    <Content Include="Script\ueditor\dialogs\searchreplace\searchreplace.html" />
+    <Content Include="Script\ueditor\dialogs\snapscreen\snapscreen.html" />
+    <Content Include="Script\ueditor\dialogs\spechars\spechars.html" />
+    <Content Include="Script\ueditor\dialogs\tangram.js" />
+    <Content Include="Script\ueditor\dialogs\video\video.css" />
+    <Content Include="Script\ueditor\dialogs\video\video.html" />
+    <Content Include="Script\ueditor\dialogs\video\video.js" />
+    <Content Include="Script\ueditor\dialogs\wordimage\fClipboard_ueditor.swf" />
+    <Content Include="Script\ueditor\dialogs\wordimage\imageUploader.swf" />
+    <Content Include="Script\ueditor\dialogs\wordimage\wordimage.html" />
+    <Content Include="Script\ueditor\dialogs\wordimage\wordimage.js" />
+    <Content Include="Script\ueditor\editor.js" />
+    <Content Include="Script\ueditor\editor_all_min.js" />
+    <Content Include="Script\ueditor\editor_config.js" />
+    <Content Include="Script\ueditor\index.html" />
+    <Content Include="Script\ueditor\lang\en\en.js" />
+    <Content Include="Script\ueditor\lang\en\images\addimage.png" />
+    <Content Include="Script\ueditor\lang\en\images\alldeletebtnhoverskin.png" />
+    <Content Include="Script\ueditor\lang\en\images\alldeletebtnupskin.png" />
+    <Content Include="Script\ueditor\lang\en\images\background.png" />
+    <Content Include="Script\ueditor\lang\en\images\button.png" />
+    <Content Include="Script\ueditor\lang\en\images\copy.png" />
+    <Content Include="Script\ueditor\lang\en\images\deletedisable.png" />
+    <Content Include="Script\ueditor\lang\en\images\deleteenable.png" />
+    <Content Include="Script\ueditor\lang\en\images\imglabel.png" />
+    <Content Include="Script\ueditor\lang\en\images\listbackground.png" />
+    <Content Include="Script\ueditor\lang\en\images\localimage.png" />
+    <Content Include="Script\ueditor\lang\en\images\rotateleftdisable.png" />
+    <Content Include="Script\ueditor\lang\en\images\rotateleftenable.png" />
+    <Content Include="Script\ueditor\lang\en\images\rotaterightdisable.png" />
+    <Content Include="Script\ueditor\lang\en\images\rotaterightenable.png" />
+    <Content Include="Script\ueditor\lang\en\images\upload.png" />
+    <Content Include="Script\ueditor\lang\zh-cn\images\copy.png" />
+    <Content Include="Script\ueditor\lang\zh-cn\images\imglabel.png" />
+    <Content Include="Script\ueditor\lang\zh-cn\images\localimage.png" />
+    <Content Include="Script\ueditor\lang\zh-cn\images\upload.png" />
+    <Content Include="Script\ueditor\lang\zh-cn\zh-cn.js" />
+    <Content Include="Script\ueditor\themes\default\iframe.css" />
+    <Content Include="Script\ueditor\themes\default\images\anchor.gif" />
+    <Content Include="Script\ueditor\themes\default\images\arrow.png" />
+    <Content Include="Script\ueditor\themes\default\images\button-bg.gif" />
+    <Content Include="Script\ueditor\themes\default\images\cancelbutton.gif" />
+    <Content Include="Script\ueditor\themes\default\images\center_focus.jpg" />
+    <Content Include="Script\ueditor\themes\default\images\copy.png" />
+    <Content Include="Script\ueditor\themes\default\images\dialog-title-bg.png" />
+    <Content Include="Script\ueditor\themes\default\images\filescan.png" />
+    <Content Include="Script\ueditor\themes\default\images\icons-all.gif" />
+    <Content Include="Script\ueditor\themes\default\images\icons.gif" />
+    <Content Include="Script\ueditor\themes\default\images\icons.png" />
+    <Content Include="Script\ueditor\themes\default\images\imgLable.png" />
+    <Content Include="Script\ueditor\themes\default\images\left.jpg" />
+    <Content Include="Script\ueditor\themes\default\images\left_focus.jpg" />
+    <Content Include="Script\ueditor\themes\default\images\localimage.png" />
+    <Content Include="Script\ueditor\themes\default\images\lock.gif" />
+    <Content Include="Script\ueditor\themes\default\images\logo.png" />
+    <Content Include="Script\ueditor\themes\default\images\menu\sparator_v.png" />
+    <Content Include="Script\ueditor\themes\default\images\neweditor-tab-bg.png" />
+    <Content Include="Script\ueditor\themes\default\images\none.jpg" />
+    <Content Include="Script\ueditor\themes\default\images\none_focus.jpg" />
+    <Content Include="Script\ueditor\themes\default\images\pagebreak.gif" />
+    <Content Include="Script\ueditor\themes\default\images\right.jpg" />
+    <Content Include="Script\ueditor\themes\default\images\right_focus.jpg" />
+    <Content Include="Script\ueditor\themes\default\images\spacer.gif" />
+    <Content Include="Script\ueditor\themes\default\images\tablepicker\highlighted.gif" />
+    <Content Include="Script\ueditor\themes\default\images\tablepicker\unhighlighted.gif" />
+    <Content Include="Script\ueditor\themes\default\images\toolbar_bg.png" />
+    <Content Include="Script\ueditor\themes\default\images\topbottom.jpg" />
+    <Content Include="Script\ueditor\themes\default\images\topbottom_focus.jpg" />
+    <Content Include="Script\ueditor\themes\default\images\upload.png" />
+    <Content Include="Script\ueditor\themes\default\images\videologo.gif" />
+    <Content Include="Script\ueditor\themes\default\images\word.gif" />
+    <Content Include="Script\ueditor\themes\default\ueditor.css" />
+    <Content Include="Script\ueditor\third-party\codemirror2.15\codemirror.css" />
+    <Content Include="Script\ueditor\third-party\codemirror2.15\codemirror.js" />
+    <Content Include="Script\ueditor\third-party\snapscreen\setup.exe" />
+    <Content Include="Script\ueditor\third-party\snapscreen\Snapsie.dll" />
+    <Content Include="Script\ueditor\third-party\snapscreen\test.html" />
+    <Content Include="Script\ueditor\third-party\snapscreen\UEditorSnapscreen.exe" />
+    <Content Include="Script\ueditor\third-party\snapscreen\user_manual.txt" />
+    <Content Include="Script\ueditor\third-party\swfupload\fileprogress.js" />
+    <Content Include="Script\ueditor\third-party\swfupload\swfupload.cookies.js" />
+    <Content Include="Script\ueditor\third-party\swfupload\swfupload.js" />
+    <Content Include="Script\ueditor\third-party\swfupload\swfupload.proxy.js" />
+    <Content Include="Script\ueditor\third-party\swfupload\swfupload.queue.js" />
+    <Content Include="Script\ueditor\third-party\swfupload\swfupload.speed.js" />
+    <Content Include="Script\ueditor\third-party\swfupload\swfupload.swf" />
+    <Content Include="Script\ueditor\third-party\swfupload\swfupload_fp9.swf" />
+    <Content Include="Script\ueditor\third-party\SyntaxHighlighter\shCore.js" />
+    <Content Include="Script\ueditor\third-party\SyntaxHighlighter\shCoreDefault.css" />
     <Content Include="Services\Message_Comet.aspx" />
     <Content Include="Style\main.css" />
     <Content Include="Style\main.min.css" />
+    <Content Include="Style\mobile.css" />
+    <Content Include="Style\mobile.min.css" />
     <Content Include="tipPage\images\ssl.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1261,6 +1276,7 @@
     <Compile Include="Admin\sale\good.aspx.designer.cs">
       <DependentUpon>good.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Class\Api.WeiXin.cs" />
     <Compile Include="Class\Cat.cs" />
     <Compile Include="Class\Chat.Message.cs" />
     <Compile Include="Class\Chat_Message.cs" />
@@ -1271,18 +1287,24 @@
     <Compile Include="Class\Documents.School.cs" />
     <Compile Include="Class\Ecard_living.cs" />
     <Compile Include="Class\Ecard_Union.cs" />
+    <Compile Include="Class\Functions.cs" />
     <Compile Include="Class\Http.cs" />
     <Compile Include="Class\Images.cs" />
     <Compile Include="Class\Information.Forum.cs" />
     <Compile Include="Class\Information.Group.cs" />
+    <Compile Include="Class\Information.Power.cs" />
+    <Compile Include="Class\Information.Robot.cs" />
     <Compile Include="Class\Information.Topic.cs" />
+    <Compile Include="Class\Information_Game.cs" />
     <Compile Include="Class\Infos.Cat.cs" />
     <Compile Include="Class\Infos.Post.cs" />
+    <Compile Include="Class\Living.Question.cs" />
     <Compile Include="Class\Living.Shop.cs" />
     <Compile Include="Class\Mail.School.cs" />
     <Compile Include="Class\Sale_Order.cs" />
     <Compile Include="Class\Upload.Images.Avatar.cs" />
     <Compile Include="Class\Upload.Images.cs" />
+    <Compile Include="Class\User.Functions.cs" />
     <Compile Include="Class\User.School.cs" />
     <Compile Include="Class\User.Web.cs" />
     <Compile Include="Default.aspx.cs">
@@ -1291,6 +1313,9 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Markets\Ecard\live\exchange.aspx.cs">
       <DependentUpon>exchange.aspx</DependentUpon>
@@ -1347,6 +1372,20 @@
     </Compile>
     <Compile Include="Markets\Ecard\school\teacher_mail.aspx.designer.cs">
       <DependentUpon>teacher_mail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Markets\forum\GamePlay.aspx.cs">
+      <DependentUpon>GamePlay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Markets\forum\GamePlay.aspx.designer.cs">
+      <DependentUpon>GamePlay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Markets\forum\GameShow.aspx.cs">
+      <DependentUpon>GameShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Markets\forum\GameShow.aspx.designer.cs">
+      <DependentUpon>GameShow.aspx</DependentUpon>
     </Compile>
     <Compile Include="Markets\forum\GroupTopicList.aspx.cs">
       <DependentUpon>GroupTopicList.aspx</DependentUpon>
@@ -1418,6 +1457,13 @@
     <Compile Include="Markets\Infos\new.aspx.designer.cs">
       <DependentUpon>new.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Markets\Living\knowsShow.aspx.cs">
+      <DependentUpon>knowsShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Markets\Living\knowsShow.aspx.designer.cs">
+      <DependentUpon>knowsShow.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Markets\Living\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1425,12 +1471,138 @@
     <Compile Include="Markets\Living\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Markets\Living\newQuestion.aspx.cs">
+      <DependentUpon>newQuestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Markets\Living\newQuestion.aspx.designer.cs">
+      <DependentUpon>newQuestion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Markets\sale\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Markets\sale\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\coupons-show.aspx.cs">
+      <DependentUpon>coupons-show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\coupons-show.aspx.designer.cs">
+      <DependentUpon>coupons-show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\coupons.aspx.cs">
+      <DependentUpon>coupons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\coupons.aspx.designer.cs">
+      <DependentUpon>coupons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\exchange.aspx.cs">
+      <DependentUpon>exchange.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\exchange.aspx.designer.cs">
+      <DependentUpon>exchange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\footer.aspx.cs">
+      <DependentUpon>footer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\footer.aspx.designer.cs">
+      <DependentUpon>footer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\robot-group-kewWordsShow.aspx.cs">
+      <DependentUpon>robot-group-kewWordsShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\robot-group-kewWordsShow.aspx.designer.cs">
+      <DependentUpon>robot-group-kewWordsShow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\robot-show.aspx.cs">
+      <DependentUpon>robot-show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\robot-show.aspx.designer.cs">
+      <DependentUpon>robot-show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\robot-teach.aspx.cs">
+      <DependentUpon>robot-teach.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\robot-teach.aspx.designer.cs">
+      <DependentUpon>robot-teach.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\topic-list.aspx.cs">
+      <DependentUpon>topic-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\topic-list.aspx.designer.cs">
+      <DependentUpon>topic-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\header.aspx.cs">
+      <DependentUpon>header.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\header.aspx.designer.cs">
+      <DependentUpon>header.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\lucky-gift.aspx.cs">
+      <DependentUpon>lucky-gift.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\lucky-gift.aspx.designer.cs">
+      <DependentUpon>lucky-gift.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\lucky.aspx.cs">
+      <DependentUpon>lucky.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\lucky.aspx.designer.cs">
+      <DependentUpon>lucky.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\newUser.aspx.cs">
+      <DependentUpon>newUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\newUser.aspx.designer.cs">
+      <DependentUpon>newUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\post-show.aspx.cs">
+      <DependentUpon>post-show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\post-show.aspx.designer.cs">
+      <DependentUpon>post-show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\signIn.aspx.cs">
+      <DependentUpon>signIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\signIn.aspx.designer.cs">
+      <DependentUpon>signIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\topic-new.aspx.cs">
+      <DependentUpon>topic-new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\topic-new.aspx.designer.cs">
+      <DependentUpon>topic-new.aspx</DependentUpon>
     </Compile>
     <Compile Include="PopupPage\setting.aspx.cs">
       <DependentUpon>setting.aspx</DependentUpon>
@@ -1440,14 +1612,52 @@
       <DependentUpon>setting.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="routes.aspx.cs">
+      <DependentUpon>routes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="routes.aspx.designer.cs">
+      <DependentUpon>routes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sa\changePass.aspx.cs">
+      <DependentUpon>changePass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sa\changePass.aspx.designer.cs">
+      <DependentUpon>changePass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sa\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sa\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sa\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sa\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Script\ueditor\net\Uploader.cs" />
+    <Compile Include="Services\Ecard.ashx.cs">
+      <DependentUpon>Ecard.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Services\Info.ashx.cs">
       <DependentUpon>Info.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Information_Game.ashx.cs">
+      <DependentUpon>Information_Game.ashx</DependentUpon>
     </Compile>
     <Compile Include="Services\Information_group.ashx.cs">
       <DependentUpon>Information_group.ashx</DependentUpon>
     </Compile>
     <Compile Include="Services\Information_Topic.ashx.cs">
       <DependentUpon>Information_Topic.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\living_knows.ashx.cs">
+      <DependentUpon>living_knows.ashx</DependentUpon>
     </Compile>
     <Compile Include="Services\living_shop.ashx.cs">
       <DependentUpon>living_shop.ashx</DependentUpon>
@@ -1467,6 +1677,9 @@
     </Compile>
     <Compile Include="Services\Message_Comet.aspx.designer.cs">
       <DependentUpon>Message_Comet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Mobile_Main.ashx.cs">
+      <DependentUpon>Mobile_Main.ashx</DependentUpon>
     </Compile>
     <Compile Include="Services\other.ashx.cs">
       <DependentUpon>other.ashx</DependentUpon>
@@ -1495,6 +1708,9 @@
     <Compile Include="Services\User.ashx.cs">
       <DependentUpon>User.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Services\WeiXin.ashx.cs">
+      <DependentUpon>WeiXin.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Templete\ecard_school.Master.cs">
       <DependentUpon>ecard_school.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1505,7 +1721,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Script\raty\README.md" />
-    <Content Include="Script\ueitor\build\buildjs\mergejs.bat" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Services\School_User.ashx" />
@@ -1531,6 +1746,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\footer\" />
+    <Folder Include="Markets\Tools\" />
     <Folder Include="Script\jquery-ui\development-bundle\themes\sunny\images\" />
   </ItemGroup>
   <ItemGroup>
@@ -1539,6 +1755,28 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\左邻.pubxml" />
     <Content Include="Services\Info.ashx" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\compress" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\README.md" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\css\.htaccess" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\css\css.php" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\js\.htaccess" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\js\javascript.php" />
+    <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\package.json" />
+    <Content Include="Services\Information_Game.ashx" />
+    <Content Include="Script\ueditor\dialogs\scrawl\images\Thumbs.db" />
+    <Content Include="Script\ueditor\net\getMovie.ashx" />
+    <Content Include="Script\ueditor\net\getRemoteImage.ashx" />
+    <Content Include="Script\ueditor\net\imageManager.ashx" />
+    <Content Include="Script\ueditor\net\imageUp.ashx" />
+    <Content Include="Script\ueditor\net\scrawlUp.ashx" />
+    <Content Include="Script\ueditor\net\Web.config" />
+    <Content Include="Script\ueditor\themes\default\images\menu\Thumbs.db" />
+    <Content Include="Script\ueditor\themes\default\images\tablepicker\Thumbs.db" />
+    <Content Include="Script\ueditor\themes\default\images\Thumbs.db" />
+    <Content Include="Services\living_knows.ashx" />
+    <Content Include="Services\Mobile_Main.ashx" />
+    <Content Include="Services\WeiXin.ashx" />
+    <Content Include="Services\Ecard.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -1553,7 +1791,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1216</DevelopmentServerPort>
+          <DevelopmentServerPort>1218</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

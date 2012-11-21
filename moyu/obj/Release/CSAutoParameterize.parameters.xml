@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="conStr-Web.config Connection String" description="conStr 由应用程序在 web.config 中用来访问数据库的连接字符串。" defaultValue="Data Source=LocalHost;Integrated Security=SSPI;Initial Catalog=moyu" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="G:\\WebProject\\moyu\\moyu\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='conStr']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="E:\\WebProject\\moyu\\moyu\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='conStr']/@connectionString" />
   </parameter>
 </parameters>

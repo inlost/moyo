@@ -85,5 +85,17 @@ namespace moyu.User
                 return null;
             }
         }
+        /// <summary>
+        /// 绑定微信
+        /// </summary>
+        /// <param name="uid">用户编号</param>
+        /// <param name="weixinId">微信号</param>
+        public void bindWeixin(int uid, string weixinId)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@uid"] = uid;
+            inQuery["@weixinId"] = weixinId;
+            myDb.ExecNoneQuery("user_bindWeixin", inQuery);
+        }
     }
 }

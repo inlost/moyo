@@ -102,6 +102,16 @@ namespace moyu.Information
             }
             return Convert.ToInt32(Data.Type.dtToHash(myDb.GetQueryStro("information_group_topic_new", inQuery, "rt"))[0]["tid"]);
         }
+        public int topicNewByWeixin(string tag, string title, int gid, int uid, string body)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@tag"] = tag;
+            inQuery["@title"] = title;
+            inQuery["@gid"] = gid;
+            inQuery["@uid"] = uid;
+            inQuery["@body"] = body;
+            return Convert.ToInt32(Data.Type.dtToHash(myDb.GetQueryStro("information_group_topic_new", inQuery, "rt"))[0]["tid"]);
+        }
         /// <summary>
         /// 小组话题获取
         /// </summary>
@@ -152,6 +162,21 @@ namespace moyu.Information
             Hashtable inQuery = new Hashtable();
             inQuery["@tid"] = tid;
             return Data.Type.dtToHash(myDb.GetQueryStro("information_group_comment_get", inQuery, "rt"));
+        }
+        /// <summary>
+        /// 通过标签获取文章
+        /// </summary>
+        /// <param name="tag">标签</param>
+        /// <param name="last">最后一条</param>
+        /// <param name="count">总条数</param>
+        /// <returns>文章们</returns>
+        public Hashtable[] postGetByTat(string tag,int last,int count)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@tag"] = tag;
+            inQuery["@last"] = last;
+            inQuery["@count"] = count;
+            return Data.Type.dtToHash(myDb.GetQueryStro("information_group_topic_get_byTag", inQuery, "rt"));
         }
     }
 }

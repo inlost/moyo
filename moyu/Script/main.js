@@ -1,6 +1,6 @@
 var moyoHistory=[];
 Moyo=function(){
-    this.spm="?spm=08-29";
+    this.spm="?spm=09-24";
     var statusBar=$("#market-status-bar"),
         marketBox=$("#marketBox"),
         channelContent=$("#marketContent").parent();
@@ -419,11 +419,9 @@ Moyo.prototype.home={
         });
     },
     hideFirstHome:function(){
-        var splitBar=$("#splitBar");
         var home=$("#home");
         var market=$("#market");
         home.slideUp("normal").remove();
-        splitBar.css("display","none").remove();
         market.removeClass("hide");
     },
     channelClick:function(){
@@ -433,7 +431,7 @@ Moyo.prototype.home={
             var nowChannel=$(this);
             if(nowChannel.attr("id")=="logo"||nowChannel.attr("id")=="homeChannel"){
                 location.reload();
-                return;
+                return false;
             }
             channels.removeClass("activeChannel");
             nowChannel.addClass("activeChannel");
@@ -1064,10 +1062,46 @@ Moyo.prototype.Information={
             });
             return false;
         });
+    },
+    gameLoaderInit:function(){
+        var catLinks=$(".gameJump");
+        catLinks.on("click",function(){
+            var nowCat=$(this);
+            if(!nowCat.parent().hasClass("loadMore")){
+                $(".gameActCat").removeClass("gameActCat");
+                nowCat.parent().addClass("gameActCat");
+            }
+            var postData={
+                action:'loadGame',
+                gameCat:nowCat.attr("data-cat"),
+                gameLast:nowCat.attr("data-last")
+            };
+            var gameHolder=$(".gameList");
+            gameHolder.addClass("loading-big").html("");
+            $.ajax({
+                url:"../Services/Information_Game.ashx",
+                type:"POST",
+                data:postData,
+                success:function(msg){
+                    gameHolder.removeClass("loading-big").html(msg);
+                    var more=$("#f-gameHolder .loadMore a");
+                    more.attr({
+                        "data-cat":nowCat.attr("data-cat"),
+                        "data-last":$(".gameList li:last a").attr("data-gid")
+                    });
+                    moyo.addPageJump();
+                }
+            });
+            return false;
+        });
     }
 };
 Moyo.prototype.siteBar={
     init:function(){
+        if($(window).width()<1300){
+            $("#siteBar").addClass("hide");
+            return;
+        }
         moyo.siteBar.homeListen();
         moyo.siteBar.backListen();
         moyo.siteBar.joinGroupListen();
@@ -1112,6 +1146,7 @@ Moyo.prototype.siteBar={
                 buttons:{
                     关闭:function(){
                         $(this).dialog("close");
+            console.log(postData);
                     }
                 }
             });
@@ -1169,6 +1204,7 @@ Moyo.prototype.Group={
         addTag.on("click",function(){
             $(this).addClass("hide");
             $("#group_n_c_p_tag div").removeClass("hide");
+            $("#group_n_c_p_tag input").focus();
             return false;
         });
     },
@@ -1182,8 +1218,6 @@ Moyo.prototype.Group={
                 gid:$("input[name=gid]").val(),
                 action:"topic_new"
             };
-            var checkFailed=function(){
-            }
             if(postData.title.length<5){
                 moyo.popMessage("提示","标题不能少于5个字");
                 $(this).show();
@@ -1442,19 +1476,54 @@ Moyo.prototype.Living={
             position:latLng,
             map: map
         });
+    },
+    newQuestion:function(){
+        $("#group_n_c_p_submit button").on("click",function(){
+             var postData={
+                title:$("#group_n_c_p_title input").val(),
+                body:$("#group_n_c_p_body textarea").val(),
+                action:"new"
+            };
+            $.ajax({
+                url:"../Services/living_knows.ashx",
+                type:"POST",
+                data:postData,
+                success:function(msg){
+                    moyo.popMessage("恭喜","问题发表成功,现在将转到问题:"+postData.title);
+                    moyo.jumpTo("Markets/Living/knowsShow.aspx?id="+msg);
+                }
+            });
+        });
+    },
+    newAnswer:function(){
+        $("#t_p_l_t_c_n_answer").on("click",function(){
+            var postData={
+                action:"answerAdd",
+                nid:$(this).attr("data-tid"),
+                body:$("#t_p_l_t_comments_left").val()
+            };
+            $.ajax({
+                url:"../Services/living_knows.ashx",
+                type:"POST",
+                data:postData,
+                success:function(msg){
+                    $("#t_p_l_t_comments_left").val();
+                    moyo.Living.loadAnswer();
+                }
+            });
+        });
+    },
+    loadAnswer:function(){
+        $.ajax({
+            url:"../Services/living_knows.ashx",
+            type:"POST",
+            data:{
+                action:"ansertGet",
+                nid:$("#t_p_l_t_c_n_answer").attr("data-tid")
+            },
+            success:function(msg){
+                $("#t_p_l_t_c_list").html(msg);
+            }
+        });
     }
 };
-$(document).ready(function(){
-    moyo=new Moyo();
-    moyo.home.channelClick();
-    moyo.home.wheaterGet();
-    moyo.home.mallGoodFloat();
-    moyo.home.infoNumberAdd();
-    moyo.addPageJump();
-    moyo.addLoginListen();
-    moyo.popSideBar();
-    moyo.inputTip($(".needTip"));
-    moyo.siteBar.init();
-    //moyo.Message.init();
-    moyo.addHoverClass($("#order-form li"));
-});

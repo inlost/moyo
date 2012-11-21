@@ -25,7 +25,7 @@
     <div id="group_n_c_sideBar" class="left">
         <div id="group_n_c_s_back" class="clearfix">
             <img class="left" src="<%getGroupIcon(); %>" />
-            <a href="#" class="jump" data-dst="Markets/forum/GroupTopicList.aspx?id=<%getGid(); %>">返回<%getName(); %>小组</a>
+            <a href="/圈子_沁辰左邻/Markets---forum---GroupTopicList@aspx/id=<%getGid(); %>" class="jump" data-dst="Markets/forum/GroupTopicList.aspx?id=<%getGid(); %>">返回<%getName(); %>小组</a>
         </div>
     </div>
 </div>

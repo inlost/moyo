@@ -15,8 +15,8 @@ namespace moyu.Services
     public class Union : IHttpHandler, IRequiresSessionState
     {
         private HttpContext theContext;
-        moyu.Ecard.Union myUnion = new Ecard.Union();
-        moyu.Ecard.Living myLiving = new Ecard.Living();
+        moyu.Ecard.Union myUnion = new moyu.Ecard.Union();
+        moyu.Ecard.Living myLiving = new moyu.Ecard.Living();
         public void ProcessRequest(HttpContext context)
         {
             theContext = context;
@@ -31,6 +31,9 @@ namespace moyu.Services
             {
                 case "login":
                     login();
+                    break;
+                case "webLogin":
+                    webLogin();
                     break;
                 case "new":
                     newUser();
@@ -60,6 +63,18 @@ namespace moyu.Services
             int sid = Convert.ToInt32(theContext.Request.Form["sid"]);
             string password = theContext.Request.Form["password"];
             theContext.Response.Write(myUnion.shopLogin(sid,password));
+        }
+        private void webLogin()
+        {
+            int sid = Convert.ToInt32(theContext.Request.Form["sid"]);
+            string password = theContext.Request.Form["password"];
+            if (myUnion.shopLogin(sid, password))
+            {
+                theContext.Session["sid"] = sid;
+                theContext.Session["sLogin"] = "true";
+                theContext.Session["password"] = password;
+            }
+            theContext.Response.Redirect("~/Sa/default.aspx");
         }
         private void newUser()
         {

@@ -43,7 +43,6 @@ namespace moyu.Infos
         /// <returns></returns>
         public Hashtable[] get(int deep, int father)
         {
-            Hashtable[] cats;
             Hashtable inQuery = new Hashtable();
             inQuery["@deep"] = deep;
             inQuery["@father"] = father;

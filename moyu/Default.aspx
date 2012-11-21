@@ -8,11 +8,34 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>沁辰左邻-定西人的网上家园</title>
-    <meta name="description" content="定西人自己的网上家园，定西的信息平台，提供定西网络购物、团购，定西社交社区，定西电脑上门服务，定西一卡通等信息化互联网服务。" />
-    <meta name="keywords" content="定西,信息平台,定西网购,定西电脑上面维修,定西信息港,定西一卡通,定西商家联盟,定西社区,定西贴吧" />
+    <meta name="description" content="沁辰左邻，定西人的网上家园。左邻是定西最大的网络社区，定西吧，定西微信平台，定西网上商城，定西招聘求职，就在沁辰左邻。" />
+    <meta name="keywords" content="定西,定西市,定西吧,定西论坛,定西招聘,定西租房,定西二手,定西租房,定西网上商城,定西生活信息,定西信息港,定西上门服务,定西一卡通,定西商家联盟,定西社区" />
     <link rel="shortcut icon" href="images/favicon.ico" />
-    <link rel="Stylesheet" href="Style/main.css?spm=9-18-4" />
-    <link rel="Stylesheet" href="Script/jquery-ui/css/flick/jquery-ui-1.8.23.custom.css"/>
+    <link rel="Stylesheet" href="Style/main.min.css?spm=10-29-1" />
+    <script type="text/javascript" src="Script/SlexAxton-yepnope.js-0304fca/yepnope.1.5.4-min.js"></script>
+    <script>
+        yepnope([
+            {
+                load: 'Script/jquery-1.8.2.min.js',
+            }, {
+                load: ['Script/main.js?spm=10-18', 'Script/jquery-ui/js/jquery-ui-1.8.23.custom.min.js', 'css!Script/jquery-ui/css/flick/jquery-ui-1.8.23.custom.css'],
+                complete: function () {
+                    moyo = new Moyo();
+                    moyo.home.channelClick();
+                    moyo.home.wheaterGet();
+                    moyo.home.mallGoodFloat();
+                    moyo.home.infoNumberAdd();
+                    moyo.addPageJump();
+                    moyo.addLoginListen();
+                    moyo.popSideBar();
+                    moyo.inputTip($(".needTip"));
+                    moyo.addHoverClass($("#order-form li"));
+                    moyo.siteBar.init();
+                    moyo.Message.init();
+                }
+            }
+        ]);
+    </script>
     <!--[if lt IE 7]>
     <script>
         try { document.execCommand('BackgroundImageCache', false, true); } catch (e) {}
@@ -28,27 +51,27 @@
 					</li>
                     <li class="channelItem activeChannel clearfix" id="homeChannel">
 						<span class="left"></span>
-                        <h1 class="left">定西上网导航</h1>
+                        <h1 class="left"><a href="http://www.ai0932.com/">首页</a></h1>
                     </li>
                     <li class="channelItem clearfix" id="forumChannel">
 						<span class="left"></span>
-						<h1 class="left">定西贴吧</h1>						
+						<h1 class="left"><a href="/定西吧_沁辰左邻/Markets---forum---index@aspx">定西贴吧</a></h1>						
                     </li>
                     <li class="channelItem clearfix" id="saleChannel">
 						<span class="left"></span>
-						<h1 class="left">定西网上商城</h1>					
+						<h1 class="left"><a href="/定西网上商城_沁辰左邻/Markets---sale---index@aspx">定西网上商城</a></h1>					
                     </li>
                     <li class="channelItem clearfix" id="livingChannel">
 						<span class="left"></span>
-						<h1 class="left">定西生活</h1>						
+						<h1 class="left"><a href="/定西生活_沁辰左邻/Markets---Living---index@aspx">定西生活</a></h1>						
                     </li>
                     <li class="channelItem clearfix" id="infosChannel">
 						<span class="left"></span>
-                        <h1 class="left">定西信息港</h1>
+                        <h1 class="left"><a href="/定西信息港_沁辰左邻/Markets---Infos---index@aspx">定西信息港</a></h1>
                     </li>
                     <li class="channelItem clearfix" id="doorChannel">
 						<span class="left"></span>
-                        <h1 class="left">定西上门服务</h1>
+                        <h1 class="left"><a href="/定西上门服务_沁辰左邻/Markets---door---index@html">定西上门服务</a></h1>
                     </li>
                 </ul>
             </div>
@@ -60,12 +83,12 @@
                     <li><a id="s-i-message" href="javascript:void(0);">站内信</a></li>
                     <li><a id="s-i-settings" class="side needLogin" data-dst="notChange" href="PopupPage/setting.aspx">设置</a></li>
                     <li><a id="s-i-ssl" href="javascript:void(0);" title="点击进入SSL安全加密模式">SSL</a></li>
-                    <li><a id="s-i-groupJoin" href="javascript:void(0);">群：95396686<img border="0" src="Images/gp.gif" alt="点击这里加入此群" title="点击这里加入此群"></a></li>
+                    <li><a id="s-i-groupJoin" href="javascript:void(0);">群：95396686<img border="0" src="Images/gp.gif" alt="点击这里加入此群" title="点击这里加入此群"/></a></li>
                 </ul>
             </div>
         </div>
         <div id="home" class="center">
-            <ul id="home-boxes" class="clearfix">
+            <ul id="home-boxes" class="clearfix" data-delay="3000">
                 <li class="fullSizeBox needTip" data-tip="从今天起，关心天气粮食和蔬菜">
                     <div id="rightHeaderInfo" class="clearfix">
                         <div id="rightHeaderInfo_data">日期</div>
@@ -86,7 +109,7 @@
                             <h2>正在发生：</h2>
                             <ul>
                                 <%getForumTopicGet(); %>
-                                <li><a class="jump" href="#" data-dst="Markets\forum\index.aspx">点此查看更多</a></li>
+                                <li><a class="jump" href="/定西吧_沁辰左邻/Markets---forum---index@aspx" data-dst="Markets\forum\index.aspx">点此查看更多</a></li>
                             </ul>
                         </div>
                     </div>
@@ -108,25 +131,45 @@
 				<li class="halfSizeBox needTip" data-tip="低保，小额贷款，下岗证"><a id="h-b-item-dingxiRen" href="http://www.dxsrsj.gov.cn/" target="_blank">定西人力资源和社会保障局</a></li>
                 <li class="fullSizeBox clearfix" id="h-b-item-infos">
                     <div id="h-b-i-i-shops" class="left">
-                        <a href="#" class="jump" data-dst="Markets/Living/index.aspx">
+                        <a href="/定西生活_沁辰左邻/Markets---Living---index@aspx" class="jump" data-dst="Markets/Living/index.aspx">
                             <b>优惠、打折、点评</b><span data-number="<%shopCountGet(); %>"><%shopCountGet(); %></span>个定西的店铺。
                         </a>
                     </div>
                     <div id="h-b-i-i-infos" class="left">
-                        <a href="#" class="jump" data-dst="Markets/Infos/index.aspx">
+                        <a href="/定西信息港_沁辰左邻/Markets---Infos---index@aspx" class="jump" data-dst="Markets/Infos/index.aspx">
                             <b>招聘、二手、房产</b><span data-number="<%infoCountGet(); %>"><%infoCountGet(); %></span>条定西生活信息
                         </a>
                     </div>
                 </li>
-				<li class="halfSizeBox needTip" data-tip="各种小游戏"><a id="h-b-item-game" href="http://www.4399.com/" target="_blank">小游戏</a></li>
+				<li class="halfSizeBox needTip" data-tip="各种小游戏"><a id="h-b-item-game" class="jump" data-dst="Markets/forum/GamePlay.aspx?cid=8&name=游戏盒子" href="/游戏吧_定西吧_沁辰左邻/Markets---forum---GamePlay@aspx">游戏吧_定西吧</a></li>
 				<li class="halfSizeBox needTip" data-tip="高清MTV"><a id="h-b-item-mtv" href="http://www.yinyuetai.com/" target="_blank">音乐台</a></li>
 				<li class="halfSizeBox needTip" data-tip="汽车违章信息查询"><a id="h-b-item-dingxiJJ" href="http://www.gsgajt.gov.cn:9999/InfoSerchs/Vehvioinfo.aspx" target="_blank">违章查询</a></li>
 				<li class="halfSizeBox needTip" data-tip="不解释"><a id="h-b-item-train" href="http://www.12306.cn/mormhweb/" target="_blank">火车票</a></li>
 				<li class="halfSizeBox needTip" data-tip="不解释"><a id="h-b-item-calender" href="http://app.baidu.com/app/enter?appid=114629" target="_blank">万年历</a></li>
 				<li class="halfSizeBox needTip" data-tip="在线照片美化，修改"><a id="h-b-item-photo" href="http://xiuxiu.web.meitu.com/" target="_blank">照片美化</a></li> 
 				<li class="halfSizeBox needTip" data-tip="护照、报警、身份证办理"><a id="h-b-item-dingxiGA" href="http://www.dxsgaj.gov.cn/" target="_blank">定西市公安局</a></li>
-                <li class="halfSizeBox needTip" data-tip="定西上门服务"><a id="h-b-item-service" class="jump" data-dst="Markets/door/index.html" href="#" target="_blank">上门服务</a></li>
+                <li class="halfSizeBox needTip" data-tip="定西上门服务"><a id="h-b-item-service" class="jump" data-dst="Markets/door/index.html" href="/定西上门服务_沁辰左邻/Markets---door---index@html">上门服务</a></li>
             </ul>
+            <div id="home-lists">
+                <ul id="home-lists-boxHolder" class="clearfix">
+                    <li class="home-lists-box left clearfix">
+                        <div id="h-l-b-hot-logo" class="homeListLogo left"><span>最热帖子</span></div>
+                        <ul class="homeList left"><%getForumHotTopic(); %></ul>
+                    </li>
+                    <li class="home-lists-box left clearfix">
+                        <div id="h-l-b-news-logo" class="homeListLogo left"><span>定西新闻</span></div>
+                        <ul class="homeList left"><%getForumNewsTopic(); %></ul>
+                    </li>
+                    <li class="home-lists-box left clearfix">
+                        <div id="h-l-b-info-logo" class="homeListLogo left"><span>定西信息</span></div>
+                        <ul class="homeList left"><%getNewInfos(); %></ul>
+                    </li>
+                    <li class="home-lists-box left clearfix">
+                        <div id="h-l-b-knows-logo" class="homeListLogo left"><span>定西知道</span></div>
+                        <ul class="homeList left"><%getNewKnows(); %></ul>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div id="market" class="hide">
             <div id="market-status-bar" class="loading-big"></div>
@@ -134,7 +177,7 @@
                 <div id="marketContent" class="center"></div>
                 <div id="subForm" class="center hide">
                     <h2 class="channelTitle">请填写您的联系信息</h2>
-                    <form action="#" id="order-form" method="Post" onSubmit="return false;">
+                    <form action="#" id="order-form" method="post" onsubmit="return false;">
                         <input type="hidden" name="formType" value="" id="formType"/>
                         <input type="hidden" name="gid" value="" id="order-gid" />
                         <ul id="formElm">
@@ -193,9 +236,17 @@
                     <div id="footerC-about" class="left">
                         <p id="footerC-introduce">我们在努力做一些实实在在的事儿，希望通过左邻，能为大家的生活提供些实实在在的帮助和便利。TA应该就像原来我们住在平房时候你的邻居一样，甭管大事儿小情，喜怒哀乐，都在你身边。如果看到这儿你忍不住想和我们一起，做这样一件有意义的事情，你又足够靠谱，那就来吧~猛戳<a href="#">加入我们</a>。我们稀罕你！</p>
                         <ul class="clearfix">
+                            <li>友情链接：</li>
+                            <li><a href="http://www.lz6.com/" target="_blank">兰州论坛</a></li>
+                            <li><a href="http://www.tiboo.cn/" target="_blank">地宝网</a></li>
+                            <li><a href="http://www.hubei.com" target="_blank">湖北网</a></li>
+                        </ul>
+                    </div>
+                    <div id="footerC-cps">
+                        <ul class="clearfix">
                             <li><a href="#">关于我们</a></li>
                             <li><a href="#" class="jump" data-dst="Markets/forum/GroupTopicList.aspx?id=1">左邻每天在进步</a></li>
-                            <li><a href="#">意见建议</a></li>
+                            <li><a data-dst="Markets/forum/TopicList.aspx?cid=11&amp;name=意见建议" class="jump" href="/意见建议_定西吧_沁辰左邻/Markets---forum---TopicList@aspx/cid=11&amp;name=意见建议">意见建议</a></li>
                             <li><a href="#">提供帮助</a></li>
                             <li><a href="#">广告投放</a></li>
                             <li><a href="#">联系我们</a></li>
@@ -231,9 +282,6 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="Script/jquery-1.8.0.min.js"></script>
-    <script type="text/javascript" src="Script/main.js?spm=9-18-2"></script>
-    <script type="text/javascript" src="Script/jquery-ui/js/jquery-ui-1.8.23.custom.min.js"></script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-33269870-1']);

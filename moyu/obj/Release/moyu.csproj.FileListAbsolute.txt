@@ -3,3 +3,8 @@ G:\WebProject\moyu\moyu\bin\moyu.pdb
 G:\WebProject\moyu\moyu\obj\Release\moyu.csprojResolveAssemblyReference.cache
 G:\WebProject\moyu\moyu\obj\Release\moyu.dll
 G:\WebProject\moyu\moyu\obj\Release\moyu.pdb
+E:\WebProject\moyu\moyu\bin\moyu.dll
+E:\WebProject\moyu\moyu\bin\moyu.pdb
+E:\WebProject\moyu\moyu\obj\Release\moyu.csprojResolveAssemblyReference.cache
+E:\WebProject\moyu\moyu\obj\Release\moyu.dll
+E:\WebProject\moyu\moyu\obj\Release\moyu.pdb

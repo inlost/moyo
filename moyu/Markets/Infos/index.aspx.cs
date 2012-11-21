@@ -50,11 +50,11 @@ namespace moyu.Markets.Infos
             StringBuilder sb = new StringBuilder();
             if (deep == 1)
             {
-                sb.Append("<li><a href=\"#\" data-dst=\"Markets/Infos/index.aspx?cat1=0&cat2=0\" class=\"" + (cat1 == 0 ? "actCat " : "") + "jump\">全部</a></li>");
+                sb.Append("<li><a href=\"/全部—定西信息港_沁辰左邻/Markets---Infos---index@aspx/cat1=0&cat2=0\" data-dst=\"Markets/Infos/index.aspx?cat1=0&cat2=0\" class=\"" + (cat1 == 0 ? "actCat " : "") + "jump\">全部</a></li>");
                 foreach (Hashtable cat in cats)
                 {
                     sb.Append("<li>");
-                    sb.Append("<a href=\"#\" data-dst=\"Markets/Infos/index.aspx?cat1="+cat["id"]+"&cat2=0\" class=\"" + (cat1 == Convert.ToInt32(cat["id"]) ? "actCat " : "") + "jump\">" + cat["name"] + "</a>");
+                    sb.Append("<a href=\"/" + cat["name"] + "—定西信息港_沁辰左邻/Markets---Infos---index@aspx/cat1=" + cat["id"] + "&cat2=0\" data-dst=\"Markets/Infos/index.aspx?cat1=" + cat["id"] + "&cat2=0\" class=\"" + (cat1 == Convert.ToInt32(cat["id"]) ? "actCat " : "") + "jump\">" + cat["name"] + "</a>");
                     sb.Append("</li>");
                 }
             }
@@ -62,11 +62,11 @@ namespace moyu.Markets.Infos
             {
                 Hashtable[] subCats;
                 subCats = myCat.get(2, cat1);
-                sb.Append("<li><a href=\"#\" data-dst=\"Markets/Infos/index.aspx?cat1="+cat1+"&cat2=0\" class=\"" + (cat2 == 0 ? "actCat " : "") + "jump\">全部</a></li>");
+                sb.Append("<li><a href=\"/全部—定西信息港_沁辰左邻/Markets---Infos---index@aspx/cat1=" + cat1 + "&cat2=0\" data-dst=\"Markets/Infos/index.aspx?cat1=" + cat1 + "&cat2=0\" class=\"" + (cat2 == 0 ? "actCat " : "") + "jump\">全部</a></li>");
                 foreach (Hashtable cat in subCats)
                 {
                     sb.Append("<li>");
-                    sb.Append("<a href=\"#\" data-dst=\"Markets/Infos/index.aspx?cat1="+cat1+"&cat2="+cat["id"]+"\" class=\"" + (cat2 == Convert.ToInt32(cat["id"]) ? "actCat " : "") + "jump\">" + cat["name"] + "</a>");
+                    sb.Append("<a href=\"/" + cat["name"] + "—定西信息港_沁辰左邻/Markets---Infos---index@aspx/cat1=" + cat1 + "&cat2=" + cat["id"] + "\" data-dst=\"Markets/Infos/index.aspx?cat1=" + cat1 + "&cat2=" + cat["id"] + "\" class=\"" + (cat2 == Convert.ToInt32(cat["id"]) ? "actCat " : "") + "jump\">" + cat["name"] + "</a>");
                     sb.Append("</li>");
                 }
             }

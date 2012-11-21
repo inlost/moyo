@@ -6,9 +6,9 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link rel="stylesheet" href="../../Script/ueitor/themes/default/ueditor.css" />
-    <script src="../../Script/ueitor/editor_config.js"></script>
-    <script src="../../Script/ueitor/editor_all_min.js"></script>
+    <link rel="stylesheet" href="../../Script/ueditor/themes/default/ueditor.css" />
+    <script src="../../Script/ueditor/editor_config.js"></script>
+    <script src="../../Script/ueditor/editor_all_min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">

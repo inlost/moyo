@@ -24,8 +24,8 @@ namespace moyu.Markets.Informations
             {
                 sb.Append("<li class=\"ifMk-g-groups left clearfix\">");
                 sb.Append("<img class=\"left\" alt=\"" + group["name"] + "\" src=\"" + group["img"] + "\"/>");
-                sb.Append("<div class=\"ifMk-g-n-detal\">");
-                sb.Append("<h3><a class=\"jump\" data-dst=\"Markets/forum/GroupTopicList.aspx?id=" + group["id"] + "\" href=\"Markets/forum/GroupTopicList.aspx?id=" + group["id"] + "\">" + group["name"] + "</a></h3>");
+                sb.Append("<div class=\"ifMk-g-n-detal left\">");
+                sb.Append("<h3><a class=\"jump\" data-dst=\"Markets/forum/GroupTopicList.aspx?id=" + group["id"] + "\" href=\"/" + group["name"] + "_定西吧_沁辰左邻/Markets---forum---GroupTopicList@aspx/id=" + group["id"] + "\">" + group["name"] + "</a></h3>");
                 sb.Append("<div>"+group["introduce"]+"</div>");
                 sb.Append("</div>");
                 sb.Append("</li>");

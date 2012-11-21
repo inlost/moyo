@@ -74,7 +74,7 @@ namespace moyu.Services
             {
                 theContext.Session["niceName"] = "游客";
             }
-            if (theContext.Session["isLogin"] == null)
+            if (theContext.Session["isLogin"] == null || theContext.Session["isLogin"].ToString()=="false")
             {
                 theContext.Session["guid"] = uid;
                 theContext.Session["isLogin"] = "false";

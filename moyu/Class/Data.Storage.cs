@@ -33,7 +33,8 @@ namespace moyu.Data
         /// </summary>
         public struct Bucket
         {
-            public const string image = "/imges-up/";
+            public const string image = "/imges/";
+            public const string swf = "/swf/";
         }
         /// <summary>
         /// 文件上传

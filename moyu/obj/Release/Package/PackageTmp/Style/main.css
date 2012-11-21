@@ -1,4 +1,5 @@
 ﻿/* http://meyerweb.com/eric/tools/css/reset/ 
+ * text-decoration:underline;
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -60,6 +61,8 @@ body,h1,h2,h3,h4{
 /*--------------------------------
             layout
 ---------------------------------*/
+blockquote {width:440px;background:#DDDDDD;text-align:left;padding:12px 20px;margin:20px auto;word-break:break-all;word-wrap:break-word;font-size:12px;line-height:20px;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;border:#F6F6F6 solid 1px;border-left:#ECECEC solid 5px;}
+blockquote p{text-indent:0 !important;}
 .hide{
     display:none;
 }
@@ -363,6 +366,9 @@ li.halfSizeBox a:hover,li.fullSizeBox a:hover{
     cursor:pointer;
     padding:0 8px 0 0;
 }
+.channelItem a{
+    color:#000;
+}
 .activeChannel h1,.activeChannel a{
     color:#EF7C00;
     font-weight:bold;
@@ -403,6 +409,61 @@ li.halfSizeBox a:hover,li.fullSizeBox a:hover{
 }
 #livingChannel span{
     background:url(../images/nav&logo.png) no-repeat -32px -32px;
+}
+
+.home-lists-box{
+    display:block;
+    width:48%;
+    height:300px;
+    border-top:3px dashed #5CBC67;
+}
+.homeListLogo{
+    height:160px;
+    width:160px;
+    position:relative;
+}
+.homeListLogo span{
+    display:block;
+    position:absolute;
+    top:-3px;
+    left:160px;
+    background-color:#5CBC67;
+    color:white;
+    padding:18px 14px;
+    font-size:16px;
+    font-weight:bold;
+}
+#h-l-b-hot-logo{
+    background:url(../images/home-list-bg.png) no-repeat left top;
+}
+#h-l-b-news-logo{
+    background:url(../images/home-list-bg.png) no-repeat -160px top;
+}
+#h-l-b-info-logo{
+    background:url(../images/home-list-bg.png) no-repeat -320px top;
+}
+#h-l-b-knows-logo{
+    background:url(../images/home-list-bg.png) no-repeat left -160px;
+}
+.home-lists-box .homeList{
+    width:270px;
+    padding:0 0 0 40px;
+    font-size:14px;
+}
+.home-lists-box .homeList a{
+    color:#111;
+    display:block;
+    height:14px;
+    overflow:hidden;
+    padding:6px;
+    border-bottom:1px dashed #5CBC67;
+}
+.home-lists-box .homeList a:hover{
+    background-color:#5CBC67;
+    color:white;
+}
+.homeList a span{
+    color:#666;
 }
 /*siteBar*/
 #siteBar{
@@ -1340,7 +1401,15 @@ li.halfSizeBox a:hover,li.fullSizeBox a:hover{
 #ifMk-tb-kitchen a{
     background:url(../images/informations/tb-kitchen.png) no-repeat 18px 16px;
 }
-
+#ifMk-tb-phone a{
+    background:url(../images/informations/phone.png) no-repeat 18px 16px;
+}
+#ifMk-tb-fadeBack a{
+    background:url(../images/informations/fadeBack.png) no-repeat 18px 16px;
+}
+#ifMk-tb-news a{
+    background:url(../images/informations/news.png) no-repeat 18px 16px;
+}
 #t_topic_list{
     width:660px;
     margin:6px 10px 16px;
@@ -1355,11 +1424,8 @@ li.halfSizeBox a:hover,li.fullSizeBox a:hover{
     border-bottom:1px solid #999;
     line-height:24px;
 }
-#topic_content a{
+#topic_content a,#f-gameTopic li a{
     color:#328C00;
-}
-#topic_content a:hover{
-    color:#E06840;
 }
 #topic_content a div{
     color:black;
@@ -1398,7 +1464,7 @@ li.halfSizeBox a:hover,li.fullSizeBox a:hover{
     border-bottom:1px dashed #888;
     background-color:white;
 }
-#t_topic_list tr a:hover{
+#t_topic_list tr a:hover,#f-gameTopic a:hover{
     background-color:#003399;
     color:white;
 }
@@ -1472,7 +1538,7 @@ li.halfSizeBox a:hover,li.fullSizeBox a:hover{
     z-index:200;
     font-weight:bold;
 }
-#t_p_l_t_content p{
+#t_p_l_t_content p,#t_p_l_t_content div{
     padding:3px;
     font-size:16px;
     line-height:28px;
@@ -1589,6 +1655,136 @@ li.halfSizeBox a:hover,li.fullSizeBox a:hover{
     color:white;
     background-color:#003399;
 }
+#t_function_bar h2{
+    padding-bottom:8px;
+    margin-bottom:8px;
+    font-size:16px;
+    color:#333;
+    border-bottom:1px solid #CCC;
+}
+#t_function_bar li{
+    padding:3px 3px 3px 8px;
+    margin-left:8px;
+    font-size:14px;
+    border-bottom:1px dashed #CCC;
+}
+#t_function_bar ul{
+    margin-bottom:12px;
+}
+#t_function_bar li span{
+    color:#666;
+}
+/*-----game------*/
+#f-hotGames{
+    margin:10px;
+}
+#forumGameContent h3{
+    font-size:16px;
+    color:#F85808;
+    line-height:24px;
+    font-weight:bold;
+    border-bottom:1px solid #CCC;
+    margin-bottom:14px;
+}
+#forumGameContent li{
+    margin:3px 8px;
+}
+#f-hotGames li img{
+    height:100px;
+    width:145px;
+}
+#f-hotGames h4,#f-gameHolder h4{
+    text-align:center;
+    margin:4px 0;
+}
+#f-hotGames a,#f-gameHolder a{
+    color:#333;
+}
+#f-gameHolder-catList{
+    width:700px;
+    padding:10px 10px 10px 0;
+}
+#f-gameTopic{
+    width:250px;
+    padding:10px 0;
+    font-size:14px;
+    line-height:20px;
+}
+#f-gameTopic li{
+    border-bottom:1px dashed #CCC;
+}
+#f-gameHolder-catList li{
+    float:left;
+}
+#f-gameHolder-catList .`{
+    font-size:14px;
+    margin-bottom:14px;
+}
+#f-gameHolder-catList .gameList a{
+    display:block;
+    padding:3px 6px;
+    background-color:#8EC953;
+    color:white;
+}
+#f-gameHolder-catList .gameList a:hover{
+    background-color:#EEE;
+}
+#f-gameHolder-catList .gameActCat a{
+    color:red;
+}
+.gameCatList{
+    margin-bottom:14px;
+}
+.gameCatList a{
+    font-size:14px;
+}
+#f-gameHolder-catList a:hover,#f-hotGames a:hover{
+    text-decoration:underline;
+    color:red;
+}
+#f-gameTopic a:hover{
+    color:white !important;
+}
+.gameList img{
+    width:145px;
+    height:100px;
+}
+.gameList li{
+    margin:3px 6px !important;
+}
+.gameList h4{
+    width:140px;
+    height:14px;
+    overflow:hidden;
+}
+.gam-qc-video{
+    padding:5px;
+    border:1px solid #DDD;
+}
+#gameShow_introduce{
+    font-size:14px;
+    line-height:20px;
+    text-indent:28px;
+    margin-bottom:24px;
+    letter-spacing:1px;
+}
+#f-gameHolder .loadMore{
+    text-align:center;
+}
+#f-gameHolder .loadMore a{
+    margin:10px;
+    display:block;
+    padding:8px 30px;
+    width:600px;
+    font-size:16px;
+    line-height:22px;
+    font-weight:bold;
+    color:white;
+    background-color:#CCED70;
+}
+#f-gameHolder .loadMore a:hover{
+    background-color:#F85808;
+}
 /*-----newGroup------*/
 .PopPage_Content h1{
     font-size:20px;
@@ -1661,11 +1857,65 @@ li.halfSizeBox a:hover,li.fullSizeBox a:hover{
 .ifMk-g-groups img.left{
     width:66px;
     height:66px;
-    margin-right:3px;
+    margin-right:6px;
+}
+.ifMk-g-n-detal h3 a{
+    font-size:14px;
+    line-height:20px;
+    color:#336699;
+}
+.ifMk-g-n-detal div{
+    margin:3px 0 0 10px;
+    width:208px;
+    color:#666;
+    height:42px;
+    overflow:hidden;
 }
 /*---------------------------
  * ----------living----------
  * -------------------------*/
+#newQ a{
+    display:block;
+    background-color:#F85808;
+    color:whiteSmoke;
+    font-size:18px;
+    padding:12px 28px;
+    font-weight:bold;
+}
+#newQ a:hover{
+    background-color:#8EC953;
+}
+#livingKnows h2{
+    margin-bottom:12px;
+}
+#knowsList{
+    width:826px;
+}
+#knowsList ul li{
+    float:left;
+    width:45%;
+    margin-right:12px;
+    font-size:14px;
+    border-bottom:1px dashed #E1E1E1;
+    padding:8px 13px;
+}
+#knowsList ul li:hover,#knowsList ul li.hover{
+    background-color:#F7FCF8;
+}
+#knowsList ul li span{
+    display:block;
+    color:#999;
+}
+#knowsList ul li a{
+    color:#328C00;
+    width:230px;
+    height:17px;
+    display:block;
+    overflow:hidden;
+}
+#knowsList ul li a:hover{
+    text-decoration:underline;
+}
 .l-catHolder{
     padding:14px;
     margin:18px 0;
@@ -2131,22 +2381,22 @@ li.halfSizeBox a:hover,li.fullSizeBox a:hover{
     border-left:1px solid #ABC;
     background:url(../images/QrCode.png) 16px 8px no-repeat;
 }
-#footerC-about{
+#footerC-about,#footerC-cps{
     text-align:left;
     font-size:14px;
     line-height:20px;
     width:520px;
     padding:8px;
 }
-#footerC-about li{
+#footerC-about li,#footerC-cps li{
     float:left;
     padding:0 16px 0 0;
 }
-#footerC-about a{
+#footerC-about a,#footerC-cps a{
     color:#000;
     font-weight:bold;
 }
-#footerC-about a:hover{
+#footerC-about a:hover,#footerC-cps a:hover{
     color:#C00909;
 }
 #footerC-introduce{
@@ -2154,6 +2404,16 @@ li.halfSizeBox a:hover,li.fullSizeBox a:hover{
     text-indent:28px;
     display:block;
     padding-bottom:8px;
+}
+#footerContent #footerC-cps{
+    clear:both;
+    text-align:center;
+    margin:0 auto;
+}
+#footerC-cps ul{
+    display:block;
+    width:480px;
+    margin:0 auto;
 }
 /*--------------------------------
  * -----------ie fix--------------
@@ -2202,3 +2462,4 @@ li.halfSizeBox a:hover,li.fullSizeBox a:hover{
     position:absolute;
     top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight)-70);
 }
+

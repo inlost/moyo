@@ -106,7 +106,8 @@ namespace moyu.Services
         {
             string tag = theContext.Request.Form["tag"].ToString().Trim();
             string title = theContext.Request.Form["title"];
-            string body = theContext.Request.Form["body"].ToString().Replace("\n", "<br/>");
+            string body = theContext.Request.Form["body"].ToString().Replace("\n", "</p><p>");
+            body = "<p>" + body + "</p>";
             int gid = Convert.ToInt32(theContext.Request.Form["gid"]);
             int uid = Convert.ToInt32(theContext.Session["id"]);
             theContext.Response.Write(myGroup.topicNew(tag, title, gid, uid, body));

@@ -62,7 +62,7 @@ namespace moyu.Markets.Informations
                 {
                     sb.Append("<span class=\"left group_tag group_tag_"+ran.Next(0,9)+"\">"+topic["tag"]+"</span>");
                 }
-                sb.Append("<h1 class=\"left\"><a class=\"jump\" data-dst=\"Markets/forum/GroupTopicShow.aspx?id="+topic["id"]+"\" href=\"Markets/forum/GroupTopicShow.aspx?id="+topic["id"]+"\">"+topic["title"]+"</a></h1>");
+                sb.Append("<h1 class=\"left\"><a class=\"jump\" data-dst=\"Markets/forum/GroupTopicShow.aspx?id=" + topic["id"] + "\" href=\"/" + topic["title"] + "—圈子_沁辰左邻/Markets---forum---GroupTopicShow@aspx/name=" + theGroup["name"] + "&id=" + topic["id"] + "\">" + topic["title"] + "</a></h1>");
                 sb.Append("<span class=\"right\">" + topic["showTime"] + "</span>");
                 sb.Append("</li>");
             }

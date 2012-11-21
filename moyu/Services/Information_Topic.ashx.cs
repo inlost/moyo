@@ -32,8 +32,14 @@ namespace moyu.Services
                 case "addNew":
                     addNew();
                     break;
+                case "topicNew_mobile":
+                    topicNew_mobile();
+                    break;
                 case "commentsNew":
                     commentsNew();
+                    break;
+                case "commentsNew_mobile":
+                    commentsNew_mobile();
                     break;
                 case "moreTopic":
                     getMoreTopic();
@@ -64,6 +70,46 @@ namespace moyu.Services
             myRst.rst = myRst.message == "0" ? false : true;
             theContext.Response.Write(Data.Type.objToJson(myRst));
         }
+        private void topicNew_mobile()
+        {
+            int uid = Convert.ToInt32(theContext.Session["id"]);
+            int cid = Convert.ToInt32(theContext.Request.Form["cid"]);
+            string title = theContext.Request.Form["title"];
+            string body=theContext.Request.Form["body"].ToString().Replace("\n", "</p><p>");;
+            body = "<p>" + body + "</p>";
+            if (theContext.Request.Files.Count > 0)
+            { 
+                string img=avatarUp();
+                body = (img.Length > 0 ? ("<img src=\""+img+"\"/>") : "") + body;
+            }
+            myTopic.addNew(cid, uid, title, body);
+            theContext.Response.Redirect("~/Mobile/topic-list.aspx?cid="+cid);
+        }
+        private string avatarUp()
+        {
+            Upload.image myImage = new Upload.image();
+            myImage.IsSuoImg = false;
+            myImage.UploadFileSize = 2;
+            myImage.IsAddWaterMark = false;
+            myImage.Minwidth = 50;
+            myImage.Minheight = 50;
+            myImage.Maxwidth = 3000;
+            myImage.Maxheight = 3000;
+            myImage.IsUseRandFileName = true;
+            myImage.IsRarPic = true;
+            myImage.Rarwidth = 320;
+            DateTime dt = DateTime.Now;
+            string uploadPath = "\\upload\\images\\" + dt.Year.ToString() + "\\" + dt.Month + "\\" + dt.Day + "\\";
+            myImage.Upload(uploadPath, theContext.Request.Files[0]);
+            if (myImage.IsSuccess)
+            {
+                return uploadPath.Replace("\\", "/") + myImage.OFullName;
+            }
+            else
+            {
+                return "";
+            }
+        }
         private void commentsNew()
         {
             Hashtable inQuery = new Hashtable();
@@ -73,6 +119,14 @@ namespace moyu.Services
             boolRst myRst = new boolRst();
             myRst.rst = myTopic.commentsAdd(Convert.ToInt32(inQuery["@tid"]), Convert.ToInt32(inQuery["@uid"]), inQuery["@body"].ToString());
             theContext.Response.Write(Data.Type.objToJson(myRst));
+        }
+        private void commentsNew_mobile()
+        {
+            int tid = Convert .ToInt32( theContext.Request.Form["tid"]);
+            int uid = (theContext.Session["isLogin"] == null || theContext.Session["isLogin"].ToString() != "true") ? 0 : Convert .ToInt32( theContext.Session["id"].ToString());
+            string body = theContext.Request.Form["body"];
+            myTopic.commentsAdd(tid, uid, body);
+            theContext.Response.Redirect("~/Mobile/post-show.aspx?type=t&id=" + tid + "#comment");
         }
         private void getMoreTopic()
         {
