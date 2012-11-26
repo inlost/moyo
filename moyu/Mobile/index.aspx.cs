@@ -47,10 +47,10 @@ namespace moyu.Mobile
         }
         public void getUserPoint()
         {
-            Hashtable points = new Hashtable();
             if (Session["isLogin"] != null && Session["isLogin"].ToString() == "true")
             {
                 StringBuilder sb = new StringBuilder();
+                Hashtable points = new Hashtable();
                 points = myFunctions.getPoint(Convert.ToInt32(Session["id"]));
                 sb.Append("<li class=\"functionList-half left\">连续签到" + points["signInDays"] + "天，</li>");
                 sb.Append("<li class=\"functionList-half left\">积分:" + points["point"] + "，</li>");

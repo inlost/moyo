@@ -1,4 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="header.aspx.cs" Inherits="moyu.Mobile.header" %>
+<% if (Session["isLogin"] == null || Session["isLogin"].ToString()=="false")
+   { %>
 <a id="biz-link" href="weixin://profile/gh_cd769e8f6b1a" class="btn">
 	<div class="arrow">
 		<div class="icons arrow-r"></div>
@@ -10,6 +12,4 @@
 	<div id="nickname">		点击关注左邻				</div>
 	<div id="weixinid">微信号:ZuoLinSpeaker</div>				
 </a>
-<script>
-    $.mobile.ajaxEnabled = false;
-</script>
+<%} %>

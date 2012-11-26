@@ -31,11 +31,12 @@ body{padding:15px 15px 0;position:relative;height:100%;color:#222;font-family:He
 .sharebtn span{display: inline-block;height: 100%;background: url(../images/wx-share.png) no-repeat left center;background-size: 17px 17px;padding-left: 25px;}
 
 .left {float:left;}
+.right {float:right;}
 
 a {
     text-decoration:none;
 }
-.clear:after {
+.clear:after,.clearfix:after {
     display:block;
     clear:both;
     height:0;
@@ -87,4 +88,99 @@ a {
 }
 .lucky-list li {
     color:#555;
+}
+
+.group-post-info-user, .group-post-info-tag {
+    display:block;
+    margin:6px 0;
+    padding:0 8px;
+    line-height:22px;
+}
+.group-post-info .group-post-info-tag{
+    color:white;
+    -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;
+}
+.group_tag_0{
+    background-color:#C79810 !important;
+}
+.group_tag_1{
+    background-color:#FF0084 !important;
+}
+.group_tag_2{
+    background-color:#3F4C6B !important;
+}
+.group_tag_3{
+    background-color:#008C00 !important;
+}
+.group_tag_4{
+    background-color:#CC0000 !important;
+}
+.group_tag_5{
+    background-color:#FF7400 !important;
+}
+.group_tag_6{
+    background-color:#FF0084 !important;
+}
+.group_tag_7{
+    background-color:#6BBA70 !important;
+}
+.group_tag_8{
+    background-color:#36393D !important;
+}
+.group_tag_9{
+    background-color:#FF8A8A !important;
+}
+
+.group-post-functions {
+    text-indent:0 !important;
+}
+.group-post-functions a{
+    line-height:17px;
+    display:inline-block;
+    margin-right:15px;
+    padding:15px 0 8px;
+}
+.shareThisItem {
+    padding-left:20px !important;
+    background-size:17px !important;
+    background: url(../images/wx-share.png) no-repeat left 15px;
+}
+
+#commentsList li div{
+    padding:0;
+}
+#commentsList li{
+    position:relative;
+    padding:8px 0;
+    border-bottom:1px solid #DDD;
+    min-height:40px;
+}
+#commentsList li img{
+    position:absolute;
+    width:32px;
+    height:32px;
+    padding:3px 0 0;
+    -moz-border-radius:8px; -khtml-border-radius:8px; -webkit-border-radius:8px; border-radius:8px;
+}
+.commentMain {
+    width:100%;
+    margin-left:30px;
+}
+.commentM_i_name{
+    color:#4B8DC5;
+    font:14px/1.5 arial, sans-serif;
+}
+.commentM_i_time {
+    display:none;
+}
+.commentM_i_time,.commentM_i_floor{
+    color:#B3B3B3;
+    font-size:12px;
+    margin-left:8px;
+    line-height:20px;
+}
+.comment_body_holder{
+    line-height:22px;
+    font:14px/1.5 arial, sans-serif;
+    color:#333;
 }

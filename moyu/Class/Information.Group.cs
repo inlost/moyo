@@ -178,5 +178,20 @@ namespace moyu.Information
             inQuery["@count"] = count;
             return Data.Type.dtToHash(myDb.GetQueryStro("information_group_topic_get_byTag", inQuery, "rt"));
         }
+        /// <summary>
+        /// 获取用户发表的文章
+        /// </summary>
+        /// <param name="uid">用户编号</param>
+        /// <param name="last">最后条</param>
+        /// <param name="count">要获取的条数</param>
+        /// <returns>文章们</returns>
+        public Hashtable[] postGetByUser(int uid, int last, int count)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@uid"] = uid;
+            inQuery["@last"] = last;
+            inQuery["@count"] = count;
+            return Data.Type.dtToHash(myDb.GetQueryStro("information_group_topic_get_byUser", inQuery, "rt"));
+        }
     }
 }

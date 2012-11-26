@@ -20,6 +20,13 @@ namespace moyu.Services
         public void ProcessRequest(HttpContext context)
         {
             theContext = context;
+            theContext.Response.ContentType = "text/plain";
+            if (theContext.Request.Params["signature"] == null)
+            {
+                context.Response.StatusCode = 403;
+                context.Response.End();
+                return;
+            }
             theContext.Response.ContentType = "text/XML";
             if (checkSig())
             {

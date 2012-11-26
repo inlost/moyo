@@ -5,10 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title><%getTitle(); %>_电子优惠券_沁辰左邻</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-    <link rel="stylesheet" href="../Style/mobile.css" />
-    <link rel="stylesheet" href="../Script/jquery.mobile-1.1.1/jquery.mobile-1.1.1.min.css" />
-    <script src="../Script/jquery-1.8.2.min.js"></script>
-    <script src="../Script/jquery.mobile-1.1.1/jquery.mobile-1.1.1.min.js"></script>
+    <%Server.Execute("script-loader.aspx"); %>
 </head>
 <body class="page" data-theme="c" data-role="page">
     <header>

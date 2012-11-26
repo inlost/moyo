@@ -7,10 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>登陆_沁辰左邻</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-    <link rel="stylesheet" href="../Style/mobile.css" />
-    <link rel="stylesheet" href="../Script/jquery.mobile-1.1.1/jquery.mobile-1.1.1.min.css" />
-    <script src="../Script/jquery-1.8.2.min.js"></script>
-    <script src="../Script/jquery.mobile-1.1.1/jquery.mobile-1.1.1.min.js"></script>
+    <%Server.Execute("script-loader.aspx"); %>
 </head>
 <body class="page">
     <header>
@@ -30,9 +27,9 @@
                 <input type="hidden" name="wu" value="<%getWu(); %>" />
                 <ul class="clear">
                     <%getLoginMsg(); %>
-                    <li class="functionList-half"><span>用户名：</span><input type="text" name="uid" /></li>
-                    <li class="functionList-half"><span>密码：</span><input type="password" name="password" /></li>
-                    <li class="functionList-half"><input type="submit" value="登录" /></li>
+                    <li><span>用户名：</span><input type="text" name="uid" /></li>
+                    <li><span>密码：</span><input type="password" name="password" /></li>
+                    <li><input type="submit" value="登录" /></li>
                 </ul>
             </form>
         </section>
@@ -45,28 +42,32 @@
                 <ul class="clear">
                     <li class="functionList-half"><span>用户名：</span><input type="text" name="niceName" /></li>
                     <li class="functionList-half"><span>姓名：</span><input type="text" name="realName" /></li>
-                    <li class="functionList-half left">
-                        <span>性别：</span>
-                        <select name="sex">
-                            <option value="boy">男</option>
-                            <option value="girl">女</option>
-                        </select>
+                    <li class="functionList-half left clear">
+                        <span class="left" style="line-height:60px;">性别：</span>
+                        <span class="left">
+                            <select name="sex">
+                                <option value="boy">男</option>
+                                <option value="girl">女</option>
+                            </select>
+                        </span>
                     </li>
-                    <li class="functionList-half left">
-                        <span>年龄：</span>
-                        <select name="birth">
-                            <option value="1950-1-1">50后</option>
-                            <option value="1960-1-1">60后</option>
-                            <option value="1970-1-1">70后</option>
-                            <option value="1980-1-1" selected="selected">80后</option>
-                            <option value="1990-1-1">90后</option>
-                            <option value="2000-1-1">00后</option>
-                        </select>
+                    <li class="functionList-half left clear">
+                        <span class="left" style="line-height:60px;">年龄：</span>
+                        <span class="left">
+                            <select name="birth">
+                                <option value="1950-1-1">50后</option>
+                                <option value="1960-1-1">60后</option>
+                                <option value="1970-1-1">70后</option>
+                                <option value="1980-1-1" selected="selected">80后</option>
+                                <option value="1990-1-1">90后</option>
+                                <option value="2000-1-1">00后</option>
+                            </select>
+                        </span>
                     </li>
-                    <li class="functionList-half"><span>QQ：</span><input type="text" name="email" /></li>
-                    <li class="functionList-half"><span>电话：</span><input type="text" name="phone" /></li>
-                    <li class="functionList-half"><span>密码：</span><input type="password" name="password" /></li>
-                    <li class="functionList-half"><input type="submit" value="注册" /></li>
+                    <li style="clear:both;"><span>QQ：</span><input type="text" name="email" /></li>
+                    <li><span>电话：</span><input type="text" name="phone" /></li>
+                    <li><span>密码：</span><input type="password" name="password" /></li>
+                    <li><input type="submit" value="注册" /></li>
                 </ul>
             </form>
         </section>

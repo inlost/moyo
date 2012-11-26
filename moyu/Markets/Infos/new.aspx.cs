@@ -18,7 +18,7 @@ namespace moyu.Markets.Infos
         }
         public void getCid()
         {
-            Response.Write(Request.Params["cat"]);
+            Response.Write( Server.HtmlEncode( Request.Params["cat"]));
         }
         public void listCats()
         {
