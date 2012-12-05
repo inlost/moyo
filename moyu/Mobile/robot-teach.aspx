@@ -15,6 +15,7 @@
         <section class="ui-body ui-body-c">
             <nav>
                 <ul class="lucky-list" data-role="listview" data-inset="true">
+                    <li><a href="help.aspx" data-ajax="false">机器人说明书</a></li>
                     <li><a href="index.aspx" data-ajax="false">返回首页</a></li>
                 </ul>
             </nav>
@@ -29,7 +30,7 @@
                 <ul>
                     <li>大家不要把左邻教坏了哦…</li>
                     <li><textarea name="a"></textarea></li>
-                    <li><input type="submit" value="记住，下次你就这么回答" /></li>
+                    <%isShowAdd(); %>
                 </ul>
             </form>
 <%}else{ %>

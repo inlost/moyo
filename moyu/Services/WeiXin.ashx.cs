@@ -27,10 +27,17 @@ namespace moyu.Services
                 context.Response.End();
                 return;
             }
-            theContext.Response.ContentType = "text/XML";
             if (checkSig())
             {
+                theContext.Response.ContentType = "text/XML";
                 getResponse();
+                makePhonePost();
+            }
+            else
+            {
+                context.Response.StatusCode = 403;
+                context.Response.End();
+                return;
             }
             context.Response.End();
         }
@@ -59,6 +66,11 @@ namespace moyu.Services
             StreamReader sreader = new StreamReader(theContext.Request.InputStream);
             Hashtable data= myWeiXin.getRequestData(sreader);
             theContext.Response.Write(myWeiXin.getResponse(data));
+        }
+        private void makePhonePost()
+        {
+            Information.group myGroup = new Information.group();
+            myGroup.makePhonePost();
         }
     }
 }

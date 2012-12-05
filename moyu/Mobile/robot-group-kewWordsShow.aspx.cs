@@ -23,12 +23,53 @@ namespace moyu.Mobile
                     break;
                 case "group":
                     tag = Request.Params["tag"];
-                    posts = myGroup.topicGet(Convert.ToInt32(tag), 0,10);
+                    if (tag == "-1" && Cache["mobilePostHome"] == null)
+                    {
+                        //Cache["mobilePostHome"]= myGroup.topicGet(Convert.ToInt32(tag), 0,10);
+                        //posts = (Hashtable[])Cache["mobilePostHome"];
+                        posts = myGroup.topicGet(Convert.ToInt32(tag), 0, 10);
+                    }
+                    else if (tag != "-1")
+                    {
+                        posts = myGroup.topicGet(Convert.ToInt32(tag), 0, 10);
+                    }
+                    else
+                    {
+                        posts = myGroup.topicGet(Convert.ToInt32(tag), 0, 10);
+                        //posts = (Hashtable[])Cache["mobilePostHome"];
+                    }
                     break;
                 case "user":
                     tag = Session["niceName"].ToString() + "发表的内容";
                     posts = myGroup.postGetByUser(Convert.ToInt32(Session["id"]), 0, 10);
                     break;
+                case "atMe":
+                    tag = "@"+Session["niceName"].ToString();
+                    posts = myGroup.postGetByMessage(Convert.ToInt32(Session["id"]), 0, 10);
+                    break;
+            }
+        }
+        public void getNotRead()
+        {
+            int count=0;
+            try
+            {
+                count = myGroup.getNotReadAtCount(Convert.ToInt32(Session["id"]));
+            }
+            catch
+            {
+                count = 0;
+            }
+            if (count != 0)
+            {
+                Response.Write("<span class=\"notReadCount\">" + count + "</span>");
+            }
+        }
+        public void setMessageRead()
+        {
+            if (Request.Params["type"].ToString() == "atMe")
+            {
+                myGroup.setAtMessageRead(Convert.ToInt32(Session["id"]));
             }
         }
         public void getType()
@@ -50,20 +91,32 @@ namespace moyu.Mobile
         public void getContent()
         {
             StringBuilder sb = new StringBuilder();
+            string userName = "";
+            Hashtable userPoint=new Hashtable();
+            moyu.User.Functions myFunction=new User.Functions();
             foreach (Hashtable p in posts)
             {
-                sb.Append("<li data-id=\""+p["id"]+"\" class=\"postItem ui-body ui-body-c\">");
+                userPoint=myFunction.getPoint( Convert .ToInt32(p["uid"]));
+                if (p["tag"].ToString() == "秘密")
+                {
+                    userName = "就不告诉你";
+                }
+                else
+                {
+                    userName = (p["niceName"].ToString() == "" ? "匿名用户" : p["niceName"].ToString());
+                    userName = "<a href=\"weixin://profile/" + p["weixinId"] + "\" class=\"" + (Convert.ToInt32(userPoint["signInDays"]) > 15 ? "red" : "") + "\">" + userName + "</a>";
+                }
+                sb.Append("<li data-id=\"" + p["id"] + "\" class=\"postItem ui-body ui-body-" + (p["tag"].ToString() == "秘密"?"e":"c") + "\">");
                 sb.Append("<h2 class=\"group-post-info clear\" style=\"text-indent:0;\">");
                 sb.Append("<span class=\"left group-post-info-tag group_tag_"+p["id"].ToString().Substring(p["id"].ToString().Length-1)+"\">" + p["tag"] + "</span>");
                 sb.Append("<span class=\"left group-post-info-user\">");
-                sb.Append((p["niceName"].ToString()==""?"匿名用户":p["niceName"].ToString()));
+                sb.Append(userName);
                 sb.Append("</span>");
                 sb.Append("</h2>");
                 sb.Append(p["body"].ToString().Replace("src=\"upload/images", "src=\"http://www.ai0932.com/upload/images"));
                 sb.Append("<div class=\"group-post-functions\">");
                 sb.Append("<a class=\"viewComments\" href=\"javascript:void(0)\">评论(" + p["commentsCount"] + ")</a>");
                 sb.Append("<a class=\"shareThisItem\" href=\"javascript:void(0)\" onclick=\"weixinShare('" + p["title"] + "','真是太有意思啦','http://www.ai0932.com/Mobile/post-show.aspx?type=g&id=" + p["id"] + "');\">分享</a>");
-                sb.Append("<a class=\"collectItem\" href=\"javascript:void(0)\">收藏</a>");
                 sb.Append("<a class=\"goTop\" target=\"_self\"  href=\"#\">回顶部</a>");
                 sb.Append("</div>");
                 sb.Append("</li>");

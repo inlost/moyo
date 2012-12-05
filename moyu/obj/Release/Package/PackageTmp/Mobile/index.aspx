@@ -35,7 +35,7 @@
             <nav data-role="navbar">
                 <ul>
                     <li><a href="robot-group-kewWordsShow.aspx?type=group&tag=-1" data-ajax="false" style="color:red;">看看大家在说啥</a></li>
-                    <li><a href="#">贴吧使用帮助</a></li>
+                    <li><a href="help.aspx">贴吧使用帮助</a></li>
                 </ul>
             </nav>
         </section>

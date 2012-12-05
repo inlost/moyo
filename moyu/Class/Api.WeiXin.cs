@@ -79,37 +79,40 @@ namespace moyu.Api
             Hashtable msg = new Hashtable();
             while (xReader.Read())
             {
-                if (xReader.Name == "ToUserName")
+                string name = xReader.Name;
+                if (name != "xml" && name != "")
                 {
-                    msg["@ToUserName"]=xReader.ReadString();
-                }
-                else if (xReader.Name == "FromUserName")
-                {
-                    msg["@FromUserName"] = xReader.ReadString();
-                }
-                else if (xReader.Name == "CreateTime")
-                {
-                    msg["@CreateTime"] = xReader.ReadString();
-                }
-                else if (xReader.Name == "MsgType")
-                {
-                    msg["@MsgType"] = xReader.ReadString();
-                }
-                else if (xReader.Name == "Content")
-                {
-                    msg["@body"] = xReader.ReadString();
+                    name = "@" + name;
+                    msg[name] = xReader.ReadString();
                 }
             }
             try
             {
+                Hashtable inQuery = new Hashtable();
+                inQuery["@ToUserName"] = msg["@ToUserName"];
+                inQuery["@FromUserName"] = msg["@FromUserName"];
+                inQuery["@CreateTime"] = msg["@CreateTime"];
+                inQuery["@MsgType"] = msg["@MsgType"];
                 if (msg["@MsgType"].ToString() == "text")
                 {
-                    myDb.ExecNoneQuery("message_weiXin_add_txtMessage", msg);
+                    msg["@body"] = msg["@Content"].ToString();
+                    inQuery["@body"] = msg["@Content"].ToString();
                 }
+                else if (msg["@MsgType"].ToString() == "location")
+                {
+                    msg["@body"] = msg["@Label"].ToString();
+                    inQuery["@body"] = msg["@Label"].ToString();
+                }
+                else if (msg["@MsgType"].ToString() == "image")
+                {
+                    msg["@body"] = msg["@PicUrl"].ToString();
+                    inQuery["@body"] = msg["@PicUrl"].ToString();
+                }
+                myDb.ExecNoneQuery("message_weiXin_add_txtMessage", inQuery);
             }
             catch (Exception e)
             {
-                debug("", "", "", "error", e.Message);
+                debug("", "", "", "errorGetUser", e.Message);
             }
             return msg;
         }
@@ -125,21 +128,26 @@ namespace moyu.Api
             try
             {
                 strTpl=getMsgType(data);
-                if (strTpl == "share" || strTpl == "sigin")
-                {
-                    items = getFunctionRequtstItems(data,strTpl);
-                }
-                else if (strTpl == "newUser")
-                {
-                    items = getNewUserRequestItems(data);
-                }
-                else if (strTpl == "notBind")
-                {
-                    items = getBindRequestItems(data);
-                }
-                else
-                {
-                    items = getRequestItem(data);
+                switch (strTpl)
+                { 
+                    case "share":
+                        items = joinItems(getFunctionRequtstItems(data, strTpl), getTodayPostCount());
+                        break;
+                    case "sigin":
+                        items = joinItems( getFunctionRequtstItems(data, strTpl),getTodayPostCount());
+                        break;
+                    case "newUser":
+                        items = getNewUserRequestItems(data);
+                        break;
+                    case "notBind":
+                        items = getBindRequestItems(data);
+                        break;
+                    case "image":
+                        items = getImageRequestItems(data);
+                        break;
+                    default:
+                        items = getRequestItem(data);
+                        break;
                 }
             }
             catch (Exception e)
@@ -154,10 +162,9 @@ namespace moyu.Api
             }
             else if (items.Count() == 0)
             {
-                strTpl= getMsgTpl(data, "你刚说了:\"" + data["@body"] +
-                    "\"？但是我现在还不知道该怎么回答这个问题……\n教教我该怎么回答好不好？" +
-                "<a href=\""+getUserUrl(data, "http://www.ai0932.com/mobile/robot-teach.aspx?q=" + HttpUtility.UrlEncode(data["@body"].ToString())) + "\">点这里教我</a>。\n" +
-                "以后定西只要再有人和我这么说，我就照你教我的回答Ta。", 0);
+                Hashtable[] teachItem;
+                teachItem = funcTeach(data);
+                strTpl = getMsgTpl(data, teachItem, 1);
             }
             else
             {
@@ -330,25 +337,36 @@ namespace moyu.Api
         /// <returns>是否</returns>
         private string getMsgType(Hashtable userMsg)
         {
-            string strMsg = userMsg["@body"].ToString();
-            if (strMsg == "Hello2BizUser")
+            if (userMsg["@MsgType"].ToString() == "text")
             {
-                return "newUser";
+                string strMsg = userMsg["@body"].ToString();
+                if (strMsg == "Hello2BizUser")
+                {
+                    return "newUser";
+                }
             }
-            else if (getWeiUserId(userMsg["@FromUserName"].ToString()) == 0)
+             if (getWeiUserId(userMsg["@FromUserName"].ToString()) == 0)
             {
                 return "notBind";
             }
-            else if (strMsg == "签到")
+            if (userMsg["@MsgType"].ToString() == "text")
             {
-                return "sigin";
-            }
-            else if (strMsg.IndexOf(":") > -1 || strMsg.IndexOf("：") > -1)
-            {
-                if (strMsg.IndexOf(":") < 4 || strMsg.IndexOf("：") < 4)
+                string strMsg = userMsg["@body"].ToString();
+                if (strMsg == "签到")
                 {
-                    return "share";
+                    return "sigin";
                 }
+                else if (strMsg.IndexOf(":") > -1 || strMsg.IndexOf("：") > -1)
+                {
+                    if (strMsg.IndexOf(":") < 4 || strMsg.IndexOf("：") < 4)
+                    {
+                        return "share";
+                    }
+                }
+            }
+            else if (userMsg["@MsgType"].ToString() == "image")
+            {
+                return "image";
             }
             return "normal";
         }
@@ -366,7 +384,7 @@ namespace moyu.Api
             }
             else
             {
-                return "http://www.ai0932.com/images/weixin/small/" + rd.Next(1, 14) + ".png";
+                return "http://www.ai0932.com/images/weixin/small/" + rd.Next(1, 14) + ".jpg";
             }
         }
         /// <summary>

@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.Collections;
 using System.Xml;
 using System.IO;
-using System.Text;
+using System.Net;
 namespace moyu.Api
 {
     public partial class WeiXin
@@ -29,7 +29,7 @@ namespace moyu.Api
                 "……\n点击\"查看全文\"教你如何玩转左邻";
             rt[0]["picSmall"] = "http://www.ai0932.com/images/weixin/newUser.jpg";
             rt[0]["picBig"] = "http://www.ai0932.com/images/weixin/newUser.jpg";
-            rt[0]["url"] = "http://www.ai0932.com/Mobile/post-show.aspx?type=t&id=602";
+            rt[0]["url"] = "http://www.ai0932.com/Mobile/help.aspx";
             rt[0]["orders"] = 90;
             return rt;
         }
@@ -57,6 +57,104 @@ namespace moyu.Api
             rt[0]["orders"] = 90;
             return rt;
         }
+        private Hashtable[] getImageRequestItems(Hashtable userData)
+        {
+            Hashtable[] rt = new Hashtable[1];
+            rt[0] = new Hashtable();
+            rt[0]["id"] = 0;
+            rt[0]["messageType"] = 1;
+            rt[0]["title"] = "图片上传失败";
+            rt[0]["body"] = "啊噢，图片上传失败了。。。\n" +
+                "失败的具体原因是：";
+            rt[0]["picSmall"] = getPicUrl(false);
+            rt[0]["picBig"] = getPicUrl(true);
+            rt[0]["url"] = "http://www.ai0932.com/mobile/robot-group-kewWordsShow.aspx?type=group&tag=-1";
+            rt[0]["orders"] = 0;
+            WebClient wc = new WebClient();
+            HttpWebResponse res;
+            string folderPath=System.DateTime.Now.Year + "/" + System.DateTime.Now.Month + "/" + System.DateTime.Now.Day + "/";
+            string savePath = HttpContext.Current.Server.MapPath("~/upload/userImages/" + folderPath);
+            if (!Directory.Exists(savePath))
+            {
+                Directory.CreateDirectory(savePath);
+            }
+            res = (HttpWebResponse)WebRequest.Create(userData["@PicUrl"].ToString()).GetResponse();
+            if (res.StatusCode != HttpStatusCode.OK)
+            { 
+                //链接不正常
+                rt[0]["body"] = rt[0]["body"] + "服务器连接失败";
+                return rt;
+            }
+            string contentType=res.ContentType.ToLower();
+            if (contentType.IndexOf("image") == -1)
+            { 
+                //不是图片
+                rt[0]["body"] = rt[0]["body"] + "你上传的好像不是图片";
+                return rt;
+            }
+            string fileName="";
+            if (contentType.IndexOf("png") > -1)
+            {
+                fileName = ".png";
+            }
+            else if (contentType.IndexOf(".gif") > -1)
+            {
+                fileName = ".gif";
+            }
+            else if (contentType.IndexOf("jpeg") > -1 || contentType.IndexOf("jpg") > -1)
+            {
+                fileName = ".jpg";
+            }
+            if (fileName.Length == 0)
+            { 
+                //未知图片格式
+                rt[0]["body"] = rt[0]["body"] + "不支持的图片格式";
+                return rt;
+            }
+
+            fileName = System.Guid.NewGuid().ToString("N") + fileName;
+            wc.DownloadFile(userData["@PicUrl"].ToString(), savePath + fileName);
+            int uid=getWeiUserId(userData["@FromUserName"].ToString());
+            string imgUrl = "http://www.ai0932.com/upload/userImages/" + folderPath + fileName;
+            Information.group myGroup = new Information.group();
+            int tid = myGroup.topicNewByWeixin("爆照", ("我在" + System.DateTime.Now.ToShortTimeString() + "在左邻分享了一张照片"), -1, uid, "<img src=\"" + imgUrl + "\"/>");
+            moyu.User.Functions myUser=new User.Functions();
+            int pid = myUser.upLoadImg(uid, fileName, tid.ToString(), imgUrl);
+            Hashtable[] rtSuccess = new Hashtable[3];
+            rtSuccess[0] = new Hashtable();
+            rtSuccess[0]["id"] = 0;
+            rtSuccess[0]["messageType"] = 2;
+            rtSuccess[0]["title"] = "成功分享了一张图片@" + System.DateTime.Now.ToShortTimeString() + "\n" +
+                " 点这里去贴吧查看分享的图片";
+            rtSuccess[0]["body"] = "图片分享成功";
+            rtSuccess[0]["picSmall"] = getPicUrl(false);
+            rtSuccess[0]["picBig"] = imgUrl;
+            rtSuccess[0]["url"] = "http://www.ai0932.com/mobile/robot-group-kewWordsShow.aspx?type=group&tag=-1";
+            rtSuccess[0]["orders"] = 10;
+
+            rtSuccess[1] = new Hashtable();
+            rtSuccess[1]["id"] = 0;
+            rtSuccess[1]["messageType"] = 2;
+            rtSuccess[1]["title"] = "想让更多朋友看到？点击这里去分享到朋友圈";
+            rtSuccess[1]["body"] = "想让更多朋友看到？点击这里去分享到朋友圈";
+            rtSuccess[1]["picSmall"] = getPicUrl(false);
+            rtSuccess[1]["picBig"] = getPicUrl(true);
+            rtSuccess[1]["url"] = "http://www.ai0932.com/Mobile/post-show.aspx?type=g&id="+tid;
+            rtSuccess[1]["orders"] = 8;
+
+            rtSuccess[2] = new Hashtable();
+            rtSuccess[2]["id"] = 0;
+            rtSuccess[2]["messageType"] = 2;
+            rtSuccess[2]["title"] = "为图片添加文字说明？点击这里去给图片添加文字说明";
+            rtSuccess[2]["body"] = "为图片添加文字说明？点击这里去给图片添加文字说明";
+            rtSuccess[2]["picSmall"] = getPicUrl(false);
+            rtSuccess[2]["picBig"] = getPicUrl(true);
+            rtSuccess[2]["url"] = "http://www.ai0932.com/mobile/addPicIntroduce.aspx?tid="+tid+"&pid="+pid;
+            rtSuccess[2]["orders"] = 6;
+            User.Functions myFunction = new User.Functions();
+            myFunction.givePostPoint(uid, "发图积分", 2);
+            return rtSuccess;
+        }
         /// <summary>
         /// 分享信息
         /// </summary>
@@ -69,6 +167,12 @@ namespace moyu.Api
             string body = userMsg.Substring(tag.Length + 1);
             Information.group myGroup = new Information.group();
             myGroup.topicNewByWeixin(tag, body.Substring(0, (body.Length > 25 ? 25 : body.Length)), -1, getWeiUserId(userData["@FromUserName"].ToString()), body);
+            User.Functions myFunction = new User.Functions();
+            myFunction.givePostPoint(getWeiUserId(userData["@FromUserName"].ToString()), "发帖积分", 2);
+            if (tag == "秘密")
+            {
+                myFunction.userPointChange(getWeiUserId(userData["@FromUserName"].ToString()), -3, "发秘密消耗积分", 1);
+            }
             if (HttpContext.Current.Cache["weixinRobotGroupPostKeywords"] != null)
             {
                 Hashtable[] keyWords = (Hashtable[])HttpContext.Current.Cache["weixinRobotGroupPostKeywords"];
@@ -101,22 +205,95 @@ namespace moyu.Api
             Hashtable points = new Hashtable();
             points = myFunctions.getPoint(uid);
             strBody.Append (myFunctions.isSigIn(uid) ? "签到成功，" : "签到失败，");
-            strBody .Append("已经连续签到" + points["signInDays"] + "天，");
+            strBody .Append("连续签到" + points["signInDays"] + "天，");
             strBody.Append("积分:" + points["point"] + ",");
-            strBody.Append("贡献:" + points["contribute"] + "。\n\n");
-            strBody .Append( "<a href=\""+getUserUrl(userData,"http://www.ai0932.com/mobile/index.aspx")+"\">点这里去首页</a>\n\n");
-            strBody .Append( "<a href=\""+getUserUrl(userData,"http://www.ai0932.com/mobile/lucky.aspx")+"\">点这里去抽奖处</a>\n\n");
-            strBody.Append("<a href=\"" + getUserUrl(userData, "http://www.ai0932.com/mobile/robot-group-kewWordsShow.aspx?type=group&tag=-1") + "\">点这里去贴吧</a>");
+            strBody.Append("贡献:" + points["contribute"] + " 。点我去首页");
             Hashtable[] rt = new Hashtable[1];
             rt[0] = new Hashtable();
             rt[0]["id"] = 0;
-            rt[0]["messageType"] = 1;
-            rt[0]["title"] = "用户签到";
+            rt[0]["messageType"] = 2;
+            rt[0]["title"] = strBody;  //System.DateTime.Now.ToShortTimeString()+"@"+ System.DateTime.Now.ToShortDateString()+ " 签到";
             rt[0]["body"] = strBody;
             rt[0]["picSmall"] = getPicUrl(false);
             rt[0]["picBig"] = getPicUrl(true);
-            rt[0]["url"] = getUserUrl(userData, "http://www.ai0932.com/mobile/signIn.aspx");
+            rt[0]["url"] = "http://www.ai0932.com/mobile/index.aspx";
             rt[0]["orders"] = 90;
+            return rt;
+        }
+        /// <summary>
+        /// 机器人教育
+        /// </summary>
+        /// <param name="userDate">用户信息</param>
+        /// <returns>返回信息</returns>
+        private Hashtable[] funcTeach(Hashtable userDate )
+        {
+            Hashtable[] rt = new Hashtable[1];
+            rt[0] = new Hashtable();
+            rt[0]["id"] = 0;
+            rt[0]["messageType"] = 2;
+            rt[0]["title"] = "教左邻回答\"" + userDate["@body"].ToString() + "\"";
+            rt[0]["body"] = "你刚说了\"" + userDate["@body"].ToString() + "\"，但是我现在还不知道该怎么回答这个问题……\n"+
+                "教教我应该怎么回答好不好【撒娇】，\n"+
+                "以后定西只要再有人和我这么说，我就照你教我的回答Ta。";
+            rt[0]["picSmall"] = getPicUrl(false);
+            rt[0]["picBig"] = "http://www.ai0932.com/images/weixin/teach.jpg";
+            rt[0]["url"] = "http://www.ai0932.com/mobile/robot-teach.aspx?q="+ HttpUtility.UrlEncode(userDate["@body"].ToString()) ;
+            rt[0]["orders"] = 90;
+            return rt;
+        }
+        /// <summary>
+        /// 获取社区今日文章条数
+        /// </summary>
+        /// <returns></returns>
+        private Hashtable[] getTodayPostCount()
+        {
+            string strSql = "select count(id) as number from information_group_topic where gid =-1 and postDate > '" + System.DateTime.Now.AddDays(-1).ToString()+"'";
+            int count = System.Convert.ToInt32(moyu.Data.Type.dtToHash(myDb.GetQuerySql(strSql, "rt"))[0]["number"]);
+            if (count == 0)
+            {
+                return null;
+            }
+            Hashtable[] rt = new Hashtable[1];
+            rt[0] = new Hashtable();
+            rt[0]["id"] = 0;
+            rt[0]["messageType"] = 2;
+            rt[0]["title"] = "今天社区有【" + count + "】件新鲜事儿，点我去围观一下";
+            rt[0]["body"] = "今天社区有【" + count + "】件新鲜事儿，点我去围观一下";
+            rt[0]["picSmall"] = getPicUrl(false);
+            rt[0]["picBig"] = getPicUrl(true);
+            rt[0]["url"] = "http://www.ai0932.com/mobile/robot-group-kewWordsShow.aspx?type=group&tag=-1";
+            rt[0]["orders"] = 0;
+            return rt;
+        }
+        /// <summary>
+        /// 合并条目
+        /// </summary>
+        /// <param name="group1"></param>
+        /// <param name="group2"></param>
+        /// <returns>合并后的条目</returns>
+        private Hashtable[] joinItems(Hashtable[] group1, Hashtable[] group2)
+        {
+            int count = 0;
+            if (group1 != null)
+            {
+                count += group1.Length;
+            }
+            if (group2 != null)
+            {
+                count += group2.Length;
+            }
+            Hashtable[] rt = new Hashtable[count];
+            int index = 0;
+            foreach (Hashtable item in group1)
+            {
+                rt[index] = item;
+                index++;
+            }
+            foreach (Hashtable item in group2)
+            {
+                rt[index] = item;
+                index++;
+            }
             return rt;
         }
     }

@@ -193,5 +193,85 @@ namespace moyu.Information
             inQuery["@count"] = count;
             return Data.Type.dtToHash(myDb.GetQueryStro("information_group_topic_get_byUser", inQuery, "rt"));
         }
+        /// <summary>
+        /// 获取提到用户的文章
+        /// </summary>
+        /// <param name="uid">用户编号</param>
+        /// <param name="last">最后条</param>
+        /// <param name="count">获取条数</param>
+        /// <returns>文章们</returns>
+        public Hashtable[] postGetByMessage(int uid,int last,int count)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@uid"] = uid;
+            inQuery["@last"] = last;
+            inQuery["@count"] = count;
+            return Data.Type.dtToHash(myDb.GetQueryStro("group_topic_get_byMessage", inQuery, "rt"));
+        }
+        /// <summary>
+        /// 获取提到用户的未读帖子数
+        /// </summary>
+        /// <param name="uid">用户编号</param>
+        /// <returns>条数</returns>
+        public int getNotReadAtCount(int uid)
+        {
+            string strSql = "select count(id) as number from user_message where type=-2 and messageTo="+uid+" and isRead=0";
+            return Convert .ToInt32( Data.Type.dtToHash(myDb.GetQuerySql(strSql, "rt"))[0]["number"]);
+        }
+        /// <summary>
+        /// 讲未读提到消息设为已读
+        /// </summary>
+        /// <param name="uid">用户编号</param>
+        public void setAtMessageRead(int uid)
+        {
+            string strSql = "update user_message set isRead=1  where type=-2 and messageTo=" + uid + " and isRead=0";
+            myDb.ExecNonQuery(strSql);
+        }
+        /// <summary>
+        /// 更新文章
+        /// </summary>
+        /// <param name="tid">文章编号</param>
+        /// <param name="body">新内容</param>
+        /// <param name="title">新标题</param>
+        /// <param name="tag">新标签</param>
+        /// <param name="gid">新分组</param>
+        public void updatePost(int tid,string body, string title,string tag, int gid)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@tid"] = tid;
+            inQuery["@body"] = body;
+            inQuery["@title"] = title;
+            inQuery["@tag"] = tag;
+            inQuery["@gid"] = gid;
+            myDb.ExecNoneQuery("information_group_topic_update", inQuery);
+        }
+        /// <summary>
+        /// 在手机贴吧生成文章
+        /// </summary>
+        public void makePhonePost()
+        {
+            string strSql = "select * from v_information_group_topic where isAddToPost=0 and gid=-1 order by id desc";
+            Hashtable[] posts;
+            posts = moyu.Data.Type.dtToHash(myDb.GetQuerySql(strSql,"rt"));
+            strSql = "update information_group_topic set isAddToPost=1 where id in(";
+            if (posts != null && posts.Length != 0 && posts.Length>2)
+            {
+                Information.topic myTopic = new topic();
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                foreach (Hashtable post in posts)
+                {
+                    strSql += post["id"]+ ",";
+                    sb.Append("<div class=\"mobilePost\">");
+                    sb.Append("<div class=\"mobilePostInfo\">");
+                    sb.Append("<p>"+post["niceName"]+"说：</p>");
+                    sb.Append("<p>"+post["body"]+"</p>");
+                    sb.Append("</div>");
+                    sb.Append("</div>");
+                }
+                strSql += "0)";
+                myTopic.addNew(9, 0,"大家发现的定西新鲜事儿"+ DateTime.Now.ToShortTimeString()+"@"+DateTime.Now.ToShortDateString(), sb.ToString());
+                myDb.ExecNonQuery(strSql);
+            }
+        }
     }
 }

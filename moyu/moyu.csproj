@@ -148,21 +148,24 @@
     <Content Include="Images\weixin\big\8.jpg" />
     <Content Include="Images\weixin\big\9.jpg" />
     <Content Include="Images\weixin\bind.jpg" />
+    <Content Include="Images\weixin\help.jpg" />
     <Content Include="Images\weixin\newUser.jpg" />
-    <Content Include="Images\weixin\small\1.png" />
-    <Content Include="Images\weixin\small\10.png" />
-    <Content Include="Images\weixin\small\11.png" />
-    <Content Include="Images\weixin\small\12.png" />
-    <Content Include="Images\weixin\small\13.png" />
-    <Content Include="Images\weixin\small\14.png" />
-    <Content Include="Images\weixin\small\2.png" />
-    <Content Include="Images\weixin\small\3.png" />
-    <Content Include="Images\weixin\small\4.png" />
-    <Content Include="Images\weixin\small\5.png" />
-    <Content Include="Images\weixin\small\6.png" />
-    <Content Include="Images\weixin\small\7.png" />
-    <Content Include="Images\weixin\small\8.png" />
-    <Content Include="Images\weixin\small\9.png" />
+    <Content Include="Images\weixin\small\1.jpg" />
+    <Content Include="Images\weixin\small\10.jpg" />
+    <Content Include="Images\weixin\small\11.jpg" />
+    <Content Include="Images\weixin\small\12.jpg" />
+    <Content Include="Images\weixin\small\13.jpg" />
+    <Content Include="Images\weixin\small\14.jpg" />
+    <Content Include="Images\weixin\small\2.jpg" />
+    <Content Include="Images\weixin\small\3.jpg" />
+    <Content Include="Images\weixin\small\4.jpg" />
+    <Content Include="Images\weixin\small\5.jpg" />
+    <Content Include="Images\weixin\small\6.jpg" />
+    <Content Include="Images\weixin\small\7.jpg" />
+    <Content Include="Images\weixin\small\8.jpg" />
+    <Content Include="Images\weixin\small\9.jpg" />
+    <Content Include="Images\weixin\teach.jpg" />
+    <Content Include="Images\weixin\tieba.jpg" />
     <Content Include="Images\weixin\zmkm.jpg" />
     <Content Include="Images\wx-share.png" />
     <Content Include="login.html" />
@@ -192,10 +195,12 @@
     <Content Include="Markets\Living\index.aspx" />
     <Content Include="Markets\Living\newQuestion.aspx" />
     <Content Include="Markets\sale\index.aspx" />
+    <Content Include="Mobile\addPicIntroduce.aspx" />
     <Content Include="Mobile\coupons-show.aspx" />
     <Content Include="Mobile\coupons.aspx" />
     <Content Include="Mobile\exchange.aspx" />
     <Content Include="Mobile\footer.aspx" />
+    <Content Include="Mobile\help.aspx" />
     <Content Include="Mobile\robot-group-kewWordsShow.aspx" />
     <Content Include="Mobile\robot-show.aspx" />
     <Content Include="Mobile\robot-teach.aspx" />
@@ -1738,6 +1743,13 @@
     <Compile Include="Markets\sale\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Mobile\addPicIntroduce.aspx.cs">
+      <DependentUpon>addPicIntroduce.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\addPicIntroduce.aspx.designer.cs">
+      <DependentUpon>addPicIntroduce.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Mobile\coupons-show.aspx.cs">
       <DependentUpon>coupons-show.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1765,6 +1777,13 @@
     </Compile>
     <Compile Include="Mobile\footer.aspx.designer.cs">
       <DependentUpon>footer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\help.aspx.cs">
+      <DependentUpon>help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\help.aspx.designer.cs">
+      <DependentUpon>help.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mobile\robot-group-kewWordsShow.aspx.cs">
       <DependentUpon>robot-group-kewWordsShow.aspx</DependentUpon>

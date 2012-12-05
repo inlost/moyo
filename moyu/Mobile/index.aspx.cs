@@ -67,9 +67,15 @@ namespace moyu.Mobile
             moyu.Functions myFunction = new Functions();
             foreach (Hashtable gift in gifts)
             {
-                sb.Append("<li>" + gift["message"].ToString().Substring(0,4) + "***在<span>" +myFunction.kindTime( Convert.ToDateTime(gift["date"]))+ "</span>获得了");
-                sb.Append(gift["gift"]);
-                sb.Append("</li>");
+                try
+                {
+                    string number = gift["message"].ToString().Split(new char[3] { '|', '|', '|' })[0];
+                    sb.Append("<li>" + gift["message"].ToString().Substring(0, 3) + "**" + number.Substring(number.Length - 2, 2) + "在<span>" + myFunction.kindTime(Convert.ToDateTime(gift["date"])) + "</span>获得了");
+                    sb.Append(gift["gift"]);
+                    sb.Append("</li>");
+                }
+                catch
+                { }
             }
             Response.Write(sb);
         }

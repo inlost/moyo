@@ -59,5 +59,16 @@ namespace moyu.Mobile
         {
             Response.Write(q);
         }
+        public void isShowAdd()
+        {
+            if (Session["isLogin"] != null && Session["isLogin"].ToString() == "true")
+            {
+                Response.Write("<li><input type=\"submit\" value=\"记住，下次你就这么回答\" /></li>");
+            }
+            else
+            {
+                Response.Write("<li>未登陆用户不能教左邻，请先登录</li>");
+            }
+        }
     }
 }

@@ -12,4 +12,6 @@
 	<div id="nickname">		点击关注左邻				</div>
 	<div id="weixinid">微信号:ZuoLinSpeaker</div>				
 </a>
+<%}else{ %>
+    <%getNotRead(); %>
 <%} %>

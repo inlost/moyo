@@ -81,7 +81,12 @@ namespace moyu.Services
             int uid = Convert.ToInt32(theContext.Session["id"]);
             string gift = theContext.Request.Form["gift"];
             string message = theContext.Request.Form["message"] + "|||" + theContext.Request.Form["message2"];
+            if (theContext.Request.Form["message"].ToString().Trim().Length == 0)
+            {
+                theContext.Response.Redirect("~/Mobile/lucky-gift.aspx");
+            }
             myFunctions.giftAdd(uid, gift, message);
+            theContext.Session.Remove("isLucky");
             theContext.Response.Redirect("~/Mobile/lucky.aspx");
         }
         public void giveThanks()
@@ -105,7 +110,8 @@ namespace moyu.Services
             string q = theContext.Request.Form["q"];
             string a = theContext.Request.Form["a"];
             string url="http://www.ai0932.com/mobile/robot-teach.aspx?q=" + HttpUtility.UrlEncode( q) + "&show=true";
-            int rid = myWeiXin.addRule(0, 1, a, a, myWeiXin.getPicUrl(false), myWeiXin.getPicUrl(true),
+            int uid=Convert .ToInt32( theContext.Session["id"]);
+            int rid = myWeiXin.addRule(uid, 1, a, a, myWeiXin.getPicUrl(false), myWeiXin.getPicUrl(true),
                 url, 0);
             if (a.Length > 1)
             {

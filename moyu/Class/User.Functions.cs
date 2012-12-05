@@ -129,7 +129,7 @@ namespace moyu.User
         /// <param name="uid">用户编号</param>
         /// <param name="point">积分数量</param>
         /// <param name="body">说明文字</param>
-        /// <param name="type">1，积分，2，贡献</param>
+        /// <param name="type">2，贡献,其它，积分</param>
         public void userPointChange(int uid, int point, string body, int type)
         {
             Hashtable inQuery = new Hashtable();
@@ -175,6 +175,69 @@ namespace moyu.User
             inQuery["@point"] = point;
             myDb.ExecNoneQuery("user_point_exchange", inQuery);
             return true;
+        }
+        /// <summary>
+        /// 用户信息发送
+        /// </summary>
+        /// <param name="from">来自</param>
+        /// <param name="to">投向</param>
+        /// <param name="message">信息内容</param>
+        /// <param name="type">信息类型</param>
+        /// <param name="relId">关联id</param>
+        /// <returns>成功失败</returns>
+        public bool sendMessage(int from, int to, string message, int type, int relId)
+        {
+            try
+            {
+                Hashtable inQuery = new Hashtable();
+                inQuery["@messageFrom"] = from;
+                inQuery["@messageTo"] = to;
+                inQuery["@message"] = message;
+                inQuery["@type"] = type;
+                inQuery["@relId"] = relId;
+                myDb.ExecNoneQuery("user_message_add", inQuery);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// 上传图片入库
+        /// </summary>
+        /// <param name="uid">用户编号</param>
+        /// <param name="img">图片文件名</param>
+        /// <param name="introduce">介绍说明</param>
+        /// <param name="url">图片链接</param>
+        /// <returns>编号</returns>
+        public int upLoadImg(int uid, string img, string introduce, string url)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@uid"] = uid;
+            inQuery["@img"] = img;
+            inQuery["@introduce"] = introduce;
+            inQuery["@url"] = url;
+            return Convert.ToInt32(moyu.Data.Type.dtToHash(myDb.GetQueryStro("user_photo_add", inQuery, "rt"))[0]["id"]);
+        }
+        /// <summary>
+        /// 用户发帖积分获取
+        /// </summary>
+        /// <param name="uid">用户编号</param>
+        /// <param name="body">内容</param>
+        /// <param name="point">分数</param>
+        public void givePostPoint(int uid, string body, int point)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@maxPoint"] = 6;
+            inQuery["@uid"] = uid;
+            inQuery["@point"] = point;
+            inQuery["@date"] = DateTime.Now.ToShortDateString();
+            int pointAllowAdd = Convert.ToInt32(moyu.Data.Type.dtToHash(myDb.GetQueryStro("user_point_postAdd", inQuery, "rt"))[0]["point"]);
+            if (pointAllowAdd != 0)
+            {
+                userPointChange(uid, pointAllowAdd, body, 3);
+            }
         }
     }
 }

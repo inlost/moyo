@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections;
+using System.Text;
 namespace moyu.Mobile
 {
     public partial class header : System.Web.UI.Page
@@ -28,6 +29,19 @@ namespace moyu.Mobile
                     }
                     Session["password"] = null;
                 }
+            }
+        }
+        public void getNotRead()
+        {
+            Information.group myGroup = new Information.group();
+            int count = myGroup.getNotReadAtCount(Convert.ToInt32(Session["id"]));
+            if (count != 0)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<div id=\"messageTip\">");
+                sb.Append("有<span class=\"notReadCount\">" + count + "</span>个人提到你了，快<a href=\"robot-group-kewWordsShow.aspx?type=atMe\">去看看</a>吧。");
+                sb.Append("</div>");
+                Response.Write(sb);
             }
         }
     }
