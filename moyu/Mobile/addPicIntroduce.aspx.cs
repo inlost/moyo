@@ -20,7 +20,25 @@ namespace moyu.Mobile
         }
         public void getBody()
         {
-            Response.Write(thePost["body"]);
+            if (pid != 0)
+            {
+                Response.Write(thePost["body"]);
+            }
+            else
+            {
+                Response.Write("今天心情怎么样？");
+            }
+        }
+        public void getBtnText()
+        {
+            if (pid != 0)
+            {
+                Response.Write("添加说明");
+            }
+            else
+            {
+                Response.Write("记录心情");
+            }
         }
         public void getTid()
         {

@@ -13,13 +13,28 @@ namespace moyu.User
         /// 用户签到
         /// </summary>
         /// <param name="uid">用户编号</param>
-        public void signIn(int uid)
+        public int signIn(int uid)
         {
             Hashtable inQuer = new Hashtable();
             inQuer["@uid"] = uid;
             inQuer["@lastDate"] = DateTime.Now.AddDays(-1).ToShortDateString();
             inQuer["@nowDate"] = DateTime.Now.ToShortDateString();
-            myDb.ExecNoneQuery("user_signIn", inQuer);
+            Information.group myGroup = new Information.group();
+            User.Web myUser = new User.Web();
+            Hashtable theUser = new Hashtable();
+            theUser = myUser.get(uid);
+
+            int tid;
+            if (!isSigIn(uid))
+            {
+                myDb.ExecNoneQuery("user_signIn", inQuer);
+                tid = myGroup.topicNewByWeixin("签到", theUser["niceName"].ToString() + "在" + System.DateTime.Now.ToString() + "在左邻签到", -1, uid, theUser["niceName"] + "在" + System.DateTime.Now.ToShortTimeString() + "默默地签了一个到，什么都没有说，然后就默默默默地走掉了……");
+            }
+            else
+            {
+                tid = getLastSiginTopic(uid);
+            }
+            return tid;
         }
         /// <summary>
         /// 用户签到历史获取
@@ -41,6 +56,16 @@ namespace moyu.User
             string strSql = "select count(id) as count from users_signIn where uid=" + uid + " and date='" + DateTime.Now.ToShortDateString() + "'";
             int count = Convert.ToInt32(moyu.Data.Type.dtToHash(myDb.GetQuerySql(strSql,"rt"))[0]["count"]);
             return count == 0 ? false : true;
+        }
+        /// <summary>
+        /// 获取用户签到日志编号
+        /// </summary>
+        /// <param name="uid">用户编号</param>
+        /// <returns>签到日志编号</returns>
+        public int getLastSiginTopic(int uid)
+        {
+            string strSql = "select top(1) id from information_group_topic where gid=-1 and uid=" + uid + " and tag='签到' order by id desc";
+            return Convert.ToInt32(moyu.Data.Type.dtToHash(myDb.GetQuerySql(strSql, "rt"))[0]["id"]);
         }
         /// <summary>
         /// 用户积分获取

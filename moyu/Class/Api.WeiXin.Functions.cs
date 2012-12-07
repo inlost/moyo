@@ -200,24 +200,36 @@ namespace moyu.Api
         {
             moyu.User.Functions myFunctions = new User.Functions();
             int uid = getWeiUserId(userData["@FromUserName"].ToString());
-            myFunctions.signIn(uid);
+
+            int siginId = myFunctions.signIn(uid);
             StringBuilder strBody = new StringBuilder();
             Hashtable points = new Hashtable();
             points = myFunctions.getPoint(uid);
-            strBody.Append (myFunctions.isSigIn(uid) ? "签到成功，" : "签到失败，");
-            strBody .Append("连续签到" + points["signInDays"] + "天，");
+            strBody.Append(myFunctions.isSigIn(uid) ? "签到成功，" : "签到失败，");
+            strBody.Append("连续签到" + points["signInDays"] + "天，");
             strBody.Append("积分:" + points["point"] + ",");
             strBody.Append("贡献:" + points["contribute"] + " 。点我去首页");
-            Hashtable[] rt = new Hashtable[1];
+
+            Hashtable[] rt = new Hashtable[2];
             rt[0] = new Hashtable();
             rt[0]["id"] = 0;
             rt[0]["messageType"] = 2;
-            rt[0]["title"] = strBody;  //System.DateTime.Now.ToShortTimeString()+"@"+ System.DateTime.Now.ToShortDateString()+ " 签到";
+            rt[0]["title"] = strBody; 
             rt[0]["body"] = strBody;
             rt[0]["picSmall"] = getPicUrl(false);
             rt[0]["picBig"] = getPicUrl(true);
             rt[0]["url"] = "http://www.ai0932.com/mobile/index.aspx";
             rt[0]["orders"] = 90;
+
+            rt[1] = new Hashtable();
+            rt[1]["id"] = 0;
+            rt[1]["messageType"] = 2;
+            rt[1]["title"] = "今天心情怎么样？点这里记录每天的心情";
+            rt[1]["body"] = "今天心情怎么样？点这里记录每天的心情";
+            rt[1]["picSmall"] = getPicUrl(false);
+            rt[1]["picBig"] = getPicUrl(true);
+            rt[1]["url"] = "http://www.ai0932.com/mobile/addPicIntroduce.aspx?tid=" + siginId + "&pid=0";
+            rt[1]["orders"] = 80;
             return rt;
         }
         /// <summary>

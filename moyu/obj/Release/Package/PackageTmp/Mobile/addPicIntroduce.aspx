@@ -29,7 +29,7 @@
                 <input type="hidden" name="pid" value="<%getPid(); %>" />
                 <input type="hidden" name="tid" value="<%getTid(); %>" />
                 <textarea name="introduce"></textarea>
-                <button type="submit">添加说明</button>
+                <button type="submit"><%getBtnText(); %></button>
             </form>
         </section>
     </section>

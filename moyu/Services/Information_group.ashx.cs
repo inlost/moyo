@@ -70,7 +70,16 @@ namespace moyu.Services
             string introduce = theContext.Request.Form["introduce"];
             if (Convert.ToInt32(thePost["uid"]) == Convert.ToInt32(theContext.Session["id"]))
             {
-                myGroup.updatePost(tid, thePost["body"].ToString() + "<p>" + introduce + "</p>", thePost["title"].ToString(), thePost["tag"].ToString(), Convert.ToInt32(thePost["gid"]));
+                string body = "";
+                if (pid == 0)
+                {
+                    body = "<span style=\"color:#F78000;font-weight:bold;\">" + DateTime.Now.ToShortDateString() + "</span>：<br/>" + introduce ;
+                }
+                else
+                {
+                    body = thePost["body"].ToString() + "<p>" + introduce + "</p>";
+                }
+                myGroup.updatePost(tid,body, thePost["title"].ToString(), thePost["tag"].ToString(), Convert.ToInt32(thePost["gid"]));
             }
             theContext.Response.Redirect("~/Mobile/robot-group-kewWordsShow.aspx?type=group&tag=-1");
         }
