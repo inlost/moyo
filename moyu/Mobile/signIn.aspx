@@ -1,10 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="signIn.aspx.cs" Inherits="moyu.Mobile.signIn" %>
-
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<html>
+<head>
+    <meta charset="utf-8">
     <title>签到_左邻</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" /> 
     <%Server.Execute("script-loader.aspx"); %>
@@ -14,17 +12,20 @@
         <%Server.Execute("header.aspx"); %>
     </header>
     <section id="content">
-        <section class="ui-body ui-body-c">
-            <nav>
-                <ul class="lucky-list" data-role="listview" data-inset="true">
-                    <li><a href="../Services/Mobile_Main.ashx?action=signin"><%signInTexe(); %></a></li>
-                    <li><a href="index.aspx" data-ajax="false">返回查看积分</a></li>
-                </ul>
-            </nav>
+        <section class="grid">
+            <h3>每日签到</h3>
+            <div class="row">
+                <a href="../Services/Mobile_Main.ashx?action=signin">
+                    <button class="command-button default" style="width:100%;">
+                        <%signInTexe(); %>
+                        <small><%getUserPoint(); %></small>
+                    </button>
+                </a>
+            </div>
         </section>
-        <section class="ui-body ui-body-c">
-            <h1><%getUserName(); %>的签到日志</h1>
-            <ul class="lucky-list" data-role="listview" data-inset="true">
+        <section>
+            <h3><%getUserName(); %>的签到日志</h3>
+            <ul class="lucky-list">
                 <%getSignLog(); %>
             </ul>
         </section>

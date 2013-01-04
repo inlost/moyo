@@ -1,47 +1,52 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="moyu.Mobile.index" %>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<html>
+<head>
+    <meta charset="utf-8">
     <title>沁辰左邻</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" /> 
     <%Server.Execute("script-loader.aspx"); %>
 </head>
-<body class="page" data-theme="c" data-role="page">
+<body class="page">
     <header>
         <%Server.Execute("header.aspx"); %>
     </header>
     <section id="content">
-        <section class="ui-body ui-body-c">
-            <header><h1><%getNiceName(); %>@左邻 <%getLogout(); %></h1></header>
-            <section>
-                <ul class="clear">
+        <section class="grid">
+            <header><h3><%getNiceName(); %>@左邻 <%getLogout(); %></h3></header>
+            <section class="row">
+                <ul class="spanN">
                     <%getUserPoint(); %>
                 </ul>
             </section>
         </section>
-        <section class="ui-body ui-body-c">
-            <h1>功能区</h1>
-            <nav data-role="navbar">
+        <section class="grid bg-color-blueLight">
+            <h3>功能区</h3>
+            <nav class="row">
                 <ul>
-                    <li><a href="signIn.aspx" data-ajax="false">我要签到</a></li>
-                    <li><a href="lucky.aspx" data-ajax="false">我要抽奖</a></li>
-                    <li><a href="coupons.aspx" data-ajax="false">优惠券</a></li>
-<%--                    <li><a href="topic-list.aspx?cid=9"><span>3  </span>定西贴吧</a></li>
-                    <li><a href="index.aspx"><span>4  </span>定西知道</a></li>--%>
+                    <li class="left"><a class="button bg-color-blue" href="signIn.aspx" >签到</a></li>
+                    <li class="left"><a class="button bg-color-green" href="lucky.aspx">抽奖</a></li>
+                    <li class="left"><a class="button bg-color-pink" href="newUser.aspx">贡献</a></li>
                 </ul>
             </nav>
-            <h1>贴吧</h1>
-            <nav data-role="navbar">
+            <h3>社区</h3>
+            <nav class="row">
                 <ul>
-                    <li><a href="robot-group-kewWordsShow.aspx?type=group&tag=-1" data-ajax="false" style="color:red;">看看大家在说啥</a></li>
-                    <li><a href="help.aspx">贴吧使用帮助</a></li>
+                    <li class="left"><a class="button bg-color-greenLight" href="robot-group-kewWordsShow.aspx?type=group&tag=-1">贴吧</a></li>
+                    <li class="left"><a class="button bg-color-red" href="robot-teach-list.aspx?type=hasAnswer">调教</a></li>
+                </ul>
+            </nav>
+            <h3>商城</h3>
+            <nav class="row">
+                <ul>
+                    <li class="left"><a class="button bg-color-yellow" href="coupons.aspx" >优惠券</a></li>
+                    <li class="left"><a class="button bg-color-purple" href="mall-newShop.aspx">店铺入驻</a></li>
                 </ul>
             </nav>
         </section>
-        <section class="ui-body ui-body-c">
-            <header><h1>幸运榜单</h1></header>
-            <ul class="lucky-list" data-role="listview" data-inset="true">
+        <section class="grid">
+            <header><h3>幸运榜单</h3></header>
+            <ul class="lucky-list">
                 <%getGift(); %>
             </ul>
         </section>

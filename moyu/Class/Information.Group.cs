@@ -179,6 +179,19 @@ namespace moyu.Information
             return Data.Type.dtToHash(myDb.GetQueryStro("information_group_topic_get_byTag", inQuery, "rt"));
         }
         /// <summary>
+        /// 精华帖子获取
+        /// </summary>
+        /// <param name="last">最后条</param>
+        /// <param name="count">条数</param>
+        /// <returns>帖子们</returns>
+        public Hashtable[] postGetByElite(int last, int count)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@last"] = last;
+            inQuery["@count"] = count;
+            return Data.Type.dtToHash(myDb.GetQueryStro("information_group_topic_getByElite", inQuery, "rt"));
+        }
+        /// <summary>
         /// 获取用户发表的文章
         /// </summary>
         /// <param name="uid">用户编号</param>
@@ -246,6 +259,18 @@ namespace moyu.Information
             myDb.ExecNoneQuery("information_group_topic_update", inQuery);
         }
         /// <summary>
+        /// 设置精华状态
+        /// </summary>
+        /// <param name="tid">文章编号</param>
+        /// <param name="isElite">是否精华</param>
+        public void topicSetElite(int tid, Boolean isElite)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@tid"] = tid;
+            inQuery["@Elite"] = isElite;
+            myDb.ExecNoneQuery("information_group_topic_setElite", inQuery);
+        }
+        /// <summary>
         /// 在手机贴吧生成文章
         /// </summary>
         public void makePhonePost()
@@ -269,9 +294,22 @@ namespace moyu.Information
                     sb.Append("</div>");
                 }
                 strSql += "0)";
-                myTopic.addNew(9, 0,"大家发现的定西新鲜事儿"+ DateTime.Now.ToShortTimeString()+"@"+DateTime.Now.ToShortDateString(), sb.ToString());
+                myTopic.addNew(9, 0, "大家发现的定西新鲜事儿" + DateTime.Now.ToString("yyyy-MM-dd-H-mm"), sb.ToString());
                 myDb.ExecNonQuery(strSql);
             }
+        }
+        /// <summary>
+        /// 用户积分排行获取
+        /// </summary>
+        /// <param name="count">条数</param>
+        /// <param name="days">天数</param>
+        /// <returns>排行们</returns>
+        public Hashtable[] pointListGet(int count, int days)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@count"] = count;
+            inQuery["@days"] = days;
+            return moyu.Data.Type.dtToHash(myDb.GetQueryStro("information_group_topPointList_get", inQuery, "rt"));
         }
     }
 }

@@ -18,7 +18,7 @@
             {
                 load: 'Script/jquery-1.8.2.min.js',
             }, {
-                load: ['Script/main.js?spm=10-18', 'Script/jquery-ui/js/jquery-ui-1.8.23.custom.min.js', 'css!Script/jquery-ui/css/flick/jquery-ui-1.8.23.custom.css'],
+                load: ['Script/main.min.js?spm=11-18', 'Script/jquery-ui/js/jquery-ui-1.8.23.custom.min.js', 'css!Script/jquery-ui/css/flick/jquery-ui-1.8.23.custom.css'],
                 complete: function () {
                     moyo = new Moyo();
                     moyo.home.channelClick();

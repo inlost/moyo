@@ -1,53 +1,59 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="robot-group-kewWordsShow.aspx.cs" Inherits="moyu.Mobile.robot_group_kewWordsShow" %>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<html>
+<head>
+    <meta charset="utf-8">
     <title><%getTitle(); %>_沁辰左邻</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" /> 
     <%Server.Execute("script-loader.aspx"); %>
 </head>
 <body class="page">
     <header class="header">
-        <h1 id="activity-name"><%getTitle(); %></h1>
-		<span id="post-date"><%getTime(); %></span>
         <%Server.Execute("header.aspx"); %>
+        <h3 id="activity-name"><%getTitle(); %></h3>
+		<span id="post-date"><%getTime(); %></span>
     </header>
     <section id="content">
-        <section class="ui-body ui-body-c">
-            <nav>
-                <ul class="lucky-list" data-role="listview" data-inset="true">
-                    <li><a href="help.aspx">怎么玩儿？（查看帮助）</a></li>
-                    <li><a href="index.aspx" data-ajax="false">返回首页</a></li>
-                </ul>
-            </nav>
-        </section>
-        <nav data-role="navbar">
-            <ul>
-                <li><a href="robot-group-kewWordsShow.aspx?type=group&tag=-1">最新</a></li>
-                <li><a href="robot-group-kewWordsShow.aspx?type=atMe">@我<%getNotRead(); %></a></li>
-                <li><a href="robot-group-kewWordsShow.aspx?type=user">我的</a></li>
-            </ul>
-        </nav>
-        <section class="page-content">
-            <ul id="postItemHolder">
-                <%getContent(); %>
-            </ul>
-            <%setMessageRead(); %>
-            <div id="loadMore">
-                <a data-type="<%getType(); %>" data-tag="<%getTag(); %>" data-role="button" href="javascript:void(0);">点击查看更多</a>
+        <section class="grid">
+            <div class="row">
+                <a href="help.aspx">
+                    <button class="command-button default" style="width:100%;">
+                        怎么玩儿
+                        <small>查看贴吧帮助</small>
+                    </button>
+                </a>
             </div>
         </section>
+        <div class="page-control" data-role="page-control">
+            <ul>
+                <li class="<%getTabClass("all"); %>"><a href="robot-group-kewWordsShow.aspx?type=group&tag=-1">最新</a></li>
+                <li class="<%getTabClass("atMe"); %>"><a href="robot-group-kewWordsShow.aspx?type=atMe">@我</a></li>
+                <li class="<%getTabClass("user"); %>"><a href="robot-group-kewWordsShow.aspx?type=user">我的</a></li>
+                <li class="<%getTabClass("elite"); %>"><a href="robot-group-kewWordsShow.aspx?type=elite">精华</a></li>
+                <li class="<%getTabClass("admin"); %>"><a href="robot-group-topUser.aspx">排行</a></li>
+            </ul>
+            <section class="frames page-content">
+                <ul id="postItemHolder" style="list-style:none;">
+                    <%getContent(); %>
+                </ul>
+                <%setMessageRead(); %>
+                <div id="loadMore">
+                    <a style="display:block;" data-type="<%getType(); %>" data-tag="<%getTag(); %>" data-role="button" href="javascript:void(0);"><button class="command-button default" style="width:90%; text-align:center;">点击查看更多</button></a>
+                </div>
+            </section>
+        </div>
         <section class="sharebtn" onclick="weixinShare('<%getTitle(); %>','真是太有意思啦');">
 			<span>分享到朋友圈</span>
 		</section>
         <section id="functionsHolder" class="hide">
-            <div id="commentsBox" class="ui-body ui-body-c" style="overflow:visible;">
+            <div id="commentsBox" style="overflow:visible;">
                 <input type="hidden" id="atUid" value="0" />
-                <a id="commentsBoxClose" href="#" style="text-indent:0;float:right;position:absolute;top:-18px;right:-8px;" data-icon="delete" data-iconpos="notext" class="ui-btn-left ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-notext ui-btn-up-d" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="d" title="Close"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Close</span><span class="ui-icon ui-icon-delete ui-icon-shadow">&nbsp;</span></span></a>
-                <ul id="commentsList"></ul>
-                <textarea name="textarea" id="commentText"></textarea>
-                <a id="commentNew" data-role="button" href="javascript:void(0);">发表评论</a>
+                <a id="commentsBoxClose" href="#" style="text-indent:0;float:right;position:absolute;top:-12px;right:-6px;" ><i class="icon-cancel"></i></a>
+                <ul id="commentsList" style="list-style:none;"></ul>
+                    <div class="input-control textarea" style="margin-top:10px;margin-right:50px;">
+                        <textarea name="textarea" id="commentText"></textarea>
+                    </div>
+                <a id="commentNew" href="javascript:void(0);"><button class="bg-color-blue command-button" style="width:200px;text-align:center;color:white;font-weight:bold;">发表评论</button></a>
             </div>
         </section>
     </section>
@@ -89,7 +95,7 @@
         var commentBox = $("#commentsBox"),
         commentsList = $("#commentsList");
         var isCommentPosting = false,
-            commentNewTexHolder = $("#commentNew .ui-btn-textc");
+            commentNewTexHolder = $("#commentNew button");
         function commentNew() {
             if (isCommentPosting) { return false; }
             isCommentPosting = true;
@@ -100,6 +106,12 @@
             data.tid = holder.attr("data-id");
             data.atUid = $("#atUid").val();
             data.comment = $("#commentText").val();
+            if (data.comment.length == 0)
+            {
+                isCommentPosting = false;
+                alert("评论不能为空");
+                return false;
+            }
             $.ajax({
                 url: '../Services/Information_group.ashx',
                 type: 'POST',
@@ -154,18 +166,18 @@
             });
         }
         $(".viewComments").on("click", viewComments);
-        var data = {},
-            loadBtn = $("#loadMore a");
+        var loadBtn = $("#loadMore a");
         var isLoading = false;
         loadBtn.on("click", function () {
+            var data = {};
             if (isLoading) { return false; }
             isLoading = true;
-            var textHolder = $("#loadMore .ui-btn-text");
+            var textHolder = $("#loadMore button");
             textHolder.html("正在努力加载……");
             data.type = loadBtn.attr("data-type");
             data.action = "getMore";
             data.tag = loadBtn.attr("data-tag");
-            data.last = $(".postItem:last").attr("data-id");
+            data.last = $(".postItem").last().attr("data-id");
             $.ajax({
                 url: '../Services/Information_group.ashx',
                 type: 'POST',
@@ -184,6 +196,7 @@
                     }
                 }
             });
+            return false;
         });
     </script>
 </body>

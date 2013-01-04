@@ -11,22 +11,39 @@ namespace moyu.Mobile
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Cookies["login"] != null)
-            {
-                moyu.User.Web myUser = new moyu.User.Web();
-                HttpCookie theCookie = Request.Cookies["login"];
-                int uid = Convert.ToInt32(theCookie.Values["uid"]);
-                Hashtable theUser = new Hashtable();
-                theUser = myUser.get(uid);
-                foreach (DictionaryEntry infoPar in theUser)
-                {
-                    Session[infoPar.Key.ToString()] = infoPar.Value.ToString();
-                }
-                Session["password"] = null;
-            }
+
         }
         public void getLoginMsg()
         {
+            if (Request.Params["regMsg"] != null)
+            {
+                string strMsg = "";
+                switch (Request.Params["regMsg"].ToString())
+                {
+                    case "0":
+                        strMsg = "无法注册用户，请与左邻管理员联系";
+                        break;
+                    case "-1":
+                        strMsg = "您输入的用户名已经被别人使用，请重新选择一个用户名";
+                        break;
+                    case "-2":
+                        strMsg = "用户名不能为空";
+                        break;
+                    case "-3":
+                        strMsg = "真实姓名不能为空";
+                        break;
+                    case "-4":
+                        strMsg = "QQ不能为空";
+                        break;
+                    case "-5":
+                        strMsg = "手机号码不能为空，且只能为纯数字";
+                        break;
+                    case "-6":
+                        strMsg = "密码不能为空";
+                        break;
+                }
+                Response.Write("<script>alert(\"" + strMsg + "\");</script>");
+            }
             if (Session["isLogin"] != null)
             {
                 if (Session["isLogin"].ToString() != "true")
@@ -35,19 +52,8 @@ namespace moyu.Mobile
                 }
                 else
                 {
-                    HttpCookie theCookie=new HttpCookie("login");
-                    DateTime theDt=DateTime.Now;
-                    TimeSpan theTs=new TimeSpan(240,0,0);
-                    theCookie.Expires=theDt.Add(theTs);
-                    theCookie.Values.Add("isLogin","true");
-                    theCookie.Values.Add("uid",Session["id"].ToString());
-                    Response.AppendCookie(theCookie);
                     Response.Redirect(Request.Params["rdUrl"] == null ? "index.aspx" : HttpUtility.UrlDecode( Request.Params["rdUrl"]));
                 }
-            }
-            else
-            {
-                Response.Write("<li class=\"functionList-half left\">&nbsp;</li>");
             }
         }
         public void getUrl()

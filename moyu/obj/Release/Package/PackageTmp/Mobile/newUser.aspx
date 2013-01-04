@@ -1,8 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="newUser.aspx.cs" Inherits="moyu.Mobile.newUser" %>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<html>
+<head>
+    <meta charset="utf-8">
     <title>感谢_沁辰左邻</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" /> 
     <%Server.Execute("script-loader.aspx"); %>
@@ -12,18 +12,18 @@
         <%Server.Execute("header.aspx"); %>
     </header>
     <section id="content">
-        <section class="ui-body ui-body-c">
-            <h1>推荐用户回馈</h1>
-            <nav>
+        <section>
+            <h3>谁介绍你来左邻的？</h3>
                 <form action="../Services/Mobile_Main.ashx?action=giveThanks" method="post">
-                <ul class="lucky-list" data-role="listview" data-inset="true">
-                    <li class="info">谁介绍左邻给你的</li>
-                    <li><a href="index.aspx">跳过，回首页</a></li>
-                    <li><input type="text" name="to" placeholder="Ta的用户名"/></li>
-                    <li><input type="submit" value="谢谢Ta" /></li>
-                </ul>
+                    <div class="input-control text span3">
+                        <input type="text" name="to" placeholder="Ta的用户名"/>
+                        <span class="helper"></span>
+                    </div>
+                    <button  class="command-button default" type="submit" style="width:100%;">
+                        点击这里为介绍人增加一个贡献
+                        <small>提示：贡献可是很值钱的哦</small>
+                    </button>
                 </form>
-            </nav>
         </section>
     </section>
     <footer id="pageFooter">

@@ -26,7 +26,7 @@ namespace moyu.Mobile
             }
             else
             {
-                Response.Write("今天心情怎么样？");
+                Response.Write("<h3>今天心情怎么样？</h3>");
             }
         }
         public void getBtnText()

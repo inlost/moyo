@@ -101,23 +101,51 @@ namespace moyu.Services
         {
             string url = theContext.Request.Form["rdUrl"].ToString();
             int uid=login();
-            if (uid != 0)
+            if (uid != 0 && theContext.Request.Form["wu"] != null && theContext.Request.Form["wu"].ToString().Length>0)
             {
                 myUser.bindWeixin(uid, theContext.Request.Form["wu"]);
             }
-            theContext.Response.Redirect("~/Mobile/login.aspx" + (url.Length == 0 ? "" : ("?rdUrl=" + url)));
+            theContext.Response.Redirect("~/Mobile/login.aspx" + (url.Length == 0 ? "" : ("?rdUrl=" + HttpUtility.UrlEncode(url))));
         }
         private int reg()
         {
-            string niceName = theContext.Request.Form["niceName"];
-            string realName = theContext.Request.Form["realName"];
+            string niceName = theContext.Request.Form["niceName"].Trim();
+            string realName = theContext.Request.Form["realName"].Trim();
             bool sex =( theContext.Request.Form["sex"].ToString() == "boy" ? true : false);
             DateTime birthday = Convert.ToDateTime(theContext.Request.Form["Birth"]);
-            string email = theContext.Request.Form["email"];
+            string email = theContext.Request.Form["email"].Trim();
             if (email.IndexOf("@") < 0) { email += "@qq.com"; }
-            Int64 phone = Convert.ToInt64(theContext.Request.Form["phone"]);
-            string password = theContext.Request.Form["password"];
+            Int64 phone = 0;
+            try
+            {
+                phone = Convert.ToInt64(theContext.Request.Form["phone"].Trim());
+            }
+            catch
+            {
+                return -5;//电话号码不正确
+            }
+            string password = theContext.Request.Form["password"].Trim();
             Hashtable theUser = new Hashtable();
+            if (myUser.isNameUsed(niceName))
+            {
+                return -1;//用户名已使用
+            }
+            if (niceName.Length == 0)
+            {
+                return -2;//用户名为空
+            }
+            if (realName.Length == 0)
+            {
+                return -3;//真实姓名为空
+            }
+            if (email == "@qq.com")
+            {
+                return -4;//QQ为空
+            }
+            if (password.Length == 0)
+            {
+                return -6;//密码为空
+            }
             theUser = myUser.reg(niceName, realName, sex, birthday, email, phone, password);
             if (theUser == null)
             {
@@ -140,11 +168,15 @@ namespace moyu.Services
         {
             string url = theContext.Request.Form["rdUrl"].ToString();
             int uid= reg();
-            if (uid != 0)
+            if (uid > 0)
             {
                 myUser.bindWeixin(uid, theContext.Request.Form["wu"]);
             }
-            theContext.Response.Redirect("~/Mobile/login.aspx" + (url.Length == 0 ? "" : ("?rdUrl=" + url)));
+            else
+            {
+                theContext.Response.Redirect("~/Mobile/login.aspx?regMsg=" + uid);
+            }
+            theContext.Response.Redirect("~/Mobile/login.aspx" + (url.Length ==0 ? "" : ("?rdUrl=" + HttpUtility.UrlEncode( url))));
         }
         private void isLogined()
         {

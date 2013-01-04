@@ -72,6 +72,10 @@ namespace moyu.Ecard
             theCoupons = couponsGet(cid);
             thePoint = myFunctions.getPoint(uid);
             int needPoint=Convert .ToInt32(theCoupons["needPoint"]);
+            if (Convert.ToInt32(theCoupons["number"]) < 1)
+            {
+                return -10;
+            }
             if (isHaveCoupon(uid, cid))
             {
                 return 0; //已经拥有优惠券
@@ -80,13 +84,17 @@ namespace moyu.Ecard
             {
                 return -1; //已经过期
             }
-            if (needPoint > Convert.ToInt32(thePoint["point"]))
+            if (Convert.ToInt32(theCoupons["pointType"]) == 1 && needPoint > Convert.ToInt32(thePoint["point"]))
             {
                 return -2; //积分不足
             }
+            if (Convert.ToInt32(theCoupons["pointType"]) == 2 && needPoint > Convert.ToInt32(thePoint["contribute"]))
+            {
+                return -3; //贡献不足
+            }
             else
             {
-                myFunctions.userPointChange(uid, (needPoint * -1), "兑换优惠券消耗积分", 1);
+                myFunctions.userPointChange(uid, (needPoint * -1), "兑换优惠券消耗积分/贡献", Convert.ToInt32(theCoupons["pointType"]) == 1?1:2);
                 Hashtable inQuery = new Hashtable();
                 Random rd = new Random();
                 string no = rd.Next(0, 9).ToString();

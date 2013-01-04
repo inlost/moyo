@@ -28,7 +28,7 @@ namespace moyu.User
             if (!isSigIn(uid))
             {
                 myDb.ExecNoneQuery("user_signIn", inQuer);
-                tid = myGroup.topicNewByWeixin("签到", theUser["niceName"].ToString() + "在" + System.DateTime.Now.ToString() + "在左邻签到", -1, uid, theUser["niceName"] + "在" + System.DateTime.Now.ToShortTimeString() + "默默地签了一个到，什么都没有说，然后就默默默默地走掉了……");
+                tid = myGroup.topicNewByWeixin("签到", theUser["niceName"].ToString() + "在" + System.DateTime.Now.ToString() + "在左邻签到", -2, uid, theUser["niceName"] + "在" + System.DateTime.Now.ToShortTimeString() + "默默地签了一个到，什么都没有说，然后就默默默默地走掉了……");
             }
             else
             {
@@ -64,7 +64,7 @@ namespace moyu.User
         /// <returns>签到日志编号</returns>
         public int getLastSiginTopic(int uid)
         {
-            string strSql = "select top(1) id from information_group_topic where gid=-1 and uid=" + uid + " and tag='签到' order by id desc";
+            string strSql = "select top(1) id from information_group_topic where gid in(-1,-2) and uid=" + uid + " and tag='签到' order by id desc";
             return Convert.ToInt32(moyu.Data.Type.dtToHash(myDb.GetQuerySql(strSql, "rt"))[0]["id"]);
         }
         /// <summary>

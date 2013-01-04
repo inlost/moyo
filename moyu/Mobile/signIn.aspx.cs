@@ -22,9 +22,15 @@ namespace moyu.Mobile
         {
             Response.Write (Session["niceName"]);
         }
+        public void getUserPoint()
+        {
+            Hashtable points = new Hashtable();
+            points = myFunctions.getPoint(Convert.ToInt32(Session["id"]));
+            Response.Write("已连续签到" + points["signInDays"] + "天，积分:" + points["point"] + "，贡献:" + points["contribute"] + "。");
+        }
         public void signInTexe()
         {
-            Response.Write(myFunctions.isSigIn(Convert .ToInt32(Session["id"]))?"今日已签到":"签到");
+            Response.Write(myFunctions.isSigIn(Convert .ToInt32(Session["id"]))?"今日已签到":"点我签到");
         }
         public void getSignLog()
         {
@@ -33,7 +39,7 @@ namespace moyu.Mobile
             StringBuilder sb = new StringBuilder();
             foreach (Hashtable log in logs)
             {
-                sb.Append("<li>● 在 " + log["time"] + " 签到</li>");
+                sb.Append("<li> 在 " + log["time"] + " 签到</li>");
             }
             Response.Write(sb);
         }

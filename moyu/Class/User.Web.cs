@@ -86,6 +86,17 @@ namespace moyu.User
             }
         }
         /// <summary>
+        /// 判断用户名是否已经使用
+        /// </summary>
+        /// <param name="niceName">用户名</param>
+        /// <returns>是/否</returns>
+        public bool isNameUsed(string niceName)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@niceName"] = niceName;
+            return Convert.ToInt32(moyu.Data.Type.dtToHash(myDb.GetQueryStro("user_get_web_byName", inQuery, "rt"))[0]["number"]) == 0 ? false : true;
+        }
+        /// <summary>
         /// 绑定微信
         /// </summary>
         /// <param name="uid">用户编号</param>

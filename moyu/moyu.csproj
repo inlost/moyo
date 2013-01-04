@@ -201,11 +201,12 @@
     <Content Include="Mobile\exchange.aspx" />
     <Content Include="Mobile\footer.aspx" />
     <Content Include="Mobile\help.aspx" />
+    <Content Include="Mobile\mall-newShop.aspx" />
     <Content Include="Mobile\robot-group-kewWordsShow.aspx" />
-    <Content Include="Mobile\robot-show.aspx" />
+    <Content Include="Mobile\robot-group-topUser.aspx" />
+    <Content Include="Mobile\robot-teach-list.aspx" />
     <Content Include="Mobile\robot-teach.aspx" />
     <Content Include="Mobile\script-loader.aspx" />
-    <Content Include="Mobile\topic-list.aspx" />
     <Content Include="Mobile\header.aspx" />
     <Content Include="Mobile\login.aspx" />
     <Content Include="Mobile\index.aspx" />
@@ -214,7 +215,6 @@
     <Content Include="Mobile\newUser.aspx" />
     <Content Include="Mobile\post-show.aspx" />
     <Content Include="Mobile\signIn.aspx" />
-    <Content Include="Mobile\topic-new.aspx" />
     <Content Include="PopupPage\Group_new.html" />
     <Content Include="PopupPage\setting.aspx" />
     <Content Include="reg.html" />
@@ -1472,6 +1472,138 @@
     <Content Include="Style\main.min.css" />
     <Content Include="Style\mobile.css" />
     <Content Include="Style\mobile.min.css" />
+    <Content Include="Style\olton-Metro-UI\.gitignore" />
+    <Content Include="Style\olton-Metro-UI\css\modern-responsive.css" />
+    <Content Include="Style\olton-Metro-UI\css\modern.css" />
+    <Content Include="Style\olton-Metro-UI\css\theme-dark.css" />
+    <Content Include="Style\olton-Metro-UI\fonts\iconFont.svg" />
+    <Content Include="Style\olton-Metro-UI\fonts\license.txt" />
+    <Content Include="Style\olton-Metro-UI\images\preloader-w8-cycle-black.gif" />
+    <Content Include="Style\olton-Metro-UI\images\preloader-w8-cycle-white.gif" />
+    <Content Include="Style\olton-Metro-UI\images\preloader-w8-line-black.gif" />
+    <Content Include="Style\olton-Metro-UI\images\preloader-w8-line-white.gif" />
+    <Content Include="Style\olton-Metro-UI\javascript\accordion.js" />
+    <Content Include="Style\olton-Metro-UI\javascript\buttonset.js" />
+    <Content Include="Style\olton-Metro-UI\javascript\carousel.js" />
+    <Content Include="Style\olton-Metro-UI\javascript\dropdown.js" />
+    <Content Include="Style\olton-Metro-UI\javascript\input-control.js" />
+    <Content Include="Style\olton-Metro-UI\javascript\pagecontrol.js" />
+    <Content Include="Style\olton-Metro-UI\javascript\rating.js" />
+    <Content Include="Style\olton-Metro-UI\javascript\slider.js" />
+    <Content Include="Style\olton-Metro-UI\javascript\tile-drag.js" />
+    <Content Include="Style\olton-Metro-UI\javascript\tile-slider.js" />
+    <Content Include="Style\olton-Metro-UI\public\css\modern-responsive.css" />
+    <Content Include="Style\olton-Metro-UI\public\css\modern.css" />
+    <Content Include="Style\olton-Metro-UI\public\css\site.css" />
+    <Content Include="Style\olton-Metro-UI\public\css\theme-dark.css" />
+    <Content Include="Style\olton-Metro-UI\public\fonts\iconFont.svg" />
+    <Content Include="Style\olton-Metro-UI\public\fonts\license.txt" />
+    <Content Include="Style\olton-Metro-UI\public\images\1.jpg" />
+    <Content Include="Style\olton-Metro-UI\public\images\1005-BizSpark-261x230.jpg" />
+    <Content Include="Style\olton-Metro-UI\public\images\2.jpg" />
+    <Content Include="Style\olton-Metro-UI\public\images\3.jpg" />
+    <Content Include="Style\olton-Metro-UI\public\images\4.jpg" />
+    <Content Include="Style\olton-Metro-UI\public\images\5.jpg" />
+    <Content Include="Style\olton-Metro-UI\public\images\armor.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\author.jpg" />
+    <Content Include="Style\olton-Metro-UI\public\images\bage-activity.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\bage-alert.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\bage-attention.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\bage-available.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\bage-away.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\bage-busy.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\bage-error.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\bage-newMessage.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\bage-paused.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\bage-playing.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\bage-unavailable.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\Calendar128.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\Camera48.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\chrome.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\collapse24-black.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\collapse24.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\collapse32-black.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\collapse32.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\download-32.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\excel2013icon.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\expand24-black.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\expand24.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\expand32-black.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\expand32.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\firefox.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\fork-32.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\github.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\grid.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\icons-white.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\icons.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\ie.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\InternetExplorer128.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\lock-open.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\lock.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\logo-jetbrains.jpg" />
+    <Content Include="Style\olton-Metro-UI\public\images\logo32.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\Mail128.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\Market128.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\michael.jpg" />
+    <Content Include="Style\olton-Metro-UI\public\images\Music128.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\myface.jpg" />
+    <Content Include="Style\olton-Metro-UI\public\images\onenote2013icon.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\opera.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\Picture128.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\preloader-w8-cycle-black.gif" />
+    <Content Include="Style\olton-Metro-UI\public\images\preloader-w8-cycle-white.gif" />
+    <Content Include="Style\olton-Metro-UI\public\images\preloader-w8-line-black.gif" />
+    <Content Include="Style\olton-Metro-UI\public\images\preloader-w8-line-white.gif" />
+    <Content Include="Style\olton-Metro-UI\public\images\pull24-dark.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\pull24.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\responsive.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\row24.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\Rss128.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\shield-user.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\simple.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\star32.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\stock-up.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\Video128.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\view-32.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\windows-8-metro.jpg" />
+    <Content Include="Style\olton-Metro-UI\public\images\windows8_metro_green_1920_1080.jpg" />
+    <Content Include="Style\olton-Metro-UI\public\images\word2013icon.png" />
+    <Content Include="Style\olton-Metro-UI\public\images\YouTube128.png" />
+    <Content Include="Style\olton-Metro-UI\public\js\assets\github.info.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\assets\google-analytics.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\assets\jquery-1.8.2.min.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\assets\jquery.mousewheel.min.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-apollo.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-clj.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-css.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-go.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-hs.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-lisp.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-lua.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-ml.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-n.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-proto.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-scala.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-sql.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-tex.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-vb.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-vhdl.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-wiki.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-xq.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\lang-yaml.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\prettify.css" />
+    <Content Include="Style\olton-Metro-UI\public\js\google-code-prettify\prettify.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\modern\accordion.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\modern\buttonset.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\modern\carousel.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\modern\dropdown.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\modern\input-control.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\modern\pagecontrol.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\modern\rating.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\modern\slider.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\modern\tile-drag.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\modern\tile-slider.js" />
+    <Content Include="Style\olton-Metro-UI\public\js\sharrre\jquery.sharrre-1.3.4.min.js" />
     <Content Include="tipPage\images\ssl.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1491,6 +1623,7 @@
     <Compile Include="Admin\infos\cat.aspx.designer.cs">
       <DependentUpon>cat.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Class\Robot.Main.cs" />
     <Compile Include="Admin\sale\cat.aspx.cs">
       <DependentUpon>cat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1785,6 +1918,13 @@
     <Compile Include="Mobile\help.aspx.designer.cs">
       <DependentUpon>help.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Mobile\mall-newShop.aspx.cs">
+      <DependentUpon>mall-newShop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\mall-newShop.aspx.designer.cs">
+      <DependentUpon>mall-newShop.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Mobile\robot-group-kewWordsShow.aspx.cs">
       <DependentUpon>robot-group-kewWordsShow.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1792,12 +1932,19 @@
     <Compile Include="Mobile\robot-group-kewWordsShow.aspx.designer.cs">
       <DependentUpon>robot-group-kewWordsShow.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Mobile\robot-show.aspx.cs">
-      <DependentUpon>robot-show.aspx</DependentUpon>
+    <Compile Include="Mobile\robot-group-topUser.aspx.cs">
+      <DependentUpon>robot-group-topUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Mobile\robot-show.aspx.designer.cs">
-      <DependentUpon>robot-show.aspx</DependentUpon>
+    <Compile Include="Mobile\robot-group-topUser.aspx.designer.cs">
+      <DependentUpon>robot-group-topUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\robot-teach-list.aspx.cs">
+      <DependentUpon>robot-teach-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\robot-teach-list.aspx.designer.cs">
+      <DependentUpon>robot-teach-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mobile\robot-teach.aspx.cs">
       <DependentUpon>robot-teach.aspx</DependentUpon>
@@ -1812,13 +1959,6 @@
     </Compile>
     <Compile Include="Mobile\script-loader.aspx.designer.cs">
       <DependentUpon>script-loader.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Mobile\topic-list.aspx.cs">
-      <DependentUpon>topic-list.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Mobile\topic-list.aspx.designer.cs">
-      <DependentUpon>topic-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mobile\header.aspx.cs">
       <DependentUpon>header.aspx</DependentUpon>
@@ -1875,13 +2015,6 @@
     </Compile>
     <Compile Include="Mobile\signIn.aspx.designer.cs">
       <DependentUpon>signIn.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Mobile\topic-new.aspx.cs">
-      <DependentUpon>topic-new.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Mobile\topic-new.aspx.designer.cs">
-      <DependentUpon>topic-new.aspx</DependentUpon>
     </Compile>
     <Compile Include="PopupPage\setting.aspx.cs">
       <DependentUpon>setting.aspx</DependentUpon>
@@ -1946,6 +2079,9 @@
     </Compile>
     <Compile Include="Services\living_shop_info.ashx.cs">
       <DependentUpon>living_shop_info.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Mall.ashx.cs">
+      <DependentUpon>Mall.ashx</DependentUpon>
     </Compile>
     <Compile Include="Services\Message.ashx.cs">
       <DependentUpon>Message.ashx</DependentUpon>
@@ -2032,6 +2168,7 @@
     <Content Include="Services\Sale_Goods.ashx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Mall.Apply.cs" />
     <None Include="Properties\PublishProfiles\左邻.pubxml" />
     <Content Include="Services\Info.ashx" />
     <Content Include="Script\SlexAxton-yepnope.js-0304fca\compress" />
@@ -2059,6 +2196,87 @@
     <Content Include="Script\jquery.mobile-1.2.0\demos\docs\forms\forms-sample-response.php" />
     <Content Include="Script\jquery.mobile-1.2.0\demos\docs\forms\forms-sample-selfsubmit.php" />
     <Content Include="Script\jquery.mobile-1.2.0\demos\docs\pages\dynamic-samples\category.php" />
+    <Content Include="Style\olton-Metro-UI\CHANGELOG.md" />
+    <Content Include="Style\olton-Metro-UI\fonts\iconFont.eot" />
+    <Content Include="Style\olton-Metro-UI\fonts\iconFont.ttf" />
+    <Content Include="Style\olton-Metro-UI\fonts\iconFont.woff" />
+    <Content Include="Style\olton-Metro-UI\less\accordion.less" />
+    <Content Include="Style\olton-Metro-UI\less\bricks.less" />
+    <Content Include="Style\olton-Metro-UI\less\buttons.less" />
+    <Content Include="Style\olton-Metro-UI\less\cards.less" />
+    <Content Include="Style\olton-Metro-UI\less\carousel.less" />
+    <Content Include="Style\olton-Metro-UI\less\code.less" />
+    <Content Include="Style\olton-Metro-UI\less\colors.less" />
+    <Content Include="Style\olton-Metro-UI\less\forms.less" />
+    <Content Include="Style\olton-Metro-UI\less\grid.less" />
+    <Content Include="Style\olton-Metro-UI\less\hero.less" />
+    <Content Include="Style\olton-Metro-UI\less\icons.less" />
+    <Content Include="Style\olton-Metro-UI\less\images.less" />
+    <Content Include="Style\olton-Metro-UI\less\layout.less" />
+    <Content Include="Style\olton-Metro-UI\less\listview.less" />
+    <Content Include="Style\olton-Metro-UI\less\menus.less" />
+    <Content Include="Style\olton-Metro-UI\less\modern-responsive-max480.less" />
+    <Content Include="Style\olton-Metro-UI\less\modern-responsive-max767.less" />
+    <Content Include="Style\olton-Metro-UI\less\modern-responsive-max979.less" />
+    <Content Include="Style\olton-Metro-UI\less\modern-responsive-min1200.less" />
+    <Content Include="Style\olton-Metro-UI\less\modern-responsive.less" />
+    <Content Include="Style\olton-Metro-UI\less\modern.less" />
+    <Content Include="Style\olton-Metro-UI\less\notices.less" />
+    <Content Include="Style\olton-Metro-UI\less\pagecontrol.less" />
+    <Content Include="Style\olton-Metro-UI\less\progress.less" />
+    <Content Include="Style\olton-Metro-UI\less\rating.less" />
+    <Content Include="Style\olton-Metro-UI\less\reset.less" />
+    <Content Include="Style\olton-Metro-UI\less\routines.less" />
+    <Content Include="Style\olton-Metro-UI\less\sidebar.less" />
+    <Content Include="Style\olton-Metro-UI\less\slider.less" />
+    <Content Include="Style\olton-Metro-UI\less\tables.less" />
+    <Content Include="Style\olton-Metro-UI\less\theme-dark.less" />
+    <Content Include="Style\olton-Metro-UI\less\tiles.less" />
+    <Content Include="Style\olton-Metro-UI\less\typography.less" />
+    <Content Include="Style\olton-Metro-UI\LICENSE" />
+    <Content Include="Style\olton-Metro-UI\LICENSE-FOR-COMMERCIAL-USE" />
+    <Content Include="Style\olton-Metro-UI\public\.htaccess" />
+    <Content Include="Style\olton-Metro-UI\public\accordion.php" />
+    <Content Include="Style\olton-Metro-UI\public\adsense.php" />
+    <Content Include="Style\olton-Metro-UI\public\buttons-set.php" />
+    <Content Include="Style\olton-Metro-UI\public\buttons.php" />
+    <Content Include="Style\olton-Metro-UI\public\cards.php" />
+    <Content Include="Style\olton-Metro-UI\public\carousel.php" />
+    <Content Include="Style\olton-Metro-UI\public\counter.php" />
+    <Content Include="Style\olton-Metro-UI\public\fonts\iconFont.eot" />
+    <Content Include="Style\olton-Metro-UI\public\fonts\iconFont.ttf" />
+    <Content Include="Style\olton-Metro-UI\public\fonts\iconFont.woff" />
+    <Content Include="Style\olton-Metro-UI\public\footer.php" />
+    <Content Include="Style\olton-Metro-UI\public\forms.php" />
+    <Content Include="Style\olton-Metro-UI\public\global.php" />
+    <Content Include="Style\olton-Metro-UI\public\grid.php" />
+    <Content Include="Style\olton-Metro-UI\public\header.php" />
+    <Content Include="Style\olton-Metro-UI\public\icons.php" />
+    <Content Include="Style\olton-Metro-UI\public\images.php" />
+    <Content Include="Style\olton-Metro-UI\public\index.php" />
+    <Content Include="Style\olton-Metro-UI\public\javascript.php" />
+    <Content Include="Style\olton-Metro-UI\public\js\sharrre\sharrre.php" />
+    <Content Include="Style\olton-Metro-UI\public\layout.php" />
+    <Content Include="Style\olton-Metro-UI\public\listview.php" />
+    <Content Include="Style\olton-Metro-UI\public\menus.php" />
+    <Content Include="Style\olton-Metro-UI\public\navigation.php" />
+    <Content Include="Style\olton-Metro-UI\public\notices.php" />
+    <Content Include="Style\olton-Metro-UI\public\page-secondary.php" />
+    <Content Include="Style\olton-Metro-UI\public\page.php" />
+    <Content Include="Style\olton-Metro-UI\public\pagecontrol.php" />
+    <Content Include="Style\olton-Metro-UI\public\progress.php" />
+    <Content Include="Style\olton-Metro-UI\public\rating.php" />
+    <Content Include="Style\olton-Metro-UI\public\responsive.php" />
+    <Content Include="Style\olton-Metro-UI\public\sidebar.php" />
+    <Content Include="Style\olton-Metro-UI\public\slider.php" />
+    <Content Include="Style\olton-Metro-UI\public\sponsoring.php" />
+    <Content Include="Style\olton-Metro-UI\public\tables.php" />
+    <Content Include="Style\olton-Metro-UI\public\tiles.php" />
+    <Content Include="Style\olton-Metro-UI\public\typography.php" />
+    <Content Include="Style\olton-Metro-UI\public\version.phtml" />
+    <Content Include="Style\olton-Metro-UI\public\windows8start.php" />
+    <Content Include="Style\olton-Metro-UI\README.md" />
+    <Content Include="Services\Mall.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

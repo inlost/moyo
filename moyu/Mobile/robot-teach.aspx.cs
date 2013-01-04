@@ -63,11 +63,11 @@ namespace moyu.Mobile
         {
             if (Session["isLogin"] != null && Session["isLogin"].ToString() == "true")
             {
-                Response.Write("<li><input type=\"submit\" value=\"记住，下次你就这么回答\" /></li>");
+                Response.Write("<li><input style=\"width:100%;margin:0;\" type=\"submit\" value=\"记住，下次你就这么回答\" /></li>");
             }
             else
             {
-                Response.Write("<li>未登陆用户不能教左邻，请先登录</li>");
+                Response.Redirect("~/mobile/login.aspx?rdUrl=" + HttpUtility.UrlEncode("robot-teach.aspx?q="+Request.Params["q"].ToString()));
             }
         }
     }

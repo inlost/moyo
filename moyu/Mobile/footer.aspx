@@ -1,9 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="footer.aspx.cs" Inherits="moyu.Mobile.footer" %>
 <p>Copyright © 2009-2012 Ai0932.cOm. All Rights Reserved.</p>
 <script>
-    $.mobile.ajaxEnabled = false;
-    $.mobile.hashListeningEnabled = false;
-    $.mobile.linkBindingEnabled = false;
     function weixinShare(title, body,link) {
         var imgSrc = "";
         if ($("#content img").length != 0)

@@ -251,6 +251,11 @@ namespace moyu.Api
             rt[0]["picBig"] = "http://www.ai0932.com/images/weixin/teach.jpg";
             rt[0]["url"] = "http://www.ai0932.com/mobile/robot-teach.aspx?q="+ HttpUtility.UrlEncode(userDate["@body"].ToString()) ;
             rt[0]["orders"] = 90;
+            Robot.Main myRobot = new Robot.Main();
+            int uid = getWeiUserId(userDate["@FromUserName"].ToString());
+            myRobot.questionAdd(userDate["@body"].ToString(), uid);
+            Information.group myGroup = new Information.group();
+            myGroup.topicNewByWeixin("求调教", "教左邻回答“" + userDate["@body"].ToString() + "”", -1, uid, "我刚对左邻说“<span style=\"color:red;\">" + userDate["@body"].ToString() + "</span>”但是她不知道该怎么回答我，<a href=\"robot-teach.aspx?q=" + HttpUtility.UrlEncode(userDate["@body"].ToString()) + "\">点击这里</a>去调教她！");
             return rt;
         }
         /// <summary>

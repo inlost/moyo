@@ -48,6 +48,9 @@ namespace moyu.Services
                 case "teachRobot":
                     teachRobot();
                     break;
+                case "loadTeach":
+                    loadTeach();
+                    break;
             }
 
             context.Response.End();
@@ -122,8 +125,47 @@ namespace moyu.Services
             }
             else
             {
-                theContext.Response.Redirect("http://www.ai0932.com/mobile/robot-teach.aspx?q=" + HttpUtility.UrlEncode( q));
+                theContext.Response.Redirect("http://www.ai0932.com/mobile/robot-teach-list.aspx?type=hasAnswer");
             }
+        }
+        private void loadTeach()
+        {
+            Hashtable[] items;
+            Robot.Main myRobot = new Robot.Main();
+            int last = Convert.ToInt32(theContext.Request.Form["last"]);
+            if (theContext.Request.Form["type"].ToString() == "noAnswer")
+            {
+                items = myRobot.questionsGet(last, 15);
+            }
+            else if (theContext.Request.Form["type"].ToString() == "answerByMe")
+            {
+                items = myRobot.getTeachListByUser(Convert.ToInt32(theContext.Session["id"]), last, 15);
+            }
+            else 
+            {
+                items = myRobot.getTeachList(last, 15);
+            }
+            StringBuilder sb = new StringBuilder();
+            foreach (Hashtable item in items)
+            {
+                if (theContext.Request.Form["type"].ToString() == "noAnswer")
+                {
+                    sb.Append("<li class=\"teachItems padding10 bg-color-blueLight\" data-id=\"" + item["id"] + "\">");
+                    sb.Append("<h4><i class=\"icon-help\"></i> " + item["question"] + "</h4>");
+                    sb.Append("<a href=\"robot-teach.aspx?q=" + HttpUtility.UrlEncode(item["question"].ToString()) + "\">点这里去调教</a>");
+                    sb.Append("</li>");
+                }
+                else
+                {
+                    sb.Append("<li class=\"teachItems padding10 bg-color-blueLight\" data-id=\"" + item["id"] + "\">");
+                    sb.Append("<h4><i class=\"icon-help\"></i> " + item["keyWord"] + "</h4>");
+                    sb.Append("<div class=\"padding10 bg-color-light-yellow fg-color-darken\">");
+                    sb.Append(item["body"] + "  ——By:<span class=\"fg-color-red\">" + (item["niceName"].ToString() == "" ? "匿名用户" : item["niceName"].ToString()));
+                    sb.Append("</span></div>");
+                    sb.Append("</li>");
+                }
+            }
+            theContext.Response.Write(sb);
         }
     }
 }

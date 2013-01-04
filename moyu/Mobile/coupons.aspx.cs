@@ -38,9 +38,7 @@ namespace moyu.Mobile
             StringBuilder sb = new StringBuilder();
             foreach (Hashtable coupon in coupons)
             {
-                sb.Append("<li>");
-                sb.Append("<a href=\"coupons-show.aspx?id=" + coupon["cid"] + "\">" + myUnion.couponsGet(Convert.ToInt32(coupon["cid"]))["title"] + "</a>");
-                sb.Append("</li>");
+                sb.Append("<a href=\"coupons-show.aspx?id=" + coupon["cid"] + "\"><button style=\"width:100%;\" class=\"bg-color-red fg-color-white\">" + myUnion.couponsGet(Convert.ToInt32(coupon["cid"]))["title"] + "</button></a>");
             }
             Response.Write(sb);
         }
@@ -51,9 +49,7 @@ namespace moyu.Mobile
             StringBuilder sb = new StringBuilder();
             foreach (Hashtable coupon in coupons)
             {
-                sb.Append("<li>");
-                sb.Append("<a href=\"coupons-show.aspx?id=" + coupon["id"] + "\">[" + coupon["needPoint"] + "]积分 " + coupon["title"] + "</a>");
-                sb.Append("</li>");
+                sb.Append("<a href=\"coupons-show.aspx?id=" + coupon["id"] + "\"><button style=\"width:100%;font-size:16px;\" class=\"bg-color-blue fg-color-white\">" + coupon["title"] + "</button></a>");
             }
             Response.Write(sb);
         }

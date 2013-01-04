@@ -13,19 +13,7 @@ namespace moyu.Mobile
         private moyu.User.Functions myFunctions = new User.Functions();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Cookies["login"] != null)
-            {
-                moyu.User.Web myUser = new moyu.User.Web();
-                HttpCookie theCookie = Request.Cookies["login"];
-                int uid = Convert.ToInt32(theCookie.Values["uid"]);
-                Hashtable theUser = new Hashtable();
-                theUser = myUser.get(uid);
-                foreach (DictionaryEntry infoPar in theUser)
-                {
-                    Session[infoPar.Key.ToString()] = infoPar.Value.ToString();
-                }
-                Session["password"] = null;
-            }
+
         }
         public void getLogout()
         {
