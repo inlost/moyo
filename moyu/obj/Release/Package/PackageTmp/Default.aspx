@@ -11,7 +11,7 @@
     <meta name="description" content="沁辰左邻，定西人的网上家园。左邻是定西最大的网络社区，定西吧，定西微信平台，定西网上商城，定西招聘求职，就在沁辰左邻。" />
     <meta name="keywords" content="定西,定西市,定西吧,定西论坛,定西招聘,定西租房,定西二手,定西租房,定西网上商城,定西生活信息,定西信息港,定西上门服务,定西一卡通,定西商家联盟,定西社区" />
     <link rel="shortcut icon" href="images/favicon.ico" />
-    <link rel="Stylesheet" href="Style/main.min.css?spm=10-29-1" />
+    <link rel="Stylesheet" href="Style/main.min.css?spm=04-21-5" />
     <script type="text/javascript" src="Script/SlexAxton-yepnope.js-0304fca/yepnope.1.5.4-min.js"></script>
     <script>
         yepnope([

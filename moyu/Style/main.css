@@ -3,7 +3,17 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+/*雅安地震哀悼 页面黑白begin*/
 
+html {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}
+/*雅安地震哀悼 页面黑白end*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,

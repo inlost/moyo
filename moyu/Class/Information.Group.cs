@@ -271,6 +271,18 @@ namespace moyu.Information
             myDb.ExecNoneQuery("information_group_topic_setElite", inQuery);
         }
         /// <summary>
+        /// 设置置顶标志
+        /// </summary>
+        /// <param name="tid">文章编号</param>
+        /// <param name="isTop">是否置顶</param>
+        public void topicSetTop(int tid, Boolean isTop)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@tid"] = tid;
+            inQuery["@isTop"] = isTop;
+            myDb.ExecNoneQuery("information_group_topic_setTop", inQuery);
+        }
+        /// <summary>
         /// 在手机贴吧生成文章
         /// </summary>
         public void makePhonePost()

@@ -38,6 +38,7 @@
                             <span class="left group-post-info-tag group_tag_7">15天内贴吧积分前5名将自动成为贴吧管理员</span>
                         </h2>
                     </li>
+                    <% getUserPoint();  %>
                     <%getContent(); %>
                 </ul>
             </section>

@@ -97,6 +97,7 @@ namespace moyu.Mobile
             Hashtable userPoint=new Hashtable();
             moyu.User.Functions myFunction=new User.Functions();
             string bodyClass = "";
+            moyu.Functions myOtherFunction = new Functions();
             foreach (Hashtable p in posts)
             {
                 userPoint=myFunction.getPoint( Convert .ToInt32(p["uid"]));
@@ -117,11 +118,16 @@ namespace moyu.Mobile
                 {
                     sb.Append("<span class=\"left group-post-info-tag group_tag_4\">精华</span>");
                 }
+                if (Convert.ToBoolean(p["isTop"]))
+                {
+                    sb.Append("<span class=\"left group-post-info-tag group_tag_9\">置顶</span>");
+                }
                 sb.Append("<span class=\"left group-post-info-tag group_tag_"+p["id"].ToString().Substring(p["id"].ToString().Length-1)+"\">" + p["tag"] + "</span>");
                 sb.Append("<span class=\"left group-post-info-user\">");
                 sb.Append(userName);
-                sb.Append("</span>");
-                sb.Append("</h2>");
+                sb.Append("</span><span class=\"right group-post-info-date\">");
+                sb.Append( myOtherFunction.kindTime(Convert.ToDateTime( p["postDate"])));
+                sb.Append("</span></h2>");
                 sb.Append(p["body"].ToString().Replace("src=\"upload/images", "src=\"http://www.ai0932.com/upload/images"));
                 sb.Append("<div class=\"group-post-functions\">");
                 sb.Append("<a class=\"viewComments\" href=\"javascript:void(0)\">评论(" + p["commentsCount"] + ")</a>");
@@ -145,7 +151,21 @@ namespace moyu.Mobile
                         sb.Append("<a target=\"_self\"  href=\"../Services/Information_group.ashx?action=addElite&tid=" + p["id"] + "\">加精</a>");
                     }
                 }
-                sb.Append("<a class=\"goTop\" target=\"_self\"  href=\"#\">顶部</a>");
+                if (power > 5)
+                {
+                    if (Convert.ToBoolean(p["isTop"]))
+                    {
+                        sb.Append("<a class=\"goTop\" target=\"_self\"  href=\"../Services/Information_group.ashx?action=delTop&tid=" + p["id"] + "\">消顶</a>");
+                    }
+                    else
+                    {
+                        sb.Append("<a class=\"goTop\" target=\"_self\"  href=\"../Services/Information_group.ashx?action=addTop&tid=" + p["id"] + "\">置顶</a>");
+                    }
+                }
+                else
+                {
+                    sb.Append("<a class=\"goTop\" target=\"_self\"  href=\"#\">顶部</a>");
+                }
                 sb.Append("</div>");
                 sb.Append("</li>");
             }

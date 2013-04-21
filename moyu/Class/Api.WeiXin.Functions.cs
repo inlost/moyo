@@ -16,6 +16,10 @@ namespace moyu.Api
         /// <returns>返回信息</returns>
         private Hashtable[] getNewUserRequestItems(Hashtable userData)
         {
+            User.Web myUser = new User.Web();
+            Hashtable theUser = myUser.reg(userData["@FromUserName"].ToString().Substring(0,6), "", true, System.DateTime.Now, "", 13333333333, "");
+            myUser.bindWeixin(System.Convert.ToInt32(theUser["id"]), userData["@FromUserName"].ToString());
+
             Hashtable[] rt = new Hashtable[1];
             rt[0] = new Hashtable();
             rt[0]["id"] = 0;
@@ -114,45 +118,40 @@ namespace moyu.Api
 
             fileName = System.Guid.NewGuid().ToString("N") + fileName;
             wc.DownloadFile(userData["@PicUrl"].ToString(), savePath + fileName);
+
+            string fileNameThumbnail ="s_"+ System.Guid.NewGuid().ToString("N") + fileName;
+            moyu.Images myImg = new Images();
+            moyu.Images.MakeThumbnail(savePath+fileName,savePath+fileNameThumbnail,300,0,"W");  
+
             int uid=getWeiUserId(userData["@FromUserName"].ToString());
-            string imgUrl = "http://www.ai0932.com/upload/userImages/" + folderPath + fileName;
+            string imgUrl = "http://www.ai0932.com/upload/userImages/" + folderPath + fileNameThumbnail;
             Information.group myGroup = new Information.group();
             int tid = myGroup.topicNewByWeixin("爆照", ("我在" + System.DateTime.Now.ToShortTimeString() + "在左邻分享了一张照片"), -1, uid, "<img src=\"" + imgUrl + "\"/>");
             moyu.User.Functions myUser=new User.Functions();
-            int pid = myUser.upLoadImg(uid, fileName, tid.ToString(), imgUrl);
-            Hashtable[] rtSuccess = new Hashtable[3];
+            int pid = myUser.upLoadImg(uid, savePath+ fileName, tid.ToString(), imgUrl);
+            Hashtable[] rtSuccess = new Hashtable[1];
             rtSuccess[0] = new Hashtable();
             rtSuccess[0]["id"] = 0;
             rtSuccess[0]["messageType"] = 2;
-            rtSuccess[0]["title"] = "成功分享了一张图片@" + System.DateTime.Now.ToShortTimeString() + "\n" +
-                " 点这里去贴吧查看分享的图片";
             rtSuccess[0]["body"] = "图片分享成功";
+            rtSuccess[0]["title"] = "成功分享了一张图片@" + System.DateTime.Now.ToShortTimeString() + "\n" +
+                " 点这里为图片添加文字说明并查看分享的图片";
             rtSuccess[0]["picSmall"] = getPicUrl(false);
             rtSuccess[0]["picBig"] = imgUrl;
-            rtSuccess[0]["url"] = "http://www.ai0932.com/mobile/robot-group-kewWordsShow.aspx?type=group&tag=-1";
+            rtSuccess[0]["url"] = "http://www.ai0932.com/mobile/addPicIntroduce.aspx?tid=" + tid + "&pid=" + pid;
             rtSuccess[0]["orders"] = 10;
 
-            rtSuccess[1] = new Hashtable();
-            rtSuccess[1]["id"] = 0;
-            rtSuccess[1]["messageType"] = 2;
-            rtSuccess[1]["title"] = "想让更多朋友看到？点击这里去分享到朋友圈";
-            rtSuccess[1]["body"] = "想让更多朋友看到？点击这里去分享到朋友圈";
-            rtSuccess[1]["picSmall"] = getPicUrl(false);
-            rtSuccess[1]["picBig"] = getPicUrl(true);
-            rtSuccess[1]["url"] = "http://www.ai0932.com/Mobile/post-show.aspx?type=g&id="+tid;
-            rtSuccess[1]["orders"] = 8;
-
-            rtSuccess[2] = new Hashtable();
-            rtSuccess[2]["id"] = 0;
-            rtSuccess[2]["messageType"] = 2;
-            rtSuccess[2]["title"] = "为图片添加文字说明？点击这里去给图片添加文字说明";
-            rtSuccess[2]["body"] = "为图片添加文字说明？点击这里去给图片添加文字说明";
-            rtSuccess[2]["picSmall"] = getPicUrl(false);
-            rtSuccess[2]["picBig"] = getPicUrl(true);
-            rtSuccess[2]["url"] = "http://www.ai0932.com/mobile/addPicIntroduce.aspx?tid="+tid+"&pid="+pid;
-            rtSuccess[2]["orders"] = 6;
+            //rtSuccess[1] = new Hashtable();
+            //rtSuccess[1]["id"] = 0;
+            //rtSuccess[1]["messageType"] = 2;
+            //rtSuccess[1]["title"] = "为图片添加文字说明？点击这里去给图片添加文字说明";
+            //rtSuccess[1]["body"] = "为图片添加文字说明？点击这里去给图片添加文字说明";
+            //rtSuccess[1]["picSmall"] = getPicUrl(false);
+            //rtSuccess[1]["picBig"] = getPicUrl(true);
+            //rtSuccess[1]["url"] = "http://www.ai0932.com/mobile/addPicIntroduce.aspx?tid="+tid+"&pid="+pid;
+            //rtSuccess[1]["orders"] = 6;
             User.Functions myFunction = new User.Functions();
-            myFunction.givePostPoint(uid, "发图积分", 2);
+            myFunction.givePostPoint(uid, "发图积分", 1);
             return rtSuccess;
         }
         /// <summary>
@@ -166,13 +165,25 @@ namespace moyu.Api
             string tag = userMsg.Split(':')[0];
             string body = userMsg.Substring(tag.Length + 1);
             Information.group myGroup = new Information.group();
-            myGroup.topicNewByWeixin(tag, body.Substring(0, (body.Length > 25 ? 25 : body.Length)), -1, getWeiUserId(userData["@FromUserName"].ToString()), body);
+            if (body.Length > 2)
+            {
+                myGroup.topicNewByWeixin(tag, body.Substring(0, (body.Length > 25 ? 25 : body.Length)), -1, getWeiUserId(userData["@FromUserName"].ToString()), body);
+            }
             User.Functions myFunction = new User.Functions();
-            myFunction.givePostPoint(getWeiUserId(userData["@FromUserName"].ToString()), "发帖积分", 2);
+
             if (tag == "秘密")
             {
                 myFunction.userPointChange(getWeiUserId(userData["@FromUserName"].ToString()), -3, "发秘密消耗积分", 1);
             }
+            else if (tag == "无标签")
+            {
+
+            }
+            else
+            {
+                myFunction.givePostPoint(getWeiUserId(userData["@FromUserName"].ToString()), "发帖积分", 1);
+            }
+
             if (HttpContext.Current.Cache["weixinRobotGroupPostKeywords"] != null)
             {
                 Hashtable[] keyWords = (Hashtable[])HttpContext.Current.Cache["weixinRobotGroupPostKeywords"];
@@ -231,6 +242,73 @@ namespace moyu.Api
             rt[1]["url"] = "http://www.ai0932.com/mobile/addPicIntroduce.aspx?tid=" + siginId + "&pid=0";
             rt[1]["orders"] = 80;
             return rt;
+        }
+        /// <summary>
+        /// 地方搜索
+        /// </summary>
+        /// <param name="userData">用户信息</param>
+        /// <returns>返回信息</returns>
+        private Hashtable[] funPlaceSearch(Hashtable userData)
+        {
+            moyu.Http myHttp = new Http();
+            string url = "http://api.map.baidu.com/place/search";
+            string parm = "?&query=" + userData["@body"].ToString().Substring(2);
+            parm += "&key=d4597e2a57145c17dad7dc8ec4e20d58";
+            parm += "&location=35.586056,104.626638&radius=10000";
+            parm += "&output=xml";
+            StreamReader reader = new StreamReader(myHttp.HttpGetAsStreamReader(url, parm).BaseStream);
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(reader);
+            ArrayList myList = new ArrayList();
+
+            XmlNode statusNode = xmlDoc.SelectSingleNode("/PlaceSearchResponse/status");
+            if (statusNode.InnerText == "OK")
+            {
+                XmlNode results = xmlDoc.SelectSingleNode("/PlaceSearchResponse/results");
+                foreach (XmlNode result in results)
+                {
+                    Hashtable theResult = new Hashtable();
+                    foreach (XmlNode attr in result)
+                    {
+                        theResult[attr.Name] = attr.InnerText;
+                        if (attr.Name == "location")
+                        {
+                            foreach (XmlNode pos in attr)
+                            {
+                                theResult[pos.Name] = pos.InnerText;
+                            }
+                        }
+                    }
+                    myList.Add(theResult);
+                }
+            }
+            int count = myList.Count > 9 ? 9 : myList.Count;
+            Hashtable[] rtItems = new Hashtable[count];
+            for (var i = 0; i < count; i++)
+            {
+                Hashtable nowItem = (Hashtable)myList[i];
+                rtItems[i] = new Hashtable();
+                rtItems[i]["id"] = 0;
+                rtItems[i]["messageType"] = 1;
+                rtItems[i]["title"] = nowItem["name"].ToString() + "\n" + nowItem["address"];
+                if (nowItem.ContainsKey("telephone"))
+                {
+                    rtItems[i]["title"] = rtItems[i]["title"].ToString() + "," + nowItem["telephone"].ToString();
+                }
+                rtItems[i]["body"] = nowItem["name"].ToString() +
+                    "\n" + nowItem["address"].ToString();
+                if (nowItem.ContainsKey("telephone"))
+                {
+                    rtItems[i]["body"] = rtItems[i]["body"].ToString() + "\n" + nowItem["telephone"].ToString();
+                }
+                rtItems[i]["picSmall"] =getPicUrl(false) ;
+                rtItems[i]["picBig"] = getPicUrl(true);
+                rtItems[i]["url"] = "http://www.ai0932.com/mobile/placeSearch.aspx?name=" + nowItem["name"]+
+                    "&address=" + nowItem["address"] + "&lat=" + nowItem["lat"] + "&lng=" + nowItem["lng"]+
+                    (nowItem.ContainsKey("telephone") ? ("&tel=" + nowItem["telephone"]) : "");
+                rtItems[i]["orders"] = i;
+            }
+            return rtItems;
         }
         /// <summary>
         /// 机器人教育

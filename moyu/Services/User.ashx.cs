@@ -60,6 +60,9 @@ namespace moyu.Services
                 case "avatarUpBack":
                     avatarUpBack();
                 break;
+                case "changeName":
+                    changeName();
+                break;
             }
 
             context.Response.End();
@@ -171,12 +174,12 @@ namespace moyu.Services
             if (uid > 0)
             {
                 myUser.bindWeixin(uid, theContext.Request.Form["wu"]);
+                theContext.Response.Write(uid);
             }
             else
             {
-                theContext.Response.Redirect("~/Mobile/login.aspx?regMsg=" + uid);
+                theContext.Response.Write(uid);
             }
-            theContext.Response.Redirect("~/Mobile/login.aspx" + (url.Length ==0 ? "" : ("?rdUrl=" + HttpUtility.UrlEncode( url))));
         }
         private void isLogined()
         {
@@ -224,5 +227,33 @@ namespace moyu.Services
             Upload.Avatar myAvatar = new Upload.Avatar();
             theContext.Response.Write ( myAvatar.newUpload(Convert.ToInt32(theContext.Session["id"]), x1, y1, height, width,img));
         }
+        private void changeName()
+        {
+            string newName = theContext.Request.Form["newName"].ToString().Trim();
+            int rst = 0;//服务器内部错误
+            if (newName.Length > 1)
+            {
+                if (myUser.isNameUsed(newName))
+                {
+                    rst = -1;//用户名已经使用
+                }
+                else
+                {
+                    int uid=Convert.ToInt32(theContext.Session["id"]);
+                    moyu.User.Functions myUserFun = new moyu.User.Functions();
+                    if (myUserFun.changeUserName(uid, newName))
+                    {
+                        myUserFun.userPointChange(uid, -36, "修改用户名消耗积分", 36);
+                        rst = 1;//修改成功
+                        theContext.Session["niceName"] = newName;
+                    }
+                }
+            }
+            else
+            {
+                rst = -2;//用户名长度不合法
+            }
+            theContext.Response.Write(rst);
+        }
     }
-}
+} 

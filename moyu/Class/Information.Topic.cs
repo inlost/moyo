@@ -169,5 +169,15 @@ namespace moyu.Information
             inQuery["@count"] = count;
             return Data.Type.dtToHash(myDb.GetQueryStro("information_topic_list_pageId_get", inQuery, "rt"));
         }
+        /// <summary>
+        /// 获取发布的图片
+        /// </summary>
+        /// <param name="pid">图片编号</param>
+        /// <returns>图片信息</returns>
+        public Hashtable getPostImgByPid(int pid)
+        {
+            string strSql = "select * from users_photos where id=" + pid;
+            return Data.Type.dtToHash(myDb.GetQuerySql(strSql,"rt"))[0];
+        }
     }
 }

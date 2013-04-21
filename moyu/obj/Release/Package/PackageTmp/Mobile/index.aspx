@@ -27,13 +27,15 @@
                     <li class="left"><a class="button bg-color-blue" href="signIn.aspx" >签到</a></li>
                     <li class="left"><a class="button bg-color-green" href="lucky.aspx">抽奖</a></li>
                     <li class="left"><a class="button bg-color-pink" href="newUser.aspx">贡献</a></li>
+                    <li class="left"><a class="button bg-color-blue" href="setting.aspx" >设置</a></li>
                 </ul>
             </nav>
             <h3>社区</h3>
             <nav class="row">
                 <ul>
                     <li class="left"><a class="button bg-color-greenLight" href="robot-group-kewWordsShow.aspx?type=group&tag=-1">贴吧</a></li>
-                    <li class="left"><a class="button bg-color-red" href="robot-teach-list.aspx?type=hasAnswer">调教</a></li>
+                    <!--<li class="left"><a class="button bg-color-red" href="robot-teach-list.aspx?type=hasAnswer">调教</a></li>-->
+                    <li class="left"><a class="button bg-color-red" href="game_royal.aspx">三宫六院</a></li>
                 </ul>
             </nav>
             <h3>商城</h3>

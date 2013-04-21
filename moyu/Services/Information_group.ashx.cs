@@ -40,6 +40,14 @@ namespace moyu.Services
                 {
                     delElite();
                 }
+                if (action == "addTop")
+                {
+                    addTop();
+                }
+                if (action == "delTop")
+                {
+                    delTop();
+                }
             }
             if (theContext.Request.Form["action"] == null)
             {
@@ -70,6 +78,9 @@ namespace moyu.Services
                 case "addPicPostIntroduce":
                     addPicPostIntroduce();
                     break;
+                case "setAvatar":
+                    setAvatar();
+                    break;
             }
             context.Response.End();
         }
@@ -80,6 +91,40 @@ namespace moyu.Services
             {
                 return false;
             }
+        }
+        private void addTop()
+        {
+            int tid = Convert.ToInt32(theContext.Request.Params["tid"]);
+            Hashtable thePost = new Hashtable();
+            thePost = myGroup.topicGetById(tid);
+            if (Convert.ToBoolean(thePost["isTop"]) == false && Convert.ToInt32(theContext.Session["power"]) > 5)
+            {
+                    myGroup.topicSetTop(tid, true);
+                    moyu.User.Functions myFunction = new moyu.User.Functions();
+                    string comment = "该帖已被管理置顶";
+                    myFunction.sendMessage(Convert.ToInt32(theContext.Session["id"]), Convert.ToInt32(thePost["uid"]), comment, -2, tid);//通知被置顶人
+                    myFunction.sendMessage(Convert.ToInt32(theContext.Session["id"]), Convert.ToInt32(theContext.Session["id"]), comment, -2, tid);//通知操作管理
+                    myFunction.sendMessage(Convert.ToInt32(theContext.Session["id"]), 1, comment, -2, tid);//通知大管理
+                    myGroup.commentNew(Convert.ToInt32(theContext.Session["id"]), tid, comment);
+            }
+            theContext.Response.Redirect("~/Mobile/robot-group-kewWordsShow.aspx?type=group&tag=-1");
+        }
+        private void delTop()
+        {
+            int tid = Convert.ToInt32(theContext.Request.Params["tid"]);
+            Hashtable thePost = new Hashtable();
+            thePost = myGroup.topicGetById(tid);
+            if (Convert.ToBoolean(thePost["isTop"]) == true && Convert.ToInt32(theContext.Session["power"]) > 5)
+            {
+                myGroup.topicSetTop(tid, false);
+                moyu.User.Functions myFunction = new moyu.User.Functions();
+                string comment = "该帖已被管理取消置顶";
+                myFunction.sendMessage(Convert.ToInt32(theContext.Session["id"]), Convert.ToInt32(thePost["uid"]), comment, -2, tid);//通知被置顶人
+                myFunction.sendMessage(Convert.ToInt32(theContext.Session["id"]), Convert.ToInt32(theContext.Session["id"]), comment, -2, tid);//通知操作管理
+                myFunction.sendMessage(Convert.ToInt32(theContext.Session["id"]), 1, comment, -2, tid);//通知大管理
+                myGroup.commentNew(Convert.ToInt32(theContext.Session["id"]), tid, comment);
+            }
+            theContext.Response.Redirect("~/Mobile/robot-group-kewWordsShow.aspx?type=group&tag=-1");
         }
         private void addElite()
         {
@@ -182,6 +227,23 @@ namespace moyu.Services
             }
             theContext.Response.Redirect("~/Mobile/robot-group-kewWordsShow.aspx?type=group&tag=-1");
         }
+        private void setAvatar()
+        {
+            Upload.Avatar myAvatar = new Upload.Avatar();
+            Information.topic myTopic = new Information.topic();
+            Hashtable picInfo = new Hashtable();
+            int pid = Convert.ToInt32(theContext.Request.Form["pid"]);
+            string newFileName = "A_" + System.Guid.NewGuid().ToString("N") + "_A" + pid + ".jpg";
+            string folderPath=System.DateTime.Now.Year + "/" + System.DateTime.Now.Month + "/" + System.DateTime.Now.Day + "/";
+            string savePath = HttpContext.Current.Server.MapPath("~/upload/userImages/" + folderPath);
+
+            picInfo = myTopic.getPostImgByPid(pid);
+            Images.MakeThumbnail(picInfo["img"].ToString(), savePath+newFileName, 320, 320, "Cut");
+
+            myAvatar.newUpload(Convert.ToInt32(theContext.Session["id"]), 0, 0, 320, 320, "/upload/userImages/" + folderPath + newFileName);
+
+            addPicPostIntroduce();
+        }
         private void getMore()
         {
             string tag;
@@ -219,6 +281,7 @@ namespace moyu.Services
             moyu.User.Functions myFunction = new moyu.User.Functions();
             string bodyClass = "";
             int power = Convert.ToInt32(theContext.Session["power"]);
+            moyu.Functions myOtherFunction = new Functions();
             foreach (Hashtable p in posts)
             {
                 userPoint = myFunction.getPoint(Convert.ToInt32(p["uid"]));
@@ -239,11 +302,16 @@ namespace moyu.Services
                 {
                     sb.Append("<span class=\"left group-post-info-tag group_tag_4\">精华</span>");
                 }
+                if (Convert.ToBoolean(p["isTop"]))
+                {
+                    sb.Append("<span class=\"left group-post-info-tag group_tag_9\">置顶</span>");
+                }
                 sb.Append("<span class=\"left group-post-info-tag group_tag_" + p["id"].ToString().Substring(p["id"].ToString().Length - 1) + "\">" + p["tag"] + "</span>");
                 sb.Append("<span class=\"left group-post-info-user\">");
                 sb.Append(userName);
-                sb.Append("</span>");
-                sb.Append("</h2>");
+                sb.Append("</span><span class=\"right group-post-info-date\">");
+                sb.Append(myOtherFunction.kindTime(Convert.ToDateTime(p["postDate"])));
+                sb.Append("</span></h2>");
                 sb.Append(p["body"].ToString().Replace("src=\"upload/images", "src=\"http://www.ai0932.com/upload/images"));
                 sb.Append("<div class=\"group-post-functions\">");
                 sb.Append("<a class=\"viewComments\" href=\"javascript:void(0)\">评论(" + p["commentsCount"] + ")</a>");
@@ -267,7 +335,21 @@ namespace moyu.Services
                         sb.Append("<a target=\"_self\"  href=\"../Services/Information_group.ashx?action=addElite&tid=" + p["id"] + "\">加精</a>");
                     }
                 }
-                sb.Append("<a class=\"goTop\" target=\"_self\"  href=\"#\">顶部</a>");
+                if (power > 5)
+                {
+                    if (Convert.ToBoolean(p["isTop"]))
+                    {
+                        sb.Append("<a class=\"goTop\" target=\"_self\"  href=\"../Services/Information_group.ashx?action=delTop&tid=" + p["id"] + "\">消顶</a>");
+                    }
+                    else
+                    {
+                        sb.Append("<a class=\"goTop\" target=\"_self\"  href=\"../Services/Information_group.ashx?action=addTop&tid=" + p["id"] + "\">置顶</a>");
+                    }
+                }
+                else
+                {
+                    sb.Append("<a class=\"goTop\" target=\"_self\"  href=\"#\">顶部</a>");
+                }
                 sb.Append("</div>");
                 sb.Append("</li>");
             }
@@ -343,14 +425,11 @@ namespace moyu.Services
             moyu.User.Functions myFunction = new moyu.User.Functions();
             thePost = myGroup.topicGetById(tid);
             int atUid = Convert.ToInt32(theContext.Request.Form["atUid"]);
-            if (theContext.Request.Form["atUid"] != null && Convert.ToInt32(thePost["uid"]) != atUid)
+            if (Convert.ToInt32(thePost["uid"]) != atUid && atUid != 0)
             {
-                if (atUid != 0)
-                {
-                    myFunction.sendMessage(uid, atUid, comment, -2, tid);
-                }
+                myFunction.sendMessage(uid, atUid, comment, -2, tid);
             }
-            if (Convert.ToInt32(thePost["uid"]) != 0)
+            if (Convert.ToInt32(thePost["uid"]) != 0 && uid != Convert.ToInt32(thePost["uid"]))
             {
                 myFunction.sendMessage(uid, Convert.ToInt32(thePost["uid"]), comment, -2, tid);
             }

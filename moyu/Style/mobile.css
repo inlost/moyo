@@ -1,4 +1,16 @@
-﻿.btn{display:block;color:#222;text-decoration:none;-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);border-radius:5px;border:1px solid #cccccc ;font-size:15px;font-weight:bold;background-color:#fcfcfc;margin:15px 0;padding:10px;text-align:center;cursor:pointer;}
+﻿/*雅安地震哀悼 页面黑白begin*/
+
+html {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}
+
+/*雅安地震哀悼 页面黑白end*/
+.btn{display:block;color:#222;text-decoration:none;-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);border-radius:5px;border:1px solid #cccccc ;font-size:15px;font-weight:bold;background-color:#fcfcfc;margin:15px 0;padding:10px;text-align:center;cursor:pointer;}
 .icons{position:relative;border-radius:5px;width:25px;height:25px;overflow:hidden;background:url(../images/icons.png) no-repeat 0 0;}.icons.arrow-r{background:url(../images/brand_profileinweb_arrow@2x.png) no-repeat center center;width:12px;height:16px;background-size:100%;}
 .icons.check{background-position:-25px 0;}
 .header #activity-name{font-size:20px;color:#000;font-weight:bold;word-break:normal;word-wrap:break-word;}
@@ -116,6 +128,20 @@ h3.bold{
 .group-post-info-user a,.commentM_i_at a{
     color:#2489CE;
     font-weight:bold;
+}
+.group-post-info-point,.group-post-info-date {
+    color:#666;
+    font-weight:normal;
+    font-size:12px;
+}
+.group-post-info-date {
+    position:relative;
+    background:#5DCEFF;
+    color:whitesmoke;
+    font-weight:bold;
+    padding:0 10px;
+    top:-11px;
+    border-radius:0 0 4px 4px;
 }
 .group-post-info .group-post-info-tag{
     color:white;

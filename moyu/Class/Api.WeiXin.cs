@@ -96,18 +96,20 @@ namespace moyu.Api
                 if (msg["@MsgType"].ToString() == "text")
                 {
                     msg["@body"] = msg["@Content"].ToString();
-                    inQuery["@body"] = msg["@Content"].ToString();
                 }
                 else if (msg["@MsgType"].ToString() == "location")
                 {
                     msg["@body"] = msg["@Label"].ToString();
-                    inQuery["@body"] = msg["@Label"].ToString();
                 }
                 else if (msg["@MsgType"].ToString() == "image")
                 {
                     msg["@body"] = msg["@PicUrl"].ToString();
-                    inQuery["@body"] = msg["@PicUrl"].ToString();
                 }
+                else if (msg["@MsgType"].ToString() == "event")
+                {
+                    msg["@body"] = msg["@Event"].ToString();
+                }
+                inQuery["@body"] = msg["@body"];
                 myDb.ExecNoneQuery("message_weiXin_add_txtMessage", inQuery);
             }
             catch (Exception e)
@@ -136,6 +138,9 @@ namespace moyu.Api
                     case "sigin":
                         items = joinItems( getFunctionRequtstItems(data, strTpl),getTodayPostCount());
                         break;
+                    case "placeSearch":
+                        items = funPlaceSearch(data);
+                        break;
                     case "newUser":
                         items = getNewUserRequestItems(data);
                         break;
@@ -163,12 +168,14 @@ namespace moyu.Api
             else if (items.Count() == 0)
             {
                 Hashtable[] teachItem;
-                teachItem = funcTeach(data);
-                strTpl = getMsgTpl(data, teachItem, 1);
+                data["@body"] ="无标签:"+ data["@body"].ToString();
+                teachItem = joinItems(getFunctionRequtstItems(data, "share"), getTodayPostCount());
+                strTpl = getMsgTpl(data, teachItem, 0);
             }
             else
             {
                 strTpl= getMsgTpl(data, items, 0);
+                debug("", "", "", "back", strTpl);
             }
             return strTpl;
         }
@@ -182,9 +189,9 @@ namespace moyu.Api
         private string getMsgTpl(Hashtable userMsg,string msg,int isMark)
         {
             return @"<xml>
-                        <ToUserName><![CDATA["+userMsg["@FromUserName"]+@"]]></ToUserName>
-						<FromUserName><![CDATA["+userMsg["@ToUserName"]+@"]]></FromUserName>
-						<CreateTime>"+converttotimestamp()+@"</CreateTime>
+                        <ToUserName><![CDATA["+userMsg["@FromUserName"]+ @"]]></ToUserName>
+						<FromUserName><![CDATA[ZuoLinSpeaker]]></FromUserName>
+						<CreateTime>" + converttotimestamp()+@"</CreateTime>
 						<MsgType><![CDATA[text]]></MsgType>
 						<Content><![CDATA["+msg+@"]]></Content>
 						<FuncFlag>"+isMark+@"<FuncFlag>
@@ -201,7 +208,7 @@ namespace moyu.Api
         {
             string strTp = @"<xml>
                             <ToUserName><![CDATA[" + userMsg["@FromUserName"] + @"]]></ToUserName>
-                            <FromUserName><![CDATA[" + userMsg["@ToUserName"] + @"]]></FromUserName>
+                            <FromUserName><![CDATA[ZuoLinSpeaker]]></FromUserName>
                             <CreateTime>" + converttotimestamp ()+ @"</CreateTime>
                             <MsgType><![CDATA[news]]></MsgType>
                             <Content><![CDATA[]]></Content>
@@ -337,6 +344,14 @@ namespace moyu.Api
         /// <returns>是否</returns>
         private string getMsgType(Hashtable userMsg)
         {
+            if (userMsg["@MsgType"].ToString() == "event")
+            {
+                string strMsg = userMsg["@body"].ToString();
+                if (strMsg == "subscribe")
+                {
+                    return "newUser";
+                }
+            }
             if (userMsg["@MsgType"].ToString() == "text")
             {
                 string strMsg = userMsg["@body"].ToString();
@@ -362,6 +377,10 @@ namespace moyu.Api
                     {
                         return "share";
                     }
+                }
+                else if (strMsg.IndexOf("搜索") == 0 && strMsg.Length > 3)
+                {
+                    return "placeSearch";
                 }
             }
             else if (userMsg["@MsgType"].ToString() == "image")

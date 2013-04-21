@@ -87,7 +87,7 @@ namespace moyu.User
         {
             Hashtable inQuery = new Hashtable();
             inQuery["@uid"] = uid;
-            inQuery["@date2"] = DateTime.Now.AddDays(-7).ToString();
+            inQuery["@date2"] = DateTime.Now.AddDays(-12).ToString();
             return (Convert.ToInt32(moyu.Data.Type.dtToHash(myDb.GetQueryStro("user_gift_isHasGift", inQuery, "rt"))[0]["number"]) < 1) ? false : true;
         }
         /// <summary>
@@ -97,7 +97,7 @@ namespace moyu.User
         /// <returns>0-未中奖，1中奖，-1积分不足</returns>
         public int luckyMe(int uid)
         {
-            int totleGift = 3;
+            int totleGift = 2;
             int maxNumber = 9;
             Random rd = new Random();
             int thisTime = rd.Next(1, maxNumber);
@@ -254,7 +254,7 @@ namespace moyu.User
         public void givePostPoint(int uid, string body, int point)
         {
             Hashtable inQuery = new Hashtable();
-            inQuery["@maxPoint"] = 6;
+            inQuery["@maxPoint"] = 10;
             inQuery["@uid"] = uid;
             inQuery["@point"] = point;
             inQuery["@date"] = DateTime.Now.ToShortDateString();
@@ -262,6 +262,27 @@ namespace moyu.User
             if (pointAllowAdd != 0)
             {
                 userPointChange(uid, pointAllowAdd, body, 3);
+            }
+        }
+        /// <summary>
+        /// 用户名修改
+        /// </summary>
+        /// <param name="uid">用户编号</param>
+        /// <param name="newName">新用户名</param>
+        /// <returns>成功失败</returns>
+        public bool changeUserName(int uid, string newName)
+        {
+            Hashtable inQuery = new Hashtable();
+            inQuery["@niceName"] = newName;
+            inQuery["@uid"] = uid;
+            try
+            {
+                myDb.ExecNoneQuery("user_name_update", inQuery);
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

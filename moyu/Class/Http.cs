@@ -50,5 +50,16 @@ namespace moyu
 
             return retString;
         }
+        public StreamReader HttpGetAsStreamReader(string Url, string postDataStr)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url + (postDataStr == "" ? "" : "?") + postDataStr);
+            request.Method = "GET";
+            request.ContentType = "text/html;charset=UTF-8";
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream myResponseStream = response.GetResponseStream();
+            StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
+            return myStreamReader;
+        }
     }
 }

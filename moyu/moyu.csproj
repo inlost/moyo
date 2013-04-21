@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\infos\cat.aspx" />
+    <Content Include="Admin\mobile\default.aspx" />
     <Content Include="Admin\sale\cat.aspx" />
     <Content Include="Admin\ecard\exchange.aspx" />
     <Content Include="Admin\living\cat.aspx" />
@@ -103,6 +104,8 @@
     <Content Include="Images\ecard\teacher.png" />
     <Content Include="Images\ecard\union.gif" />
     <Content Include="Images\favicon.ico" />
+    <Content Include="Images\game\add.png" />
+    <Content Include="Images\game\game-needBuild.jpg" />
     <Content Include="Images\gotop.png" />
     <Content Include="Images\gp.gif" />
     <Content Include="Images\home-list-bg.png" />
@@ -200,8 +203,10 @@
     <Content Include="Mobile\coupons.aspx" />
     <Content Include="Mobile\exchange.aspx" />
     <Content Include="Mobile\footer.aspx" />
+    <Content Include="Mobile\game_royal.aspx" />
     <Content Include="Mobile\help.aspx" />
     <Content Include="Mobile\mall-newShop.aspx" />
+    <Content Include="Mobile\placeSearch.aspx" />
     <Content Include="Mobile\robot-group-kewWordsShow.aspx" />
     <Content Include="Mobile\robot-group-topUser.aspx" />
     <Content Include="Mobile\robot-teach-list.aspx" />
@@ -214,6 +219,7 @@
     <Content Include="Mobile\lucky.aspx" />
     <Content Include="Mobile\newUser.aspx" />
     <Content Include="Mobile\post-show.aspx" />
+    <Content Include="Mobile\setting.aspx" />
     <Content Include="Mobile\signIn.aspx" />
     <Content Include="PopupPage\Group_new.html" />
     <Content Include="PopupPage\setting.aspx" />
@@ -224,6 +230,7 @@
     <Content Include="Sa\Login.aspx" />
     <Content Include="Script\control.js" />
     <Content Include="Script\control.min.js" />
+    <Content Include="Script\game_royal.js" />
     <Content Include="Script\jquery-1.8.2.js" />
     <Content Include="Script\jquery-1.8.2.min.js" />
     <Content Include="Script\jquery-ui\css\flick\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -1415,6 +1422,12 @@
     <Content Include="Script\ueditor\lang\zh-cn\images\localimage.png" />
     <Content Include="Script\ueditor\lang\zh-cn\images\upload.png" />
     <Content Include="Script\ueditor\lang\zh-cn\zh-cn.js" />
+    <Content Include="Script\ueditor\net\getMovie.ashx" />
+    <Content Include="Script\ueditor\net\getRemoteImage.ashx" />
+    <Content Include="Script\ueditor\net\imageManager.ashx" />
+    <Content Include="Script\ueditor\net\imageUp.ashx" />
+    <Content Include="Script\ueditor\net\scrawlUp.ashx" />
+    <Content Include="Script\ueditor\net\Web.config" />
     <Content Include="Script\ueditor\themes\default\iframe.css" />
     <Content Include="Script\ueditor\themes\default\images\anchor.gif" />
     <Content Include="Script\ueditor\themes\default\images\arrow.png" />
@@ -1468,6 +1481,8 @@
     <Content Include="Script\ueditor\third-party\SyntaxHighlighter\shCore.js" />
     <Content Include="Script\ueditor\third-party\SyntaxHighlighter\shCoreDefault.css" />
     <Content Include="Services\Message_Comet.aspx" />
+    <Content Include="Style\game_royal.css" />
+    <Content Include="Style\game_royal.min.css" />
     <Content Include="Style\main.css" />
     <Content Include="Style\main.min.css" />
     <Content Include="Style\mobile.css" />
@@ -1622,6 +1637,13 @@
     </Compile>
     <Compile Include="Admin\infos\cat.aspx.designer.cs">
       <DependentUpon>cat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\mobile\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\mobile\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Class\Robot.Main.cs" />
     <Compile Include="Admin\sale\cat.aspx.cs">
@@ -1911,6 +1933,13 @@
     <Compile Include="Mobile\footer.aspx.designer.cs">
       <DependentUpon>footer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Mobile\game_royal.aspx.cs">
+      <DependentUpon>game_royal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\game_royal.aspx.designer.cs">
+      <DependentUpon>game_royal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Mobile\help.aspx.cs">
       <DependentUpon>help.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1924,6 +1953,13 @@
     </Compile>
     <Compile Include="Mobile\mall-newShop.aspx.designer.cs">
       <DependentUpon>mall-newShop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile\placeSearch.aspx.cs">
+      <DependentUpon>placeSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\placeSearch.aspx.designer.cs">
+      <DependentUpon>placeSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mobile\robot-group-kewWordsShow.aspx.cs">
       <DependentUpon>robot-group-kewWordsShow.aspx</DependentUpon>
@@ -2009,6 +2045,13 @@
     <Compile Include="Mobile\post-show.aspx.designer.cs">
       <DependentUpon>post-show.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Mobile\setting.aspx.cs">
+      <DependentUpon>setting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile\setting.aspx.designer.cs">
+      <DependentUpon>setting.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Mobile\signIn.aspx.cs">
       <DependentUpon>signIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2052,7 +2095,9 @@
     <Compile Include="Sa\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Script\ueditor\net\Uploader.cs" />
+    <Compile Include="Script\ueditor\net\Uploader.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Services\Ecard.ashx.cs">
       <DependentUpon>Ecard.ashx</DependentUpon>
     </Compile>
@@ -2179,16 +2224,6 @@
     <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\js\javascript.php" />
     <Content Include="Script\SlexAxton-yepnope.js-0304fca\tests\package.json" />
     <Content Include="Services\Information_Game.ashx" />
-    <Content Include="Script\ueditor\dialogs\scrawl\images\Thumbs.db" />
-    <Content Include="Script\ueditor\net\getMovie.ashx" />
-    <Content Include="Script\ueditor\net\getRemoteImage.ashx" />
-    <Content Include="Script\ueditor\net\imageManager.ashx" />
-    <Content Include="Script\ueditor\net\imageUp.ashx" />
-    <Content Include="Script\ueditor\net\scrawlUp.ashx" />
-    <Content Include="Script\ueditor\net\Web.config" />
-    <Content Include="Script\ueditor\themes\default\images\menu\Thumbs.db" />
-    <Content Include="Script\ueditor\themes\default\images\tablepicker\Thumbs.db" />
-    <Content Include="Script\ueditor\themes\default\images\Thumbs.db" />
     <Content Include="Services\living_knows.ashx" />
     <Content Include="Services\Mobile_Main.ashx" />
     <Content Include="Services\WeiXin.ashx" />

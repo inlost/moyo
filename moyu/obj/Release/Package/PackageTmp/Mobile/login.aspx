@@ -87,7 +87,7 @@
                                 <input type="password" name="password" required="required" placeholder="密码"/>
                                 <span class="helper"></span>
                             </li>
-                            <li><input type="submit" value="注册" /></li>
+                            <li><input id="regNew" type="submit" value="注册" /></li>
                         </ul>
                     </form>
                 </section>
@@ -98,5 +98,54 @@
     <footer id="pageFooter">
         <%Server.Execute("footer.aspx"); %>
     </footer>
+    <script>
+        $("#regNew").on("click", function () {
+            var postData = {};
+            postData.action = "mobileReg";
+            postData.niceName = $("#regFormHolder input[name=niceName]").val();
+            postData.realName = $("#regFormHolder input[name=realName]").val();
+            postData.sex = $("#regFormHolder select[name=sex]").val() == "boy" ? true : false;
+            postData.Birth = $("#regFormHolder select[name=birth]").val();
+            postData.email = $("#regFormHolder input[name=email]").val();
+            postData.phone = $("#regFormHolder input[name=phone]").val();
+            postData.password = $("#regFormHolder input[name=password]").val();
+            postData.rdUrl = $("#regFormHolder input[name=rdUrl]").val();
+            postData.wu = $("#regFormHolder input[name=wu]").val();
+            $.ajax({
+                url:"../Services/User.ashx",
+                type: "POST",
+                data: postData,
+                success: function (msg) {
+                    switch (Number(msg)) {
+                        case 0:
+                            alert("无法注册用户，请与左邻管理员联系");
+                            break;
+                        case -1:
+                            alert("您输入的用户名已经被别人使用，请重新选择一个用户名");
+                            break;
+                        case -2:
+                            alert("用户名不能为空");
+                            break;
+                        case -3:
+                            alert("真实姓名不能为空");
+                            break;
+                        case -4:
+                            alert("QQ不能为空");
+                            break;
+                        case -5:
+                            alert("手机号码不能为空，且只能为纯数字");
+                            break;
+                        case -6:
+                            alert("密码不能为空");
+                            break;
+                        default:
+                            window.location = "index.aspx";
+                            break;
+                    }
+                }
+            });
+            return false;
+        });
+    </script>
 </body>
 </html>
